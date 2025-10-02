@@ -123,27 +123,32 @@
 </head>
 <body>
   <header>
-    <div class="wrap nav" role="navigation" aria-label="Navigation principale">
-      <div class="brand">
-        <div class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 2l2.8 5.7 6.2.9-4.5 4.4 1.1 6.1L12 16.8 6.4 19l1.1-6.1L3 8.6l6.2-.9L12 2z"/></svg>
-        </div>
-        <div class="name">A‑<span class="accent">Cadémie</span></div>
+  <div class="wrap nav" role="navigation" aria-label="Navigation principale">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.8 5.7 6.2.9-4.5 4.4 1.1 6.1L12 16.8 6.4 19l1.1-6.1L3 8.6l6.2-.9L12 2z"/></svg>
       </div>
-      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav()">
-        <span class="bar" aria-hidden="true"></span>
-        <span class="bar" aria-hidden="true"></span>
-        <span class="bar" aria-hidden="true"></span>
-      </button>
-      <nav class="links" id="nav-links">
-        <a href="#" aria-current="page">Accueil</a>
-        <a href="#articles">Articles</a>
-        <a href="#quiz">Quiz & Défis</a>
-        <a href="#recompenses">Récompenses</a>
-        <a class="cta" href="#connect">Se connecter</a>
-      </nav>
+      <div class="name">A-<span class="accent">Cadémie</span></div>
     </div>
-  </header>
+
+    <!-- Bouton menu mobile -->
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav()">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+    </button>
+
+    <!-- Liens de navigation -->
+    <nav class="links" id="nav-links">
+      <a href="index.html" aria-current="page">Accueil</a>
+      <a href="articles.html">Articles</a>
+      <a href="quiz.html">Quiz & Défis</a>
+      <a href="recompenses.html">Récompenses</a>
+      <a class="cta" href="connect.html">Se connecter</a>
+    </nav>
+  </div>
+</header>
+
 
   <main class="wrap">
     <!-- HERO -->
