@@ -1,67 +1,8 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Articles — A‑Cadémie</title>
-  <meta name="description" content="Tous les articles de l'A‑Cadémie, classés par catégories : Entraînement, Course & Trail, Santé & Récupération, Nutrition.">
-  <!-- Feuille de style principale du site -->
-  <link rel="stylesheet" href="./style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    /* --- Compléments de styles locaux (s'appuie sur style.css de ton site) --- */
-    :root{
-      --bg:#0c0f16;
-      --panel:#101622;
-      --ink:#e8ecf6;
-      --muted:#aab4c8;
-      --accent:#f6c453; /* or antique */
-      --accent-2:#1f2b44;
-      --ok:#4ade80;
-      --warning:#f59e0b;
-      --error:#ef4444;
-    }
-    body{font-family:Manrope,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#0b0f17,#0c0f16)}
+ <link rel="stylesheet" href="style.css">
 
-    /* En-tête bandeau (réutilise ta nav si déjà incluse ailleurs) */
-    .nav{position:sticky;top:0;z-index:50;background:rgba(16,22,34,.9);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid rgba(246,196,83,.18)}
-    .nav .row{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:10px 16px}
-    .brand{font-weight:800;letter-spacing:.2px}
-    .brand .accent{color:var(--accent)}
-    .links{display:flex;gap:8px;align-items:center}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(246,196,83,.25);border-radius:10px;background:linear-gradient(180deg,rgba(246,196,83,.06),rgba(16,22,34,.75));color:var(--ink);text-decoration:none;font-weight:600}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(246,196,83,.12)}
-
-    /* Hero */
-    .hero{max-width:1100px;margin:18px auto 10px;padding:18px;border:1px solid rgba(246,196,83,.18);border-radius:16px;background:linear-gradient(180deg,rgba(246,196,83,.06),rgba(16,22,34,.9))}
-    .hero h1{margin:0 0 6px;font-size:32px}
-    .hero p{margin:0;color:var(--muted)}
-
-    /* Barre outils (recherche + filtres) */
-    .toolbar{max-width:1100px;margin:10px auto 18px;padding:10px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-    .search{flex:1 1 260px;display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid rgba(170,180,200,.25);border-radius:12px;background:#0f1420}
-    .search input{flex:1;background:transparent;border:0;outline:none;color:var(--ink)}
-    .chips{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{padding:8px 10px;font-weight:600;border:1px solid rgba(170,180,200,.28);border-radius:999px;background:#0f1420;color:var(--muted);cursor:pointer}
-    .chip.active{color:#0a0d14;background:var(--accent);border-color:transparent}
-
-    /* Grille d'articles */
-    .grid{max-width:1100px;margin:0 auto 40px;padding:0 16px;display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .card{grid-column:span 6;min-height:158px;border:1px solid rgba(170,180,200,.22);border-radius:16px;background:linear-gradient(180deg,#0e1421,#0c0f16);display:flex;flex-direction:column;overflow:hidden}
-    @media (max-width:860px){.card{grid-column:span 12}}
-    .card header{display:flex;gap:12px;align-items:flex-start;padding:14px 14px 6px}
-    .cat{font-size:11px;font-weight:800;letter-spacing:.2px;text-transform:uppercase;color:var(--accent)}
-    .title{margin:2px 0 0;font-size:18px}
-    .desc{color:var(--muted);padding:0 14px 10px}
-    .meta{display:flex;gap:10px;align-items:center;padding:10px 14px;border-top:1px dashed rgba(170,180,200,.22);color:var(--muted)}
-    .tag{font-size:12px;padding:4px 8px;border:1px solid rgba(246,196,83,.28);border-radius:999px}
-    .cta{margin-left:auto}
-    .cta a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(246,196,83,.25);border-radius:10px;text-decoration:none;color:var(--ink)}
-    .cta a:hover{transform:translateY(-1px)}
-
-    /* Vide/état */
-    .empty{max-width:900px;margin:40px auto;color:var(--muted);text-align:center}
-  </style>
 </head>
 <body>
   <!-- NAV (reprend la même structure que tes autres pages) -->
