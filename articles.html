@@ -64,19 +64,43 @@
   </style>
 </head>
 <body>
-  <!-- NAV (reprend la même structure que tes autres pages) -->
-  <nav class="nav" role="navigation" aria-label="Navigation principale">
-    <div class="row">
-      <div class="brand">
-        A‑Cadémie
+ <header>
+  <div class="wrap nav" role="navigation" aria-label="Navigation principale">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.8 5.7 6.2.9-4.5 4.4 1.1 6.1L12 16.8 6.4 19l1.1-6.1L3 8.6l6.2-.9L12 2z"/></svg>
       </div>
-      <div class="links" id="nav-links">
-        <a class="btn" href="/index.html">Accueil</a>
-        <a class="btn" href="/articles.html" aria-current="page">Articles</a>
-        <a class="btn" href="/a-propos.html">À propos</a>
-      </div>
+      <div class="name">A-<span class="accent">Cadémie</span></div>
     </div>
-  </nav>
+
+    <!-- Bouton menu mobile -->
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav()">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+    </button>
+
+    <!-- Liens de navigation -->
+    <nav class="links" id="nav-links">
+      <a href="../index.html">Accueil</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../quiz.html">Quiz & Défis</a>
+      <a href="../recompenses.html">Récompenses</a>
+      <a class="cta" href="../connect.html">Se connecter</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function toggleNav(){
+    const links = document.getElementById('nav-links');
+    const btn = document.querySelector('.nav-toggle');
+    links.classList.toggle('open');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  }
+</script>
+
 
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
