@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Articles — A‑Cadémie</title>
-  <meta name="description" content="Tous les articles de l'A‑Cadémie, classés par catégories : Entraînement, Course & Trail, Santé & Récupération, Nutrition.">
+  <title>Articles — A-Cadémie</title>
+  <meta name="description" content="Tous les articles de l'A-Cadémie, classés par catégories : Entraînement, Course & Trail, Santé & Récupération, Nutrition.">
   <!-- Feuille de style principale du site -->
   <link rel="stylesheet" href="./style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
@@ -64,43 +64,43 @@
   </style>
 </head>
 <body>
- <header>
-  <div class="wrap nav" role="navigation" aria-label="Navigation principale">
-    <div class="brand">
-      <div class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.8 5.7 6.2.9-4.5 4.4 1.1 6.1L12 16.8 6.4 19l1.1-6.1L3 8.6l6.2-.9L12 2z"/></svg>
+  <!-- HEADER identique à l’index -->
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Navigation principale">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.8 5.7 6.2.9-4.5 4.4 1.1 6.1L12 16.8 6.4 19l1.1-6.1L3 8.6l6.2-.9L12 2z"/></svg>
+        </div>
+        <div class="name">A-<span class="accent">Cadémie</span></div>
       </div>
-      <div class="name">A-<span class="accent">Cadémie</span></div>
+
+      <!-- Bouton menu mobile -->
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav()">
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+
+      <!-- Liens de navigation -->
+      <nav class="links" id="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="articles.html" aria-current="page">Articles</a>
+        <a href="quiz.html">Quiz & Défis</a>
+        <a href="recompenses.html">Récompenses</a>
+        <a class="cta" href="connect.html">Se connecter</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Bouton menu mobile -->
-    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav()">
-      <span class="bar" aria-hidden="true"></span>
-      <span class="bar" aria-hidden="true"></span>
-      <span class="bar" aria-hidden="true"></span>
-    </button>
-
-    <!-- Liens de navigation -->
-    <nav class="links" id="nav-links">
-      <a href="../index.html">Accueil</a>
-      <a href="../articles.html">Articles</a>
-      <a href="../quiz.html">Quiz & Défis</a>
-      <a href="../recompenses.html">Récompenses</a>
-      <a class="cta" href="../connect.html">Se connecter</a>
-    </nav>
-  </div>
-</header>
-
-<script>
-  function toggleNav(){
-    const links = document.getElementById('nav-links');
-    const btn = document.querySelector('.nav-toggle');
-    links.classList.toggle('open');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-  }
-</script>
-
+  <script>
+    function toggleNav(){
+      const links = document.getElementById('nav-links');
+      const btn = document.querySelector('.nav-toggle');
+      links.classList.toggle('open');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    }
+  </script>
 
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
@@ -123,15 +123,8 @@
     </div>
   </div>
 
-  <!-- GRILLE D'ARTICLES (exemples, à dupliquer facilement) -->
+  <!-- GRILLE D'ARTICLES -->
   <section class="grid" id="articlesGrid">
-    <!-- MODE D'EMPLOI (supprime ces commentaires quand tu veux) :
-      - Duplique un bloc .card pour ajouter un article.
-      - Renseigne data-category (entrainement|course|sante|nutrition) pour que le filtre marche.
-      - Mets à jour le lien de la CTA vers le fichier HTML de l'article (ex: /articles/echauffement-run.html).
-      - La recherche parcourt le titre + la description + les tags (via data-tags).
-    -->
-
     <!-- Entraînement -->
     <article class="card" data-category="entrainement" data-tags="echauffement,mobilite,debout,5 min,run">
       <header>
@@ -144,7 +137,7 @@
       <div class="meta">
         <span class="tag">5 min</span>
         <span class="tag">Mobility</span>
-        <div class="cta"><a href="/articles/echauffement-run.html">Lire</a></div>
+        <div class="cta"><a href="articles/echauffement-run.html">Lire</a></div>
       </div>
     </article>
 
@@ -159,7 +152,7 @@
       <div class="meta">
         <span class="tag">VMA</span>
         <span class="tag">4 séances</span>
-        <div class="cta"><a href="/articles/plan-15-semaines-vma.html">Lire</a></div>
+        <div class="cta"><a href="articles/plan-15-semaines-vma.html">Lire</a></div>
       </div>
     </article>
 
@@ -175,7 +168,7 @@
       <div class="meta">
         <span class="tag">Technique</span>
         <span class="tag">Débutants</span>
-        <div class="cta"><a href="/articles/debuts-trail-montees-descentes.html">Lire</a></div>
+        <div class="cta"><a href="articles/debuts-trail-montees-descentes.html">Lire</a></div>
       </div>
     </article>
 
@@ -190,7 +183,7 @@
       <div class="meta">
         <span class="tag">Marathon</span>
         <span class="tag">Gestion</span>
-        <div class="cta"><a href="/articles/marathon-plan-course-ravito.html">Lire</a></div>
+        <div class="cta"><a href="articles/marathon-plan-course-ravito.html">Lire</a></div>
       </div>
     </article>
 
@@ -206,7 +199,7 @@
       <div class="meta">
         <span class="tag">Récup</span>
         <span class="tag">Prévention</span>
-        <div class="cta"><a href="/articles/sommeil-et-charge.html">Lire</a></div>
+        <div class="cta"><a href="articles/sommeil-et-charge.html">Lire</a></div>
       </div>
     </article>
 
@@ -221,7 +214,7 @@
       <div class="meta">
         <span class="tag">Pieds</span>
         <span class="tag">Soins</span>
-        <div class="cta"><a href="/articles/pieds-coureur-ampoules.html">Lire</a></div>
+        <div class="cta"><a href="articles/pieds-coureur-ampoules.html">Lire</a></div>
       </div>
     </article>
 
@@ -237,7 +230,7 @@
       <div class="meta">
         <span class="tag">Hydratation</span>
         <span class="tag">Long run</span>
-        <div class="cta"><a href="/articles/hydratation-entrainement.html">Lire</a></div>
+        <div class="cta"><a href="articles/hydratation-entrainement.html">Lire</a></div>
       </div>
     </article>
 
@@ -252,7 +245,7 @@
       <div class="meta">
         <span class="tag">Ravito</span>
         <span class="tag">42K+</span>
-        <div class="cta"><a href="/articles/gels-ou-barres.html">Lire</a></div>
+        <div class="cta"><a href="articles/gels-ou-barres.html">Lire</a></div>
       </div>
     </article>
 
