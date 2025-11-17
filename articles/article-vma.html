@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Article & Quiz VMA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Police proche du site -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Palette très proche du site A-Cadémie */
+      --bg-page: #020617;
+      --bg-card: #020617;
+      --bg-soft: #020617;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.2);
+      --accent-strong: #4f46e5;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --border-soft: rgba(148, 163, 184, 0.3);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.75);
+      --danger: #f97373;
+      --success: #4ade80;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top, rgba(79, 70, 229, 0.22), transparent 55%),
+        radial-gradient(circle at bottom, rgba(15, 23, 42, 0.9), #020617);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    /* HEADER / NAV */
+
+    header.acad-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #a5b4fc, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #020617;
+      box-shadow: 0 10px 30px rgba(79, 70, 229, 0.7);
+    }
+
+    .brand-text-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-text-sub {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    nav.acad-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      font-size: 13px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .nav-btn span.dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .nav-btn.primary {
+      border-color: rgba(129, 140, 248, 0.6);
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(129, 140, 248, 0.65));
+      color: #e5e7eb;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.7);
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .nav-btn.primary:hover {
+      filter: brightness(1.05);
+    }
+
+    /* PROFIL LOCAL (XP) */
+
+    .profile-card {
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background:
+        radial-gradient(circle at top left, rgba(148, 163, 184, 0.2), transparent 60%),
+        rgba(15, 23, 42, 0.98);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 190px;
+    }
+
+    .profile-main {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #a5b4fc, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #020617;
+    }
+
+    .profile-level {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .profile-xp {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .profile-progress-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .profile-progress-bar {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      overflow: hidden;
+      border: 1px solid rgba(129, 140, 248, 0.6);
+    }
+
+    .profile-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #4f46e5, #22c55e);
+      transition: width 0.25s ease-out;
+    }
+
+    .profile-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+
+    /* LAYOUT PRINCIPAL */
+
+    main.layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr);
+      gap: 20px;
+    }
+
+    .article-card,
+    .quiz-card {
+      background:
+        radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent 60%),
+        rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 18px 18px;
+    }
+
+    /* ARTICLE */
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.6);
+      background: var(--accent-soft);
+      color: #c7d2fe;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .article-title {
+      font-size: 24px;
+      line-height: 1.25;
+      margin: 4px 0 10px;
+      letter-spacing: 0.01em;
+    }
+
+    .article-subtitle {
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-bottom: 14px;
+    }
+
+    .article-highlight {
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .article-highlight strong {
+      color: #e5e7eb;
+    }
+
+    .article-content {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .article-content h2 {
+      font-size: 16px;
+      margin: 16px 0 6px;
+    }
+
+    .article-content h3 {
+      font-size: 15px;
+      margin: 14px 0 4px;
+    }
+
+    .article-content p {
+      margin: 6px 0;
+      color: var(--text-muted);
+    }
+
+    .article-content ul {
+      margin: 6px 0 10px 18px;
+      padding: 0;
+      color: var(--text-muted);
+    }
+
+    .article-footer-note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-soft);
+      border-top: 1px dashed rgba(148, 163, 184, 0.4);
+      padding-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    .bullet-pill {
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: 999px;
+      padding: 3px 8px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* BOUTONS GLOBAUX */
+
+    .btn {
+      font-family: inherit;
+      font-size: 13px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 7px 16px;
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+      border-color: rgba(129, 140, 248, 0.7);
+      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.8);
+    }
+
+    .btn-secondary {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* QUIZ */
+
+    .quiz-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .quiz-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .quiz-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .quiz-caption {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .quiz-badge {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.12);
+      color: #bbf7d0;
+      border: 1px solid rgba(74, 222, 128, 0.5);
+      white-space: nowrap;
+    }
+
+    .quiz-progress {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .quiz-question {
+      margin-bottom: 10px;
+      padding: 10px 10px 9px;
+      border-radius: var(--radius-md);
+      background: #020617;
+      border: 1px solid rgba(30, 64, 175, 0.7);
+    }
+
+    .quiz-question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .quiz-question-label {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .quiz-question-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 4px 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.12s ease, border 0.12s ease;
+      border: 1px solid transparent;
+    }
+
+    .quiz-option:hover {
+      background: rgba(15, 23, 42, 0.96);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .quiz-option input[type="radio"] {
+      accent-color: var(--accent);
+    }
+
+    .quiz-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.4);
+      padding-top: 10px;
+    }
+
+    .quiz-result {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .quiz-result strong {
+      color: #e5e7eb;
+    }
+
+    .quiz-feedback {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .quiz-option.correct {
+      border-color: rgba(74, 222, 128, 0.9);
+      background: rgba(22, 163, 74, 0.18);
+      color: #bbf7d0;
+    }
+
+    .quiz-option.incorrect {
+      border-color: rgba(248, 113, 113, 0.9);
+      background: rgba(127, 29, 29, 0.55);
+      color: #fecaca;
+    }
+
+    .quiz-option.correct input[type="radio"],
+    .quiz-option.incorrect input[type="radio"] {
+      accent-color: currentColor;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 768px) {
+      header.acad-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      nav.acad-nav {
+        order: 3;
+      }
+      .profile-card {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 12px;
+      }
+      .article-card,
+      .quiz-card {
+        padding: 16px 14px 14px;
+      }
+      .article-title {
+        font-size: 20px;
+      }
+      .quiz-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- HEADER / NAV -->
+    <header class="acad-header">
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en accès libre</div>
+        </div>
+      </div>
+
+      <nav class="acad-nav">
+        <button class="nav-btn"><span class="dot"></span> Accueil</button>
+        <button class="nav-btn primary">Articles</button>
+        <button class="nav-btn">Quiz & Défis</button>
+        <button class="nav-btn">Récompenses</button>
+      </nav>
+
+      <!-- Profil local = XP stockée sur l’appareil -->
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP local
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- 📝 ARTICLE -->
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Endurance & VMA</span>
+          <span class="chip">Lecture : 7 min</span>
+          <span class="chip">Niveau : Intermédiaire</span>
+        </div>
+
+        <h1 class="article-title">Comprendre ta VMA sans te noyer dans les chiffres</h1>
+        <p class="article-subtitle">
+          VMA, allures, %… On peut vite se perdre. Voici ce qu’il faut vraiment retenir pour t’entraîner efficacement, sans te transformer en calculatrice ambulante.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> la VMA est un repère, pas une note sur 20. L’objectif, c’est d’en avoir une estimation correcte pour doser tes séances, ton volume et ta récupération.
+        </div>
+
+        <div class="article-content">
+          <h2>1. C’est quoi, concrètement, ta VMA ?</h2>
+          <p>
+            Ta Vitesse Maximale Aérobie (VMA) correspond à la vitesse à laquelle ton corps consomme le maximum d’oxygène. En pratique, c’est une allure que tu peux tenir
+            environ 4 à 7 minutes selon ton niveau et ton expérience.
+          </p>
+          <p>
+            On l’utilise surtout pour calibrer les allures de travail : fractionné court, fractionné long, seuil, etc. La VMA ne dit pas si tu es “bon” ou “mauvais” coureur,
+            c’est juste un repère d’entraînement.
+          </p>
+
+          <h2>2. Comment la tester simplement ?</h2>
+          <p>Tu peux utiliser plusieurs méthodes, par exemple :</p>
+          <ul>
+            <li><strong>Test demi-Cooper :</strong> courir 6 minutes le plus vite possible, puis convertir la distance en VMA.</li>
+            <li><strong>Test progressif sur piste :</strong> enchaîner des paliers de vitesse réguliers jusqu’à ne plus pouvoir suivre le rythme.</li>
+            <li>
+              <strong>Estimation via chrono :</strong> à partir d’un 5 km bien couru, tu peux estimer ta VMA avec des tables ou des outils en ligne. Ce n’est pas parfait,
+              mais suffisant pour structurer ton entraînement.
+            </li>
+          </ul>
+
+          <h2>3. Comment l’utiliser sans te prendre la tête ?</h2>
+          <p>Une fois que tu as une estimation de ta VMA, tu peux :</p>
+          <ul>
+            <li>Placer tes <strong>séances de VMA courte</strong> vers 100–105 % de VMA (ex : 10 × 200 m avec récup courte).</li>
+            <li>Garder tes <strong>allures d’endurance</strong> bien en dessous, autour de 60–70 % VMA.</li>
+            <li>Programmer au maximum <strong>1 à 2 séances “intenses”</strong> par semaine.</li>
+          </ul>
+
+          <h3>Erreur classique</h3>
+          <p>
+            Courir “un peu trop vite” presque toutes les sorties. Résultat : tu es souvent fatigué, tu progresses peu, et tu perds le plaisir de courir. Mieux vaut quelques
+            séances ciblées à la bonne allure que de tout faire à moitié trop vite.
+          </p>
+
+          <h3>Quand retester ta VMA ?</h3>
+          <p>
+            Tu n’as pas besoin de la mesurer toutes les deux semaines. En général, un test tous les 2–3 mois suffit, ou après un cycle d’entraînement où tu as été régulier
+            et sérieux.
+          </p>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Tu peux valider la lecture de cet article pour gagner un peu d’XP sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+      </article>
+
+      <!-- 🧪 QUIZ -->
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : VMA en pratique</div>
+            <div class="quiz-caption">5 questions pour vérifier si les bases sont claires. Résultat immédiat, sans compte.</div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3–4 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">
+          Question 1 sur 5
+        </div>
+
+        <form id="quiz-form">
+          <!-- questions générées en JS -->
+        </form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">
+              Valider mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">
+              Recommencer le quiz
+            </button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // ===========================
+    // Données du quiz
+    // ===========================
+    const quizData = [
+      {
+        id: 1,
+        question: "À quoi correspond principalement la VMA ?",
+        options: [
+          "À la vitesse que tu peux tenir pendant un marathon",
+          "À la vitesse où tu consommes un maximum d’oxygène",
+          "À la vitesse de ton sprint sur 50 m",
+          "À ta vitesse moyenne sur toutes tes sorties"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "Combien de temps environ peut-on tenir sa VMA en continu ?",
+        options: [
+          "30 à 40 minutes",
+          "15 à 20 minutes",
+          "4 à 7 minutes",
+          "1 à 2 minutes"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 3,
+        question: "Quel test simple permet d’estimer ta VMA ?",
+        options: [
+          "Un test de souplesse",
+          "Un demi-Cooper de 6 minutes",
+          "Un footing de 30 minutes très lent",
+          "Une séance de musculation"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 4,
+        question: "À quelle intensité se situent généralement les séances de VMA courte ?",
+        options: [
+          "Environ 50 % de VMA",
+          "Environ 70 % de VMA",
+          "Environ 90 % de VMA",
+          "Autour de 100–105 % de VMA"
+        ],
+        correctIndex: 3
+      },
+      {
+        id: 5,
+        question: "Quelle erreur est la plus fréquente chez les coureurs amateurs ?",
+        options: [
+          "Ne jamais regarder sa VMA",
+          "Courir un peu trop vite presque toutes les séances",
+          "Faire trop de renforcement musculaire",
+          "Toujours courir en groupe"
+        ],
+        correctIndex: 1
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "quiz-question";
+        questionDiv.dataset.questionId = q.id;
+
+        questionDiv.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options
+              .map(
+                (opt, optIndex) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${optIndex}">
+                <span>${opt}</span>
+              </label>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+
+        quizForm.appendChild(questionDiv);
+      });
+
+      quizProgress.textContent = `Question 1 sur ${quizData.length}`;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter((q) => {
+        const radios = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        return Array.from(radios).some((r) => r.checked);
+      }).length;
+
+      const current = Math.max(1, answered);
+      quizProgress.textContent = `Question ${current} sur ${total}`;
+    }
+
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach((opt) => {
+        opt.classList.remove("correct", "incorrect");
+      });
+
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        let selectedIndex = null;
+
+        radios.forEach((r, idx) => {
+          if (r.checked) selectedIndex = idx;
+        });
+
+        const questionDiv = document.querySelector(`.quiz-question[data-question-id="${q.id}"]`);
+        const optionLabels = questionDiv.querySelectorAll(".quiz-option");
+
+        if (selectedIndex === q.correctIndex) {
+          score++;
+          if (selectedIndex !== null) {
+            optionLabels[selectedIndex].classList.add("correct");
+          }
+        } else {
+          if (q.correctIndex != null && optionLabels[q.correctIndex]) {
+            optionLabels[q.correctIndex].classList.add("correct");
+          }
+          if (selectedIndex !== null && optionLabels[selectedIndex]) {
+            optionLabels[selectedIndex].classList.add("incorrect");
+          }
+        }
+      });
+
+      const ratio = score / total;
+      let message;
+
+      if (ratio === 1) {
+        message = "Parfait, tu maîtrises totalement le sujet 👌";
+      } else if (ratio >= 0.7) {
+        message = "Très solide ! Il reste quelques détails à affiner.";
+      } else if (ratio >= 0.4) {
+        message = "Pas mal, mais relire l’article t’aidera à consolider les bases.";
+      } else {
+        message = "C’est un point de départ, retourne sur l’article et reviens tenter ta chance.";
+      }
+
+      quizResult.innerHTML = `<strong>${score}/${total}</strong> bonnes réponses. ${message}`;
+
+      // Gamification locale : XP pour le quiz
+      const xpGained = markQuizDone(score, total);
+      if (xpGained) {
+        quizFeedback.textContent =
+          "🎮 Bonus : ce quiz t’a rapporté de l’XP sur cet appareil.";
+      } else {
+        quizFeedback.textContent =
+          "Tu avais déjà obtenu l’XP pour ce quiz sur cet appareil.";
+      }
+    }
+
+    function resetQuiz() {
+      renderQuiz();
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    // ===========================
+    // Gamification locale A-Cadémie
+    // ===========================
+
+    const ARTICLE_ID = "article-vma-bases";
+    const QUIZ_ID = "quiz-vma-bases";
+    const STORAGE_KEY = "acad_gamification_state";
+
+    const defaultState = {
+      xp: 0,
+      level: 1,
+      articlesRead: [],
+      quizzesDone: []
+    };
+
+    let gamState = loadState();
+    updateProfileUI();
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return { ...defaultState };
+        const parsed = JSON.parse(raw);
+        return {
+          ...defaultState,
+          ...parsed,
+          articlesRead: parsed.articlesRead || [],
+          quizzesDone: parsed.quizzesDone || []
+        };
+      } catch (e) {
+        console.warn("Erreur load gamification state", e);
+        return { ...defaultState };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(gamState));
+    }
+
+    function xpNeededForLevel(level) {
+      return 100 * level;
+    }
+
+    function checkLevelUp() {
+      let changed = false;
+      while (gamState.xp >= xpNeededForLevel(gamState.level)) {
+        gamState.level += 1;
+        changed = true;
+      }
+      if (changed) {
+        console.log("Niveau augmenté :", gamState.level);
+      }
+    }
+
+    function updateProfileUI() {
+      const levelSpan = document.getElementById("acad-level");
+      const xpSpan = document.getElementById("acad-xp");
+      const nextLevelSpan = document.getElementById("acad-next-level");
+      const xpToNextSpan = document.getElementById("acad-xp-to-next");
+      const xpBar = document.getElementById("acad-xp-bar");
+
+      if (!levelSpan || !xpSpan || !nextLevelSpan || !xpToNextSpan || !xpBar) return;
+
+      const level = gamState.level;
+      const xp = gamState.xp;
+      const currentLevelXpRequired = xpNeededForLevel(level);
+      const prevLevelTotalXp = xpNeededForLevel(level - 1) || 0;
+
+      const xpIntoLevel = xp - prevLevelTotalXp;
+      const xpLevelSpan = currentLevelXpRequired - prevLevelTotalXp || 1;
+      const ratio = Math.max(0, Math.min(1, xpIntoLevel / xpLevelSpan));
+
+      levelSpan.textContent = level;
+      xpSpan.textContent = xp;
+      nextLevelSpan.textContent = level + 1;
+      xpToNextSpan.textContent = `${xpIntoLevel}/${xpLevelSpan}`;
+      xpBar.style.width = `${ratio * 100}%`;
+    }
+
+    function addXp(amount) {
+      gamState.xp += amount;
+      checkLevelUp();
+      saveState();
+      updateProfileUI();
+    }
+
+    function markArticleRead() {
+      if (gamState.articlesRead.includes(ARTICLE_ID)) {
+        return false;
+      }
+      gamState.articlesRead.push(ARTICLE_ID);
+      addXp(20);
+      return true;
+    }
+
+    function markQuizDone(score, total) {
+      if (gamState.quizzesDone.includes(QUIZ_ID)) {
+        return false;
+      }
+      gamState.quizzesDone.push(QUIZ_ID);
+
+      const ratio = score / total;
+      let bonus = 10;
+      if (ratio === 1) bonus = 30;
+      else if (ratio >= 0.7) bonus = 20;
+
+      addXp(bonus);
+      return true;
+    }
+
+    const articleReadBtn = document.getElementById("mark-article-read");
+    if (articleReadBtn) {
+      articleReadBtn.addEventListener("click", () => {
+        const gained = markArticleRead();
+        if (gained) {
+          articleReadBtn.textContent = "✓ Article compté pour l’XP locale";
+          articleReadBtn.disabled = true;
+        } else {
+          articleReadBtn.textContent = "✓ Article déjà compté pour l’XP locale";
+          articleReadBtn.disabled = true;
+        }
+      });
+
+      if (gamState.articlesRead.includes(ARTICLE_ID)) {
+        articleReadBtn.textContent = "✓ Article déjà compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      }
+    }
+
+    // Initialisation du quiz
+    renderQuiz();
+  </script>
+</body>
+</html>
