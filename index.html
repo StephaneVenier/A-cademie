@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Articles & Quiz sportifs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/acad-style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="acad-header">
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
+        </div>
+      </div>
+
+      <nav class="acad-nav">
+        <button class="nav-btn primary" data-scroll="#top"><span class="dot"></span> Accueil</button>
+        <button class="nav-btn" data-scroll="#sections-articles">Articles</button>
+        <button class="nav-btn" data-scroll="#sections-quiz">Quiz & Défis</button>
+        <button class="nav-btn" data-scroll="#sections-parcours">Parcours</button>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="card hero">
+        <div>
+          <h1 class="hero-title">Apprends, comprends, applique le sport au quotidien.</h1>
+          <p class="hero-subtitle">
+            A-Cadémie est une bibliothèque sportive moderne : des articles clairs, des quiz rapides et une petite dose de gamification locale
+            pour suivre ta progression — sans compte, sans mot de passe.
+          </p>
+
+          <div class="hero-stats">
+            <span class="stat-pill">📚 Articles pédagogiques</span>
+            <span class="stat-pill">🧠 Quiz express</span>
+            <span class="stat-pill">🎯 Parcours thématiques</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="./articles/vma.html">Lire un article + quiz</a>
+            <button class="btn btn-secondary" data-scroll="#sections-articles">Explorer les catégories</button>
+          </div>
+
+          <p class="hero-note">
+            ➜ La progression (XP & niveaux) est enregistrée uniquement sur ton appareil pour te donner envie de revenir, sans créer de compte.
+          </p>
+        </div>
+
+        <aside class="hero-side">
+          <div class="hero-side-title">Comment utiliser A-Cadémie&nbsp;?</div>
+          <ul class="hero-side-list">
+            <li>Choisis un sujet qui t’intéresse (VMA, trail, musculation, récupération…).</li>
+            <li>Lis un article, coche “j’ai lu cet article”, puis fais le quiz associé.</li>
+            <li>Gagne de l’XP locale, monte de niveau et reviens régulièrement.</li>
+          </ul>
+          <div class="hero-note">
+            Plus tard, cette progression pourra être reliée à un écosystème de jeu. Pour l’instant, tout est en libre accès et stocké en local.
+          </div>
+        </aside>
+      </section>
+
+      <section class="card" id="sections-articles">
+        <h2 class="section-title">Catégories</h2>
+        <p class="section-subtitle">Toutes les disciplines en fiches courtes, orientées pratique.</p>
+
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🏃‍♂️ Endurance & VMA</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Bases physiologiques, plans simples, gestion des allures.</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🏋️‍♀️ Force & Musculation</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Programme de base, technique, progression sans se blesser.</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🧘 Mobilité & Prévention</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Échauffement, mobilité, renfo spécifique, prévention des bobos.</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🍽️ Nutrition & Récupération</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Hydratation, repas avant/après, sommeil, récupération intelligente.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Derniers articles</h2>
+        <p class="section-subtitle">Un aperçu des contenus déjà disponibles. Tous les articles sont en libre accès.</p>
+
+        <div class="articles-list">
+          <article class="article-mini">
+            <div class="article-mini-title">Comprendre ta VMA : méthodes de test & erreurs courantes</div>
+            <div class="article-mini-meta">
+              <span>⏱️ 7&nbsp;min</span>
+              <span>🏷️ Endurance & VMA</span>
+            </div>
+            <a class="article-mini-link" href="./articles/vma.html">
+              Lire l’article & faire le quiz →
+            </a>
+          </article>
+
+          <article class="article-mini">
+            <div class="article-mini-title">Bains froids : récupération miracle ou effet placebo&nbsp;?</div>
+            <div class="article-mini-meta">
+              <span>⏱️ 8&nbsp;min</span>
+              <span>🏷️ Récupération</span>
+            </div>
+            <span class="article-mini-link">
+              Bientôt disponible
+            </span>
+          </article>
+
+          <article class="article-mini">
+            <div class="article-mini-title">Trail : gérer le dénivelé sans exploser tes quadriceps</div>
+            <div class="article-mini-meta">
+              <span>⏱️ 10&nbsp;min</span>
+              <span>🏷️ Trail</span>
+            </div>
+            <span class="article-mini-link">
+              Bientôt disponible
+            </span>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" id="sections-quiz">
+        <div class="quiz-express">
+          <div>
+            <div class="badge-soft">⚡ Quiz express</div>
+            <h2 class="section-title">“Échauffement 5 minutes”</h2>
+            <p class="section-subtitle">
+              5 questions très simples pour vérifier si ton échauffement est suffisant pour limiter le risque de blessure et mieux profiter de tes séances.
+            </p>
+            <p style="font-size:13px;color:var(--text-soft);margin-bottom:10px;">
+              Format idéal pour débuter : tu peux le faire en quelques minutes sur ton téléphone avant ta sortie.
+            </p>
+            <a class="btn btn-primary" href="./articles/vma.html">
+              Tester le format article + quiz
+            </a>
+          </div>
+
+          <div class="hero-side">
+            <div class="hero-side-title">Pourquoi des quiz&nbsp;?</div>
+            <ul class="hero-side-list">
+              <li>Consolider ce que tu viens de lire.</li>
+              <li>Te rendre attentif aux erreurs les plus fréquentes.</li>
+              <li>Te donner un petit retour immédiat (score) et un bonus d’XP locale.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="sections-parcours">
+        <h2 class="section-title">Parcours thématique : “Préparer un marathon”</h2>
+        <p class="section-subtitle">
+          Bientôt : un chemin guidé en plusieurs modules (physiologie, planification, nutrition, force, mental, stratégie de course).
+        </p>
+
+        <div class="parcours-main">
+          <div>
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px;">
+              L’objectif des parcours sera de te proposer une progression logique, avec plusieurs articles, quiz et petites mises en pratique. Tu pourras suivre
+              ta progression globalement grâce à ton niveau et à ton XP locale.
+            </p>
+            <p class="parcours-meta">
+              Pour l’instant, commence simplement par l’article VMA + quiz, puis reviens régulièrement : d’autres contenus vont s’ajouter progressivement.
+            </p>
+          </div>
+
+          <aside class="parcours-stats">
+            <div>📚 Modules à venir :</div>
+            <div>• Comprendre l’endurance & la VMA</div>
+            <div>• Construire une semaine type</div>
+            <div>• Nutrition avant / pendant / après</div>
+            <div>• Renforcement pour coureur</div>
+            <div>• Gestion du mental & de la fatigue</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="newsletter">
+          <div>
+            <div class="section-title" style="font-size:16px;margin-bottom:4px;">Recevoir les prochains contenus</div>
+            <div>Optionnel : tu pourras plus tard ajouter ici un vrai formulaire d’inscription.</div>
+          </div>
+          <div class="newsletter-inputs">
+            <input class="input" type="email" placeholder="Ton email (bientôt actif)" disabled />
+            <button class="btn btn-secondary" disabled>Fonctionnalité à venir</button>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span>© A-Cadémie — Ressources sportives en libre accès.</span>
+        <span>
+          <a href="#">Mentions légales</a> ·
+          <a href="#">Confidentialité</a> ·
+          <a href="#">Contact</a>
+        </span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll("[data-scroll]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-scroll");
+        const el = document.querySelector(target);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    const STORAGE_KEY = "acad_gamification_state";
+
+    const defaultState = {
+      xp: 0,
+      level: 1,
+      articlesRead: [],
+      quizzesDone: []
+    };
+
+    function xpNeededForLevel(level) {
+      return 100 * level;
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return { ...defaultState };
+        const parsed = JSON.parse(raw);
+        return {
+          ...defaultState,
+          ...parsed,
+          articlesRead: parsed.articlesRead || [],
+          quizzesDone: parsed.quizzesDone || []
+        };
+      } catch (e) {
+        console.warn("Erreur load gamification state", e);
+        return { ...defaultState };
+      }
+    }
+
+    function updateProfileUI() {
+      const gamState = loadState();
+      const levelSpan = document.getElementById("acad-level");
+      const xpSpan = document.getElementById("acad-xp");
+      const nextLevelSpan = document.getElementById("acad-next-level");
+      const xpToNextSpan = document.getElementById("acad-xp-to-next");
+      const xpBar = document.getElementById("acad-xp-bar");
+
+      if (!levelSpan || !xpSpan || !nextLevelSpan || !xpToNextSpan || !xpBar) return;
+
+      const level = gamState.level;
+      const xp = gamState.xp;
+      const currentLevelXpRequired = xpNeededForLevel(level);
+      const prevLevelTotalXp = xpNeededForLevel(level - 1) || 0;
+
+      const xpIntoLevel = xp - prevLevelTotalXp;
+      const xpLevelSpan = currentLevelXpRequired - prevLevelTotalXp || 1;
+      const ratio = Math.max(0, Math.min(1, xpIntoLevel / xpLevelSpan));
+
+      levelSpan.textContent = level;
+      xpSpan.textContent = xp;
+      nextLevelSpan.textContent = level + 1;
+      xpToNextSpan.textContent = `${xpIntoLevel}/${xpLevelSpan}`;
+      xpBar.style.width = `${ratio * 100}%`;
+    }
+
+    updateProfileUI();
+  </script>
+</body>
+</html>
