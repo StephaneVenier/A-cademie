@@ -1,332 +1,883 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
+  <title>A-Cadémie — Articles & Quiz sportifs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>A‑Cadémie — Apprends, progresse, gagne des Anykoins</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Police -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#0c0f16;          /* bleu nuit */
-      --panel:#101622;       /* panneau */
-      --panel-2:#0e1420;     /* variante */
-      --ink:#e8ecf6;         /* texte principal */
-      --muted:#aab4c8;       /* texte secondaire */
-      --accent:#f6c453;      /* or antique */
-      --accent-2:#1f2b44;    /* bleu profond pour bordures */
-      --ok:#4ade80;          /* succès */
-      --warn:#f59e0b;        /* alerte douce */
-      --danger:#ef4444;      /* alerte */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
-      --gap:18px;
+    :root {
+      /* Palette proche du site A-Cadémie */
+      --bg-page: #020617;
+      --bg-card: #020617;
+      --bg-soft: #020617;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.2);
+      --accent-strong: #4f46e5;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --border-soft: rgba(148, 163, 184, 0.35);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.75);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Manrope,system-ui,Segoe UI,Roboto,Arial; color:var(--ink);
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
       background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(246,196,83,.12), rgba(0,0,0,0) 60%),
-        radial-gradient(1000px 500px at 0% 110%, rgba(31,43,68,.45), rgba(0,0,0,0) 60%),
-        linear-gradient(180deg, #0b0f17, #0a0e15 30%, #0a0d14);
+        radial-gradient(circle at top, rgba(79, 70, 229, 0.22), transparent 55%),
+        radial-gradient(circle at bottom, rgba(15, 23, 42, 0.9), #020617);
+      display: flex;
+      flex-direction: column;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1200px; margin:0 auto; padding:0 18px}
 
-    /* Header / Nav */
-    header{
-      position:sticky; top:0; z-index:20; backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(16,22,34,.92), rgba(16,22,34,.66));
-      border-bottom:1px solid rgba(246,196,83,.18);
+    .page {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
-    .brand .mark{height:36px; width:36px; border-radius:10px; background:linear-gradient(135deg,#182033,#2a3a5e); border:1px solid #2c3b60; display:grid; place-items:center}
-    .brand .mark svg{width:22px; height:22px; fill:var(--accent)}
-    .brand .name{font-size:1.05rem}
-    .brand .accent{color:var(--accent)}
 
-    .links{display:flex; align-items:center; gap:8px}
-    .links a{padding:9px 12px; border:1px solid rgba(246,196,83,.18); border-radius:12px; color:var(--ink); font-weight:600}
-    .links a[aria-current="page"]{background:linear-gradient(180deg,rgba(246,196,83,.14),rgba(246,196,83,.06));}
-    .links .cta{background:linear-gradient(180deg, rgba(246,196,83,.22), rgba(246,196,83,.12));}
+    /* HEADER / NAV */
 
-    .nav-toggle{display:none; background:none; border:none; padding:8px; border-radius:10px; border:1px solid rgba(246,196,83,.18)}
-    .nav-toggle .bar{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0}
-
-    /* Hero */
-    .hero{position:relative; padding:28px 0 24px}
-    .hero .grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:var(--gap)}
-    .hero-card{border:1px solid rgba(246,196,83,.22); background:linear-gradient(180deg, rgba(246,196,83,.06), rgba(15,17,23,.9)); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    .kpis{display:flex; gap:14px; flex-wrap:wrap; margin-top:14px}
-    .kpi{display:flex; align-items:center; gap:8px; padding:10px 12px; background:rgba(31,43,68,.35); border:1px solid #263454; border-radius:12px; color:var(--muted)}
-    .kpi strong{color:var(--ink)}
-
-    .profile{display:grid; gap:12px}
-    .profile .card{border:1px solid rgba(246,196,83,.22); background:linear-gradient(180deg, rgba(31,43,68,.24), rgba(15,17,23,.9)); border-radius:var(--radius); padding:16px}
-    .profile .user{display:flex; align-items:center; gap:12px}
-    .avatar{width:52px; height:52px; border-radius:14px; border:1px solid #2c3b60; background:linear-gradient(120deg,#182033,#2a3a5e); display:grid; place-items:center}
-    .chip{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid rgba(246,196,83,.22); border-radius:999px; font-size:.9rem}
-
-    /* Sections */
-    section{margin:22px 0}
-    h2{margin:0 0 10px; font-size:1.2rem; letter-spacing:.3px}
-    .sub{color:var(--muted); font-size:.95rem}
-
-    .grid{display:grid; gap:var(--gap)}
-    .cols-3{grid-template-columns:repeat(3,1fr)}
-    .cols-4{grid-template-columns:repeat(4,1fr)}
-    .cols-2{grid-template-columns:repeat(2,1fr)}
-
-    .card{border:1px solid rgba(246,196,83,.18); border-radius:16px; background:linear-gradient(180deg, rgba(20,24,34,.7), rgba(14,18,28,.9)); padding:14px}
-    .card .thumb{height:120px; border-radius:12px; border:1px solid #2c3b60; background:linear-gradient(135deg,#1a2235,#2b3b60); display:grid; place-items:center}
-    .card h3{font-size:1rem; margin:10px 0 6px}
-    .meta{display:flex; gap:10px; color:var(--muted); font-size:.9rem}
-
-    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid #2c3b60; border-radius:999px; background:rgba(31,43,68,.25)}
-
-    .strip{display:flex; flex-wrap:wrap; gap:10px}
-
-    /* Dossier vedette */
-    .feature{display:grid; grid-template-columns: 1fr 1fr; gap:var(--gap)}
-    .feature .visual{min-height:220px; border-radius:16px; border:1px solid #2c3b60; background:radial-gradient(600px 260px at 20% 30%, rgba(246,196,83,.18), rgba(0,0,0,0)), linear-gradient(135deg,#1a2235,#0e1420)}
-    .feature .content{padding:6px}
-
-    /* Leaderboard */
-    table{width:100%; border-collapse:separate; border-spacing:0 10px}
-    thead th{color:var(--muted); font-weight:600; text-align:left; font-size:.92rem}
-    tbody tr{background:linear-gradient(180deg, rgba(31,43,68,.24), rgba(14,18,28,.9)); border:1px solid rgba(246,196,83,.14)}
-    tbody td{padding:12px 14px; border-top:1px solid rgba(246,196,83,.14); border-bottom:1px solid rgba(246,196,83,.14)}
-    tbody tr td:first-child{border-left:1px solid rgba(246,196,83,.14); border-top-left-radius:12px; border-bottom-left-radius:12px}
-    tbody tr td:last-child{border-right:1px solid rgba(246,196,83,.14); border-top-right-radius:12px; border-bottom-right-radius:12px}
-
-    /* Footer */
-    footer{margin:32px 0 50px; color:var(--muted)}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero .grid{grid-template-columns:1fr}
-      .cols-4{grid-template-columns:repeat(2,1fr)}
-      .feature{grid-template-columns:1fr}
+    header.acad-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
     }
-    @media (max-width: 640px){
-      .cols-3{grid-template-columns:1fr}
-      .cols-4{grid-template-columns:1fr}
-      .cols-2{grid-template-columns:1fr}
-      .links{display:none}
-      .nav-toggle{display:block}
-      .links.open{display:flex; flex-direction:column; position:absolute; left:18px; right:18px; top:58px; background:var(--panel); border:1px solid rgba(246,196,83,.18); border-radius:12px; padding:10px}
-      .links.open a{width:100%}
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #a5b4fc, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #020617;
+      box-shadow: 0 10px 30px rgba(79, 70, 229, 0.7);
+    }
+
+    .brand-text-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-text-sub {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    nav.acad-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      font-size: 13px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .nav-btn span.dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .nav-btn.primary {
+      border-color: rgba(129, 140, 248, 0.6);
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(129, 140, 248, 0.65));
+      color: #e5e7eb;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.7);
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .nav-btn.primary:hover {
+      filter: brightness(1.05);
+    }
+
+    /* PROFIL LOCAL (XP) */
+
+    .profile-card {
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background:
+        radial-gradient(circle at top left, rgba(148, 163, 184, 0.2), transparent 60%),
+        rgba(15, 23, 42, 0.98);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 190px;
+    }
+
+    .profile-main {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #a5b4fc, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #020617;
+    }
+
+    .profile-level {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .profile-xp {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .profile-progress-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .profile-progress-bar {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      overflow: hidden;
+      border: 1px solid rgba(129, 140, 248, 0.6);
+    }
+
+    .profile-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #4f46e5, #22c55e);
+      transition: width 0.25s ease-out;
+    }
+
+    .profile-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+
+    /* SECTIONS & CARTES */
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card {
+      background:
+        radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent 60%),
+        rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 18px 18px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 12px;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 13px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 8px 16px;
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+      border-color: rgba(129, 140, 248, 0.7);
+      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.8);
+    }
+
+    .btn-secondary {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-top: 8px;
+    }
+
+    .hero-side {
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      padding: 14px 12px;
+      background: rgba(2, 6, 23, 0.9);
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hero-side-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .hero-side-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 12px;
+    }
+
+    /* TITRES DE SECTIONS */
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    /* CATEGORIES */
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .category-card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(2, 6, 23, 0.96);
+      padding: 10px 10px 9px;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .category-title {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .category-icon {
+      font-size: 16px;
+    }
+
+    .category-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    /* ARTICLES RECENTS */
+
+    .articles-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .article-mini {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(2, 6, 23, 0.96);
+      padding: 10px 10px 9px;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .article-mini-title {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .article-mini-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: space-between;
+    }
+
+    .article-mini-link {
+      font-size: 12px;
+      margin-top: 4px;
+      color: #c7d2fe;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .article-mini-link:hover {
+      text-decoration: underline;
+    }
+
+    /* QUIZ EXPRESS */
+
+    .quiz-express {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 11px;
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.96);
+      margin-bottom: 6px;
+    }
+
+    /* PARCOURS */
+
+    .parcours-main {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .parcours-meta {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-top: 8px;
+    }
+
+    .parcours-stats {
+      font-size: 12px;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      padding: 10px;
+      background: rgba(2, 6, 23, 0.96);
+    }
+
+    /* NEWSLETTER / CTA */
+
+    .newsletter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .newsletter-inputs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .input {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 7px 10px;
+      font-size: 13px;
+      color: var(--text-main);
+      min-width: 200px;
+    }
+
+    .input::placeholder {
+      color: var(--text-soft);
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 18px;
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    footer a {
+      color: var(--text-soft);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero,
+      .quiz-express,
+      .parcours-main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header.acad-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 12px;
+      }
+      .categories-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .articles-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
+
 <body>
-  <header>
-  <div class="wrap nav" role="navigation" aria-label="Navigation principale">
-    <div class="brand">
-      <div class="mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.8 5.7 6.2.9-4.5 4.4 1.1 6.1L12 16.8 6.4 19l1.1-6.1L3 8.6l6.2-.9L12 2z"/></svg>
+  <div class="page">
+    <!-- HEADER / NAV -->
+    <header class="acad-header">
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
+        </div>
       </div>
-      <div class="name">A-<span class="accent">Cadémie</span></div>
-    </div>
 
-    <!-- Bouton menu mobile -->
-    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav()">
-      <span class="bar" aria-hidden="true"></span>
-      <span class="bar" aria-hidden="true"></span>
-      <span class="bar" aria-hidden="true"></span>
-    </button>
+      <nav class="acad-nav">
+        <button class="nav-btn primary" data-scroll="#top"><span class="dot"></span> Accueil</button>
+        <button class="nav-btn" data-scroll="#sections-articles">Articles</button>
+        <button class="nav-btn" data-scroll="#sections-quiz">Quiz & Défis</button>
+        <button class="nav-btn" data-scroll="#sections-parcours">Parcours</button>
+      </nav>
 
-    <!-- Liens de navigation -->
-    <nav class="links" id="nav-links">
-      <a href="index.html" aria-current="page">Accueil</a>
-      <a href="articles.html">Articles</a>
-      <a href="quiz.html">Quiz & Défis</a>
-      <a href="recompenses.html">Récompenses</a>
-      <a class="cta" href="connect.html">Se connecter</a>
-    </nav>
-  </div>
-</header>
-
-
-  <main class="wrap">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="grid">
-        <div class="hero-card">
-          <h1 style="margin:0 0 6px">Apprends, progresse, <span class="accent">gagne des Anykoins</span></h1>
-          <p class="sub">Bienvenue à l’A‑Cadémie, la bibliothèque vivante d’A‑Quest. Lis des articles validés, passe des quiz rapides et convertis ton savoir en récompenses dans l’écosystème Hercule.</p>
-          <div class="kpis">
-            <div class="kpi"><strong>128</strong> articles</div>
-            <div class="kpi"><strong>34</strong> dossiers</div>
-            <div class="kpi"><strong>76</strong> quiz</div>
-            <div class="kpi"><strong>12</strong> parcours</div>
-          </div>
-          <div class="strip" style="margin-top:12px">
-            <a class="pill" href="#articles">🔍 Explorer les catégories</a>
-            <a class="pill" href="#quiz">🧠 Commencer un quiz</a>
-            <a class="pill" href="#parcours">🏛️ Parcours thématiques</a>
+      <!-- Profil local = XP stockée sur l’appareil -->
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
           </div>
         </div>
-        <aside class="profile">
-          <div class="card">
-            <div class="user">
-              <div class="avatar" aria-hidden="true">🎭</div>
-              <div>
-                <div style="font-weight:800">Invité</div>
-                <div class="sub">Connecte-toi pour synchroniser ton XP</div>
-              </div>
-            </div>
-            <div style="margin:10px 0 6px" class="chip">💰 Anykoins : <strong style="margin-left:6px">0</strong></div>
-            <div class="chip">🎓 Titre : <strong style="margin-left:6px">Aspirant</strong></div>
-            <div style="margin-top:10px" class="strip">
-              <a class="pill" href="#connect">Se connecter</a>
-              <a class="pill" href="#creer">Créer un compte</a>
-            </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
           </div>
-          <div class="card">
-            <div style="display:flex;justify-content:space-between;align-items:center; gap:10px">
-              <div>
-                <div style="font-weight:800">Objectif hebdo</div>
-                <div class="sub">Lire 3 articles + 2 quiz</div>
-              </div>
-              <div class="pill">🏆 +60 XP</div>
-            </div>
-            <div style="margin-top:10px; background:#263454; border:1px solid #2c3b60; height:12px; border-radius:999px">
-              <div style="width:30%; height:100%; background:linear-gradient(90deg, #f6c453, #d8a53a); border-radius:999px"></div>
-            </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="card hero">
+        <div>
+          <h1 class="hero-title">Apprends, comprends, applique le sport au quotidien.</h1>
+          <p class="hero-subtitle">
+            A-Cadémie est une bibliothèque sportive moderne&nbsp;: des articles clairs, des quiz rapides et une petite dose de gamification locale
+            pour suivre ta progression — sans compte, sans mot de passe.
+          </p>
+
+          <div class="hero-stats">
+            <span class="stat-pill">📚 Articles pédagogiques</span>
+            <span class="stat-pill">🧠 Quiz express</span>
+            <span class="stat-pill">🎯 Parcours thématiques</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="article-vma.html">Lire un article + quiz</a>
+            <button class="btn btn-secondary" data-scroll="#sections-articles">Explorer les catégories</button>
+          </div>
+
+          <p class="hero-note">
+            ➜ La progression (XP & niveaux) est enregistrée uniquement sur ton appareil pour te donner envie de revenir, sans créer de compte.
+          </p>
+        </div>
+
+        <aside class="hero-side">
+          <div class="hero-side-title">Comment utiliser A-Cadémie&nbsp;?</div>
+          <ul class="hero-side-list">
+            <li>Choisis un sujet qui t’intéresse (VMA, trail, musculation, récupération…).</li>
+            <li>Lis un article, coche “j’ai lu cet article”, puis fais le quiz associé.</li>
+            <li>Gagne de l’XP locale, monte de niveau et reviens régulièrement.</li>
+          </ul>
+          <div class="hero-note">
+            Plus tard, cette progression pourra être reliée à un écosystème de jeu. Pour l’instant, tout est en libre accès et stocké en local.
           </div>
         </aside>
-      </div>
-    </section>
+      </section>
 
-    <!-- CATEGORIES -->
-    <section id="articles">
-      <h2>Catégories</h2>
-      <p class="sub">Toutes les disciplines, en fiches claires et actionnables.</p>
-      <div class="grid cols-4" style="margin-top:12px">
-        <a class="card" href="#">
-          <div class="thumb">🏃‍♂️</div>
-          <h3>Endurance & VMA</h3>
-          <div class="meta"><span>22 articles</span><span>14 quiz</span></div>
-        </a>
-        <a class="card" href="#">
-          <div class="thumb">🏋️‍♀️</div>
-          <h3>Force & Musculation</h3>
-          <div class="meta"><span>18 articles</span><span>10 quiz</span></div>
-        </a>
-        <a class="card" href="#">
-          <div class="thumb">🤸‍♂️</div>
-          <h3>Mobilité & Prévention</h3>
-          <div class="meta"><span>16 articles</span><span>8 quiz</span></div>
-        </a>
-        <a class="card" href="#">
-          <div class="thumb">🥗</div>
-          <h3>Nutrition & Récupération</h3>
-          <div class="meta"><span>24 articles</span><span>12 quiz</span></div>
-        </a>
-      </div>
-    </section>
+      <!-- CATEGORIES -->
+      <section class="card" id="sections-articles">
+        <h2 class="section-title">Catégories</h2>
+        <p class="section-subtitle">Toutes les disciplines en fiches courtes, orientées pratique.</p>
 
-    <!-- DERNIERS ARTICLES -->
-    <section>
-      <h2>Derniers articles</h2>
-      <div class="grid cols-3" style="margin-top:12px">
-        <a class="card" href="#">
-          <div class="thumb" aria-hidden="true">📈</div>
-          <h3>Comprendre ta VMA : méthodes de test & erreurs courantes</h3>
-          <div class="meta"><span>10 min</span><span>VMA</span><span>+10 Anykoins</span></div>
-        </a>
-        <a class="card" href="#">
-          <div class="thumb">🧊</div>
-          <h3>Bains froids : récupération miracle ou effet placebo ?</h3>
-          <div class="meta"><span>8 min</span><span>Récupération</span><span>+8 Anykoins</span></div>
-        </a>
-        <a class="card" href="#">
-          <div class="thumb">⛰️</div>
-          <h3>Trail : gérer le dénivelé sans exploser tes quadriceps</h3>
-          <div class="meta"><span>12 min</span><span>Trail</span><span>+12 Anykoins</span></div>
-        </a>
-      </div>
-    </section>
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🏃‍♂️ Endurance & VMA</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Bases physiologiques, plans simples, gestion des allures.</div>
+          </div>
 
-    <!-- QUIZ STRIP -->
-    <section id="quiz">
-      <div class="card" style="display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap">
-        <div>
-          <h3 style="margin:0 0 6px">Quiz express : “Échauffement 5 minutes”</h3>
-          <p class="sub" style="margin:0">Valide 5 questions pour gagner <strong>+15 Anykoins</strong> et le badge “Prêt au combat”.</p>
-        </div>
-        <a class="pill" href="#">Lancer le quiz →</a>
-      </div>
-    </section>
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🏋️‍♀️ Force & Musculation</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Programme de base, technique, progression sans se blesser.</div>
+          </div>
 
-    <!-- DOSSIER VEDETTE -->
-    <section id="parcours">
-      <div class="feature">
-        <div class="visual" aria-hidden="true"></div>
-        <div class="content">
-          <h2>Parcours thématique : “Préparer un marathon”</h2>
-          <p class="sub">Un chemin guidé en 6 modules : physiologie, planification, nutrition, force, mental, stratégie de course. Terminer le parcours débloque le titre <strong>“Marathonomos”</strong> et <strong>+120 Anykoins</strong>.</p>
-          <div class="strip" style="margin-top:10px">
-            <span class="pill">📘 12 leçons</span>
-            <span class="pill">🧠 6 quiz</span>
-            <span class="pill">🎯 3 défis pratiques</span>
-            <a class="pill" href="#">Commencer le parcours →</a>
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🧘 Mobilité & Prévention</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Échauffement, mobilité, renfo spécifique, prévention des bobos.</div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🍽️ Nutrition & Récupération</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Hydratation, repas avant/après, sommeil, récupération intelligente.</div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- LEADERBOARD -->
-    <section id="recompenses">
-      <h2>Classement des Académiciens (semaine en cours)</h2>
-      <table aria-label="Classement hebdomadaire">
-        <thead>
-          <tr><th>Rang</th><th>Joueur</th><th>XP</th><th>Anykoin</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>#1</td><td>Hoplite42</td><td>1 240</td><td>310</td></tr>
-          <tr><td>#2</td><td>Atalante</td><td>1 080</td><td>270</td></tr>
-          <tr><td>#3</td><td>Hermès‑Runner</td><td>990</td><td>250</td></tr>
-        </tbody>
-      </table>
-      <div class="sub" style="margin-top:8px">Échange tes Anykoins contre stickers, t‑shirts, médailles, ou réductions de niveaux côté Hercule Project.</div>
-    </section>
+      <!-- DERNIERS ARTICLES -->
+      <section class="card">
+        <h2 class="section-title">Derniers articles</h2>
+        <p class="section-subtitle">Un aperçu des contenus déjà disponibles. Tous les articles sont en libre accès.</p>
 
-    <!-- NEWSLETTER / CTA -->
-    <section>
-      <div class="card" style="display:grid; gap:10px; padding:18px">
-        <h3 style="margin:0">Recevoir 1 ressource premium / semaine</h3>
-        <p class="sub" style="margin:0">Sélection d’articles, protocoles, et fiches pratiques directement dans ta boîte mail.</p>
-        <form onsubmit="event.preventDefault(); alert('Merci ! Nous t\'enverrons les prochaines ressources.');" style="display:flex; gap:10px; flex-wrap:wrap">
-          <input aria-label="Adresse e‑mail" type="email" required placeholder="ton@email.fr" style="flex:1; min-width:220px; padding:12px 14px; border-radius:12px; border:1px solid #2c3b60; background:#0e1420; color:var(--ink)">
-          <button class="pill" type="submit">S’inscrire</button>
-        </form>
-      </div>
-    </section>
-  </main>
+        <div class="articles-list">
+          <article class="article-mini">
+            <div class="article-mini-title">Comprendre ta VMA : méthodes de test & erreurs courantes</div>
+            <div class="article-mini-meta">
+              <span>⏱️ 7&nbsp;min</span>
+              <span>🏷️ Endurance & VMA</span>
+            </div>
+            <a class="article-mini-link" href="article-vma.html">
+              Lire l’article & faire le quiz →
+            </a>
+          </article>
 
-  <footer class="wrap">
-    <div class="strip" style="justify-content:space-between">
-      <div>© A‑Cadémie · Relié à <a href="#">Hercule Project</a> & <a href="#">A‑Quest</a></div>
-      <div class="strip">
-        <a class="pill" href="#">Mentions légales</a>
-        <a class="pill" href="#">Confidentialité</a>
-        <a class="pill" href="#">Contact</a>
-      </div>
-    </div>
-  </footer>
+          <article class="article-mini">
+            <div class="article-mini-title">Bains froids : récupération miracle ou effet placebo&nbsp;?</div>
+            <div class="article-mini-meta">
+              <span>⏱️ 8&nbsp;min</span>
+              <span>🏷️ Récupération</span>
+            </div>
+            <span class="article-mini-link" href="#">
+              Bientôt disponible
+            </span>
+          </article>
+
+          <article class="article-mini">
+            <div class="article-mini-title">Trail : gérer le dénivelé sans exploser tes quadriceps</div>
+            <div class="article-mini-meta">
+              <span>⏱️ 10&nbsp;min</span>
+              <span>🏷️ Trail</span>
+            </div>
+            <span class="article-mini-link" href="#">
+              Bientôt disponible
+            </span>
+          </article>
+        </div>
+      </section>
+
+      <!-- QUIZ EXPRESS -->
+      <section class="card" id="sections-quiz">
+        <div class="quiz-express">
+          <div>
+            <div class="badge-soft">⚡ Quiz express</div>
+            <h2 class="section-title">“Échauffement 5 minutes”</h2>
+            <p class="section-subtitle">
+              5 questions très simples pour vérifier si ton échauffement est suffisant pour limiter le risque de blessure et mieux profiter de tes séances.
+            </p>
+            <p style="font-size:13px;color:var(--text-soft);margin-bottom:10px;">
+              Format idéal pour débuter : tu peux le faire en quelques minutes sur ton téléphone avant ta sortie.
+            </p>
+            <a class="btn btn-primary" href="article-vma.html">
+              Tester le format article + quiz
+            </a>
+          </div>
+
+          <div class="hero-side">
+            <div class="hero-side-title">Pourquoi des quiz&nbsp;?</div>
+            <ul class="hero-side-list">
+              <li>Consolider ce que tu viens de lire.</li>
+              <li>Te rendre attentif aux erreurs les plus fréquentes.</li>
+              <li>Te donner un petit retour immédiat (score) et un bonus d’XP locale.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARCOURS -->
+      <section class="card" id="sections-parcours">
+        <h2 class="section-title">Parcours thématique : “Préparer un marathon”</h2>
+        <p class="section-subtitle">
+          Bientôt : un chemin guidé en plusieurs modules (physiologie, planification, nutrition, force, mental, stratégie de course).
+        </p>
+
+        <div class="parcours-main">
+          <div>
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px;">
+              L’objectif des parcours sera de te proposer une progression logique, avec plusieurs articles, quiz et petites mises en pratique. Tu pourras suivre
+              ta progression globalement grâce à ton niveau et à ton XP locale.
+            </p>
+            <p class="parcours-meta">
+              Pour l’instant, commence simplement par l’article VMA + quiz, puis reviens régulièrement : d’autres contenus vont s’ajouter progressivement.
+            </p>
+          </div>
+
+          <aside class="parcours-stats">
+            <div>📚 Modules à venir :</div>
+            <div>• Comprendre l’endurance & la VMA</div>
+            <div>• Construire une semaine type</div>
+            <div>• Nutrition avant / pendant / après</div>
+            <div>• Renforcement pour coureur</div>
+            <div>• Gestion du mental & de la fatigue</div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER / CTA SIMPLE -->
+      <section class="card">
+        <div class="newsletter">
+          <div>
+            <div class="section-title" style="font-size:16px;margin-bottom:4px;">Recevoir les prochains contenus</div>
+            <div>Optionnel : tu pourras plus tard ajouter ici un vrai formulaire d’inscription.</div>
+          </div>
+          <div class="newsletter-inputs">
+            <input class="input" type="email" placeholder="Ton email (bientôt actif)" disabled />
+            <button class="btn btn-secondary" disabled>Fonctionnalité à venir</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <span>© A-Cadémie — Ressources sportives en libre accès.</span>
+        <span>
+          <a href="#">Mentions légales</a> ·
+          <a href="#">Confidentialité</a> ·
+          <a href="#">Contact</a>
+        </span>
+      </footer>
+    </main>
+  </div>
 
   <script>
-    function toggleNav(){
-      const links = document.getElementById('nav-links');
-      const btn = document.querySelector('.nav-toggle');
-      links.classList.toggle('open');
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
+    // Scroll doux pour les boutons du menu
+    document.querySelectorAll("[data-scroll]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-scroll");
+        const el = document.querySelector(target);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // ===========================
+    // Gamification locale A-Cadémie (affichage uniquement)
+    // ===========================
+    const STORAGE_KEY = "acad_gamification_state";
+
+    const defaultState = {
+      xp: 0,
+      level: 1,
+      articlesRead: [],
+      quizzesDone: []
+    };
+
+    function xpNeededForLevel(level) {
+      return 100 * level;
     }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return { ...defaultState };
+        const parsed = JSON.parse(raw);
+        return {
+          ...defaultState,
+          ...parsed,
+          articlesRead: parsed.articlesRead || [],
+          quizzesDone: parsed.quizzesDone || []
+        };
+      } catch (e) {
+        console.warn("Erreur load gamification state", e);
+        return { ...defaultState };
+      }
+    }
+
+    function updateProfileUI() {
+      const gamState = loadState();
+      const levelSpan = document.getElementById("acad-level");
+      const xpSpan = document.getElementById("acad-xp");
+      const nextLevelSpan = document.getElementById("acad-next-level");
+      const xpToNextSpan = document.getElementById("acad-xp-to-next");
+      const xpBar = document.getElementById("acad-xp-bar");
+
+      if (!levelSpan || !xpSpan || !nextLevelSpan || !xpToNextSpan || !xpBar) return;
+
+      const level = gamState.level;
+      const xp = gamState.xp;
+      const currentLevelXpRequired = xpNeededForLevel(level);
+      const prevLevelTotalXp = xpNeededForLevel(level - 1) || 0;
+
+      const xpIntoLevel = xp - prevLevelTotalXp;
+      const xpLevelSpan = currentLevelXpRequired - prevLevelTotalXp || 1;
+      const ratio = Math.max(0, Math.min(1, xpIntoLevel / xpLevelSpan));
+
+      levelSpan.textContent = level;
+      xpSpan.textContent = xp;
+      nextLevelSpan.textContent = level + 1;
+      xpToNextSpan.textContent = `${xpIntoLevel}/${xpLevelSpan}`;
+      xpBar.style.width = `${ratio * 100}%`;
+    }
+
+    updateProfileUI();
   </script>
 </body>
 </html>
