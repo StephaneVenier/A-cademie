@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Comprendre l’endurance fondamentale (EF)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-article-key="article_endurance_fondamentale">
+  <header class="site-header">
+    <div class="logo">A‑Cadémie</div>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="articles.html" class="active">Articles</a>
+      <a href="recompenses.html">Récompenses</a>
+    </nav>
+  </header>
+
+  <main class="main-layout article-layout">
+    <article class="article-card">
+      <h1>Comprendre l’endurance fondamentale (EF)</h1>
+      <p class="article-intro">
+        L’endurance fondamentale correspond à une allure très confortable, que tu peux tenir longtemps tout en parlant. 
+        C’est la base de presque tous les plans d’entraînement en course à pied.
+      </p>
+
+      <h2>Pourquoi c’est important ?</h2>
+      <p>Courir en endurance fondamentale permet de développer ta capacité aérobie, d’améliorer ton cœur, tes muscles et ta récupération sans te fatiguer excessivement.</p>
+
+      <h2>Comment la repérer ?</h2>
+      <ul>
+        <li>La respiration est facile.</li>
+        <li>Tu peux tenir une conversation.</li>
+        <li>La sensation est « trop facile » plutôt que « trop dure ».</li>
+      </ul>
+
+      <div class="article-xp-box">
+        <button class="btn-primary" data-action="read">Valider la lecture (+10 XP)</button>
+      </div>
+
+      <section class="quiz-block">
+        <h2>Quiz – Endurance fondamentale</h2>
+        <p>Réponds à cette question pour gagner un bonus d’XP.</p>
+        <form class="quiz-form" data-quiz-key="quiz_endurance_fondamentale">
+          <label>À quoi doit ressembler ta respiration en endurance fondamentale ?</label>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="facile" /> Facile, je peux parler.</label>
+            <label><input type="radio" name="q1" value="difficile" /> Très difficile, je suis essoufflé.</label>
+          </div>
+          <button type="submit" class="btn-secondary">Valider le quiz (+20 XP)</button>
+          <p class="quiz-feedback" aria-live="polite"></p>
+        </form>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

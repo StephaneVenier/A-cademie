@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>A-Cadémie – Récompenses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">A‑Cadémie</div>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="articles.html">Articles</a>
+      <a href="recompenses.html" class="active">Récompenses</a>
+    </nav>
+  </header>
+
+  <main class="main-layout">
+    <section class="page-header">
+      <div>
+        <h1>Récompenses & Badges</h1>
+        <p>Plus tu lis d’articles et termines de quiz, plus tu gagnes d’XP. Débloque des badges pour chaque grande catégorie.</p>
+      </div>
+      <div class="xp-mini-card">
+        <span id="user-level-label">Niveau 1</span>
+        <span id="user-xp-label">0 XP</span>
+      </div>
+    </section>
+
+    <section class="badges-grid">
+      <article class="badge-card" data-min-xp="50">
+        <h2>Hygiène de vie</h2>
+        <p>Badge « Routine saine »</p>
+        <p class="badge-xp">Débloqué à 50 XP</p>
+        <p class="badge-status" data-badge-key="hygiene">Statut : <span>Verrouillé</span></p>
+      </article>
+
+      <article class="badge-card" data-min-xp="100">
+        <h2>Endurance & Outdoor</h2>
+        <p>Badge « Coureur régulier »</p>
+        <p class="badge-xp">Débloqué à 100 XP</p>
+        <p class="badge-status" data-badge-key="endurance">Statut : <span>Verrouillé</span></p>
+      </article>
+
+      <article class="badge-card" data-min-xp="150">
+        <h2>Rackets</h2>
+        <p>Badge « Joueur de raquette »</p>
+        <p class="badge-xp">Débloqué à 150 XP</p>
+        <p class="badge-status" data-badge-key="rackets">Statut : <span>Verrouillé</span></p>
+      </article>
+
+      <article class="badge-card" data-min-xp="200">
+        <h2>Pilates & Fitness doux</h2>
+        <p>Badge « Corps équilibré »</p>
+        <p class="badge-xp">Débloqué à 200 XP</p>
+        <p class="badge-status" data-badge-key="pilates">Statut : <span>Verrouillé</span></p>
+      </article>
+
+      <article class="badge-card" data-min-xp="250">
+        <h2>Functional Training</h2>
+        <p>Badge « Athlète fonctionnel »</p>
+        <p class="badge-xp">Débloqué à 250 XP</p>
+        <p class="badge-status" data-badge-key="functional">Statut : <span>Verrouillé</span></p>
+      </article>
+
+      <article class="badge-card" data-min-xp="300">
+        <h2>Sports collectifs</h2>
+        <p>Badge « Esprit d’équipe »</p>
+        <p class="badge-xp">Débloqué à 300 XP</p>
+        <p class="badge-status" data-badge-key="collectifs">Statut : <span>Verrouillé</span></p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

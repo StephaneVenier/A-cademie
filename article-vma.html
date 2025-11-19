@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tout savoir sur la VMA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-article-key="article_vma">
+  <header class="site-header">
+    <div class="logo">A‑Cadémie</div>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="articles.html" class="active">Articles</a>
+      <a href="recompenses.html">Récompenses</a>
+    </nav>
+  </header>
+
+  <main class="main-layout article-layout">
+    <article class="article-card">
+      <h1>Tout savoir sur la VMA</h1>
+      <p class="article-intro">
+        La VMA (Vitesse Maximale Aérobie) est la vitesse à laquelle tu atteins ta consommation d’oxygène maximale (VO₂max). 
+        C’est un repère utile pour calibrer tes séances de fractionné.
+      </p>
+
+      <h2>À quoi sert la VMA ?</h2>
+      <p>Elle permet de fixer les allures de travail sur les séances rapides, pour progresser efficacement sans en faire trop.</p>
+
+      <h2>Comment estimer sa VMA ?</h2>
+      <ul>
+        <li>Test de 6 minutes en courant le plus vite possible.</li>
+        <li>Test VAMEVAL ou demi‑Cooper sur piste avec repères.</li>
+      </ul>
+
+      <div class="article-xp-box">
+        <button class="btn-primary" data-action="read">Valider la lecture (+10 XP)</button>
+      </div>
+
+      <section class="quiz-block">
+        <h2>Quiz – VMA</h2>
+        <p>Réponds à cette question pour gagner un bonus d’XP.</p>
+        <form class="quiz-form" data-quiz-key="quiz_vma">
+          <label>La VMA sert surtout à…</label>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="allures" /> Définir les allures de travail.</label>
+            <label><input type="radio" name="q1" value="distance" /> Connaître la distance d’un marathon.</label>
+          </div>
+          <button type="submit" class="btn-secondary">Valider le quiz (+20 XP)</button>
+          <p class="quiz-feedback" aria-live="polite"></p>
+        </form>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

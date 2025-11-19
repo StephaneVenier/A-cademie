@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Échauffement 5 minutes pour courir</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-article-key="article_echauffement_5min">
+  <header class="site-header">
+    <div class="logo">A‑Cadémie</div>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="articles.html" class="active">Articles</a>
+      <a href="recompenses.html">Récompenses</a>
+    </nav>
+  </header>
+
+  <main class="main-layout article-layout">
+    <article class="article-card">
+      <h1>Échauffement 5 minutes pour courir</h1>
+      <p class="article-intro">
+        Avant chaque sortie, un court échauffement permet de réveiller les muscles, préparer les articulations et réduire le risque de blessure.
+      </p>
+
+      <h2>Échauffement type (5 minutes)</h2>
+      <ol>
+        <li>1 min de marche active ou trottinement.</li>
+        <li>1 min de montées de genoux très légères.</li>
+        <li>1 min de talons‑fesses.</li>
+        <li>1 min de pas chassés ou déplacement latéral.</li>
+        <li>1 min de petites accélérations progressives.</li>
+      </ol>
+
+      <div class="article-xp-box">
+        <button class="btn-primary" data-action="read">Valider la lecture (+10 XP)</button>
+      </div>
+
+      <section class="quiz-block">
+        <h2>Quiz – Échauffement</h2>
+        <p>Réponds à cette question pour gagner un bonus d’XP.</p>
+        <form class="quiz-form" data-quiz-key="quiz_echauffement">
+          <label>Combien de temps dure l’échauffement proposé ?</label>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="5" /> 5 minutes.</label>
+            <label><input type="radio" name="q1" value="20" /> 20 minutes.</label>
+          </div>
+          <button type="submit" class="btn-secondary">Valider le quiz (+20 XP)</button>
+          <p class="quiz-feedback" aria-live="polite"></p>
+        </form>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
