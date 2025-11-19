@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Pourquoi on prend du ventre ? Les vraies raisons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Comprendre son corps · Version 2025</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">📏</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+
+      <!-- ARTICLE -->
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Hygiène de vie & Compréhension du corps</span>
+          <span class="chip">Lecture : 7 min</span>
+          <span class="chip">Niveau : Débutant</span>
+        </div>
+
+        <h1 class="article-title">Pourquoi on prend du ventre ? Les vraies raisons</h1>
+        <p class="article-subtitle">
+          “J’ai pris du ventre” : une phrase qu’on entend souvent. Entre alimentation, stress, âge,
+          hormones et manque de mouvement, plusieurs facteurs jouent. Comprendre ce qui se passe aide à agir intelligemment,
+          sans culpabilité ni solutions miracles.
+        </p>
+
+        <div class="article-highlight">
+          <strong>Important :</strong> la graisse abdominale n’est pas qu’une question d’esthétique.
+          Elle est aussi liée à la santé. L’objectif n’est pas d’avoir un “six-pack”, mais un ventre qui ne gêne ni le corps ni le mental.
+        </div>
+
+        <div class="article-content">
+          <h2>1️⃣ Surplus calorique régulier</h2>
+          <p>
+            On prend du gras quand on mange plus d’énergie que ce que l’on dépense, de manière répétée.
+            Le corps stocke cet excès, souvent autour du ventre, surtout chez certaines personnes (génétique, sexe, hormones).
+          </p>
+          <p>
+            Le problème vient rarement d’un seul gros repas, mais de petites choses accumulées :
+            boissons sucrées, grignotages, portions un peu trop grandes, alcool régulier…
+          </p>
+
+          <h2>2️⃣ Manque de mouvement et sédentarité</h2>
+          <p>
+            Même si tu “fais du sport” 2 fois par semaine, tu peux rester très sédentaire le reste du temps
+            (bureau, voiture, canapé). Moins tu bouges au total dans la journée, plus il est facile de stocker.
+          </p>
+          <p>
+            À l’inverse, multiplier les petites occasions de bouger (marcher, prendre les escaliers, se lever régulièrement)
+            augmente ta dépense énergétique globale sans forcément “faire un sport”.
+          </p>
+
+          <h2>3️⃣ Stress et hormones (cortisol)</h2>
+          <p>
+            Le stress chronique peut favoriser le stockage au niveau abdominal :
+          </p>
+          <ul>
+            <li>Augmentation du cortisol (l’hormone du stress)</li>
+            <li>Grignotages “réconfort” (surtout sucré / gras)</li>
+            <li>Sommeil perturbé, donc plus de faim / fringales</li>
+          </ul>
+          <p>
+            Ce n’est pas “dans ta tête” : le mental et le corps sont liés. C’est aussi pour ça
+            que les routines de respiration, de sommeil et de gestion du stress ont leur place dans une démarche physique.
+          </p>
+
+          <h2>4️⃣ Alcool et boissons liquides</h2>
+          <p>
+            L’alcool apporte beaucoup de calories, souvent sans rassasier. Les boissons sucrées (sodas, jus industriels),
+            cocktails, bières… peuvent représenter un gros apport “invisible” qui se retrouve… autour du ventre.
+          </p>
+
+          <h2>5️⃣ Âge, hormones et répartition des graisses</h2>
+          <p>
+            Avec l’âge, le métabolisme ralentit légèrement et la répartition des graisses change.
+            Chez beaucoup de personnes, le ventre devient une zone de stockage privilégiée :
+          </p>
+          <ul>
+            <li>Après 30–40 ans, si on bouge moins mais qu’on mange pareil qu’à 20 ans</li>
+            <li>Chez les femmes : changements hormonaux (grossesses, péri-ménopause, ménopause)</li>
+            <li>Chez les hommes : baisse progressive de la testostérone</li>
+          </ul>
+          <p>
+            Ce n’est pas “une fatalité”, mais ça demande plus de vigilance sur l’hygiène de vie globale.
+          </p>
+
+          <h2>6️⃣ Ballonnements ≠ graisse</h2>
+          <p>
+            Parfois, le ventre paraît “gonflé” sans qu’il y ait forcément beaucoup de graisse :
+          </p>
+          <ul>
+            <li>Alimentation très riche en produits ultra-transformés</li>
+            <li>Repas très salés → rétention d’eau</li>
+            <li>Digestion difficile, transit perturbé</li>
+          </ul>
+          <p>
+            Dans ces cas-là, améliorer la qualité des aliments, boire suffisamment et bouger un peu plus
+            peut déjà réduire la sensation de ventre “gonflé”.
+          </p>
+
+          <h2>7️⃣ On ne choisit pas où on perd en premier</h2>
+          <p>
+            Mauvaise nouvelle : on ne peut pas “cibler” la perte de gras du ventre uniquement.
+            Ce n’est pas parce que tu fais des centaines de crunchs que tu perdras spécifiquement du gras à cet endroit.
+          </p>
+          <p>
+            Bonne nouvelle : en travaillant sur l’ensemble (activité, alimentation, sommeil, stress),
+            le ventre finit par suivre. C’est souvent une des zones les plus lentes à évoluer, mais c’est normal.
+          </p>
+
+          <h2>8️⃣ Ce qui aide vraiment sur le long terme</h2>
+          <ul>
+            <li>Améliorer progressivement la qualité des repas (moins ultra-transformé, plus brut)</li>
+            <li>Bouger davantage chaque jour (marche, sport plaisir, mouvement spontané)</li>
+            <li>Limiter l’alcool et les boissons sucrées</li>
+            <li>Travailler le sommeil et la gestion du stress</li>
+          </ul>
+          <p>
+            Et si quelque chose t’inquiète (prise de ventre très rapide, douleurs, fatigue importante…),
+            en parler à un professionnel de santé reste toujours une bonne idée.
+          </p>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+      <!-- QUIZ -->
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Pourquoi on prend du ventre ?</div>
+            <div class="quiz-caption">
+              5 questions pour vérifier que tu as bien compris les principaux facteurs.
+            </div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">Valider mes réponses</button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">Recommencer le quiz</button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPTS GAMIFICATION -->
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+
+  <script>
+    const ARTICLE_ID = "pourquoi-on-prend-du-ventre";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Quelle est la raison principale d’une prise de graisse au niveau du ventre ?",
+        options: [
+          "Un seul gros repas dans l’année",
+          "Un surplus calorique répété dans le temps",
+          "Boire de l’eau après les repas",
+          "Manger des légumes"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "Quel rôle joue la sédentarité ?",
+        options: [
+          "Aucun, seul le sport intense compte",
+          "Elle augmente le stockage car on dépense moins d’énergie",
+          "Elle fait automatiquement perdre du poids",
+          "Elle empêche de digérer les légumes"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Comment le stress peut-il favoriser la prise de ventre ?",
+        options: [
+          "En faisant prendre du muscle",
+          "En augmentant le cortisol et les grignotages",
+          "En empêchant de boire de l’eau",
+          "En donnant envie de manger des légumes"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 4,
+        question: "Que peut signifier un ventre “gonflé” sans forcément beaucoup de graisse ?",
+        options: [
+          "Toujours une prise de gras importante",
+          "Des ballonnements, rétention d’eau ou digestion difficile",
+          "Un manque total de protéines",
+          "Une absence d’exercice de musculation"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "Laquelle de ces affirmations est vraie ?",
+        options: [
+          "On peut choisir de perdre uniquement du gras du ventre",
+          "Les abdos ciblés font fondre la graisse du ventre",
+          "On perd du gras globalement en améliorant l’hygiène de vie",
+          "Il est impossible de réduire la graisse abdominale"
+        ],
+        correctIndex: 2
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "quiz-question";
+        div.dataset.questionId = q.id;
+        div.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options.map((opt, i) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${i}">
+                <span>${opt}</span>
+              </label>
+            `).join("")}
+          </div>
+        `;
+        quizForm.appendChild(div);
+      });
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter(q =>
+        Array.from(document.querySelectorAll('input[name="question-' + q.id + '"]')).some(r => r.checked)
+      ).length;
+      quizProgress.textContent = "Question " + (answered === 0 ? 1 : answered) + " sur " + total;
+    }
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach(o =>
+        o.classList.remove("correct","incorrect")
+      );
+
+      quizData.forEach(q => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let sel = null;
+        radios.forEach((r, idx) => { if (r.checked) sel = idx; });
+
+        const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const opts = block.querySelectorAll(".quiz-option");
+
+        if (sel === q.correctIndex) {
+          score++;
+          if (sel != null && opts[sel]) opts[sel].classList.add("correct");
+        } else {
+          if (opts[q.correctIndex]) opts[q.correctIndex].classList.add("correct");
+          if (sel != null && opts[sel]) opts[sel].classList.add("incorrect");
+        }
+      });
+
+      const ratio = score / total;
+      let msg;
+      if (ratio === 1) {
+        msg = "Excellent ! Tu as bien compris les principales causes de la prise de ventre 💪";
+      } else if (ratio >= 0.7) {
+        msg = "Très bien, tu as saisi l’essentiel.";
+      } else if (ratio >= 0.4) {
+        msg = "Pas mal, mais relis l’article pour mieux intégrer certaines notions.";
+      } else {
+        msg = "C’est un bon point de départ : relis l’article calmement et retente le quiz.";
+      }
+
+      quizResult.innerHTML = `<strong>${score}/${total}</strong> bonnes réponses. ${msg}`;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+
+      quizFeedback.textContent =
+        ratio === 1
+          ? "🎮 Bravo ! Quiz parfait, XP bonus enregistrée."
+          : "Tu peux recommencer le quiz pour viser le 100 % si tu veux.";
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", renderQuiz);
+
+    const readBtn = document.getElementById("mark-article-read");
+    if (readBtn) {
+      readBtn.addEventListener("click", () => {
+        if (window.acadGamification) {
+          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        }
+        readBtn.textContent = "✓ Article compté pour l’XP locale";
+        readBtn.disabled = true;
+      });
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Pourquoi on prend du ventre ?",
+          text: "Un article pour comprendre les vraies raisons de la prise de ventre + un quiz express.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+          } catch (e) {
+            shareFeedback.textContent = "Partage annulé 😉";
+          }
+        } else {
+          shareFeedback.textContent = "Le partage automatique n’est pas disponible, mais tu peux copier l’adresse. (XP ajoutée)";
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
