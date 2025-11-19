@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Alimentation anti-fatigue : quoi manger ?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Nutrition & Énergie — Version 2025</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">⚡</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar"><div class="profile-progress-fill" id="acad-xp-bar"></div></div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+
+      <!-- ARTICLE -->
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Nutrition & Énergie</span>
+          <span class="chip">Lecture : 6 min</span>
+          <span class="chip">Niveau : Débutant</span>
+        </div>
+
+        <h1 class="article-title">Alimentation anti-fatigue : quoi manger ?</h1>
+        <p class="article-subtitle">
+          “Je suis fatigué tout le temps…”  
+          L’alimentation joue un rôle énorme dans l’énergie quotidienne. Certains aliments dopent ton énergie, d’autres
+          la volent. Voici une méthode simple pour manger “anti-fatigue”.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> l’énergie vient surtout de la stabilité (glycémie, hydratation, nutriments clés),
+          pas du sucre rapide ni du café à répétition.
+        </div>
+
+        <div class="article-content">
+
+          <h2>1️⃣ Stabiliser la glycémie : la base anti-fatigue</h2>
+          <p>
+            Les montagnes russes de sucre entraînent : coups de barre, irritabilité, fringales.
+            Pour éviter ça :
+          </p>
+          <ul>
+            <li>Privilégie les aliments complets (avoine, riz complet, légumineuses)</li>
+            <li>Mange des protéines à chaque repas</li>
+            <li>Évite les sucres rapides isolés (viennoiseries, sodas, biscuits)</li>
+          </ul>
+
+          <h2>2️⃣ Faire le plein de fer, magnésium et oméga 3</h2>
+          <p>Ces nutriments interviennent directement dans l’énergie et la concentration.</p>
+          <ul>
+            <li><strong>Fer :</strong> lentilles, boudin noir, viande rouge, tofu, épinards</li>
+            <li><strong>Magnésium :</strong> amandes, cacao noir, banane, eau minérale riche en magnésium</li>
+            <li><strong>Oméga 3 :</strong> sardines, maquereau, noix, graines de chia</li>
+          </ul>
+
+          <h2>3️⃣ Boire suffisamment</h2>
+          <p>
+            80% des gens pensent être fatigués… alors qu’ils sont déshydratés.  
+            Avant de chercher une solution complexe : bois un verre d’eau.
+          </p>
+
+          <h2>4️⃣ La règle des 3 éléments par repas</h2>
+          <p>Pour une énergie stable :</p>
+          <ul>
+            <li><strong>Protéine</strong> (œuf, poisson, tofu, poulet…)</li>
+            <li><strong>Légumes</strong> (frais, surgelés ou crudités)</li>
+            <li><strong>Féculents complets</strong> (pâtes complètes, riz complet, lentilles…)</li>
+          </ul>
+
+          <h2>5️⃣ Les aliments qui donnent de l’énergie durable</h2>
+          <ul>
+            <li>Flocons d’avoine + fruits + graines</li>
+            <li>Yaourt nature + noix + miel</li>
+            <li>Banane + beurre d’amande</li>
+            <li>Bowl : riz complet + légumes + thon + huile d’olive</li>
+            <li>Soupe + tartine complète + œuf dur</li>
+          </ul>
+
+          <h2>6️⃣ Les aliments qui volent ton énergie</h2>
+          <ul>
+            <li>Sodas et boissons sucrées → pic de sucre → crash</li>
+            <li>Viennoiseries → 2h après, grosse fatigue</li>
+            <li>Alcool → sommeil de mauvaise qualité → fatigue le lendemain</li>
+            <li>Snacking ultra transformé</li>
+          </ul>
+
+          <h2>7️⃣ Exemple de journée anti-fatigue</h2>
+          <ul>
+            <li><strong>Petit-déjeuner :</strong> avoine + banane + noix</li>
+            <li><strong>Déjeuner :</strong> bowl complet (poulet + légumes + riz complet)</li>
+            <li><strong>Snack :</strong> fruit + oléagineux</li>
+            <li><strong>Dîner :</strong> soupe + féculent complet + œuf ou poisson</li>
+          </ul>
+
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture & quiz = XP gagnée sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">✓ J’ai lu cet article (gagner de l’XP)</button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+
+      </article>
+
+      <!-- QUIZ -->
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Alimentation anti-fatigue</div>
+            <div class="quiz-caption">5 questions pour valider les bases de l'énergie durable.</div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">Valider mes réponses</button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">Recommencer</button>
+          </div>
+          <div class="quiz-result" id="quiz-result">Réponds puis valide pour voir ton score.</div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPTS GAMIFICATION -->
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+
+  <script>
+    const ARTICLE_ID = "alimentation-anti-fatigue";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Qu’est-ce qui cause souvent les “coups de barre” ?",
+        options: [
+          "Manger des légumes",
+          "Les variations rapides de sucre dans le sang",
+          "Boire trop d’eau",
+          "Manger des protéines"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "Quel nutriment aide à réduire la fatigue ?",
+        options: [
+          "Fer",
+          "Colorants alimentaires",
+          "Glucose pur",
+          "Beurre"
+        ],
+        correctIndex: 0
+      },
+      {
+        id: 3,
+        question: "Quel est un bon exemple de snack anti-fatigue ?",
+        options: [
+          "Chips + soda",
+          "Fruit + oléagineux",
+          "Viennoiserie",
+          "Bonbons"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 4,
+        question: "Quel aliment vole ton énergie ?",
+        options: [
+          "Riz complet",
+          "Soupe maison",
+          "Sodas sucrés",
+          "Œufs"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 5,
+        question: "Quel trio compose un repas anti-fatigue idéal ?",
+        options: [
+          "Dessert + jus + pain blanc",
+          "Protéines + légumes + féculents complets",
+          "Viennoiserie + café sucré",
+          "Sauce + viande + soda"
+        ],
+        correctIndex: 1
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "quiz-question";
+        div.dataset.questionId = q.id;
+
+        div.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options.map((opt, i) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${i}">
+                <span>${opt}</span>
+              </label>`).join("")}
+          </div>
+        `;
+        quizForm.appendChild(div);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.textContent = "Réponds puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter(q =>
+        Array.from(document.querySelectorAll(`input[name="question-${q.id}"]`)).some(r => r.checked)
+      ).length;
+      quizProgress.textContent = "Question " + (answered || 1) + " sur " + total;
+    }
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+
+      document.querySelectorAll(".quiz-option").forEach(o =>
+        o.classList.remove("correct","incorrect")
+      );
+
+      quizData.forEach(q => {
+        const radios = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        let sel = null;
+        radios.forEach((r, idx) => { if (r.checked) sel = idx; });
+
+        const block = document.querySelector(`.quiz-question[data-question-id="${q.id}"]`);
+        const opts = block.querySelectorAll(".quiz-option");
+
+        if (sel === q.correctIndex) {
+          score++;
+          opts[sel]?.classList.add("correct");
+        } else {
+          opts[q.correctIndex]?.classList.add("correct");
+          if (sel !== null) opts[sel]?.classList.add("incorrect");
+        }
+      });
+
+      const ratio = score / quizData.length;
+      let msg =
+        ratio === 1 ? "Parfait ! Tu maîtrises les fondamentaux de l’alimentation anti-fatigue ⚡" :
+        ratio >= 0.7 ? "Très bon score !" :
+        ratio >= 0.4 ? "Pas mal, relis certains points." :
+        "C’est un début : relis l’article tranquillement.";
+
+      quizResult.innerHTML = `<strong>${score}/${quizData.length}</strong> bonnes réponses • ${msg}`;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, quizData.length);
+      }
+
+      quizFeedback.textContent =
+        ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux recommencer pour viser le 100 %.";
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", renderQuiz);
+
+    // Lecture =
+    const readBtn = document.getElementById("mark-article-read");
+    if (readBtn) {
+      readBtn.addEventListener("click", () => {
+        if (window.acadGamification)
+          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        readBtn.textContent = "✓ Article compté pour l’XP locale";
+        readBtn.disabled = true;
+      });
+    }
+
+    // Partage
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (window.acadGamification)
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+        const shareData = {
+          title: "A-Cadémie — Alimentation anti-fatigue",
+          text: "Découvre quoi manger pour avoir plus d’énergie + un quiz express !",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try { await navigator.share(shareData);
+            shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+          } catch (e) {
+            shareFeedback.textContent = "Partage annulé 😉";
+          }
+        } else {
+          shareFeedback.textContent = "Le partage automatique n’est pas dispo, mais tu peux copier l’adresse.";
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+
+</body>
+</html>
