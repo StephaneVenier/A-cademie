@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/acad-style.css">
+
+  <!-- Firebase (optionnel mais prêt pour l’auth anonyme + Firestore) -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
@@ -55,37 +56,70 @@
       <section class="card">
         <h1 class="section-title">Badges & récompenses</h1>
         <p class="section-subtitle">
-          Un badge par grande activité. Commence par Endurance & VMA, puis Mobilité & Prévention. Tu pourras ajouter autant d’autres badges que tu veux.
+          Ces badges se débloquent automatiquement en fonction de ce que tu fais sur A-Cadémie :
+          articles lus, quiz complétés et progression dans les catégories.
         </p>
 
         <div class="badges-grid" id="badges-grid">
-          <!-- Badge Endurance & VMA : VMA + Endurance fondamentale -->
-          <div class="badge-card" data-badge-id="badge_endurance_vma" data-required-articles="vma,endurance-fondamentale">
-            <div class="badge-title">Badge “Endurance & VMA”</div>
+          <!-- Badge 1er article lu -->
+          <div class="badge-card" id="badge_first_article">
+            <div class="badge-title">Badge “1er article lu”</div>
             <div class="badge-status locked">🔒 Verrouillé</div>
             <div class="badge-tag">
-              Condition : lire les articles VMA + Endurance fondamentale et réussir les quiz à 100&nbsp;%.
+              Condition : lire au moins 1 article jusqu’au bout.
             </div>
+            <div class="badge-progress" data-type="first-article"></div>
           </div>
 
-          <!-- Badge Mobilité & Prévention : échauffement-5min -->
-          <div class="badge-card" data-badge-id="badge_mobilite" data-required-articles="echauffement-5min">
-            <div class="badge-title">Badge “Mobilité & Prévention”</div>
+          <!-- Badge 1er quiz répondu -->
+          <div class="badge-card" id="badge_first_quiz">
+            <div class="badge-title">Badge “1er quiz répondu”</div>
             <div class="badge-status locked">🔒 Verrouillé</div>
             <div class="badge-tag">
-              Condition : lire l’article Échauffement 5 minutes et réussir le quiz à 100&nbsp;%.
+              Condition : terminer au moins 1 quiz (peu importe le score).
             </div>
+            <div class="badge-progress" data-type="first-quiz"></div>
           </div>
 
-          <!-- Exemple pour plus tard :
-          <div class="badge-card" data-badge-id="badge_force" data-required-articles="force_debutant,force_intermediaire">
-            <div class="badge-title">Badge “Force & Musculation”</div>
+          <!-- Badge 10 articles lus -->
+          <div class="badge-card" id="badge_10_articles">
+            <div class="badge-title">Badge “10 articles lus”</div>
             <div class="badge-status locked">🔒 Verrouillé</div>
             <div class="badge-tag">
-              Condition : lire tous les articles Force & Musculation et réussir les quiz à 100 %.
+              Condition : lire au moins 10 articles différents.
             </div>
+            <div class="badge-progress" data-type="10-articles"></div>
           </div>
-          -->
+
+          <!-- Badge 10 quiz répondus -->
+          <div class="badge-card" id="badge_10_quiz">
+            <div class="badge-title">Badge “10 quiz répondus”</div>
+            <div class="badge-status locked">🔒 Verrouillé</div>
+            <div class="badge-tag">
+              Condition : terminer au moins 10 quiz (peu importe le score).
+            </div>
+            <div class="badge-progress" data-type="10-quiz"></div>
+          </div>
+
+          <!-- Badge 10 articles d’une même catégorie -->
+          <div class="badge-card" id="badge_10_articles_cat">
+            <div class="badge-title">Badge “Spécialiste – 10 articles dans une même catégorie”</div>
+            <div class="badge-status locked">🔒 Verrouillé</div>
+            <div class="badge-tag">
+              Condition : lire au moins 10 articles appartenant à la même catégorie (Endurance, Hygiène de vie, etc.).
+            </div>
+            <div class="badge-progress" data-type="10-articles-cat"></div>
+          </div>
+
+          <!-- Badge 10 quiz d’une même catégorie -->
+          <div class="badge-card" id="badge_10_quiz_cat">
+            <div class="badge-title">Badge “Expert – 10 quiz dans une même catégorie”</div>
+            <div class="badge-status locked">🔒 Verrouillé</div>
+            <div class="badge-tag">
+              Condition : terminer au moins 10 quiz liés à des articles d’une même catégorie.
+            </div>
+            <div class="badge-progress" data-type="10-quiz-cat"></div>
+          </div>
         </div>
       </section>
 
@@ -100,40 +134,145 @@
     </main>
   </div>
 
+  <!-- Gamification locale + synchronisation Firebase -->
   <script src="./js/acad-gamification.js"></script>
   <script src="./js/acad-firebase-sync.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       if (!window.acadGamification) return;
-      const grid = document.getElementById("badges-grid");
-      if (!grid) return;
 
-      const cards = grid.querySelectorAll(".badge-card");
-      cards.forEach(card => {
-        const requiredAttr = card.getAttribute("data-required-articles") || "";
-        const requiredArticles = requiredAttr.split(",").map(a => a.trim()).filter(Boolean);
-        const statusEl = card.querySelector(".badge-status");
-        if (!statusEl) return;
+      // Récupération de l'état de gamification (localStorage, éventuellement fusionné avec Firebase)
+      const state = window.acadGamification.getState
+        ? window.acadGamification.getState()
+        : {
+            xp: 0,
+            level: 1,
+            readArticles: [],
+            completedQuizzes: [],
+            perfectQuizzes: [],
+            sharedArticles: []
+          };
 
-        let unlocked = true;
-        requiredArticles.forEach(articleId => {
-          const read = window.acadGamification.isArticleRead(articleId);
-          const perfect = window.acadGamification.hasPerfectQuiz(articleId);
-          if (!(read && perfect)) {
-            unlocked = false;
-          }
+      const readArticles = state.readArticles || [];
+      const completedQuizzes = state.completedQuizzes || [];
+
+      const nbRead = readArticles.length;
+      const nbQuiz = completedQuizzes.length;
+
+      // Tableau de catégories par article
+      // ➜ Tu pourras compléter au fur et à mesure que tu ajoutes des articles.
+      const ARTICLE_CATEGORIES = {
+        "vma": "endurance",
+        "endurance-fondamentale": "endurance",
+        "echauffement-5min": "mobilite"
+        // ex: "debuter-course-pied": "endurance",
+        //     "perte-de-poids-sans-regime": "hygiene",
+        // etc.
+      };
+
+      function countByCategory(ids) {
+        const counts = {};
+        ids.forEach(function (id) {
+          const cat = ARTICLE_CATEGORIES[id];
+          if (!cat) return;
+          counts[cat] = (counts[cat] || 0) + 1;
         });
+        return counts;
+      }
 
-        if (unlocked && requiredArticles.length > 0) {
-          statusEl.textContent = "✅ Déverrouillé";
-          statusEl.classList.remove("locked");
-          statusEl.classList.add("unlocked");
+      const readByCat = countByCategory(readArticles);
+      const quizByCat = countByCategory(completedQuizzes);
+
+      const maxReadInCat = Object.values(readByCat).reduce((m, v) => Math.max(m, v), 0);
+      const maxQuizInCat = Object.values(quizByCat).reduce((m, v) => Math.max(m, v), 0);
+
+      const has10ReadSameCat = maxReadInCat >= 10;
+      const has10QuizSameCat = maxQuizInCat >= 10;
+
+      function updateBadge(badgeId, unlocked, progressText) {
+        const card = document.getElementById(badgeId);
+        if (!card) return;
+        const statusEl = card.querySelector(".badge-status");
+        const progressEl = card.querySelector(".badge-progress");
+
+        if (unlocked) {
+          if (statusEl) {
+            statusEl.textContent = "✅ Déverrouillé";
+            statusEl.classList.remove("locked");
+            statusEl.classList.add("unlocked");
+          }
         } else {
-          statusEl.textContent = "🔒 Verrouillé";
-          statusEl.classList.remove("unlocked");
-          statusEl.classList.add("locked");
+          if (statusEl) {
+            statusEl.textContent = "🔒 Verrouillé";
+            statusEl.classList.remove("unlocked");
+            statusEl.classList.add("locked");
+          }
         }
-      });
+
+        if (progressEl && progressText) {
+          progressEl.textContent = progressText;
+        }
+      }
+
+      // 1er article lu (1 / 1)
+      updateBadge(
+        "badge_first_article",
+        nbRead >= 1,
+        nbRead + " / 1 article lu"
+      );
+
+      // 1er quiz répondu (1 / 1)
+      updateBadge(
+        "badge_first_quiz",
+        nbQuiz >= 1,
+        nbQuiz + " / 1 quiz répondu"
+      );
+
+      // 10 articles lus
+      updateBadge(
+        "badge_10_articles",
+        nbRead >= 10,
+        nbRead + " / 10 articles lus"
+      );
+
+      // 10 quiz répondus
+      updateBadge(
+        "badge_10_quiz",
+        nbQuiz >= 10,
+        nbQuiz + " / 10 quiz répondus"
+      );
+
+      // 10 articles d’une même catégorie
+      if (Object.keys(readByCat).length === 0) {
+        updateBadge(
+          "badge_10_articles_cat",
+          false,
+          "0 / 10 articles dans une même catégorie"
+        );
+      } else {
+        const maxReadCatLabel = maxReadInCat + " article(s) sur la catégorie la plus lue";
+        updateBadge(
+          "badge_10_articles_cat",
+          has10ReadSameCat,
+          maxReadCatLabel + " (objectif : 10)"
+        );
+      }
+
+      // 10 quiz d’une même catégorie
+      if (Object.keys(quizByCat).length === 0) {
+        updateBadge(
+          "badge_10_quiz_cat",
+          false,
+          "0 / 10 quiz dans une même catégorie"
+        );
+      } else {
+        const maxQuizCatLabel = maxQuizInCat + " quiz sur la catégorie la plus travaillée";
+        updateBadge(
+          "badge_10_quiz_cat",
+          has10QuizSameCat,
+          maxQuizCatLabel + " (objectif : 10)"
+        );
+      }
     });
   </script>
 </body>
