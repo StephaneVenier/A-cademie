@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Comment manger sain quand on n’a pas le temps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz bien-être en libre accès</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">⏱️</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- ARTICLE -->
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Hygiène de vie & Nutrition</span>
+          <span class="chip">Lecture : 7 min</span>
+          <span class="chip">Niveau : Débutant</span>
+        </div>
+
+        <h1 class="article-title">Comment manger sain quand on n’a pas le temps</h1>
+        <p class="article-subtitle">
+          Entre le travail, la famille, les transports et parfois l’entraînement, cuisiner “parfaitement sain” semble impossible.
+          Bonne nouvelle : tu peux déjà faire énormément avec des choix simples, rapides, réalistes.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> manger sain sans temps, ce n’est pas faire des plats “Instagram”,
+          mais <strong>réduire les prises de tête</strong> avec quelques automatismes : courses intelligentes, options rapides, organisation minimale.
+        </div>
+
+        <div class="article-content">
+          <h2>1. Accepter que “assez bien” vaut mieux que “parfait ou rien”</h2>
+          <p>
+            Attendre d’avoir 1h pour cuisiner te mène souvent… à la pizza surgelée. L’idée ici : viser des repas
+            <strong>suffisamment</strong> équilibrés, même imparfaits. Un sandwich avec pain complet, jambon, crudités
+            sera toujours mieux qu’un menu ultra transformé avalé en vitesse.
+          </p>
+
+          <h2>2. Remplir ton placard avec des “sauveurs de repas”</h2>
+          <p>Quelques aliments qui se conservent bien et se préparent vite :</p>
+          <ul>
+            <li>Légumes surgelés nature (poêlée, haricots, brocolis…)</li>
+            <li>Boîtes de thon, maquereau, sardines, pois chiches, lentilles</li>
+            <li>Riz complet ou semi-complet, pâtes complètes, quinoa, semoule</li>
+            <li>Œufs, yaourts nature, fromages simples</li>
+          </ul>
+          <p>
+            Avec ça, tu peux faire un repas correct en 10–15 minutes sans réfléchir.
+          </p>
+
+          <h2>3. Construire le “bol express” en 3 éléments</h2>
+          <p>Quand tu es pressé·e, pense en 3 blocs plutôt qu’en recette :</p>
+          <ul>
+            <li><strong>1 source de protéines</strong> : œufs, thon, pois chiches, poulet, tofu…</li>
+            <li><strong>1 portion de légumes</strong> : frais, surgelés ou crudités déjà prêtes.</li>
+            <li><strong>1 portion de féculents</strong> : riz, pâtes, pain complet, quinoa…</li>
+          </ul>
+          <p>Tu mélanges, tu assaisonnes simplement (huile d’olive, herbes, citron) et c’est fait.</p>
+
+          <h2>4. Utiliser le “batch-cooking léger”</h2>
+          <p>
+            Pas besoin de passer 3 heures en cuisine le dimanche. En 30–40 minutes, tu peux :
+          </p>
+          <ul>
+            <li>Cuire un grand volume de féculents (riz, pâtes, quinoa)</li>
+            <li>Préparer une grosse base de légumes (rôtis, poêlés ou en soupe)</li>
+            <li>Cuire une ou deux sources de protéines (poulet, tofu, œufs durs)</li>
+          </ul>
+          <p>Tu auras alors plusieurs repas “prêts à assembler” pour la semaine.</p>
+
+          <h2>5. Faire les bons choix quand tu manges à l’extérieur</h2>
+          <p>
+            Même au resto ou au fast-food, tu peux limiter la casse :
+          </p>
+          <ul>
+            <li>Prendre une option avec <strong>protéines + légumes</strong> (salade complète, bowl, grillades…)</li>
+            <li>Éviter de cumuler boisson sucrée + dessert ultra sucré + entrée grasse</li>
+            <li>Demander la sauce à part pour doser toi-même</li>
+          </ul>
+
+          <h2>6. S’équiper au minimum</h2>
+          <p>
+            Quelques outils qui changent la vie quand on manque de temps :
+          </p>
+          <ul>
+            <li>Un bon micro-ondes (pour réchauffer tes préparations maison ou surgelés simples)</li>
+            <li>Une poêle correcte + une casserole</li>
+            <li>Une boîte pour emporter ton repas (bento, tupperware)</li>
+          </ul>
+
+          <h2>7. Avoir un “plan B sain” pour les jours KO</h2>
+          <p>
+            Garde toujours de quoi faire au moins :
+          </p>
+          <ul>
+            <li>Une omelette + légumes surgelés</li>
+            <li>Une soupe + tartines de pain complet + fromage ou œuf</li>
+            <li>Des légumineuses en boîte + riz + légumes surgelés</li>
+          </ul>
+          <p>
+            Ces plans B évitent les livraisons systématiques “par fatigue”.
+          </p>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage de cet article te donnent de l’XP sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+      <!-- QUIZ -->
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Manger sain sans temps</div>
+            <div class="quiz-caption">
+              5 questions rapides pour vérifier que tu as retenu les clés d’une alimentation plus saine, même débordé·e.
+            </div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">Valider mes réponses</button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">Recommencer le quiz</button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+  <script>
+    const ARTICLE_ID = "manger-sain-quand-on-a-pas-le-temps";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Quelle idée résume le mieux l’esprit de l’article ?",
+        options: [
+          "Manger parfaitement ou ne rien faire",
+          "Attendre d’avoir beaucoup de temps avant de changer",
+          "Faire des choix “assez bons” et réalistes au quotidien",
+          "Ne manger que des salades"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 2,
+        question: "Quel exemple correspond à un “sauveur de repas” du placard ?",
+        options: [
+          "Biscuits fourrés",
+          "Boîte de pois chiches",
+          "Boissons gazeuses",
+          "Chips"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Dans le “bol express”, quels sont les 3 éléments clés ?",
+        options: [
+          "Légumes, sauce, dessert",
+          "Protéines, légumes, féculents",
+          "Pain, fromage, dessert",
+          "Sauce, viande, boisson sucrée"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 4,
+        question: "Quel comportement est conseillé quand tu manges à l’extérieur ?",
+        options: [
+          "Toujours prendre boisson sucrée + dessert",
+          "Choisir une option avec protéines + légumes",
+          "Ne surtout pas manger de légumes",
+          "Manger le plus vite possible"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "À quoi sert un “plan B sain” ?",
+        options: [
+          "À commander systématiquement à livrer",
+          "À avoir une option rapide pour éviter les choix ultra transformés",
+          "À sauter le repas pour gagner du temps",
+          "À ne plus jamais cuisiner"
+        ],
+        correctIndex: 1
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "quiz-question";
+        div.dataset.questionId = q.id;
+        div.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options.map((opt, i) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${i}">
+                <span>${opt}</span>
+              </label>
+            `).join("")}
+          </div>
+        `;
+        quizForm.appendChild(div);
+      });
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter(q =>
+        Array.from(document.querySelectorAll('input[name="question-' + q.id + '"]')).some(r => r.checked)
+      ).length;
+      quizProgress.textContent = "Question " + (answered === 0 ? 1 : answered) + " sur " + total;
+    }
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach(o => o.classList.remove("correct","incorrect"));
+
+      quizData.forEach(q => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let sel = null;
+        radios.forEach((r, idx) => { if (r.checked) sel = idx; });
+
+        const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const opts = block.querySelectorAll(".quiz-option");
+
+        if (sel === q.correctIndex) {
+          score++;
+          if (sel != null) opts[sel].classList.add("correct");
+        } else {
+          if (q.correctIndex != null && opts[q.correctIndex]) {
+            opts[q.correctIndex].classList.add("correct");
+          }
+          if (sel != null && opts[sel]) {
+            opts[sel].classList.add("incorrect");
+          }
+        }
+      });
+
+      const ratio = score / total;
+      let msg;
+      if (ratio === 1) {
+        msg = "Parfait ! Tu as bien compris comment t’organiser pour manger mieux même sans temps ⏱️🥗";
+      } else if (ratio >= 0.7) {
+        msg = "Très bon score ! Quelques détails à affiner, mais tu es sur la bonne voie.";
+      } else if (ratio >= 0.4) {
+        msg = "Pas mal : relis l’article et regarde ce que tu peux appliquer dès cette semaine.";
+      } else {
+        msg = "C’est un début ! Relis calmement l’article et reviens tenter le quiz.";
+      }
+
+      quizResult.innerHTML = `<strong>${score}/${total}</strong> bonnes réponses. ${msg}`;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+
+      quizFeedback.textContent = ratio === 1
+        ? "🎮 Bravo ! Tu contribues au badge Hygiène de vie."
+        : "Tu peux recommencer le quiz pour viser le 100 % si tu veux.";
+    }
+
+    function resetQuiz(){ renderQuiz(); }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    const readBtn = document.getElementById("mark-article-read");
+    if (readBtn) {
+      readBtn.addEventListener("click", () => {
+        if (window.acadGamification) {
+          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        }
+        readBtn.textContent = "✓ Article compté pour l’XP locale";
+        readBtn.disabled = true;
+      });
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Comment manger sain quand on n’a pas le temps",
+          text: "Des solutions simples pour mieux manger même avec un emploi du temps chargé + un quiz express !",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+          } catch(e) {
+            shareFeedback.textContent = "Partage annulé 😉";
+          }
+        } else {
+          shareFeedback.textContent = "Le partage automatique n’est pas disponible, mais tu peux copier l’adresse. (XP ajoutée)";
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
