@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Articles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/acad-style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="acad-header">
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
+        </div>
+      </div>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="./index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="./articles.html">Articles</a>
+        <a class="nav-btn" href="./recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <h1 class="section-title">Bibliothèque d’articles</h1>
+        <p class="section-subtitle">
+          Les catégories et articles ci-dessous sont organisés pour rester faciles à enrichir. Pour ajouter un article, tu peux tout simplement dupliquer un lien.
+        </p>
+
+        
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🥦 Hygiène de vie / Perte de poids / Bien-être</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Habitudes du quotidien, alimentation, énergie et santé globale.</div>
+            <ul class="category-articles">
+              <li>Comment perdre du poids sans régime : la méthode 2025</li>
+              <li>10 habitudes simples pour être en meilleure forme</li>
+              <li>Le petit déjeuner idéal pour avoir de l’énergie</li>
+              <li>Comment manger sain quand on n’a pas le temps</li>
+              <li>Routine bien-être du matin (5 minutes)</li>
+              <li>Routine bien-être du soir pour mieux dormir</li>
+              <li>Pourquoi on prend du ventre ? Les vraies raisons</li>
+              <li>Alimentation anti-fatigue : quoi manger ?</li>
+              <li>Comment arrêter le grignotage facilement</li>
+              <li>Les meilleurs snacks sains pour la journée</li>
+            </ul>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🏃‍♂️ Endurance & Outdoor (CAP / Trail / Vélo / Rando / CO)</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Course à pied, trail, vélo et activités nature pour construire ton endurance.</div>
+            <ul class="category-articles">
+              <li><a href="./articles/endurance-fondamentale.html">Comprendre l’endurance fondamentale (EF) (article + quiz)</a></li>
+              <li><a href="./articles/vma.html">Tout savoir sur la VMA (article + quiz)</a></li>
+              <li><a href="./articles/echauffement-5min.html">Échauffement 5 minutes pour courir (article + quiz)</a></li>
+              <li>Débuter la course à pied : le guide complet</li>
+              <li>Programme 5 km débutant (semaine par semaine)</li>
+              <li>Courir pour perdre du poids : vérité et erreurs</li>
+              <li>Trail pour débutants : matériel indispensable</li>
+              <li>Comment améliorer son endurance rapidement</li>
+              <li>Vélo de route ou VTT : lequel choisir ?</li>
+              <li>Randonnée : liste du matériel essentiel</li>
+              <li>Comment progresser en montée (course/trail)</li>
+              <li>Course d’orientation : comment se lancer</li>
+              <li>Préparer un 10 km en 6 semaines</li>
+            </ul>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🎾 Rackets – Tennis & Padel</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Découvrir ou progresser en tennis et padel, du matériel aux tactiques.</div>
+            <ul class="category-articles">
+              <li>Débuter le padel : les bases à connaître</li>
+              <li>Tennis vs Padel : lequel choisir en 2025 ?</li>
+              <li>Les erreurs des débutants au padel</li>
+              <li>Comment choisir sa raquette de padel</li>
+              <li>Les 5 coups essentiels pour progresser vite</li>
+              <li>Matériel padel : ce qu’il faut vraiment acheter</li>
+              <li>Échauffement spécifique raquette (5 min)</li>
+              <li>Tennis : améliorer son service facilement</li>
+              <li>Padel : jouer en défense comme un pro</li>
+              <li>Comment éviter les blessures (tennis & padel)</li>
+            </ul>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🧘 Pilates / Yoga / Fitness doux & mobilité</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Travail en douceur, posture, respiration et mobilité utile au quotidien.</div>
+            <ul class="category-articles">
+              <li>Débuter le Pilates simplement à la maison</li>
+              <li>Les 10 exercices de mobilité indispensables</li>
+              <li>Pilates vs Yoga : lequel choisir ?</li>
+              <li>Séance de Pilates sans matériel (15 min)</li>
+              <li>Comment améliorer sa posture en 1 mois</li>
+              <li>Étirements matinaux : routine de 5 minutes</li>
+              <li>Comment relâcher les tensions du dos</li>
+              <li>Méthode de respiration pour réduire le stress</li>
+              <li>Yoga débutant : les 6 postures essentielles</li>
+              <li>Mobilité des hanches : exercices simples</li>
+            </ul>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">🏋️ Functional Training – CrossFit / Hyrox / Renfo</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Entraînements fonctionnels, intensité contrôlée et préparation type CrossFit / Hyrox.</div>
+            <ul class="category-articles">
+              <li>Débuter le CrossFit : ce qu’il faut savoir</li>
+              <li>Hyrox : la nouvelle compétition expliquée</li>
+              <li>Renforcement complet du corps sans matériel</li>
+              <li>Comment améliorer sa puissance en sprint</li>
+              <li>Les WOD simples à faire chez soi</li>
+              <li>Comment progresser en burpees</li>
+              <li>Hyrox : comment préparer sa première course</li>
+              <li>Exercices fonctionnels pour le quotidien</li>
+              <li>Renfo pour coureurs : 10 exercices clés</li>
+              <li>Progresser en traction (méthode simple)</li>
+            </ul>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">⚽ Sports collectifs (Foot / Rugby / Basket / etc.)</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Comprendre les bases techniques et physiques des grands sports collectifs.</div>
+            <ul class="category-articles">
+              <li>Foot : comment progresser sans club</li>
+              <li>Rugby : les règles pour débutants</li>
+              <li>Basket : améliorer son tir rapidement</li>
+              <li>Comment devenir plus explosif (sport co)</li>
+              <li>Renforcement spécial foot : les must-have</li>
+              <li>Comment éviter les blessures en sport co</li>
+              <li>Échauffement complet pour équipes amateurs</li>
+              <li>Comment améliorer sa vitesse sur 10–30 m</li>
+              <li>Football loisir : comment s’y mettre</li>
+              <li>Rugby débutant : matériel essentiel</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span>© A-Cadémie — Ressources sportives en libre accès.</span>
+        <span>
+          <a href="#">Mentions légales</a> ·
+          <a href="#">Confidentialité</a> ·
+          <a href="#">Contact</a>
+        </span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="./js/acad-gamification.js"></script>
+</body>
+</html>
