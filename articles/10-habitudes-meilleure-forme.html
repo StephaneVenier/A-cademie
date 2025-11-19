@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — 10 habitudes simples pour être en meilleure forme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz bien-être en libre accès</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">🌿</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Hygiène de vie & Bien-être</span>
+          <span class="chip">Lecture : 7 min</span>
+          <span class="chip">Niveau : Débutant</span>
+        </div>
+
+        <h1 class="article-title">10 habitudes simples pour être en meilleure forme</h1>
+        <p class="article-subtitle">
+          Pas besoin de tout changer d’un coup pour se sentir mieux. Voici 10 petites habitudes faciles à mettre en place au quotidien pour avoir plus d’énergie, mieux dormir et se sentir bien dans ton corps.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> ce ne sont pas les gros “coups de motivation” qui changent tout,
+          mais les petites actions répétées, jour après jour.
+        </div>
+
+        <div class="article-content">
+          <h2>1. Commencer la journée par un grand verre d’eau</h2>
+          <p>
+            Après la nuit, ton corps est déshydraté. Boire un grand verre d’eau dès le réveil aide à relancer ton organisme, ta digestion et ta concentration.
+          </p>
+
+          <h2>2. Ajouter un légume à chaque repas</h2>
+          <p>
+            Plutôt que de supprimer des choses, commence par <strong>ajouter</strong> : une poignée de crudités, des légumes surgelés nature, une soupe… Plus de fibres, de vitamines, et une meilleure satiété.
+          </p>
+
+          <h2>3. Marcher un peu plus chaque jour</h2>
+          <p>
+            Pas besoin d’un gros entraînement pour bouger : descendre un arrêt plus tôt, prendre les escaliers, marcher 10 minutes après le repas… Ces minutes s’accumulent et font une vraie différence.
+          </p>
+
+          <h2>4. Se coucher à heure plus régulière</h2>
+          <p>
+            Ton corps adore la régularité. Essaye d’avoir une heure de coucher “repère” (même approximative) pour améliorer ton sommeil, ta récupération et ton énergie.
+          </p>
+
+          <h2>5. Faire une vraie pause pour manger</h2>
+          <p>
+            Manger en 5 minutes devant un écran, c’est le combo parfait pour trop manger sans même s’en rendre compte. Prends le temps de t’asseoir, de mastiquer, de sentir les goûts.
+          </p>
+
+          <h2>6. Prévoir un snack sain “de secours”</h2>
+          <p>
+            Une poignée d’oléagineux, un fruit, un yaourt nature… Avoir une option simple sous la main limite les grignotages de biscuits, bonbons ou viennoiseries “par défaut”.
+          </p>
+
+          <h2>7. Bouger 5 minutes quand tu te sens “mou”</h2>
+          <p>
+            Plutôt que de rester affalé, teste : 5 minutes d’étirements, quelques squats, un peu de marche dans le quartier. Le but n’est pas la performance, mais de relancer ton corps et ton cerveau.
+          </p>
+
+          <h2>8. Limiter les boissons sucrées au quotidien</h2>
+          <p>
+            Sodas, jus industriels, boissons “énergisantes” apportent beaucoup de sucre très vite. Garde-les pour des occasions ponctuelles et choisis l’eau, le thé ou le café non sucré au quotidien.
+          </p>
+
+          <h2>9. Prendre 2 minutes pour respirer profondément</h2>
+          <p>
+            Stress et fatigue sont souvent liés. 5 à 10 grandes respirations lentes, poitrine ouverte, épaules relâchées peuvent déjà faire baisser la tension et t’aider à y voir plus clair.
+          </p>
+
+          <h2>10. Se fixer un mini-objectif par semaine</h2>
+          <p>
+            Au lieu de vouloir “tout changer”, choisis une habitude à renforcer pendant 7 jours : marcher plus, boire plus d’eau, ajouter des légumes… Une fois qu’elle est ancrée, tu passes à la suivante.
+          </p>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage de cet article te donnent de l’XP sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+      <!-- QUIZ -->
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Habitudes bien-être</div>
+            <div class="quiz-caption">
+              5 questions pour vérifier si les bases sont claires. Résultat immédiat, sans compte.
+            </div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">
+          Question 1 sur 5
+        </div>
+
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">
+              Valider mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">
+              Recommencer le quiz
+            </button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+  <script>
+    const ARTICLE_ID = "10-habitudes-forme";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Par quoi peut-on commencer facilement le matin pour aider le corps ?",
+        options: [
+          "Un café très sucré",
+          "Un grand verre d’eau",
+          "Rien du tout, ce n’est pas utile",
+          "Une boisson énergisante"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "Quelle idée est la plus cohérente avec l’article ?",
+        options: [
+          "Supprimer tous les aliments gras d’un coup",
+          "Ajouter des légumes progressivement à ses repas",
+          "Ne manger que des salades le soir",
+          "Sauter le dîner pour “compenser”"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Pourquoi prévoir un snack sain “de secours” est utile ?",
+        options: [
+          "Pour pouvoir grignoter toute la journée",
+          "Pour remplacer les repas",
+          "Pour éviter de se tourner vers des biscuits ou bonbons par défaut",
+          "Pour ne plus jamais avoir faim"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 4,
+        question: "Quel type de boisson est à privilégier au quotidien ?",
+        options: [
+          "Les sodas light en grande quantité",
+          "Les jus de fruits industriels",
+          "Les boissons “énergisantes”",
+          "L’eau, le thé ou le café non sucré"
+        ],
+        correctIndex: 3
+      },
+      {
+        id: 5,
+        question: "Quelle stratégie est la plus durable pour progresser ?",
+        options: [
+          "Tout changer en une semaine",
+          "Se fixer un mini-objectif par semaine",
+          "Suivre un plan parfait pendant 3 jours puis tout arrêter",
+          "Copier exactement ce que fait un influenceur"
+        ],
+        correctIndex: 1
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "quiz-question";
+        questionDiv.dataset.questionId = q.id;
+
+        questionDiv.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options
+              .map(
+                (opt, i) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${i}">
+                <span>${opt}</span>
+              </label>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+        quizForm.appendChild(questionDiv);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      let answered = 0;
+
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        const hasAnswer = Array.from(radios).some((r) => r.checked);
+        if (hasAnswer) answered++;
+      });
+
+      quizProgress.textContent = "Question " + (answered === 0 ? 1 : answered) + " sur " + total;
+    }
+
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach((opt) => {
+        opt.classList.remove("correct", "incorrect");
+      });
+
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let selectedIndex = null;
+
+        radios.forEach((r, idx) => {
+          if (r.checked) selectedIndex = idx;
+        });
+
+        const questionDiv = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const optionLabels = questionDiv.querySelectorAll(".quiz-option");
+
+        if (selectedIndex === q.correctIndex) {
+          score++;
+          if (selectedIndex !== null) {
+            optionLabels[selectedIndex].classList.add("correct");
+          }
+        } else {
+          if (q.correctIndex != null && optionLabels[q.correctIndex]) {
+            optionLabels[q.correctIndex].classList.add("correct");
+          }
+          if (selectedIndex !== null && optionLabels[selectedIndex]) {
+            optionLabels[selectedIndex].classList.add("incorrect");
+          }
+        }
+      });
+
+      const ratio = score / total;
+      let message;
+
+      if (ratio === 1) {
+        message = "Parfait, tu maîtrises déjà très bien les bases du bien-être 👌";
+      } else if (ratio >= 0.7) {
+        message = "Très solide ! Il reste quelques détails à affiner.";
+      } else if (ratio >= 0.4) {
+        message = "Pas mal : relis l’article pour consolider certaines notions.";
+      } else {
+        message = "C’est un bon point de départ, relis tranquillement l’article et reviens tenter ta chance.";
+      }
+
+      quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses. " + message;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+
+      if (ratio === 1) {
+        quizFeedback.textContent = "🎮 Bravo ! Quiz parfait, tu contribues au déblocage du badge Hygiène de vie.";
+      } else {
+        quizFeedback.textContent = "Tu peux recommencer le quiz si tu veux viser le 100 % pour le badge.";
+      }
+    }
+
+    function resetQuiz() {
+      renderQuiz();
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    const readBtn = document.getElementById("mark-article-read");
+    if (readBtn) {
+      readBtn.addEventListener("click", () => {
+        if (window.acadGamification) {
+          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        }
+        readBtn.textContent = "✓ Article compté pour l’XP locale";
+        readBtn.disabled = true;
+      });
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — 10 habitudes simples pour être en meilleure forme",
+          text: "Découvre 10 habitudes faciles à mettre en place pour te sentir mieux au quotidien + un quiz express !",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            if (shareFeedback) {
+              shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée sur cet appareil)";
+            }
+          } catch (e) {
+            if (shareFeedback) {
+              shareFeedback.textContent = "Partage annulé, mais tu peux réessayer quand tu veux.";
+            }
+          }
+        } else {
+          if (shareFeedback) {
+            shareFeedback.textContent =
+              "Le partage automatique n’est pas disponible, mais tu peux copier l’adresse dans la barre du navigateur. (XP ajoutée)";
+          }
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
