@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Débuter la course à pied : le guide complet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Débuter la course à pied — Version 2025</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">🏃‍♂️</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <main class="layout">
+      <!-- ARTICLE -->
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag">
+            <span class="tag-dot"></span> Endurance & Outdoor — CAP
+          </span>
+          <span class="chip">Lecture : 8 min</span>
+          <span class="chip">Niveau : Débutant</span>
+        </div>
+
+        <h1 class="article-title">Débuter la course à pied : le guide complet</h1>
+        <p class="article-subtitle">
+          Tu veux te (re)mettre à courir sans te blesser ni te dégoûter ?
+          Ce guide te donne les bases : matériel, rythme, respiration, progression et erreurs à éviter.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> pour bien débuter, il vaut mieux courir
+          <strong>moins vite</strong> mais <strong>plus régulièrement</strong>, plutôt que trop vite et arrêter au bout de 2 semaines.
+        </div>
+
+        <div class="article-content">
+          <h2>1️⃣ Objectif : courir en aisance, pas en souffrance</h2>
+          <p>
+            Quand on débute, le réflexe est de courir trop vite. Résultat : souffle coupé, points de côté, frustration.
+          </p>
+          <p>
+            Une règle simple : tu dois pouvoir <strong>parler en courant</strong> (phrase courte, mais possible).
+            Si tu es incapable de dire quelques mots → tu es trop vite.
+          </p>
+
+          <h2>2️⃣ Le matériel minimum pour commencer</h2>
+          <ul>
+            <li><strong>Chaussures de course</strong> (pas des vieilles baskets plates de ville)</li>
+            <li><strong>Tenue confortable</strong> (t-shirt technique si possible, évite le coton qui reste mouillé)</li>
+            <li><strong>Brassière adaptée</strong> pour les femmes</li>
+            <li><strong>Optionnel :</strong> montre ou appli pour suivre temps/distance, mais pas obligatoire au début</li>
+          </ul>
+          <p>
+            Pas besoin d’un équipement “parfait” pour sortir courir. Quelques basiques suffisent pour bien démarrer.
+          </p>
+
+          <h2>3️⃣ Le bon rythme : alterner marche et course</h2>
+          <p>
+            Au début, courir 20–30 minutes <strong>sans s’arrêter</strong> est souvent trop ambitieux.
+            La meilleure approche : alterner course lente et marche.
+          </p>
+          <p>Exemple de séance type débutant (30 minutes) :</p>
+          <ul>
+            <li>5 min de marche active (échauffement)</li>
+            <li>1 min de course lente / 1 min de marche × 10</li>
+            <li>5 min de marche douce (retour au calme)</li>
+          </ul>
+          <p>
+            Au fil des semaines, tu augmentes la durée de course et tu réduis la marche.
+          </p>
+
+          <h2>4️⃣ Fréquence : combien de sorties par semaine ?</h2>
+          <p>
+            Idéal pour débuter : <strong>2 à 3 sorties par semaine</strong>, espacées (ex : lundi / mercredi / samedi).
+          </p>
+          <ul>
+            <li>Avec 1 sortie/semaine → tu progresses peu</li>
+            <li>Avec 2–3 sorties → ton corps s’adapte, ton souffle et tes muscles progressent</li>
+            <li>Au-delà, au début → risque d’en faire trop et de te blesser</li>
+          </ul>
+
+          <h2>5️⃣ Respiration : par le nez, par la bouche ?</h2>
+          <p>
+            Ne te prends pas la tête : l’important est de <strong>respirer régulièrement</strong>.
+            Tu peux inspirer par le nez et expirer par la bouche, ou les deux par la bouche si l’effort augmente.
+          </p>
+          <p>
+            Ce qui compte : garder un rythme qui ne te met pas en panique respiratoire.
+            Si tu es essoufflé très vite → ralentis.
+          </p>
+
+          <h2>6️⃣ Échauffement et retour au calme</h2>
+          <p>
+            Tu n’as pas besoin de 20 minutes d’échauffement, mais partir “à froid” à fond est une mauvaise idée.
+          </p>
+          <ul>
+            <li><strong>Avant :</strong> 5 min de marche active + quelques mouvements (chevilles, hanches, épaules)</li>
+            <li><strong>Après :</strong> 3–5 min de marche douce + quelques étirements légers si tu en as envie</li>
+          </ul>
+
+          <h2>7️⃣ Les erreurs classiques à éviter</h2>
+          <ul>
+            <li>Courir trop vite dès le début</li>
+            <li>Se comparer aux autres (réseaux, potes, appli…)</li>
+            <li>Augmenter brutalement la durée ou la distance</li>
+            <li>Courir tous les jours d’un coup</li>
+            <li>Ignorer les signaux de douleur (genoux, tendon, hanche…)</li>
+          </ul>
+          <p>
+            La progression en course est <strong>progressive</strong>.
+            Tu as plus à gagner en régularité qu’en exploits isolés.
+          </p>
+
+          <h2>8️⃣ Et la suite ?</h2>
+          <p>
+            Quand tu te sens à l’aise avec des séances 30 minutes en alternant course/marche,
+            tu peux viser :
+          </p>
+          <ul>
+            <li>Courir 20 à 30 minutes en continu, très lentement</li>
+            <li>Suivre un <strong>programme 5 km débutant</strong> (voir article dédié)</li>
+            <li>Ajouter une sortie “plaisir” (parc, nature, avec un ami…)</li>
+          </ul>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+
+      <!-- QUIZ -->
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Débuter la CAP</div>
+            <div class="quiz-caption">
+              5 questions pour vérifier que les bases sont claires avant de te lancer.
+            </div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">Valider mes réponses</button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">Recommencer le quiz</button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPTS GAMIFICATION -->
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+
+  <script>
+    const ARTICLE_ID = "debuter-course-a-pied";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Quel est le bon repère d’allure pour débuter ?",
+        options: [
+          "Être à fond dès le début",
+          "Ne plus pouvoir parler du tout",
+          "Pouvoir parler par phrases courtes en courant",
+          "Courir le plus vite possible sur 1 km"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 2,
+        question: "Quel format de séance est conseillé pour débuter ?",
+        options: [
+          "30 min de course non-stop obligatoirement",
+          "1 min course / 1 min marche sur 20 min + marche",
+          "Uniquement de la marche pendant 2 mois",
+          "Des sprints en côte dès la première sortie"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Combien de sorties par semaine est idéal pour commencer ?",
+        options: [
+          "1 sortie par mois",
+          "1 sortie par semaine",
+          "2 à 3 sorties par semaine",
+          "7 sorties par semaine"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 4,
+        question: "Quel est le matériel minimum important au début ?",
+        options: [
+          "Des chaussures de course adaptées",
+          "Un cardiofréquencemètre dernière génération obligatoire",
+          "Un short en jean",
+          "Des chaussures de ville plates"
+        ],
+        correctIndex: 0
+      },
+      {
+        id: 5,
+        question: "Quelle erreur est fréquente chez les débutants ?",
+        options: [
+          "Courir trop vite et se dégoûter",
+          "Courir très lentement au début",
+          "Alterner course et marche",
+          "Faire 2–3 sorties par semaine"
+        ],
+        correctIndex: 0
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "quiz-question";
+        div.dataset.questionId = q.id;
+
+        div.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options.map((opt, i) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${i}">
+                <span>${opt}</span>
+              </label>
+            `).join("")}
+          </div>
+        `;
+        quizForm.appendChild(div);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.textContent = "Réponds puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter(q =>
+        Array.from(document.querySelectorAll(`input[name="question-${q.id}"]`))
+          .some(r => r.checked)
+      ).length;
+
+      quizProgress.textContent = "Question " + (answered || 1) + " sur " + total;
+    }
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+
+      document.querySelectorAll(".quiz-option").forEach(opt =>
+        opt.classList.remove("correct","incorrect")
+      );
+
+      quizData.forEach(q => {
+        const radios = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        let selected = null;
+        radios.forEach((r, i) => { if (r.checked) selected = i; });
+
+        const block = document.querySelector(`.quiz-question[data-question-id="${q.id}"]`);
+        const options = block.querySelectorAll(".quiz-option");
+
+        if (selected === q.correctIndex) {
+          score++;
+          options[selected]?.classList.add("correct");
+        } else {
+          options[q.correctIndex]?.classList.add("correct");
+          if (selected !== null) {
+            options[selected]?.classList.add("incorrect");
+          }
+        }
+      });
+
+      const ratio = score / quizData.length;
+      let msg =
+        ratio === 1 ? "Parfait ! Tu as les bonnes bases pour te lancer 🏃‍♂️" :
+        ratio >= 0.7 ? "Très bon score, tu peux y aller sereinement." :
+        ratio >= 0.4 ? "Pas mal, relis certains points avant de te lancer." :
+        "Relis l’article tranquillement puis retente le quiz.";
+
+      quizResult.innerHTML = `<strong>${score}/${quizData.length}</strong> bonnes réponses • ${msg}`;
+
+      if (window.acadGamification)
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, quizData.length);
+
+      quizFeedback.textContent =
+        ratio === 1 ? "🎮 Bravo ! XP bonus pour ce quiz parfait." : "Tu peux recommencer pour viser le 100 %.";
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", renderQuiz);
+
+    // XP lecture
+    const readBtn = document.getElementById("mark-article-read");
+    if (readBtn) {
+      readBtn.addEventListener("click", () => {
+        if (window.acadGamification)
+          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+        readBtn.textContent = "✓ Article compté pour l’XP locale";
+        readBtn.disabled = true;
+      });
+    }
+
+    // Partage
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (window.acadGamification)
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+        const shareData = {
+          title: "A-Cadémie — Débuter la course à pied",
+          text: "Un guide simple pour bien commencer la course à pied + un quiz express.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+          } catch {
+            shareFeedback.textContent = "Partage annulé 😉";
+          }
+        } else {
+          shareFeedback.textContent =
+            "Partage automatique non disponible, mais tu peux copier le lien. (XP ajoutée)";
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+
+</body>
+</html>
