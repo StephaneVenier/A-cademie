@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Routine bien-être du soir pour mieux dormir</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Sommeil & bien-être — Gratuit & accessible</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">🌙</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+
+      <!-- ARTICLE -->
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Sommeil & Bien-être</span>
+          <span class="chip">Lecture : 5 min</span>
+          <span class="chip">Niveau : Débutant</span>
+        </div>
+
+        <h1 class="article-title">Routine bien-être du soir pour mieux dormir</h1>
+        <p class="article-subtitle">
+          Difficile de s’endormir, cerveau qui tourne, réveils nocturnes…  
+          Voici une routine simple pour envoyer à ton corps un message clair : “la journée est finie, tu peux relâcher”.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> ce n’est pas l’heure exacte du coucher qui compte le plus,
+          mais le fait d’installer des <strong>rituels répétitifs et apaisants</strong> avant de dormir.
+        </div>
+
+        <div class="article-content">
+          <h2>1️⃣ 1 heure avant : lever le pied sur les écrans</h2>
+          <p>
+            La lumière bleue et les contenus stimulants (mails, réseaux, vidéos) maintiennent ton cerveau en mode “réveil”.
+            Idéalement, réduis les écrans dans l’heure qui précède le coucher :
+          </p>
+          <ul>
+            <li>Pas de mails “importants” à traiter</li>
+            <li>Pas de débat ou de drama sur les réseaux</li>
+            <li>Si tu regardes quelque chose, choisis du léger, dans le calme</li>
+          </ul>
+
+          <h2>2️⃣ 15–20 minutes avant : passer en mode “lumière douce”</h2>
+          <p>
+            La lumière signale à ton cerveau s’il fait “jour” ou “nuit”.  
+            Baisse l’intensité : lampe de chevet, lumière chaude, ambiance plus cosy.
+          </p>
+
+          <h2>3️⃣ 5 minutes : décharger la tête</h2>
+          <p>
+            Avant de te coucher, prends 2–5 minutes pour :
+          </p>
+          <ul>
+            <li>Noter sur un carnet ce qui te trotte dans la tête (tâches, idées, soucis)</li>
+            <li>Faire une mini liste “demain, je verrai…”</li>
+          </ul>
+          <p>
+            Le but : dire à ton cerveau que tu n’oublieras pas, donc il peut arrêter de tourner en boucle.
+          </p>
+
+          <h2>4️⃣ 3 minutes : respirations lentes au lit</h2>
+          <p>
+            Une fois allongé·e, teste ce schéma simple :
+          </p>
+          <ul>
+            <li>Inspiration par le nez sur 4 secondes</li>
+            <li>Expiration lente sur 6 à 8 secondes</li>
+            <li>Répète 8 à 10 fois</li>
+          </ul>
+          <p>
+            Cela aide à calmer le rythme cardiaque et à faire baisser la tension.
+          </p>
+
+          <h2>5️⃣ Option : petit rituel “positif”</h2>
+          <p>
+            Tu peux ajouter un geste qui te fait du bien :
+          </p>
+          <ul>
+            <li>3 choses positives de la journée (même très simples)</li>
+            <li>Un moment de gratitude (quelqu’un, quelque chose que tu apprécies)</li>
+            <li>Une intention douce pour demain (“demain, j’aimerais…”)</li>
+          </ul>
+          <p>
+            L’idée n’est pas de “forcer” le positif, mais d’équilibrer ce que ton cerveau retient le soir.
+          </p>
+
+          <h2>6️⃣ Ce qui perturbe le plus le sommeil</h2>
+          <p>
+            Parmi les grands classiques qui nuisent au sommeil :
+          </p>
+          <ul>
+            <li>Café ou boissons caféinées trop tard (après 15–16h chez certaines personnes)</li>
+            <li>Repas très lourds juste avant le coucher</li>
+            <li>Alcool “pour dormir” (endort vite mais casse la qualité du sommeil)</li>
+            <li>Activités ultra stimulantes juste avant le lit (travail, jeux vidéo très intenses…)</li>
+          </ul>
+          <p>
+            Si tu peux déjà limiter un ou deux de ces éléments, c’est un grand pas.
+          </p>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+      <!-- QUIZ -->
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Routine du soir</div>
+            <div class="quiz-caption">
+              5 questions pour vérifier que tu as bien compris les réflexes qui améliorent ton sommeil.
+            </div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">Valider mes réponses</button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">Recommencer le quiz</button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPTS GAMIFICATION -->
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+
+  <script>
+    const ARTICLE_ID = "routine-bien-etre-soir";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Pourquoi réduire les écrans avant de dormir ?",
+        options: [
+          "Pour économiser de la batterie",
+          "Parce qu’ils émettent de la lumière bleue et stimulent le cerveau",
+          "Parce que c’est interdit après 21h",
+          "Pour ne plus recevoir de messages"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "À quoi sert le fait de noter ce qui te trotte dans la tête avant de dormir ?",
+        options: [
+          "À ne plus rien faire le lendemain",
+          "À remplir un journal pour les réseaux sociaux",
+          "À rassurer ton cerveau : tu n’oublieras pas, donc il peut se calmer",
+          "À faire une liste de choses négatives"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 3,
+        question: "Quel type de respiration est recommandé dans la routine ?",
+        options: [
+          "Respiration rapide et saccadée",
+          "Apnée le plus longtemps possible",
+          "Inspiration courte, expiration plus longue",
+          "Respiration bruyante par la bouche"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 4,
+        question: "Quel élément peut nuire au sommeil s’il est consommé trop tard ?",
+        options: [
+          "Un grand verre d’eau le matin",
+          "Café ou boissons caféinées en fin de journée",
+          "Légumes surgelés",
+          "Soupe légère le soir"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "Quel est le but principal de cette routine du soir ?",
+        options: [
+          "S’endormir immédiatement à la seconde",
+          "Contrôler parfaitement sa nuit",
+          "Envoyer un message clair au corps que la journée est finie",
+          "Remplacer totalement le sommeil"
+        ],
+        correctIndex: 2
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "quiz-question";
+        div.dataset.questionId = q.id;
+        div.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options.map((opt, i) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${i}">
+                <span>${opt}</span>
+              </label>
+            `).join("")}
+          </div>
+        `;
+        quizForm.appendChild(div);
+      });
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter(q =>
+        Array.from(document.querySelectorAll('input[name="question-' + q.id + '"]')).some(r => r.checked)
+      ).length;
+      quizProgress.textContent = "Question " + (answered === 0 ? 1 : answered) + " sur " + total;
+    }
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach(o => o.classList.remove("correct","incorrect"));
+
+      quizData.forEach(q => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let sel = null;
+        radios.forEach((r, idx) => { if (r.checked) sel = idx; });
+
+        const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const opts = block.querySelectorAll(".quiz-option");
+
+        if (sel === q.correctIndex) {
+          score++;
+          if (sel != null && opts[sel]) opts[sel].classList.add("correct");
+        } else {
+          if (opts[q.correctIndex]) opts[q.correctIndex].classList.add("correct");
+          if (sel != null && opts[sel]) opts[sel].classList.add("incorrect");
+        }
+      });
+
+      const ratio = score / total;
+      let msg;
+      if (ratio === 1) {
+        msg = "Parfait ! Tu maîtrises les bases d’une bonne routine du soir 🌙";
+      } else if (ratio >= 0.7) {
+        msg = "Très bien, tu as compris l’essentiel.";
+      } else if (ratio >= 0.4) {
+        msg = "Pas mal, relis l’article pour consolider certains points.";
+      } else {
+        msg = "C’est un début : relis tranquillement l’article et reviens tenter le quiz.";
+      }
+
+      quizResult.innerHTML = `<strong>${score}/${total}</strong> bonnes réponses. ${msg}`;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+
+      quizFeedback.textContent =
+        ratio === 1
+          ? "🎮 Bravo ! Quiz parfait, tu aides à débloquer le badge Sommeil & Bien-être."
+          : "Tu peux recommencer le quiz si tu veux viser le 100 %.";
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", renderQuiz);
+
+    const readBtn = document.getElementById("mark-article-read");
+    if (readBtn) {
+      readBtn.addEventListener("click", () => {
+        if (window.acadGamification) {
+          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        }
+        readBtn.textContent = "✓ Article compté pour l’XP locale";
+        readBtn.disabled = true;
+      });
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Routine bien-être du soir",
+          text: "Une routine simple pour mieux dormir + un quiz express sur le sommeil.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+          } catch (e) {
+            shareFeedback.textContent = "Partage annulé 😉";
+          }
+        } else {
+          shareFeedback.textContent = "Le partage automatique n’est pas disponible, mais tu peux copier l’adresse. (XP ajoutée)";
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
