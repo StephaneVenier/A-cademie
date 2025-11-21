@@ -4,11 +4,21 @@
   <meta charset="utf-8" />
   <title>A-Cadémie — Programme 5 km débutant (8 semaines)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
 </head>
+
 <body>
   <div class="page">
+
+    <!-- HEADER -->
     <header class="acad-header">
       <a href="../index.html" class="brand" style="text-decoration:none;">
         <div class="brand-logo">A</div>
@@ -17,41 +27,69 @@
           <div class="brand-text-sub">Programme 5 km débutant — 8 semaines</div>
         </div>
       </a>
+
       <nav class="acad-nav">
         <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
         <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
       </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">🏁</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
     </header>
 
+
     <main class="layout">
+
+      <!-- ARTICLE -->
       <article class="article-card">
         <div class="article-meta">
-          <span class="tag"><span class="tag-dot"></span> Endurance & Outdoor</span>
-          <span class="chip">Lecture : 12 min</span>
+          <span class="tag">
+            <span class="tag-dot"></span> Endurance & Outdoor — CAP
+          </span>
+          <span class="chip">Lecture : 10 min</span>
           <span class="chip">Niveau : Débutant absolu</span>
         </div>
 
         <h1 class="article-title">Programme 5 km débutant – 8 semaines</h1>
         <p class="article-subtitle">
-          Départ ultra-progressif : 1 min course / 1 min marche.  
-          Objectif : courir un 5 km en 8 semaines sans souffrance, sans blessure et avec du plaisir.
+          Tu pars (presque) de zéro et tu veux courir un 5 km sans souffrir ?  
+          Ce programme ultra-progressif démarre à <strong>1 min de course / 1 min de marche</strong> et t’emmène jusqu’à
+          <strong>20–25 min en continu</strong> en 8 semaines.
         </p>
 
         <div class="article-highlight">
-          <strong>À retenir :</strong> courir lentement + progresser doucement + rester régulier = réussite assurée.
+          <strong>À retenir :</strong> ne cherche pas à aller vite.  
+          Le but : <strong>être régulier</strong>, courir en aisance, laisser le corps s’adapter semaine après semaine.
         </div>
 
         <div class="article-content">
-          <h2>1️⃣ Principes du programme</h2>
-          <p>Pour les vrais débutants :</p>
+
+          <h2>1️⃣ Les règles du jeu</h2>
           <ul>
-            <li>On court en aisance respiratoire</li>
-            <li>On ralentit dès qu’on ne peut plus parler</li>
-            <li>On garde 3 sorties par semaine, espacées</li>
-            <li>On alterne la course et la marche pour laisser le corps s’adapter</li>
+            <li><strong>3 séances par semaine</strong>, espacées (ex : lundi – mercredi – samedi)</li>
+            <li>Tu dois pouvoir <strong>parler par petites phrases</strong> en courant</li>
+            <li>Si tu es “au bout de ta vie” : tu vas trop vite → tu <strong>ralentis</strong></li>
+            <li>Douleur articulaire qui persiste = on adapte ou on consulte</li>
           </ul>
 
-          <h2>2️⃣ Structure des 8 semaines</h2>
+          <h2>2️⃣ Vue d’ensemble des 8 semaines</h2>
           <ul>
             <li><strong>S1 :</strong> 1 min course / 1 min marche × 10</li>
             <li><strong>S2 :</strong> 2 min course / 1 min marche × 8</li>
@@ -60,76 +98,343 @@
             <li><strong>S5 :</strong> 5 min course / 1 min marche × 4</li>
             <li><strong>S6 :</strong> 8 min course / 2 min marche × 3</li>
             <li><strong>S7 :</strong> 12 min course / 3 min marche × 2</li>
-            <li><strong>S8 :</strong> 20–25 min en continu</li>
+            <li><strong>S8 :</strong> 20–25 min en continu (objectif 5 km)</li>
           </ul>
 
-          <h2>3️⃣ Semaine par semaine</h2>
-          <p><strong>Semaine 1 :</strong> 1 min course / 1 min marche × 10 (total 20 min)</p>
-          <p><strong>Semaine 2 :</strong> 2 min course / 1 min marche × 8 (total 24 min)</p>
-          <p><strong>Semaine 3 :</strong> 3 min course / 1 min marche × 6 (total 24 min)</p>
-          <p><strong>Semaine 4 :</strong> 4 min course / 1 min marche × 5 (total 25 min)</p>
-          <p><strong>Semaine 5 :</strong> 5 min course / 1 min marche × 4 (total 24 min)</p>
-          <p><strong>Semaine 6 :</strong> 8 min course / 2 min marche × 3 (total 30 min)</p>
-          <p><strong>Semaine 7 :</strong> 12 min course / 3 min marche × 2 (total 30 min)</p>
-          <p><strong>Semaine 8 :</strong> 20 à 25 min en continu (5 km possible)</p>
+          <h2>3️⃣ Détail semaine par semaine</h2>
 
-          <h2>4️⃣ Conseils essentiels</h2>
+          <h3>Semaine 1 — Découverte</h3>
           <ul>
-            <li>Courir très lentement (c’est normal)</li>
-            <li>Boire après la séance</li>
-            <li>Éviter les sorties à jeun si tu es débutant</li>
-            <li>Garder un jour de repos entre les runs</li>
+            <li>Échauffement : 5 min de marche active</li>
+            <li><strong>1 min course lente / 1 min marche</strong> × 10</li>
+            <li>Retour au calme : 5 min de marche douce</li>
+          </ul>
+          <p>Objectif : apprivoiser la sensation de course, sans chercher la performance.</p>
+
+          <h3>Semaine 2 — Un peu plus de temps de course</h3>
+          <ul>
+            <li>Échauffement : 5 min marche active</li>
+            <li><strong>2 min course / 1 min marche</strong> × 8</li>
+            <li>Retour au calme : 5 min marche douce</li>
+          </ul>
+          <p>Objectif : habituer le souffle à des blocs un peu plus longs.</p>
+
+          <h3>Semaine 3 — On se stabilise</h3>
+          <ul>
+            <li>Échauffement : 5 min marche active</li>
+            <li><strong>3 min course / 1 min marche</strong> × 6</li>
+            <li>Retour au calme : 5 min marche douce</li>
           </ul>
 
-          <h2>5️⃣ Erreurs fréquentes</h2>
+          <h3>Semaine 4 — Cap sur les 4 minutes</h3>
           <ul>
-            <li>Aller trop vite</li>
-            <li>Sauter des semaines</li>
-            <li>Court-circuiter la marche</li>
-            <li>Comparer son rythme à celui des autres</li>
+            <li>Échauffement : 5 min marche active</li>
+            <li><strong>4 min course / 1 min marche</strong> × 5</li>
+            <li>Retour au calme : 5 min marche douce</li>
+          </ul>
+
+          <h3>Semaine 5 — Blocs de 5 minutes</h3>
+          <ul>
+            <li>Échauffement : 5 min marche active</li>
+            <li><strong>5 min course / 1 min marche</strong> × 4</li>
+            <li>Retour au calme : 5 min marche douce</li>
+          </ul>
+          <p>Tu es déjà très loin du point de départ, même si tu cours lentement.</p>
+
+          <h3>Semaine 6 — On se rapproche de la sortie continue</h3>
+          <ul>
+            <li>Échauffement : 5 min marche active</li>
+            <li><strong>8 min course / 2 min marche</strong> × 3</li>
+            <li>Retour au calme : 5 min marche douce</li>
+          </ul>
+
+          <h3>Semaine 7 — Deux gros blocs</h3>
+          <ul>
+            <li>Échauffement : 5 min marche active</li>
+            <li><strong>12 min course / 3 min marche</strong> × 2</li>
+            <li>Retour au calme : 5 min marche douce</li>
+          </ul>
+
+          <h3>Semaine 8 — Objectif 5 km</h3>
+          <ul>
+            <li>Échauffement : 5 min marche active</li>
+            <li><strong>20 à 25 min de course continue</strong> en aisance</li>
+            <li>Retour au calme : 5 min marche douce</li>
+          </ul>
+          <p>
+            Peu importe la vitesse. Si tu ne fais pas encore 5 km, ce n’est pas grave :
+            tu pourras refaire cette semaine ou la rallonger progressivement.
+          </p>
+
+          <h2>4️⃣ Conseils pour réussir le programme</h2>
+          <ul>
+            <li>Courir très lentement au début (c’est normal)</li>
+            <li>Garder minimum 1 jour de repos entre deux séances</li>
+            <li>Essayer de dormir suffisamment (le corps progresse la nuit)</li>
+            <li>Ne pas augmenter la durée si une douleur inhabituelle persiste</li>
+          </ul>
+
+          <h2>5️⃣ Erreurs fréquentes (à éviter)</h2>
+          <ul>
+            <li>Aller trop vite parce qu’on se “sent bien” le jour J</li>
+            <li>Sauter des semaines pour aller plus vite vers le 5 km</li>
+            <li>Comparaison permanente avec les autres (réseaux, applis…)</li>
+            <li>Vouloir courir tous les jours d’un coup</li>
           </ul>
         </div>
 
         <div class="article-footer-note">
           <span class="bullet-pill">🎮 Gamification locale</span>
-          <span>Lecture, quiz et partage = XP gagnée automatiquement.</span>
+          <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
         </div>
 
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
       </article>
 
-      <section class="quiz-card">
+
+      <!-- QUIZ -->
+      <section class="quiz-card" id="quiz-section">
         <div class="quiz-header">
           <div class="quiz-left">
-            <div class="quiz-title">Quiz : Programme 5 km</div>
-            <div class="quiz-caption">5 questions pour valider les bases.</div>
+            <div class="quiz-title">Quiz express : Programme 5 km</div>
+            <div class="quiz-caption">
+              5 questions pour vérifier que tu as bien compris les bases du plan.
+            </div>
           </div>
-          <div class="quiz-badge">⚡ 5 questions</div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
         </div>
 
-        <div class="quiz-progress">Question 1 sur 5</div>
-        <form id="quiz-form">
-          <p>1. Quel est le format de départ du programme ?</p>
-          <label><input type="radio" name="q1"> 10 min course continue</label><br>
-          <label><input type="radio" name="q1"> 1 min course / 1 min marche</label><br>
+        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+        <form id="quiz-form"></form>
 
-          <p>2. Combien de séances hebdomadaires recommandées ?</p>
-          <label><input type="radio" name="q2"> 1</label><br>
-          <label><input type="radio" name="q2"> 3</label><br>
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">Valider mes réponses</button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">Recommencer le quiz</button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
 
-          <p>3. À quelle allure courir ?</p>
-          <label><input type="radio" name="q3"> Très vite</label><br>
-          <label><input type="radio" name="q3"> En aisance respiratoire</label><br>
-
-          <p>4. Quelle est l’erreur courante ?</p>
-          <label><input type="radio" name="q4"> Aller trop vite</label><br>
-          <label><input type="radio" name="q4"> Marcher trop vite</label><br>
-
-          <p>5. Objectif de la semaine 8 ?</p>
-          <label><input type="radio" name="q5"> 40 min de sprint</label><br>
-          <label><input type="radio" name="q5"> 20–25 min en continu</label><br>
-        </form>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
       </section>
+
     </main>
   </div>
+
+  <!-- SCRIPTS GAMIFICATION -->
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+
+  <script>
+    const ARTICLE_ID = "programme-5km-debutant";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Quel est le format de départ du programme ?",
+        options: [
+          "10 min de course continue",
+          "1 min course / 1 min marche",
+          "5 km en continu",
+          "20 min de marche uniquement"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "Combien de séances par semaine sont recommandées ?",
+        options: [
+          "1 séance",
+          "2 séances",
+          "3 séances",
+          "7 séances"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 3,
+        question: "À quelle allure idéalement faut-il courir ?",
+        options: [
+          "Le plus vite possible",
+          "Au point de ne plus pouvoir parler",
+          "En aisance, en pouvant parler par petites phrases",
+          "Uniquement en sprint"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 4,
+        question: "Quel est l’objectif de la semaine 8 ?",
+        options: [
+          "40 min de sprint",
+          "20–25 min de course continue",
+          "1 min course / 1 min marche",
+          "Uniquement de la marche"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "Quelle erreur est fréquente chez les débutants ?",
+        options: [
+          "Courir très lentement au début",
+          "Respecter les alternances course/marche",
+          "Aller trop vite et sauter des étapes",
+          "Faire 3 séances par semaine"
+        ],
+        correctIndex: 2
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const block = document.createElement("div");
+        block.className = "quiz-question";
+        block.dataset.questionId = q.id;
+
+        block.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options.map((opt, i) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${i}">
+                <span>${opt}</span>
+              </label>
+            `).join("")}
+          </div>
+        `;
+        quizForm.appendChild(block);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.textContent = "Réponds puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter(q =>
+        Array.from(document.querySelectorAll(\`input[name="question-\${q.id}"]\`))
+          .some(r => r.checked)
+      ).length;
+
+      quizProgress.textContent = "Question " + (answered || 1) + " sur " + total;
+    }
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+
+      document.querySelectorAll(".quiz-option").forEach(opt =>
+        opt.classList.remove("correct","incorrect")
+      );
+
+      quizData.forEach(q => {
+        const radios = document.querySelectorAll(\`input[name="question-\${q.id}"]\`);
+        let selected = null;
+        radios.forEach((r, i) => { if (r.checked) selected = i; });
+
+        const block = document.querySelector(\`.quiz-question[data-question-id="\${q.id}"]\`);
+        const options = block.querySelectorAll(".quiz-option");
+
+        if (selected === q.correctIndex) {
+          score++;
+          if (selected !== null) options[selected]?.classList.add("correct");
+        } else {
+          options[q.correctIndex]?.classList.add("correct");
+          if (selected !== null) options[selected]?.classList.add("incorrect");
+        }
+      });
+
+      const ratio = score / quizData.length;
+      let msg =
+        ratio === 1 ? "Parfait ! Tu as toutes les bases pour suivre ce programme 🏁" :
+        ratio >= 0.7 ? "Très bon score, tu es prêt à te lancer." :
+        ratio >= 0.4 ? "Pas mal, relis certains points avant de commencer." :
+        "Relis l’article tranquillement puis retente le quiz.";
+
+      quizResult.innerHTML = `<strong>${score}/${quizData.length}</strong> bonnes réponses • ${msg}`;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, quizData.length);
+      }
+
+      quizFeedback.textContent =
+        ratio === 1 ? "🎮 Bravo ! XP bonus pour ce quiz parfait." :
+        "Tu peux recommencer pour viser le 100 % si tu veux.";
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", renderQuiz);
+
+    // XP lecture
+    const readBtn = document.getElementById("mark-article-read");
+    if (readBtn) {
+      readBtn.addEventListener("click", () => {
+        if (window.acadGamification) {
+          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        }
+        readBtn.textContent = "✓ Article compté pour l’XP locale";
+        readBtn.disabled = true;
+      });
+    }
+
+    // Partage
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Programme 5 km débutant",
+          text: "Programme 5 km en 8 semaines (débutant absolu) + quiz express.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+          } catch {
+            shareFeedback.textContent = "Partage annulé 😉";
+          }
+        } else {
+          shareFeedback.textContent =
+            "Partage automatique non disponible, mais tu peux copier le lien. (XP ajoutée)";
+        }
+      });
+    }
+
+    // Démarrage
+    renderQuiz();
+  </script>
+
 </body>
 </html>
+
