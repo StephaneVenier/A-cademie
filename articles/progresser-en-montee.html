@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Comment progresser en montée (course & trail)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand" style="text-decoration:none;">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Endurance & Outdoor — Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+      <a class="nav-btn primary" href="../articles.html">Articles</a>
+      <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">⛰️</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Endurance & Outdoor — Trail / CAP</span>
+        <span class="chip">Lecture : 7–8 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Comment progresser en montée (course & trail)</h1>
+      <p class="article-subtitle">
+        Les montées fatiguent tout le monde, même les coureurs expérimentés.  
+        Mais avec la bonne technique, la bonne allure et le bon entraînement,
+        tu peux progresser très vite.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> en montée, il faut <strong>raccourcir la foulée</strong>,
+        <strong>se redresser</strong> et <strong>gérer son énergie</strong>.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Adopte la bonne technique</h2>
+        <ul>
+          <li><strong>Foulée courte</strong> : oublie les grandes enjambées</li>
+          <li><strong>Cadence élevée</strong> : petits pas rapides</li>
+          <li><strong>Buste légèrement incliné</strong> (mais pas effondré)</li>
+          <li><strong>Regard 3–5 mètres devant</strong>, pas tes pieds</li>
+          <li><strong>Bras actifs</strong> : ils aident à tracter le corps</li>
+        </ul>
+
+        <h2>2️⃣ L’allure : le point clé que tout le monde oublie</h2>
+        <p>
+          La plupart des coureurs explosent en côte parce qu'ils partent trop vite.
+        </p>
+        <p>
+          ➜ Règle d’or : **ta montée doit toujours paraître trop lente**.  
+          Si tu forces → tu vas exploser.
+        </p>
+
+        <h2>3️⃣ Marche intelligente = performance</h2>
+        <p>
+          Marcher dans une montée raide est souvent plus rapide que courir n'importe comment.
+        </p>
+        <ul>
+          <li>Main sur les cuisses = très efficace en trail</li>
+          <li>Respiration stable = priorité n°1</li>
+          <li>S'arrêter = interdit (micro-récup en marchant, oui)</li>
+        </ul>
+
+        <h2>4️⃣ Séances pour progresser en montée</h2>
+
+        <h3>✔️ Séance 1 : Côtes courtes (technique)</h3>
+        <ul>
+          <li>8 à 12 × 20–30 sec de montée</li>
+          <li>Récup en marchant</li>
+          <li>Objectif : cadence + posture</li>
+        </ul>
+
+        <h3>✔️ Séance 2 : Montée longue (gestion)</h3>
+        <ul>
+          <li>1 à 3 × 5–8 min de montée</li>
+          <li>Allure “confortable mais effort”</li>
+        </ul>
+
+        <h3>✔️ Séance 3 : Sortie nature vallonnée</h3>
+        <ul>
+          <li>Footing 45–70 min</li>
+          <li>Objectif : enchaîner montées + descentes sans te cramer</li>
+        </ul>
+
+        <h2>5️⃣ Renforcement pour la montée</h2>
+        <p>
+          Travailler les muscles clés améliore énormément ta capacité à grimper :
+        </p>
+        <ul>
+          <li><strong>Fentes</strong></li>
+          <li><strong>Montée de marches</strong></li>
+          <li><strong>Gainage frontal</strong></li>
+          <li><strong>Squats</strong></li>
+          <li><strong>Chevilles</strong> (sauts sur place, marches pieds nus doux)</li>
+        </ul>
+
+        <h2>6️⃣ Erreurs fréquentes</h2>
+        <ul>
+          <li>Foulée trop longue → fatigue immédiate</li>
+          <li>Regarder ses pieds → mauvaise posture</li>
+          <li>Vouloir courir partout → marche stratégique</li>
+          <li>Partir trop vite → explosion totale</li>
+        </ul>
+
+        <p>
+          Avec ces techniques, tu progresseras en seulement 2–3 semaines.
+        </p>
+
+      </div>
+
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+      </div>
+
+      <button type="button" class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button type="button" class="btn btn-primary" id="share-article">
+          🔗 Partager cet article / quiz
+        </button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div class="quiz-left">
+          <div class="quiz-title">Quiz express : Monter plus facilement</div>
+          <div class="quiz-caption">5 questions pour valider les techniques de montée.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button type="button" class="btn btn-primary" id="quiz-submit">
+            Valider mes réponses
+          </button>
+          <button type="button" class="btn btn-secondary" id="quiz-reset">
+            Recommencer le quiz
+          </button>
+        </div>
+        <div class="quiz-result" id="quiz-result">
+          Réponds aux questions puis valide pour voir ton score.
+        </div>
+      </div>
+
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS GAMIFICATION -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+  const ARTICLE_ID = "progresser-en-montee";
+
+  const quizData = [
+    {
+      id: 1,
+      question: "Quel est le point technique le plus important en montée ?",
+      options: [
+        "Faire de grandes foulées",
+        "Regarder ses pieds",
+        "Raccourcir la foulée et augmenter la cadence",
+        "Se pencher fortement en avant"
+      ],
+      correctIndex: 2
+    },
+    {
+      id: 2,
+      question: "Quelle est la meilleure stratégie dans une montée raide ?",
+      options: [
+        "Courir coûte que coûte",
+        "Marcher efficacement si nécessaire",
+        "S’arrêter régulièrement",
+        "Sauter pour avancer plus vite"
+      ],
+      correctIndex: 1
+    },
+    {
+      id: 3,
+      question: "Quelle séance aide le plus à progresser techniquement ?",
+      options: [
+        "Les côtes courtes (20–30 sec)",
+        "Les sorties uniquement plates",
+        "Le sprint sur route",
+        "La randonnée lente"
+      ],
+      correctIndex: 0
+    },
+    {
+      id: 4,
+      question: "Quelle erreur est fréquente en montée ?",
+      options: [
+        "Commencer trop vite",
+        "Marcher par moments",
+        "Avoir une cadence élevée",
+        "Regarder loin devant"
+      ],
+      correctIndex: 0
+    },
+    {
+      id: 5,
+      question: "Quel muscle est particulièrement utile en montée ?",
+      options: [
+        "Les biceps",
+        "Les quadriceps et fessiers",
+        "Les triceps",
+        "Les épaules"
+      ],
+      correctIndex: 1
+    }
+  ];
+
+  const quizForm = document.getElementById("quiz-form");
+  const quizProgress = document.getElementById("quiz-progress");
+  const quizResult = document.getElementById("quiz-result");
+  const quizFeedback = document.getElementById("quiz-feedback");
+  const submitBtn = document.getElementById("quiz-submit");
+  const resetBtn = document.getElementById("quiz-reset");
+
+  function renderQuiz() {
+    quizForm.innerHTML = "";
+    quizData.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.className = "quiz-question";
+      div.dataset.questionId = q.id;
+
+      div.innerHTML = `
+        <div class="quiz-question-header">
+          <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+          <div class="quiz-question-meta">1 seule bonne réponse</div>
+        </div>
+        <div class="quiz-options">
+          ${q.options.map((opt, i) => `
+            <label class="quiz-option">
+              <input type="radio" name="question-${q.id}" value="${i}">
+              <span>${opt}</span>
+            </label>`).join("")}
+        </div>
+      `;
+
+      quizForm.appendChild(div);
+    });
+
+    quizProgress.textContent = "Question 1 sur " + quizData.length;
+    quizResult.textContent = "Réponds aux questions puis valide pour voir ton score.";
+    quizFeedback.textContent = "";
+  }
+
+  function updateProgress() {
+    const answered = quizData.filter(q =>
+      [...document.querySelectorAll(`input[name="question-${q.id}"]`)].some(r => r.checked)
+    ).length;
+
+    quizProgress.textContent = `Question ${answered || 1} sur ${quizData.length}`;
+  }
+
+  quizForm.addEventListener("change", updateProgress);
+
+  function evaluateQuiz() {
+    let score = 0;
+
+    document.querySelectorAll(".quiz-option").forEach(opt =>
+      opt.classList.remove("correct", "incorrect")
+    );
+
+    quizData.forEach(q => {
+      const radios = document.querySelectorAll(`input[name="question-${q.id}"]`);
+      let selected = null;
+      radios.forEach((r, i) => { if (r.checked) selected = i; });
+
+      const block = document.querySelector(`.quiz-question[data-question-id="${q.id}"]`);
+      const opts = block.querySelectorAll(".quiz-option");
+
+      if (selected === q.correctIndex) {
+        score++;
+        opts[selected]?.classList.add("correct");
+      } else {
+        opts[q.correctIndex]?.classList.add("correct");
+        if (selected !== null) opts[selected]?.classList.add("incorrect");
+      }
+    });
+
+    const total = quizData.length;
+    const ratio = score / total;
+
+    let msg =
+      ratio === 1 ? "Excellent, tu es prêt(e) pour grimper comme un pro ! ⛰️" :
+      ratio >= 0.7 ? "Très bon score, continue comme ça !" :
+      ratio >= 0.4 ? "Pas mal, mais relis les points clés." :
+      "Relis l’article puis retente le quiz.";
+
+    quizResult.innerHTML = `<strong>${score}/${total}</strong> bonnes réponses • ${msg}`;
+
+    if (window.acadGamification)
+      window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+    quizFeedback.textContent =
+      ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux retenter pour viser le 100 %.";
+  }
+
+  submitBtn.addEventListener("click", evaluateQuiz);
+  resetBtn.addEventListener("click", renderQuiz);
+
+  const readBtn = document.getElementById("mark-article-read");
+  if (readBtn) {
+    readBtn.addEventListener("click", () => {
+      if (window.acadGamification)
+        window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+      readBtn.textContent = "✓ Article compté pour l’XP locale";
+      readBtn.disabled = true;
+    });
+  }
+
+  const shareBtn = document.getElementById("share-article");
+  const shareFeedback = document.getElementById("share-feedback");
+
+  if (shareBtn) {
+    shareBtn.addEventListener("click", async () => {
+      if (window.acadGamification)
+        window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+      const data = {
+        title: "A-Cadémie — Progresser en montée",
+        text: "Techniques simples et efficaces pour grimper plus facilement + quiz express.",
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(data);
+          shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+        } catch {
+          shareFeedback.textContent = "Partage annulé.";
+        }
+      } else {
+        shareFeedback.textContent = "Le partage automatique n’est pas disponible.";
+      }
+    });
+  }
+
+  renderQuiz();
+</script>
+
+</body>
+</html>
