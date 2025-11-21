@@ -5,16 +5,19 @@
   <title>A-Cadémie — Programme 5 km débutant (8 semaines)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/acad-style.css">
+  <link rel="stylesheet" href="../css/acad-style.css">
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="./js/firebase-config.js"></script>
+  <script src="../js/firebase-config.js"></script>
 </head>
+
 <body>
   <div class="page">
+    <!-- HEADER identique à vma.html -->
     <header class="acad-header">
-      <a href="./index.html" class="brand" style="text-decoration:none;">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
         <div class="brand-logo">A</div>
         <div>
           <div class="brand-text-title">A-Cadémie</div>
@@ -30,12 +33,10 @@
 
       <div id="acad-profile" class="profile-card">
         <div class="profile-main">
-          <div class="profile-avatar">A</div>
+          <div class="profile-avatar">🏁</div>
           <div>
             <div class="profile-level">Niveau <span id="acad-level">1</span></div>
-            <div class="profile-xp">
-              <span id="acad-xp">0</span> XP locale
-            </div>
+            <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
           </div>
         </div>
         <div class="profile-progress-wrapper">
@@ -51,6 +52,7 @@
     </header>
 
     <main class="layout">
+      <!-- ARTICLE -->
       <article class="article-card">
         <div class="article-meta">
           <span class="tag"><span class="tag-dot"></span> Endurance & Outdoor — CAP</span>
@@ -60,7 +62,7 @@
 
         <h1 class="article-title">Programme 5 km débutant — 8 semaines</h1>
         <p class="article-subtitle">
-          Tu pars (presque) de zéro et tu veux réussir un 5 km sans souffrir ?
+          Tu pars (presque) de zéro et tu veux réussir un 5 km sans souffrir ?  
           Ce plan démarre à <strong>1 min course / 1 min marche</strong> et t’amène progressivement vers
           <strong>20–25 min de course continue</strong> en 8 semaines.
         </p>
@@ -194,6 +196,7 @@
         </div>
       </article>
 
+      <!-- QUIZ -->
       <section class="quiz-card" id="quiz-section">
         <div class="quiz-header">
           <div class="quiz-left">
@@ -203,20 +206,13 @@
           <div class="quiz-badge">⚡ 5 questions · 3–4 min</div>
         </div>
 
-        <div class="quiz-progress" id="quiz-progress">
-          Question 1 sur 5
-        </div>
-
+        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
         <form id="quiz-form"></form>
 
         <div class="quiz-footer">
           <div class="quiz-actions">
-            <button type="button" class="btn btn-primary" id="quiz-submit">
-              Valider mes réponses
-            </button>
-            <button type="button" class="btn btn-secondary" id="quiz-reset">
-              Recommencer le quiz
-            </button>
+            <button type="button" class="btn btn-primary" id="quiz-submit">Valider mes réponses</button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">Recommencer le quiz</button>
           </div>
           <div class="quiz-result" id="quiz-result">
             Réponds aux questions puis valide pour voir ton score.
@@ -228,8 +224,10 @@
     </main>
   </div>
 
+  <!-- SCRIPTS GAMIFICATION (même que vma.html) -->
   <script src="../js/acad-gamification.js"></script>
   <script src="../js/acad-firebase-sync.js"></script>
+
   <script>
     const ARTICLE_ID = "programme-5km-debutant";
 
@@ -314,11 +312,11 @@
             ${q.options
               .map(
                 (opt, optIndex) => `
-              <label class="quiz-option">
-                <input type="radio" name="question-${q.id}" value="${optIndex}">
-                <span>${opt}</span>
-              </label>
-            `
+                  <label class="quiz-option">
+                    <input type="radio" name="question-${q.id}" value="${optIndex}">
+                    <span>${opt}</span>
+                  </label>
+                `
               )
               .join("")}
           </div>
@@ -397,6 +395,7 @@
       if (window.acadGamification) {
         window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
       }
+
       if (ratio === 1) {
         quizFeedback.textContent = "🎮 Bravo ! Quiz parfait, tu contribues au déblocage du badge Endurance & Outdoor.";
       } else {
@@ -411,6 +410,7 @@
     submitBtn.addEventListener("click", evaluateQuiz);
     resetBtn.addEventListener("click", resetQuiz);
 
+    // Bouton "J’ai lu cet article"
     const articleReadBtn = document.getElementById("mark-article-read");
     if (articleReadBtn) {
       articleReadBtn.addEventListener("click", function () {
@@ -426,6 +426,7 @@
       }
     }
 
+    // Partage
     const shareBtn = document.getElementById("share-article");
     const shareFeedback = document.getElementById("share-feedback");
 
@@ -437,7 +438,7 @@
 
         const shareData = {
           title: "A-Cadémie — Programme 5 km débutant",
-          text: "Un programme 5 km en 8 semaines pour débutants + quiz express.",
+          text: "Programme 5 km en 8 semaines pour débutants + quiz express.",
           url: window.location.href
         };
 
@@ -454,12 +455,14 @@
           }
         } else {
           if (shareFeedback) {
-            shareFeedback.textContent = "Le partage automatique n’est pas disponible sur cet appareil. Tu peux copier l’adresse dans la barre du navigateur. (XP ajoutée)";
+            shareFeedback.textContent =
+              "Le partage automatique n’est pas disponible sur cet appareil. Tu peux copier l’adresse dans la barre du navigateur. (XP ajoutée)";
           }
         }
       });
     }
 
+    // Démarrage
     renderQuiz();
   </script>
 </body>
