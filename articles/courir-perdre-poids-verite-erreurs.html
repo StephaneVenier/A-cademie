@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Courir pour perdre du poids : vérité et erreurs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Endurance & Outdoor — Article + Quiz</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">🔥</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="layout">
+
+      <!-- ARTICLE -->
+      <article class="article-card">
+
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Endurance & Outdoor</span>
+          <span class="chip">Lecture : 8 min</span>
+          <span class="chip">Niveau : Tous niveaux</span>
+        </div>
+
+        <h1 class="article-title">Courir pour perdre du poids : vérité et erreurs</h1>
+        <p class="article-subtitle">
+          On entend tout et n’importe quoi : “il faut courir longtemps”, “il faut courir vite”, “il faut courir à jeun”.  
+          Voici **la vérité scientifique**, expliquée simplement et transformée en **conseils pratiques**.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> On ne perd pas du poids parce qu’on court beaucoup, mais parce qu’on crée un
+          <strong>déficit énergétique régulier</strong>. La course est un outil, pas une magie.
+        </div>
+
+        <div class="article-content">
+
+          <h2>1️⃣ Faut-il courir lentement ou vite ?</h2>
+          <p>
+            La vérité :  
+            ➤ <strong>Courir lentement brûle plus de graisses en %</strong>  
+            ➤ <strong>Courir plus vite brûle plus de calories au total</strong>
+          </p>
+
+          <p>
+            Donc pour perdre du poids, le meilleur combo est :
+          </p>
+          <ul>
+            <li><strong>Footings lents</strong> (allure où tu parles) 2–3×/semaine → brûle les graisses + pas de fatigue</li>
+            <li><strong>1 séance un peu plus intense</strong> → augmente la dépense totale</li>
+          </ul>
+
+          <h2>2️⃣ La vérité scientifique : déficit calorique = perte de poids</h2>
+          <p>
+            Perdre du poids = être en déficit d’énergie sur la semaine.  
+            Pas besoin de souffrir : même un déficit léger (200–300 kcal/jour) suffit.
+          </p>
+
+          <p>La course aide parce qu’elle augmente :</p>
+          <ul>
+            <li>les dépenses calories “pendant”</li>
+            <li>le NEAT (mouvements du quotidien)</li>
+            <li>la sensibilité à l’insuline</li>
+            <li>le métabolisme temporairement après l’effort</li>
+          </ul>
+
+          <p>
+            Mais si tu manges plus que tu ne dépenses → tu ne perds pas de poids même en courant 40 km/semaine.
+          </p>
+
+          <h2>3️⃣ Les erreurs fréquentes des coureurs</h2>
+          <ul>
+            <li><strong>Courir trop vite</strong> → fatigue, faim plus forte, blessures</li>
+            <li><strong>Manger “par récompense”</strong> après une sortie</li>
+            <li><strong>Faire uniquement des sorties longues</strong> → trop taxant</li>
+            <li><strong>Ne pas marcher assez</strong> → le NEAT est essentiel</li>
+            <li><strong>Pas de jours de repos</strong> → dérèglement hormonal → fringales</li>
+          </ul>
+
+          <h2>4️⃣ Le meilleur plan pour perdre du poids en courant</h2>
+          <ul>
+            <li><strong>3 footings lents/semaine</strong> (aisance, tu dois parler)</li>
+            <li><strong>1 séance optionnelle plus intense</strong> (fractionné léger, tempo)</li>
+            <li><strong>7 000–12 000 pas/jour</strong> → hyper efficace</li>
+            <li><strong>Sommeil</strong> : essentiel pour contrôler l’appétit</li>
+          </ul>
+
+          <p>
+            Tu ne dois <strong>jamais sortir épuisé(e)</strong>.  
+            Une perte de poids durable vient d’un corps qui reste frais.
+          </p>
+
+          <h2>5️⃣ Faut-il courir à jeun ?</h2>
+          <p>
+            Courir à jeun :
+          </p>
+          <ul>
+            <li>ne fait pas perdre plus de graisse sur 24h</li>
+            <li>peut être utile si tu aimes ça</li>
+            <li>est inutile si tu détestes ça</li>
+          </ul>
+
+          <p>
+            Le plus important reste **le déficit énergétique global**, pas le moment de l’entraînement.
+          </p>
+
+          <h2>6️⃣ Ce qu’il faut retenir</h2>
+          <ul>
+            <li>On perd du poids en étant régulier, pas en courant vite.</li>
+            <li>La marche + la course = combo parfait.</li>
+            <li>La fatigue excessive = ennemi n°1 (faim + abandon du sport).</li>
+          </ul>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+
+      </article>
+
+
+      <!-- QUIZ -->
+      <section class="quiz-card" id="quiz-section">
+
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Perte de poids & course à pied</div>
+            <div class="quiz-caption">5 questions pour voir si tu as compris les vraies bases.</div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">
+              Valider mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">
+              Recommencer le quiz
+            </button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- GAMIFICATION SCRIPTS -->
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+
+  <script>
+    const ARTICLE_ID = "courir-perdre-poids";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Qu’est-ce qui fait réellement perdre du poids ?",
+        options: [
+          "Courir très vite",
+          "Le déficit énergétique global",
+          "Faire du sport uniquement le matin",
+          "Manger zéro glucides"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "Quel type d’allure brûle le plus de graisses en % ?",
+        options: [
+          "Sprint",
+          "Course lente",
+          "Course très rapide",
+          "Marche lente"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Quelle erreur est très fréquente chez les débutants ?",
+        options: [
+          "Courir trop vite",
+          "Marcher trop",
+          "Dormir beaucoup",
+          "Se reposer entre les séances"
+        ],
+        correctIndex: 0
+      },
+      {
+        id: 4,
+        question: "Faut-il courir à jeun pour perdre du poids ?",
+        options: [
+          "Oui absolument",
+          "Non, pas nécessaire",
+          "Uniquement le dimanche",
+          "Oui mais seulement si on sprinte"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "Quel combo est le plus efficace ?",
+        options: [
+          "Footings lents + marche quotidienne",
+          "Uniquement sprints",
+          "1 sortie / semaine très rapide",
+          "Course + repas hyper riches"
+        ],
+        correctIndex: 0
+      }
+    ];
+
+
+    /* --- SAME JS AS VMA.HTML --- */
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "quiz-question";
+        questionDiv.dataset.questionId = q.id;
+
+        questionDiv.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+
+          <div class="quiz-options">
+            ${q.options
+              .map(
+                (opt, i) => `
+                <label class="quiz-option">
+                  <input type="radio" name="question-${q.id}" value="${i}">
+                  <span>${opt}</span>
+                </label>
+                `
+              )
+              .join("")}
+          </div>
+        `;
+
+        quizForm.appendChild(questionDiv);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.textContent = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+
+    function updateProgress() {
+      const answered = quizData.filter(q =>
+        [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+          .some(r => r.checked)
+      ).length;
+
+      quizProgress.textContent = `Question ${answered || 1} sur ${quizData.length}`;
+    }
+
+    quizForm.addEventListener("change", updateProgress);
+
+
+    function evaluateQuiz() {
+      let score = 0;
+
+      document.querySelectorAll(".quiz-option").forEach(opt =>
+        opt.classList.remove("correct", "incorrect")
+      );
+
+      quizData.forEach(q => {
+        const radios = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        let selected = null;
+
+        radios.forEach((r, i) => {
+          if (r.checked) selected = i;
+        });
+
+        const block = document.querySelector(`.quiz-question[data-question-id="${q.id}"]`);
+        const options = block.querySelectorAll(".quiz-option");
+
+        if (selected === q.correctIndex) {
+          score++;
+          options[selected]?.classList.add("correct");
+        } else {
+          options[q.correctIndex]?.classList.add("correct");
+          if (selected !== null) options[selected]?.classList.add("incorrect");
+        }
+      });
+
+      const total = quizData.length;
+      const ratio = score / total;
+
+      let msg =
+        ratio === 1 ? "Excellent ! Tu maîtrises les bases 🔥" :
+        ratio >= 0.7 ? "Très bon score !" :
+        ratio >= 0.4 ? "Pas mal, mais tu peux relire l’article." :
+        "Pas grave, retente tranquillement.";
+
+      quizResult.innerHTML = `<strong>${score}/${total}</strong> bonnes réponses • ${msg}`;
+
+      if (window.acadGamification)
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+      quizFeedback.textContent =
+        ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux recommencer quand tu veux.";
+    }
+
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", renderQuiz);
+
+
+    /* --- ARTICLE READ BUTTON --- */
+    const readBtn = document.getElementById("mark-article-read");
+    if (readBtn) {
+      readBtn.addEventListener("click", () => {
+        if (window.acadGamification)
+          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+        readBtn.textContent = "✓ Article compté pour l’XP locale";
+        readBtn.disabled = true;
+      });
+    }
+
+
+    /* --- SHARE BUTTON --- */
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async () => {
+        if (window.acadGamification)
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+        const data = {
+          title: "A-Cadémie — Courir pour perdre du poids",
+          text: "Vérités, erreurs, conseils + quiz express.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(data);
+            shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+          } catch {
+            shareFeedback.textContent = "Partage annulé.";
+          }
+        } else {
+          shareFeedback.textContent = "Partage automatique impossible. Tu peux copier le lien.";
+        }
+      });
+    }
+
+
+    /* INIT */
+    renderQuiz();
+  </script>
+
+</body>
+</html>
