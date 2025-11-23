@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Rugby : les règles pour débutants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Sports collectifs / Rugby · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🏉</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Rugby</span>
+        <span class="chip">Lecture : 7–8 min</span>
+        <span class="chip">Niveau : Débutant</span>
+      </div>
+
+      <h1 class="article-title">Rugby : les règles pour débutants</h1>
+      <p class="article-subtitle">
+        Beaucoup de contacts, un ballon ovale, des mêlées, des coups de pied…  
+        Le rugby peut paraître compliqué au début, mais avec quelques règles clés, tout devient plus clair.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> au rugby, on avance avec le ballon, on ne fait pas de passes en avant et on marque surtout en aplatissant dans l’en-but.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ L’objectif du jeu</h2>
+        <p>
+          Deux équipes s’affrontent pour marquer plus de points que l’adversaire.  
+          On marque des points en :
+        </p>
+        <ul>
+          <li><strong>Essai</strong> (5 points) : aplatir le ballon dans l’en-but adverse.</li>
+          <li><strong>Transformation</strong> (2 points) : tir au pied après un essai, entre les poteaux.</li>
+          <li><strong>Pénalité</strong> (3 points) : tir au pied après une faute de l’adversaire.</li>
+          <li><strong>Drop goal</strong> (3 points) : tir au pied en cours de jeu, ballon lâché puis frappé après un rebond.</li>
+        </ul>
+
+        <h2>2️⃣ Le principe de base : pas de passe en avant</h2>
+        <p>
+          Au rugby, on ne peut <strong>pas</strong> faire de passe en avant avec les mains.
+          Les passes doivent être :
+        </p>
+        <ul>
+          <li>latérales (sur le côté),</li>
+          <li>ou vers l’arrière.</li>
+        </ul>
+        <p>
+          ➜ Pour avancer, on court avec le ballon ou on tape au pied.
+        </p>
+
+        <h2>3️⃣ Le terrain et les principales zones</h2>
+        <ul>
+          <li>la <strong>ligne médiane</strong> (centre du terrain),</li>
+          <li>les <strong>22 mètres</strong> de chaque côté,</li>
+          <li>l’<strong>en-but</strong> : zone derrière la ligne de but où on marque l’essai,</li>
+          <li>les <strong>lignes de touche</strong> sur les côtés.</li>
+        </ul>
+
+        <h2>4️⃣ Les phases de jeu importantes</h2>
+
+        <h3>🔹 Le plaquage</h3>
+        <ul>
+          <li>on ne peut plaquer que le porteur du ballon,</li>
+          <li>plaquage autorisé uniquement sous les épaules,</li>
+          <li>après un plaquage, le joueur au sol doit lâcher le ballon.</li>
+        </ul>
+
+        <h3>🔹 Le ruck</h3>
+        <p>
+          Quand le ballon est au sol et que des joueurs des deux équipes se luttent debout au-dessus, c’est un <strong>ruck</strong>.  
+          On ne joue plus le ballon avec les mains, mais avec les pieds, jusqu’à ce qu’il sorte du regroupement.
+        </p>
+
+        <h3>🔹 La mêlée</h3>
+        <p>
+          Après certaines fautes (en-avant, passe en avant…), l’arbitre ordonne une mêlée :  
+          8 joueurs de chaque équipe se lient et poussent, le demi de mêlée introduit le ballon.
+        </p>
+
+        <h3>🔹 La touche</h3>
+        <p>
+          Quand le ballon sort en touche (côté), on fait une remise en jeu : la touche.  
+          Les joueurs forment deux lignes et le ballon est lancé au milieu.
+        </p>
+
+        <h2>5️⃣ Les principales fautes</h2>
+        <ul>
+          <li><strong>En-avant :</strong> le ballon part vers l’avant à partir des mains ou est lâché vers l’avant.</li>
+          <li><strong>Hors-jeu :</strong> se trouver devant le porteur du ballon ou devant le dernier joueur de son équipe dans un ruck/mêlée.</li>
+          <li><strong>Plaquage dangereux :</strong> plaquage haut (au-dessus des épaules), par derrière sans les bras…</li>
+          <li><strong>Ballon gardé au sol :</strong> le joueur plaqué garde le ballon au sol au lieu de le lâcher.</li>
+        </ul>
+
+        <h2>6️⃣ Combien de joueurs et combien de temps ?</h2>
+        <ul>
+          <li>au rugby à XV : <strong>15 joueurs par équipe</strong>,</li>
+          <li>durée standard : <strong>2 × 40 minutes</strong> (adultes),</li>
+          <li>en jeunes / loisirs, la durée est souvent réduite.</li>
+        </ul>
+
+        <h2>7️⃣ Poste par poste (version ultra simple)</h2>
+        <ul>
+          <li><strong>Avants :</strong> gros travail de conquête (mêlée, ruck, touche, percussion).</li>
+          <li><strong>Arrières :</strong> plus de vitesse, jeu de passes, coups de pied, finition.</li>
+        </ul>
+
+        <p>
+          Pour débuter, pas besoin de connaître tous les postes en détail :  
+          l’important est de comprendre <strong>comment l’équipe avance et défend ensemble</strong>.
+        </p>
+
+        <h2>8️⃣ Comment commencer en rugby (débutant complet) ?</h2>
+        <ul>
+          <li>tester le <strong>rugby à toucher</strong> (sans plaquage) pour comprendre le jeu,</li>
+          <li>apprendre les passes (droite / gauche, en courant),</li>
+          <li>comprendre l’alignement en défense : ligne montée ensemble, pas seul,</li>
+          <li>regarder quelques matchs en se concentrant sur le placement défensif.</li>
+        </ul>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Règles de base du rugby</div>
+          <div class="quiz-caption">5 questions pour vérifier que tout est clair.</div>
+        </div>
+        <div class="quiz-badge">🏉 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+
+<!-- SCRIPTS -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "rugby-regles-debutants";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Combien de points vaut un essai au rugby ?",
+    options: [
+      "3 points",
+      "4 points",
+      "5 points",
+      "7 points"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 2,
+    question: "Avec les mains, une passe au rugby doit être :",
+    options: [
+      "Uniquement vers l’avant",
+      "Latérale ou vers l’arrière",
+      "Uniquement en cloche",
+      "Uniquement en hauteur"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 3,
+    question: "Qu’est-ce qu’un en-avant ?",
+    options: [
+      "Un joueur qui court vers l’avant",
+      "Le ballon qui part vers l’avant à partir des mains",
+      "Un coup de pied dans l’en-but",
+      "Une touche proche de la ligne médiane"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Quelle action fait suite à la sortie du ballon en touche ?",
+    options: [
+      "Une mêlée",
+      "Un ruck",
+      "Un renvoi aux 22 mètres",
+      "Une touche (remise en jeu par lancer)"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 5,
+    question: "Quelle phrase est correcte ?",
+    options: [
+      "On peut plaquer n’importe où sur le corps",
+      "On peut plaquer uniquement au-dessus des épaules",
+      "On ne peut plaquer que le porteur du ballon, sous les épaules",
+      "On peut plaquer même sans ballon"
+    ],
+    correctIndex: 2
+  }
+];
+
+function renderQuiz(){
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach((q, i)=>{
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${i+1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt,idx)=>`
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${idx}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", ()=>{
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r=>r.checked)
+  ).length;
+
+  document.getElementById("quiz-progress").textContent =
+    `Question ${answered || 1} sur ${quizData.length}`;
+});
+
+document.getElementById("quiz-submit").addEventListener("click", ()=>{
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q=>{
+    const selected = [...document.querySelectorAll(
+      `input[name="question-${q.id}"]`
+    )].find(r=>r.checked);
+
+    const block = document.querySelector(
+      `.quiz-question[data-question-id="${q.id}"]`
+    );
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if(selected && parseInt(selected.value, 10) === q.correctIndex){
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if(selected) opts[selected.value].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  const msg =
+    ratio === 1 ? "Parfait ! Tu maîtrises les bases du rugby 🏉" :
+    ratio >= 0.7 ? "Très bon score, bien joué !" :
+    ratio >= 0.4 ? "Correct, tu peux encore t’améliorer." :
+    "Relis l’article tranquillement puis retente.";
+
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>${score}/${total}</strong> • ${msg}`;
+
+  if(window.acadGamification)
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 XP bonus ajoutée !" :
+    "Tu peux viser le perfect à la prochaine tentative 👍";
+});
+
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+
+document.getElementById("mark-article-read").addEventListener("click", ()=>{
+  if(window.acadGamification)
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+
+document.getElementById("share-article").addEventListener("click", async ()=>{
+  if(window.acadGamification)
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+  const feedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Rugby : les règles pour débutants",
+    text: "Les bases du rugby expliquées simplement + quiz interactif.",
+    url: window.location.href
+  };
+
+  if (navigator.share){
+    try {
+      await navigator.share(data);
+      feedback.textContent = "Merci pour ton partage ! (XP ajoutée)";
+    } catch {
+      feedback.textContent = "Partage annulé.";
+    }
+  } else {
+    feedback.textContent =
+      "Partage automatique non disponible sur cet appareil.";
+  }
+});
+</script>
+
+</body>
+</html>
