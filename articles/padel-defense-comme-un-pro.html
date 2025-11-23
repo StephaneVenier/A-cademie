@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Padel : jouer en défense comme un pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Rackets — Padel · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🎾</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Padel</span>
+        <span class="chip">Lecture : 7–8 min</span>
+        <span class="chip">Niveau : Débutant / Intermédiaire</span>
+      </div>
+
+      <h1 class="article-title">Padel : jouer en défense comme un pro</h1>
+      <p class="article-subtitle">
+        Au padel, la défense n’est pas subie : bien jouée, elle devient une arme.  
+        Si tu sais gérer les balles au fond, les murs et les lobs, tu vas rendre fous les adversaires au filet.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> bonne défense = patience + bons appuis + utilisation intelligente des murs + lob bien choisi.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Position de base en défense</h2>
+        <p>
+          En défense, vous jouez à deux près du mur du fond, légèrement devant la ligne.
+        </p>
+        <ul>
+          <li>pieds écartés largeur épaules,</li>
+          <li>poids du corps légèrement vers l’avant,</li>
+          <li>raquette devant toi, hauteur nombril/poitrine.</li>
+        </ul>
+        <p>
+          ➜ L’idée : être prêt à reculer vers le mur ou avancer vers la balle.
+        </p>
+
+        <h2>2️⃣ Accepter les murs (ne pas paniquer)</h2>
+        <p>
+          La plupart des débutants paniquent dès que la balle se dirige vers la vitre du fond.
+        </p>
+        <p>
+          <strong>Réflexe à adopter :</strong>
+        </p>
+        <ul>
+          <li>se retourner assez tôt vers le mur,</li>
+          <li>laisser la balle rebondir sol → mur → revenir vers toi,</li>
+          <li>frapper une balle qui ralentit… beaucoup plus facile à jouer.</li>
+        </ul>
+
+        <h2>3️⃣ Jouer simple : croisé et au centre</h2>
+        <p>
+          En défense, l’objectif n’est pas de faire le point, mais de survivre au point.
+        </p>
+        <ul>
+          <li>viser le centre du terrain adverse,</li>
+          <li>jouer croisé (trajectoire plus longue → plus de sécurité),</li>
+          <li>éviter les lignes et les coups “miracles”.</li>
+        </ul>
+
+        <h2>4️⃣ Le lob : ton meilleur allié</h2>
+        <p>
+          Un bon lob remet tout le monde à égalité :
+        </p>
+        <ul>
+          <li>les adversaires reculent,</li>
+          <li>tu peux avancer vers le filet,</li>
+          <li>le rythme du point change.</li>
+        </ul>
+        <p>
+          ➜ Lob = coup clé de la défense intelligente.
+        </p>
+
+        <h2>5️⃣ Sorties de vitre contrôlées</h2>
+        <p>
+          Pour bien défendre avec les murs :
+        </p>
+        <ul>
+          <li>te placer avant la trajectoire de la balle,</li>
+          <li>laisser la balle sortir du mur,</li>
+          <li>frapper sans précipitation, avec un geste court.</li>
+        </ul>
+        <p>
+          Plus tu paniques, plus tu rates.  
+          Plus tu laisses la balle “venir à toi”, plus c’est facile.
+        </p>
+
+        <h2>6️⃣ Communication avec ton partenaire</h2>
+        <p>
+          Une bonne défense, c’est aussi :
+        </p>
+        <ul>
+          <li>“J’ai la vitre”, “À toi”, “Laisse”</li>
+          <li>ne pas se croiser inutilement,</li>
+          <li>protéger ensemble le centre du terrain.</li>
+        </ul>
+
+        <h2>7️⃣ État d’esprit d’un bon défenseur</h2>
+        <ul>
+          <li>accepter de jouer un coup de plus que l’adversaire,</li>
+          <li>ne pas paniquer sur les balles rapides,</li>
+          <li>prendre le temps de choisir entre lob, balle au centre ou balle sur le corps.</li>
+        </ul>
+
+        <p>
+          Si tu deviens solide en défense, tu seras pénible à jouer… et ça, c’est un vrai compliment au padel.
+        </p>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Défense au padel</div>
+          <div class="quiz-caption">5 questions pour vérifier que tu défends comme un pro.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider mes réponses</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer le quiz</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds aux questions puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "padel-defense-comme-un-pro";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Où se situe la position de base en défense ?",
+    options: [
+      "Collé au filet",
+      "Complètement derrière le mur",
+      "Près du mur du fond, légèrement devant la ligne",
+      "Au milieu du terrain"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 2,
+    question: "Que faut-il faire quand la balle va vers la vitre du fond ?",
+    options: [
+      "Se jeter dessus avant le mur",
+      "Tourner le dos et espérer",
+      "Se retourner tôt, laisser la balle revenir et la jouer calmement",
+      "Ne jamais la jouer"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 3,
+    question: "En défense, quel type de coups privilégier ?",
+    options: [
+      "Les coups très puissants sur les lignes",
+      "Les coups simples vers le centre et croisés",
+      "Uniquement des smashs",
+      "Des amorties près du filet"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Le lob sert principalement à :",
+    options: [
+      "Finir le point à tout prix",
+      "Faire un point gagnant direct",
+      "Sortir les adversaires du filet et reprendre l’avantage",
+      "Fatiguer ton partenaire"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 5,
+    question: "Un bon état d’esprit défensif, c’est :",
+    options: [
+      "Tenter un coup gagnant à chaque balle",
+      "Accepter de jouer un coup de plus et rester patient",
+      "Abandonner dès que la balle est difficile",
+      "Ne jamais utiliser les murs"
+    ],
+    correctIndex: 1
+  }
+];
+
+const quizForm = document.getElementById("quiz-form");
+const quizProgress = document.getElementById("quiz-progress");
+const quizResult = document.getElementById("quiz-result");
+const quizFeedback = document.getElementById("quiz-feedback");
+const submitBtn = document.getElementById("quiz-submit");
+const resetBtn = document.getElementById("quiz-reset");
+
+function renderQuiz() {
+  quizForm.innerHTML = "";
+
+  quizData.forEach((q, index) => {
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule bonne réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt, i) => `
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${i}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+
+    quizForm.appendChild(block);
+  });
+
+  quizProgress.textContent = "Question 1 sur " + quizData.length;
+  quizResult.textContent = "Réponds aux questions puis valide pour voir ton score.";
+  quizFeedback.textContent = "";
+}
+
+function updateProgress() {
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll('input[name="question-' + q.id + '"]')]
+      .some(r => r.checked)
+  ).length;
+
+  quizProgress.textContent = "Question " + (answered || 1) + " sur " + quizData.length;
+}
+
+quizForm.addEventListener("change", updateProgress);
+
+function evaluateQuiz() {
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(opt => {
+    opt.classList.remove("correct", "incorrect");
+  });
+
+  quizData.forEach(q => {
+    const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+    let selected = null;
+    radios.forEach((r, i) => { if (r.checked) selected = i; });
+
+    const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if (selected === q.correctIndex) {
+      score++;
+      if (opts[selected]) opts[selected].classList.add("correct");
+    } else {
+      if (opts[q.correctIndex]) opts[q.correctIndex].classList.add("correct");
+      if (selected !== null && opts[selected]) opts[selected].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  let msg =
+    ratio === 1 ? "Parfait, tu défends comme un vrai poison pour tes adversaires 🎾" :
+    ratio >= 0.7 ? "Très bon score, ta défense est solide." :
+    ratio >= 0.4 ? "Pas mal, mais tu peux encore progresser." :
+    "Relis l’article tranquillement puis retente.";
+
+  quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses • " + msg;
+
+  if (window.acadGamification) {
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+  }
+
+  quizFeedback.textContent =
+    ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux viser le perfect !";
+}
+
+submitBtn.addEventListener("click", evaluateQuiz);
+resetBtn.addEventListener("click", renderQuiz);
+
+const readBtn = document.getElementById("mark-article-read");
+if (readBtn) {
+  readBtn.addEventListener("click", () => {
+    if (window.acadGamification) {
+      window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+    }
+    readBtn.textContent = "✓ Article compté pour l’XP locale";
+    readBtn.disabled = true;
+  });
+}
+
+const shareBtn = document.getElementById("share-article");
+const shareFeedback = document.getElementById("share-feedback");
+
+if (shareBtn) {
+  shareBtn.addEventListener("click", async () => {
+    if (window.acadGamification) {
+      window.acadGamification.registerShare(ARTICLE_ID, 15);
+    }
+
+    const data = {
+      title: "A-Cadémie — Padel : jouer en défense comme un pro",
+      text: "Apprends à défendre intelligemment au padel + quiz express.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+        shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+      } catch {
+        shareFeedback.textContent = "Partage annulé.";
+      }
+    } else {
+      shareFeedback.textContent = "Le partage automatique n’est pas disponible.";
+    }
+  });
+}
+
+renderQuiz();
+</script>
+
+</body>
+</html>
