@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Les 10 exercices de mobilité indispensables</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Mobilité / Pilates / Yoga · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🧘‍♂️</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="layout">
+
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Mobilité</span>
+        <span class="chip">Lecture : 7 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Les 10 exercices de mobilité indispensables</h1>
+      <p class="article-subtitle">
+        Améliorer ta mobilité, c’est bouger mieux, réduire les tensions et te sentir plus léger au quotidien.  
+        Voici les 10 mouvements essentiels à intégrer à ta routine, même si tu n’as que 5 minutes.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> 5 minutes par jour suffisent pour des résultats visibles sur la posture, la souplesse et le confort articulaire.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Cercles de hanches</h2>
+        <p>Debout, mains sur les hanches, effectue des cercles lents dans les deux sens (20–30 sec).</p>
+
+        <h2>2️⃣ Mobilité thoracique (rotation du haut du dos)</h2>
+        <p>À quatre pattes, main sur la nuque → ouvre le coude vers le ciel, puis referme (6×/côté).</p>
+
+        <h2>3️⃣ Chat—Vache (spine mobility)</h2>
+        <p>Alterner dos rond / dos creux lentement, en suivant la respiration (8–10 cycles).</p>
+
+        <h2>4️⃣ Mobilité des chevilles</h2>
+        <p>En fente, avance le genou au-dessus du pied sans décoller le talon (10 à 12 répétitions).</p>
+
+        <h2>5️⃣ Cercles d’épaules</h2>
+        <p>Grandes rotations vers l’avant puis l’arrière (20–30 sec).</p>
+
+        <h2>6️⃣ Hip opener (genoux ouverts)</h2>
+        <p>Assis, pieds collés, genoux ouverts → petits battements contrôlés (40 sec).</p>
+
+        <h2>7️⃣ Étirement du psoas (fente longue)</h2>
+        <p>En fente, avance le bassin doucement vers l’avant (20–30 sec/côté).</p>
+
+        <h2>8️⃣ Rotation du cou debout</h2>
+        <p>Inclinaison gauche/droite + rotation lente du cou (10–15 sec par mouvement).</p>
+
+        <h2>9️⃣ Rotation interne/externe des hanches</h2>
+        <p>Assis, jambes en 90°, bascule les genoux de gauche à droite (10×/côté).</p>
+
+        <h2>🔟 Flexion avant / étirement ischios</h2>
+        <p>Debout, penche-toi vers l’avant en relâchant les bras et la tête (20–30 sec).</p>
+
+        <h2>Mini-routine 5 minutes</h2>
+        <ul>
+          <li>Chats-Vache — 40 sec</li>
+          <li>Hanches 90/90 — 40 sec</li>
+          <li>Chevilles — 40 sec</li>
+          <li>Psoas — 40 sec/côté</li>
+          <li>Flexion avant — 40 sec</li>
+        </ul>
+
+        <p>Fais-la tous les jours → tu te sentiras plus souple, plus équilibré, plus mobile.</p>
+
+      </div>
+
+      <!-- FOOTER GAMIFICATION -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;margin-top:4px;color:var(--text-soft);"></div>
+      </div>
+
+    </article>
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Mobilité</div>
+          <div class="quiz-caption">5 questions pour valider tes connaissances.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds aux questions puis valide.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- JS GAMIFICATION -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "mobilite-10-exercices";
+
+const quizData = [
+  {
+    id: 1,
+    question: "La mobilité sert principalement à :",
+    options: [
+      "Faire du cardio",
+      "Bouger mieux et réduire les tensions",
+      "Perdre du poids uniquement",
+      "Remplacer la musculation"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Quel exercice mobilise la colonne vertébrale ?",
+    options: [
+      "Flexion avant statique",
+      "Chat—Vache",
+      "Fente psoas",
+      "Cercles de hanches"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 3,
+    question: "Quel mouvement est recommandé pour les chevilles ?",
+    options: [
+      "Pas chassés",
+      "Fente en avançant le genou",
+      "Cercles d’épaules",
+      "Planche latérale"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Combien de temps suffit pour une mini-routine utile ?",
+    options: ["2 min", "5 min", "15 min", "45 min"],
+    correctIndex: 1
+  },
+  {
+    id: 5,
+    question: "Quel exercice cible la mobilité des hanches ?",
+    options: [
+      "Psoas (fente)",
+      "Flexions rapides",
+      "Dips",
+      "Burpees"
+    ],
+    correctIndex: 0
+  }
+];
+
+function renderQuiz() {
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach((q, index) => {
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map(
+          (opt, i) => `
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${i}">
+            <span>${opt}</span>
+          </label>`
+        ).join("")}
+      </div>
+    `;
+
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", () => {
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r => r.checked)
+  ).length;
+
+  document.getElementById("quiz-progress").textContent =
+    `Question ${answered || 1} sur ${quizData.length}`;
+});
+
+document.getElementById("quiz-submit").addEventListener("click", () => {
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o => o.classList.remove("correct","incorrect"));
+
+  quizData.forEach(q => {
+    const selected = [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .find(r => r.checked);
+
+    const block = document.querySelector(`.quiz-question[data-question-id="${q.id}"]`);
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if (selected && parseInt(selected.value) === q.correctIndex) {
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if (selected) opts[selected.value].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>${score}/${total}</strong> bonnes réponses`;
+
+  if (window.acadGamification)
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+  document.getElementById("quiz-feedback").textContent =
+    score === total ? "🎮 Parfait !" : "Tu peux encore progresser !";
+});
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+document.getElementById("mark-article-read").addEventListener("click", () => {
+  if (window.acadGamification)
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+document.getElementById("share-article").addEventListener("click", async () => {
+  if (window.acadGamification)
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+  const shareFeedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — 10 exercices de mobilité indispensables",
+    text: "Mobility routine + quiz rapide",
+    url: window.location.href
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(data);
+      shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+    } catch {
+      shareFeedback.textContent = "Partage annulé.";
+    }
+  } else {
+    shareFeedback.textContent = "Le partage automatique n’est pas disponible.";
+  }
+});
+</script>
+
+</body>
+</html>
