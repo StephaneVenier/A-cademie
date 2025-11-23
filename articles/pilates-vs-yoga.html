@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Pilates vs Yoga : lequel choisir ?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Pilates / Yoga / Mobilité · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🧘</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Pilates / Yoga</span>
+        <span class="chip">Lecture : 7–8 min</span>
+        <span class="chip">Niveau : Débutant</span>
+      </div>
+
+      <h1 class="article-title">Pilates vs Yoga : lequel choisir ?</h1>
+      <p class="article-subtitle">
+        Tu veux te sentir mieux dans ton corps, plus mobile, plus fort(e) et moins stressé(e)…  
+        mais tu hésites entre Pilates et Yoga ? Voici un guide simple pour choisir ce qui te correspond le mieux.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> il n’y a pas de “meilleur” entre les deux.  
+        Le bon choix = celui qui correspond à ton objectif, ton ressenti et ta personnalité.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Les grandes différences en 1 minute</h2>
+        <ul>
+          <li><strong>Pilates :</strong> renforcement doux, centre du corps, posture, dos.</li>
+          <li><strong>Yoga :</strong> postures + respiration + dimension plus “globale” (corps + mental).</li>
+        </ul>
+        <p>
+          Si tu veux surtout <strong>te renforcer et protéger ton dos</strong> → Pilates.  
+          Si tu veux <strong>te détendre, étirer ton corps et apaiser ton esprit</strong> → Yoga.  
+          Tu peux aussi… faire les deux.
+        </p>
+
+        <h2>2️⃣ Focus sur le Pilates</h2>
+        <p>
+          Le Pilates se concentre sur :
+        </p>
+        <ul>
+          <li>les muscles profonds (gainage, bassin, dos),</li>
+          <li>la stabilité du tronc,</li>
+          <li>la posture, l’alignement, la précision,</li>
+          <li>le contrôle et la respiration thoracique.</li>
+        </ul>
+        <p>
+          ➜ Super complément si tu fais déjà du sport (course, muscu, sports collectifs…).
+        </p>
+
+        <h3>Pour qui ?</h3>
+        <ul>
+          <li>personnes avec mal de dos récurrent,</li>
+          <li>sportifs qui veulent un “entretien” intelligent,</li>
+          <li>débutants qui veulent se renforcer sans impact.</li>
+        </ul>
+
+        <h2>3️⃣ Focus sur le Yoga</h2>
+        <p>
+          Le Yoga, c’est :
+        </p>
+        <ul>
+          <li>des postures (asanas),</li>
+          <li>de la respiration (pranayama),</li>
+          <li>de la relaxation / méditation,</li>
+          <li>un travail sur le corps <strong>et</strong> le mental.</li>
+        </ul>
+
+        <h3>Principaux types de Yoga (version simple) :</h3>
+        <ul>
+          <li><strong>Hatha :</strong> lent, accessible, postures tenues + respiration.</li>
+          <li><strong>Vinyasa :</strong> plus dynamique, enchaînements fluides.</li>
+          <li><strong>Yin :</strong> très doux, postures tenues longtemps, relâchement profond.</li>
+        </ul>
+
+        <h3>Pour qui ?</h3>
+        <ul>
+          <li>personnes stressées / tendues,</li>
+          <li>personnes raides qui veulent s’assouplir,</li>
+          <li>personnes qui ont envie d’un temps pour elles, plus “interne”.</li>
+        </ul>
+
+        <h2>4️⃣ Quel est le plus “physique” ?</h2>
+        <ul>
+          <li>Pilates débutant : assez doux mais engage bien les abdos et le dos.</li>
+          <li>Yoga Hatha : modéré, mélange d’étirements et de renforcement.</li>
+          <li>Yoga Vinyasa / dynamique : peut être très physique.</li>
+        </ul>
+        <p>
+          ➜ Tu peux transpirer dans les deux… mais pas forcément pour les mêmes raisons.
+        </p>
+
+        <h2>5️⃣ Et pour le dos ?</h2>
+        <p>
+          Les deux peuvent aider le dos, à condition d’avoir un bon encadrement au départ.
+        </p>
+        <ul>
+          <li><strong>Pilates :</strong> super ciblé sur gainage et stabilité → très intéressant en prévention.</li>
+          <li><strong>Yoga :</strong> idéal pour relâcher les tensions et gagner en souplesse.</li>
+        </ul>
+
+        <h2>6️⃣ Comment choisir concrètement ?</h2>
+        <h3>Choisis plutôt Pilates si :</h3>
+        <ul>
+          <li>tu veux te renforcer en priorité,</li>
+          <li>tu aimes les consignes précises et les mouvements contrôlés,</li>
+          <li>tu as déjà un autre sport et tu cherches un complément intelligent.</li>
+        </ul>
+
+        <h3>Choisis plutôt Yoga si :</h3>
+        <ul>
+          <li>tu cherches à réduire le stress et mieux dormir,</li>
+          <li>tu veux étirer ton corps, te sentir plus “fluide”,</li>
+          <li>tu as envie d’un moment pour toi, calme.</li>
+        </ul>
+
+        <h2>7️⃣ Tu peux aussi… les combiner</h2>
+        <p>
+          Exemple de combo très efficace :
+        </p>
+        <ul>
+          <li>2 séances de Pilates / semaine → renforcement, posture, dos,</li>
+          <li>1 séance de Yoga doux / semaine → détente, respiration, étirements.</li>
+        </ul>
+
+        <p>
+          Le plus important n’est pas de choisir “le bon camp”, mais d’adopter une pratique que tu as envie de garder sur le long terme.
+        </p>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Pilates vs Yoga</div>
+          <div class="quiz-caption">5 questions pour vérifier que tu as bien compris les différences.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider mes réponses</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer le quiz</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds aux questions puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS GAMIFICATION -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "pilates-vs-yoga";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Le Pilates se concentre surtout sur :",
+    options: [
+      "Le cardio et la transpiration",
+      "Les muscles profonds, la posture et le contrôle",
+      "La performance en sprint",
+      "Uniquement les étirements passifs"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Le Yoga inclut en général :",
+    options: [
+      "Uniquement de la musculation",
+      "Postures + respiration + relaxation/mental",
+      "Des courses en extérieur",
+      "Du vélo d’appartement"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 3,
+    question: "Quel choix est le plus logique si ton objectif n°1 est de réduire le stress ?",
+    options: [
+      "Pilates en priorité",
+      "Yoga (surtout styles doux comme Hatha/Yin)",
+      "Sprints en côte",
+      "Aucun des deux"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Quel choix est le plus cohérent si tu veux surtout protéger ton dos et te gainer ?",
+    options: [
+      "Pilates",
+      "Uniquement des burpees",
+      "Yoga dynamique seulement",
+      "Ne rien faire"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 5,
+    question: "Lequel est “meilleur” en absolu entre Pilates et Yoga ?",
+    options: [
+      "Pilates, toujours",
+      "Yoga, toujours",
+      "Ça dépend de tes objectifs et de tes préférences",
+      "Aucun des deux n’est utile"
+    ],
+    correctIndex: 2
+  }
+];
+
+const quizForm = document.getElementById("quiz-form");
+const quizProgress = document.getElementById("quiz-progress");
+const quizResult = document.getElementById("quiz-result");
+const quizFeedback = document.getElementById("quiz-feedback");
+const submitBtn = document.getElementById("quiz-submit");
+const resetBtn = document.getElementById("quiz-reset");
+
+function renderQuiz() {
+  quizForm.innerHTML = "";
+
+  quizData.forEach((q, index) => {
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule bonne réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt, i) => `
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${i}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+
+    block.querySelectorAll("input[type=radio]").forEach(input => {
+      input.addEventListener("change", updateProgress);
+    });
+
+    quizForm.appendChild(block);
+  });
+
+  quizProgress.textContent = "Question 1 sur " + quizData.length;
+  quizResult.textContent = "Réponds aux questions puis valide pour voir ton score.";
+  quizFeedback.textContent = "";
+}
+
+function updateProgress() {
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll('input[name="question-' + q.id + '"]')]
+      .some(r => r.checked)
+  ).length;
+
+  quizProgress.textContent =
+    "Question " + (answered || 1) + " sur " + quizData.length;
+}
+
+function evaluateQuiz() {
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q => {
+    const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+    let selectedIndex = null;
+    radios.forEach((r, i) => { if (r.checked) selectedIndex = i; });
+
+    const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if (selectedIndex === q.correctIndex) {
+      score++;
+      if (opts[selectedIndex]) opts[selectedIndex].classList.add("correct");
+    } else {
+      if (opts[q.correctIndex]) opts[q.correctIndex].classList.add("correct");
+      if (selectedIndex !== null && opts[selectedIndex]) {
+        opts[selectedIndex].classList.add("incorrect");
+      }
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  let msg =
+    ratio === 1 ? "Parfait ! Tu as bien compris les différences 🧘" :
+    ratio >= 0.7 ? "Très bon score, tu as saisi l’essentiel." :
+    ratio >= 0.4 ? "Pas mal, mais tu peux relire certains passages." :
+    "Relis l’article tranquillement puis retente.";
+
+  quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses • " + msg;
+
+  if (window.acadGamification) {
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+  }
+
+  quizFeedback.textContent =
+    ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux viser le perfect à la prochaine tentative !";
+}
+
+submitBtn.addEventListener("click", evaluateQuiz);
+resetBtn.addEventListener("click", renderQuiz);
+
+const readBtn = document.getElementById("mark-article-read");
+if (readBtn) {
+  readBtn.addEventListener("click", () => {
+    if (window.acadGamification) {
+      window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+    }
+    readBtn.textContent = "✓ Article compté pour l’XP locale";
+    readBtn.disabled = true;
+  });
+}
+
+const shareBtn = document.getElementById("share-article");
+const shareFeedback = document.getElementById("share-feedback");
+
+if (shareBtn) {
+  shareBtn.addEventListener("click", async () => {
+    if (window.acadGamification) {
+      window.acadGamification.registerShare(ARTICLE_ID, 15);
+    }
+
+    const data = {
+      title: "A-Cadémie — Pilates vs Yoga : lequel choisir ?",
+      text: "Un guide simple pour choisir entre Pilates et Yoga + quiz.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+        shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+      } catch {
+        shareFeedback.textContent = "Partage annulé.";
+      }
+    } else {
+      shareFeedback.textContent = "Partage automatique non disponible sur cet appareil.";
+    }
+  });
+}
+
+renderQuiz();
+</script>
+
+</body>
+</html>
