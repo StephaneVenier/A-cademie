@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Étirements matinaux : routine de 5 minutes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Étirements / Mobilité · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🌅</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Étirements matinaux</span>
+        <span class="chip">Lecture : 4 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Étirements matinaux : routine de 5 minutes</h1>
+      <p class="article-subtitle">
+        Le matin, le corps est naturellement un peu raide.  
+        Voici une routine simple et rapide pour réveiller les muscles, libérer les tensions et démarrer la journée avec énergie.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> 5 minutes suffisent pour activer tout le corps et réduire les raideurs matinales.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Respiration + ouverture du haut du dos (45 sec)</h2>
+        <ul>
+          <li>Assis ou debout, inspire en levant les bras.</li>
+          <li>Souffle en les redescendant et en arrondissant légèrement le haut du dos.</li>
+        </ul>
+
+        <h2>2️⃣ Étirement des hanches (45 sec par côté)</h2>
+        <p>Fente douce, bassin légèrement poussé vers l’avant. Respiration lente.</p>
+
+        <h2>3️⃣ Étirement du dos “coquille” (45 sec)</h2>
+        <p>À genoux, assieds-toi sur tes talons, bras loin devant.</p>
+
+        <h2>4️⃣ Mobilité du cou (30 sec)</h2>
+        <ul>
+          <li>Inclinaisons gauche/droite,</li>
+          <li>rotations très lentes.</li>
+        </ul>
+
+        <h2>5️⃣ Flexion avant (45 sec)</h2>
+        <p>Debout, relâche la tête et les bras vers le sol. Respire profondément.</p>
+
+        <h2>6️⃣ Ouverture de poitrine (45 sec)</h2>
+        <p>Debout, mains derrière le dos, ouvre le buste en douceur.</p>
+
+        <h2>Routine complète (5 min)</h2>
+        <ul>
+          <li>Respiration + ouverture : 45 sec</li>
+          <li>Hanches : 45 sec × 2</li>
+          <li>Dos coquille : 45 sec</li>
+          <li>Cou : 30 sec</li>
+          <li>Flexion avant : 45 sec</li>
+          <li>Poitrine : 45 sec</li>
+        </ul>
+
+        <p>🧘‍♂️ Fais cette routine tous les matins → tu te réveilles mieux, plus souple et plus énergique.</p>
+      </div>
+
+      <!-- FOOTER GAMIFICATION -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Étirements matinaux</div>
+          <div class="quiz-caption">5 questions pour vérifier ce que tu as retenu.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds aux questions puis valide.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS GAMIFICATION -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "etirements-matin-5min";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Combien de temps dure la routine du matin ?",
+    options: ["2 minutes", "5 minutes", "10 minutes", "20 minutes"],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Pourquoi commencer par la respiration ?",
+    options: [
+      "Pour transpirer immédiatement",
+      "Pour activer le haut du dos et réveiller le corps",
+      "Pour fatiguer les épaules",
+      "Pour augmenter la fréquence cardiaque"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 3,
+    question: "Quel étirement concerne le bas du dos ?",
+    options: ["Ouverture de poitrine", "Flexion avant", "Dos coquille", "Mobilité du cou"],
+    correctIndex: 2
+  },
+  {
+    id: 4,
+    question: "Quelle partie du corps travaille la flexion avant ?",
+    options: ["Les abdos", "Les ischios et le dos", "Les épaules", "Les poignets"],
+    correctIndex: 1
+  },
+  {
+    id: 5,
+    question: "À quelle fréquence cette routine est-elle recommandée ?",
+    options: ["1 fois par mois", "Tous les matins", "Uniquement le week-end", "Jamais"],
+    correctIndex: 1
+  }
+];
+
+function renderQuiz() {
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach((q, index) => {
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt, i)=>`
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${i}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", () => {
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r => r.checked)
+  ).length;
+
+  document.getElementById("quiz-progress").textContent =
+    `Question ${answered || 1} sur ${quizData.length}`;
+});
+
+document.getElementById("quiz-submit").addEventListener("click", () => {
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q=>{
+    const selected = [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .find(r=>r.checked);
+
+    const block = document.querySelector(`.quiz-question[data-question-id="${q.id}"]`);
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if(selected && parseInt(selected.value) === q.correctIndex){
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if(selected) opts[selected.value].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  const msg =
+    ratio === 1 ? "Parfait ! Routine bien comprise 🌅" :
+    ratio >= 0.7 ? "Très bon score !" :
+    ratio >= 0.4 ? "Pas mal, continue d’apprendre." :
+    "Retente tranquillement.";
+
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>${score}/${total}</strong> bonnes réponses • ${msg}`;
+
+  if(window.acadGamification){
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+  }
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux viser le perfect !";
+});
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+document.getElementById("mark-article-read").addEventListener("click", () => {
+  if(window.acadGamification){
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+  }
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+document.getElementById("share-article").addEventListener("click", async () => {
+  if(window.acadGamification)
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+  const shareFeedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Étirements matinaux (5 min)",
+    text: "Routine rapide + quiz express",
+    url: window.location.href
+  };
+
+  if(navigator.share){
+    try{
+      await navigator.share(data);
+      shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+    } catch {
+      shareFeedback.textContent = "Partage annulé.";
+    }
+  } else {
+    shareFeedback.textContent = "Partage automatique non disponible.";
+  }
+});
+</script>
+
+</body>
+</html>
