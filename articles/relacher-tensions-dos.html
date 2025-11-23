@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Comment relâcher les tensions du dos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Dos / Mobilité · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">💆‍♂️</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Dos & Tensions</span>
+        <span class="chip">Lecture : 6–7 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Comment relâcher les tensions du dos</h1>
+      <p class="article-subtitle">
+        Dos “bloqué”, nuque tendue, haut du dos raide après la journée…  
+        Voici une méthode simple pour relâcher les tensions, bouger plus librement et soulager ton dos sans matériel.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> bouger en douceur + respirer + alterner mobilité et étirements = combo de base pour détendre le dos.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Pourquoi ton dos se “tend” ?</h2>
+        <p>
+          La plupart des tensions du dos viennent de :
+        </p>
+        <ul>
+          <li>beaucoup de temps assis, souvent avachi,</li>
+          <li>manque de mouvement dans la journée,</li>
+          <li>stress → respiration haute, épaules qui montent, muscles qui restent contractés,</li>
+          <li>gestes répétitifs ou positions prolongées (écran, téléphone, conduite…).</li>
+        </ul>
+        <p>
+          ➜ Le but n’est pas “d’étirer fort”, mais de <strong>redonner du mouvement</strong>, de la chaleur et de la respiration au dos.
+        </p>
+
+        <h2>2️⃣ Règles de base avant de commencer</h2>
+        <ul>
+          <li>tu dois sentir un étirement “agréable”, pas une douleur vive,</li>
+          <li>tu respires tout le long (surtout en soufflant dans les zones tendues),</li>
+          <li>tu ne vas jamais “au maximum” de la douleur,</li>
+          <li>si une douleur forte, brutale ou persistante apparaît → on arrête (et on consulte si besoin).</li>
+        </ul>
+
+        <h2>3️⃣ Routine “détente du dos” (10 minutes)</h2>
+        <p>À faire le soir ou après une longue journée assis.</p>
+
+        <h3>① Respiration en position allongée (1 minute)</h3>
+        <ul>
+          <li>Allonge-toi sur le dos, genoux fléchis, pieds au sol.</li>
+          <li>Une main sur le ventre, une sur la poitrine.</li>
+          <li>Inspire par le nez → le ventre monte légèrement.</li>
+          <li>Souffle par la bouche → relâche épaules, nuque, bas du dos.</li>
+        </ul>
+
+        <h3>② Bascule du bassin (1–2 minutes)</h3>
+        <ul>
+          <li>Position allongée, genoux fléchis.</li>
+          <li>Souffle en “plaquant” doucement le bas du dos contre le sol.</li>
+          <li>Inspire en revenant en position neutre (légère cambrure naturelle).</li>
+          <li>Petit mouvement, sans forcer. 12–15 répétitions.</li>
+        </ul>
+
+        <h3>③ Chat–Vache (mobilité de la colonne) (1–2 minutes)</h3>
+        <ul>
+          <li>À quatre pattes, mains sous les épaules, genoux sous les hanches.</li>
+          <li>Inspire en creusant légèrement le dos (regard vers l’avant).</li>
+          <li>Souffle en arrondissant doucement le dos (regard vers le nombril).</li>
+          <li>8 à 12 cycles, lentement.</li>
+        </ul>
+
+        <h3>④ Étirement dos “coquille” (1–2 minutes)</h3>
+        <ul>
+          <li>Toujours à quatre pattes, recule les fesses vers les talons.</li>
+          <li>Bras loin devant, front posé si possible.</li>
+          <li>Respire profondément, laisse le bas du dos se relâcher.</li>
+        </ul>
+
+        <h3>⑤ Rotation douce du bas du dos (1–2 minutes)</h3>
+        <ul>
+          <li>Allongé sur le dos, bras en croix, genoux fléchis.</li>
+          <li>Laisse doucement tomber les genoux d’un côté, puis de l’autre.</li>
+          <li>Tu peux faire une petite pause de 15–20 sec de chaque côté.</li>
+        </ul>
+
+        <h3>⑥ Étirement global du dos en assise (1–2 minutes)</h3>
+        <ul>
+          <li>Assis(e) sur une chaise ou par terre.</li>
+          <li>Enroule doucement la colonne vers l’avant.</li>
+          <li>Relâche la tête et les bras, respire.</li>
+        </ul>
+
+        <h2>4️⃣ Combien de fois faire cette routine ?</h2>
+        <ul>
+          <li>2–3 fois par semaine = tu ressentiras déjà un vrai mieux,</li>
+          <li>4–5 fois par semaine = dos beaucoup plus détendu sur la journée.</li>
+        </ul>
+        <p>
+          Tu peux aussi ne prendre que 1 ou 2 exercices (par exemple Chat–Vache + dos coquille) quand tu es pressé.
+        </p>
+
+        <h2>5️⃣ Petites habitudes “anti-tensions” dans la journée</h2>
+        <ul>
+          <li>toutes les 45–60 minutes → lève-toi 30–60 secondes,</li>
+          <li>2–3 grandes respirations profondes (debout ou assis),</li>
+          <li>roule doucement les épaules en arrière,</li>
+          <li>étire les bras vers le plafond puis relâche.</li>
+        </ul>
+
+        <p>
+          Ce sont des mini-réglages, mais répétés tous les jours, ils font une énorme différence sur la tension globale du dos.
+        </p>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Tensions du dos</div>
+          <div class="quiz-caption">5 questions pour valider ce que tu as compris.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider mes réponses</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer le quiz</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds aux questions puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS GAMIFICATION -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "relacher-tensions-dos";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Les tensions du dos viennent souvent de :",
+    options: [
+      "Un seul mauvais mouvement",
+      "Beaucoup de temps assis + manque de mouvement + stress",
+      "Marcher trop",
+      "Boire trop d’eau"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Avant de travailler sur le dos, il est important de :",
+    options: [
+      "Bloquer la respiration",
+      "Forcer au maximum",
+      "Respirer et éviter la douleur vive",
+      "Contracter le plus possible les muscles"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 3,
+    question: "Quel exercice améliore la mobilité globale de la colonne ?",
+    options: [
+      "Bascule du bassin",
+      "Chat–Vache",
+      "Planche",
+      "Pompes"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "L’étirement “dos coquille” se fait :",
+    options: [
+      "Debout",
+      "En courant",
+      "À genoux, assis sur les talons, bras loin devant",
+      "En sautant"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 5,
+    question: "Une bonne habitude dans la journée pour le dos :",
+    options: [
+      "Rester assis 4 heures sans bouger",
+      "Se lever 30–60 sec toutes les 45–60 minutes",
+      "Ne jamais bouger les épaules",
+      "Regarder son téléphone tête penchée longtemps"
+    ],
+    correctIndex: 1
+  }
+];
+
+const quizForm = document.getElementById("quiz-form");
+const quizProgress = document.getElementById("quiz-progress");
+const quizResult = document.getElementById("quiz-result");
+const quizFeedback = document.getElementById("quiz-feedback");
+const submitBtn = document.getElementById("quiz-submit");
+const resetBtn = document.getElementById("quiz-reset");
+
+function renderQuiz() {
+  quizForm.innerHTML = "";
+
+  quizData.forEach((q, index) => {
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule bonne réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt, i)=>`
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${i}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+
+    quizForm.appendChild(block);
+  });
+
+  quizProgress.textContent = "Question 1 sur " + quizData.length;
+  quizResult.textContent = "Réponds aux questions puis valide pour voir ton score.";
+  quizFeedback.textContent = "";
+}
+
+function updateProgress() {
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r => r.checked)
+  ).length;
+
+  quizProgress.textContent =
+    "Question " + (answered || 1) + " sur " + quizData.length;
+}
+
+quizForm.addEventListener("change", updateProgress);
+
+function evaluateQuiz() {
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q => {
+    const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+    let selectedIndex = null;
+    radios.forEach((r, i) => { if (r.checked) selectedIndex = i; });
+
+    const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if (selectedIndex === q.correctIndex) {
+      score++;
+      if (opts[selectedIndex]) opts[selectedIndex].classList.add("correct");
+    } else {
+      if (opts[q.correctIndex]) opts[q.correctIndex].classList.add("correct");
+      if (selectedIndex !== null && opts[selectedIndex]) {
+        opts[selectedIndex].classList.add("incorrect");
+      }
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  let msg =
+    ratio === 1 ? "Parfait ! Tu as bien compris comment détendre ton dos 💆‍♂️" :
+    ratio >= 0.7 ? "Très bon score, tu as les bonnes bases." :
+    ratio >= 0.4 ? "Pas mal, mais tu peux relire certains points." :
+    "Relis l’article tranquillement puis retente.";
+
+  quizResult.innerHTML =
+    "<strong>" + score + "/" + total + "</strong> bonnes réponses • " + msg;
+
+  if (window.acadGamification) {
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+  }
+
+  quizFeedback.textContent =
+    ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux viser le perfect à la prochaine tentative !";
+}
+
+submitBtn.addEventListener("click", evaluateQuiz);
+resetBtn.addEventListener("click", renderQuiz);
+
+const readBtn = document.getElementById("mark-article-read");
+if (readBtn) {
+  readBtn.addEventListener("click", () => {
+    if (window.acadGamification) {
+      window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+    }
+    readBtn.textContent = "✓ Article compté pour l’XP locale";
+    readBtn.disabled = true;
+  });
+}
+
+const shareBtn = document.getElementById("share-article");
+const shareFeedback = document.getElementById("share-feedback");
+
+if (shareBtn) {
+  shareBtn.addEventListener("click", async () => {
+    if (window.acadGamification) {
+      window.acadGamification.registerShare(ARTICLE_ID, 15);
+    }
+
+    const data = {
+      title: "A-Cadémie — Comment relâcher les tensions du dos",
+      text: "Routine simple pour détendre le dos + quiz.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+        shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+      } catch {
+        shareFeedback.textContent = "Partage annulé.";
+      }
+    } else {
+      shareFeedback.textContent =
+        "Partage automatique non disponible sur cet appareil.";
+    }
+  });
+}
+
+renderQuiz();
+</script>
+
+</body>
+</html>
