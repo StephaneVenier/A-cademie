@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Comment progresser en burpees</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Burpees / Hyrox / CrossFit · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">💀</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Burpees</span>
+        <span class="chip">Lecture : 6 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Comment progresser en burpees</h1>
+      <p class="article-subtitle">
+        Les burpees sont l’un des mouvements les plus complets : cardio, force, explosivité, mental.  
+        Mais ils sont aussi les plus difficiles. Voici comment devenir bon… vraiment bon.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> pour progresser : technique fluide → rythme constant → intervalles courts → volume progressif.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Une technique efficace = 30% d’énergie économisée</h2>
+        <p>Les points clés d’un burpee fluide :</p>
+        <ul>
+          <li>descente contrôlée : poser les mains avant de sauter en arrière,</li>
+          <li>poser le torse au sol (pas les hanches avant),</li>
+          <li>remonter en “ver de terre” léger → pas un push-up complet,</li>
+          <li>sauter les pieds proches des mains,</li>
+          <li>petit saut + bras au-dessus de la tête.</li>
+        </ul>
+
+        <h2>2️⃣ Les 3 styles de burpees</h2>
+        
+        <h3>🔹 Le burpee “économique” (endurance)</h3>
+        <ul>
+          <li>mouvement fluide sans explosivité,</li>
+          <li>transition lente mais continue,</li>
+          <li>idéal pour WOD longs ou Hyrox.</li>
+        </ul>
+
+        <h3>🔹 Le burpee “rapide”</h3>
+        <ul>
+          <li>saut légèrement plus dynamique,</li>
+          <li>retour des pieds agressif sous le buste,</li>
+          <li>utile pour WOD courts.</li>
+        </ul>
+
+        <h3>🔹 Le burpee “power” / explosif</h3>
+        <ul>
+          <li>utile pour quelques répétitions,</li>
+          <li>pas adapté pour le volume.</li>
+        </ul>
+
+        <h2>3️⃣ Les meilleurs exercices pour progresser</h2>
+
+        <h3>① Burpees fractionnés</h3>
+        <p><strong>10 × 5 burpees</strong> — récup 30 sec</p>
+
+        <h3>② EMOM technique</h3>
+        <p><strong>EMOM 10 min : 8 burpees</strong></p>
+
+        <h3>③ Burpees en montée volume</h3>
+        <p><strong>6 → 8 → 10 → 12 burpees</strong> (pause 45 sec)</p>
+
+        <h3>④ Burpees + course</h3>
+        <p><strong>200 m course + 10 burpees × 5</strong></p>
+
+        <h2>4️⃣ Programmes simples selon ton niveau</h2>
+
+        <h3>🔰 Débutant</h3>
+        <ul>
+          <li>20–30 burpees total / séance max</li>
+          <li>objectif : précision + rythme</li>
+        </ul>
+
+        <h3>⚡ Intermédiaire</h3>
+        <ul>
+          <li>40–70 burpees total</li>
+          <li>ajout d’EMOM & fractionnés</li>
+        </ul>
+
+        <h3>🔥 Avancé</h3>
+        <ul>
+          <li>80–120 burpees total</li>
+          <li>séances mixtes (course + burpees)</li>
+        </ul>
+
+        <h2>5️⃣ Conseils importants</h2>
+        <ul>
+          <li>garde une respiration continue,</li>
+          <li>évite de faire un push-up complet,</li>
+          <li>si le bas du dos tire → ralentis la descente,</li>
+          <li>garde un rythme constant → pas de départ trop rapide.</li>
+        </ul>
+
+      </div>
+
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Progresser en burpees</div>
+          <div class="quiz-caption">5 questions pour vérifier tes acquis.</div>
+        </div>
+        <div class="quiz-badge">💀 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "progresser-en-burpees";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Quel est le point clé pour économiser de l’énergie ?",
+    options: [
+      "Faire un push-up complet",
+      "Avoir un mouvement fluide et constant",
+      "Sauter le plus haut possible à chaque fois",
+      "Regarder le sol"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Quel style de burpee est le plus adapté aux WOD longs ?",
+    options: [
+      "Burpee explosif",
+      "Burpee économique",
+      "Burpee avec saut très haut",
+      "Burpee avec pause à chaque répétition"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 3,
+    question: "Quel exercice aide le plus à progresser ?",
+    options: [
+      "10 × 5 burpees (fractionné)",
+      "Étirements uniquement",
+      "Course lente uniquement",
+      "Pompes sur les genoux seulement"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 4,
+    question: "Volume recommandé pour un niveau intermédiaire :",
+    options: [
+      "10 burpees",
+      "40–70 burpees",
+      "150–200 burpees",
+      "5 burpees"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 5,
+    question: "Erreur fréquente à éviter :",
+    options: [
+      "Respirer régulièrement",
+      "Départ trop rapide",
+      "Garder un mouvement fluide",
+      "Adapter son rythme"
+    ],
+    correctIndex: 1
+  }
+];
+
+
+function renderQuiz(){
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach((q, i)=>{
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${i+1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt,idx)=>`
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${idx}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+
+document.getElementById("quiz-form").addEventListener("change", ()=>{
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r=>r.checked)
+  ).length;
+
+  document.getElementById("quiz-progress").textContent =
+    `Question ${answered || 1} sur ${quizData.length}`;
+});
+
+
+document.getElementById("quiz-submit").addEventListener("click", ()=>{
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q=>{
+    const selected = [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .find(r=>r.checked);
+
+    const block = document.querySelector(`.quiz-question[data-question-id="${q.id}"]`);
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if(selected && parseInt(selected.value) === q.correctIndex){
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if(selected) opts[selected.value].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  const msg =
+    ratio === 1 ? "🔥 Parfait ! Tu maîtrises les burpees !" :
+    ratio >= 0.7 ? "Très bon score !" :
+    ratio >= 0.4 ? "Correct, mais tu peux faire mieux." :
+    "Relis l’article et retente.";
+
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>${score}/${total}</strong> • ${msg}`;
+
+  if(window.acadGamification)
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 XP bonus ajoutée !" :
+    "Tu peux viser le perfect 👍";
+});
+
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+
+document.getElementById("mark-article-read").addEventListener("click", ()=>{
+  if(window.acadGamification)
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+
+document.getElementById("share-article").addEventListener("click", async ()=>{
+  if(window.acadGamification)
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+  const feedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Comment progresser en burpees",
+    text: "Techniques + exercices + quiz",
+    url: window.location.href
+  };
+
+  if (navigator.share){
+    try {
+      await navigator.share(data);
+      feedback.textContent = "Merci pour ton partage ! (XP ajoutée)";
+    } catch {
+      feedback.textContent = "Partage annulé.";
+    }
+  } else {
+    feedback.textContent =
+      "Partage automatique non disponible.";
+  }
+});
+</script>
+
+</body>
+</html>
