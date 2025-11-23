@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Hyrox : comment préparer sa première course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Hyrox / Préparation · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🏃‍♂️🏁</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Hyrox</span>
+        <span class="chip">Lecture : 7–8 min</span>
+        <span class="chip">Niveau : Débutant / Intermédiaire</span>
+      </div>
+
+      <h1 class="article-title">Hyrox : comment préparer sa première course</h1>
+      <p class="article-subtitle">
+        Tu veux te lancer sur ton premier Hyrox ? Bonne idée.  
+        Format exigeant mais accessible, à condition d’avoir un plan clair. Voici comment t’y préparer en sécurité… et avec style.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> 3 piliers à travailler → course, stations fonctionnelles, gestion de l’allure. Tu n’as pas besoin d’être “monstrueux”, mais d’être prêt partout.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Rappel du format Hyrox</h2>
+        <p>Un Hyrox, c’est :</p>
+        <ul>
+          <li>8 × 1 km de course,</li>
+          <li>entre chaque km : 1 station fonctionnelle (ski, traîneau, burpees, lunges, etc.),</li>
+          <li>durée totale : de 55 min à 1h40 pour la majorité des participants.</li>
+        </ul>
+        <p>
+          ➜ Tu dois donc être capable de <strong>courir longtemps</strong> tout en enchaînant des blocs de force/puissance.
+        </p>
+
+        <h2>2️⃣ Choisir ta catégorie & ton objectif</h2>
+        <ul>
+          <li><strong>Open</strong> : charges plus légères, parfait pour un premier Hyrox.</li>
+          <li><strong>Pro</strong> : charges plus lourdes (à envisager plus tard).</li>
+          <li><strong>Double</strong> : en duo, on partage les stations.</li>
+          <li><strong>Relais</strong> : à 4, chacun fait 2 km + 2 stations.</li>
+        </ul>
+        <p>
+          Pour une première, viser <strong>finisher sans te cramer</strong> est déjà un gros objectif.  
+          La performance chrono pourra venir ensuite.
+        </p>
+
+        <h2>3️⃣ Plan simple sur 8 semaines</h2>
+        <p>Base : <strong>3 à 4 séances / semaine</strong>.</p>
+
+        <h3>🔹 1 séance “course”</h3>
+        <ul>
+          <li>Footing 30–45 min en endurance fondamentale,</li>
+          <li>+ 4–6 × 30 sec un peu plus rapide (récup 1 min).</li>
+        </ul>
+
+        <h3>🔹 1 séance “stations Hyrox”</h3>
+        <p>Exemple :</p>
+        <ul>
+          <li>4 tours :</li>
+          <li>— 500 m rameur ou 400 m course,</li>
+          <li>— 20 lunges (avec ou sans charge),</li>
+          <li>— 10 burpees broad jumps,</li>
+          <li>— 15 wall balls (ou squats + lancer de ballon).</li>
+        </ul>
+
+        <h3>🔹 1 séance “force / renfo”</h3>
+        <p>Bas du corps + poussée/tirage :</p>
+        <ul>
+          <li>Squats ou leg press,</li>
+          <li>Fentes,</li>
+          <li>Rowing / tirage,</li>
+          <li>Pompes / développé,</li>
+          <li>Gainage.</li>
+        </ul>
+
+        <h3>🔹 Option : 1 séance “mixte”</h3>
+        <p>Exemple : 5 × (500 m course + 10 burpees).</p>
+
+        <h2>4️⃣ Focus sur les stations “clé”</h2>
+
+        <h3>🛷 Traîneau push / pull</h3>
+        <p>
+          Si tu n’as pas de traîneau, tu peux simuler avec :
+        </p>
+        <ul>
+          <li>poussée de sled en salle,</li>
+          <li>marche rapide / course en côte,</li>
+          <li>travail de cuisses lourdes (squat, presse, fentes lourdes).</li>
+        </ul>
+
+        <h3>🦵 Lunges (fentes)</h3>
+        <ul>
+          <li>travail technique (genou aligné, buste droit),</li>
+          <li>progression : sans charge → avec charge,</li>
+          <li>option : marcher avec sac à dos chargé.</li>
+        </ul>
+
+        <h3>🎯 Wall balls</h3>
+        <ul>
+          <li>ou squats + lancé de ballon/médecine ball,</li>
+          <li>bien caler profondeur de squat + trajectoire du lancer.</li>
+        </ul>
+
+        <h3>💀 Burpee broad jumps</h3>
+        <ul>
+          <li>apprendre un <strong>mouvement économique</strong>,</li>
+          <li>ne pas sauter trop loin, mais rester constant.</li>
+        </ul>
+
+        <h2>5️⃣ Faire des “simulations Hyrox”</h2>
+        <p>Pour préparer le corps et la tête :</p>
+        <ul>
+          <li>Session type : 4 km de course + 4 stations (format réduit),</li>
+          <li>ou 6 × (500 m course + 1 station différente à chaque fois),</li>
+          <li>objectif : enchaîner sans s’arrêter complètement.</li>
+        </ul>
+
+        <h2>6️⃣ Erreurs classiques à éviter</h2>
+        <ul>
+          <li>partir trop vite sur les premiers km,</li>
+          <li>faire les premières stations “en mode testostérone”,</li>
+          <li>négliger la course au profit uniquement des stations,</li>
+          <li>ou l’inverse : être bon coureur mais jamais travailler le traîneau / les lunges,</li>
+          <li>oublier de s’hydrater (même en indoor).</li>
+        </ul>
+
+        <h2>7️⃣ À quelle fréquence t’entraîner ?</h2>
+        <ul>
+          <li>Débutant : 3 séances / semaine (1 course, 1 stations, 1 renfo),</li>
+          <li>Intermédiaire : 4 séances / semaine (1 course, 2 mixtes/stations, 1 renfo),</li>
+          <li>+ sommeil et nutrition minimales correctes.</li>
+        </ul>
+
+        <p>
+          ➜ Si tu es régulier pendant 8 semaines avec cette structure, tu seras prêt pour un premier Hyrox solide.
+        </p>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Préparer son premier Hyrox</div>
+          <div class="quiz-caption">5 questions pour vérifier que tout est clair.</div>
+        </div>
+        <div class="quiz-badge">🏁 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds, puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "hyrox-preparer-premiere-course";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Le format Hyrox standard, c’est :",
+    options: [
+      "10 km de course sans station",
+      "8 × 1 km de course + 8 stations",
+      "Uniquement du rameur",
+      "Une simple course 5 km"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Combien de séances par semaine pour préparer un premier Hyrox (débutant) ?",
+    options: [
+      "1 séance",
+      "2 séances",
+      "3 séances environ",
+      "7 séances"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 3,
+    question: "Quels sont les 3 piliers principaux à travailler ?",
+    options: [
+      "Yoga, stretching, méditation",
+      "Course, stations fonctionnelles, gestion de l’allure",
+      "Uniquement la force max",
+      "Uniquement la vitesse pure"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Une 'simulation Hyrox' sert surtout à :",
+    options: [
+      "Tester le chrono sur 10 km",
+      "Enchaîner course + stations pour préparer le corps et la tête",
+      "Faire uniquement du traîneau",
+      "Faire une séance de musculation isolée"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 5,
+    question: "Erreur classique à éviter sur un premier Hyrox :",
+    options: [
+      "Partir très vite sur les premiers km",
+      "Adapter son allure",
+      "Boire un peu d’eau",
+      "S’échauffer avant la course"
+    ],
+    correctIndex: 0
+  }
+];
+
+function renderQuiz(){
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach((q, i)=>{
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${i+1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt,idx)=>`
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${idx}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", ()=>{
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r=>r.checked)
+  ).length;
+
+  document.getElementById("quiz-progress").textContent =
+    `Question ${answered || 1} sur ${quizData.length}`;
+});
+
+document.getElementById("quiz-submit").addEventListener("click", ()=>{
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q=>{
+    const selected = [...document.querySelectorAll(
+      `input[name="question-${q.id}"]`
+    )].find(r=>r.checked);
+
+    const block = document.querySelector(
+      `.quiz-question[data-question-id="${q.id}"]`
+    );
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if(selected && parseInt(selected.value, 10) === q.correctIndex){
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if(selected) opts[selected.value].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  const msg =
+    ratio === 1 ? "Parfait ! Tu es prêt(e) à structurer une vraie prépa Hyrox 🏁" :
+    ratio >= 0.7 ? "Très bon score, tu as bien compris le format." :
+    ratio >= 0.4 ? "Pas mal, relis certains passages et retente." :
+    "Relis l’article tranquillement, puis refais le quiz.";
+
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>${score}/${total}</strong> • ${msg}`;
+
+  if(window.acadGamification)
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 XP bonus ajoutée !" :
+    "Tu peux viser le perfect la prochaine fois 👍";
+});
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+document.getElementById("mark-article-read").addEventListener("click", ()=>{
+  if(window.acadGamification)
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+document.getElementById("share-article").addEventListener("click", async ()=>{
+  if(window.acadGamification)
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+  const feedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Hyrox : comment préparer sa première course",
+    text: "Plan simple + conseils + quiz pour un premier Hyrox réussi.",
+    url: window.location.href
+  };
+
+  if (navigator.share){
+    try {
+      await navigator.share(data);
+      feedback.textContent = "Merci pour ton partage ! (XP ajoutée)";
+    } catch {
+      feedback.textContent = "Partage annulé.";
+    }
+  } else {
+    feedback.textContent =
+      "Partage automatique non disponible sur cet appareil.";
+  }
+});
+</script>
+
+</body>
+</html>
