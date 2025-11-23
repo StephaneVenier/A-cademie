@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Foot : comment progresser sans club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Sports collectifs / Foot · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">⚽</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Foot</span>
+        <span class="chip">Lecture : 7 min</span>
+        <span class="chip">Niveau : Débutant → Intermédiaire</span>
+      </div>
+
+      <h1 class="article-title">Foot : comment progresser sans club</h1>
+      <p class="article-subtitle">
+        Pas de licence, pas d’entraîneur, pas de séances officielles… mais envie de progresser au foot ?  
+        Bonne nouvelle : tu peux énormément t’améliorer tout seul, si tu structures un minimum ton entraînement.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> 3 axes à travailler chaque semaine → technique balle, physique simple, lecture du jeu.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Fixe un objectif clair</h2>
+        <p>Avant tout, choisis 1–2 priorités :</p>
+        <ul>
+          <li>mieux contrôler le ballon,</li>
+          <li>mieux frapper (précision / puissance),</li>
+          <li>être plus rapide / explosif,</li>
+          <li>mieux tenir physiquement en match entre amis.</li>
+        </ul>
+        <p>➜ Ça t'évite de faire “un peu de tout” sans réel progrès.</p>
+
+        <h2>2️⃣ Travailler sa technique… même tout seul</h2>
+
+        <h3>① Conduite de balle</h3>
+        <ul>
+          <li>slalom entre 5–8 plots (ou bouteilles) espacés de 1,5–2 m,</li>
+          <li>conduite pied droit / pied gauche / alterné,</li>
+          <li>varier la vitesse (lent → rapide → freinage).</li>
+        </ul>
+
+        <h3>② Contrôle & premières touches</h3>
+        <ul>
+          <li>jongles simples (pied droit, pied gauche, alterné),</li>
+          <li>lancer le ballon avec les mains → contrôle orienté,</li>
+          <li>contre un mur : passe + contrôle.</li>
+        </ul>
+
+        <h3>③ Frappe de balle (précision avant puissance)</h3>
+        <ul>
+          <li>viser une zone précise du but / mur,</li>
+          <li>20–30 frappes pied fort, puis 10–15 pied “faible”,</li>
+          <li>travailler intérieur du pied, puis coup de pied.</li>
+        </ul>
+
+        <h2>3️⃣ Physique simple, utile pour le foot</h2>
+
+        <h3>Endurance de base</h3>
+        <p>
+          20–30 minutes de course tranquille 1–2 fois/semaine = tu tiens plus longtemps en match.
+        </p>
+
+        <h3>Explosivité et vitesse</h3>
+        <ul>
+          <li>6–8 × 20–30 m en sprint (récupération complète en marchant),</li>
+          <li>4–6 accélérations avec ballon, puis sans ballon.</li>
+        </ul>
+
+        <h3>Renforcement “foot”</h3>
+        <ul>
+          <li>fentes, squats, gainage, montées de genoux,</li>
+          <li>2 petites séances de 10–15 min par semaine suffisent pour faire la différence.</li>
+        </ul>
+
+        <h2>4️⃣ Comprendre le jeu sans être en club</h2>
+        <p>Tu peux progresser dans ta vision du jeu en :</p>
+        <ul>
+          <li>regardant des matchs en te concentrant sur un poste (par ex : latéral gauche),</li>
+          <li>observant les déplacements sans ballon,</li>
+          <li>analysant : “pourquoi cette action a fonctionné ? pourquoi celle d’avant non ?”.</li>
+        </ul>
+
+        <p>
+          ➜ Même sans coach, tu peux apprendre énormément juste en observant attentivement.
+        </p>
+
+        <h2>5️⃣ Exemple de semaine type “sans club”</h2>
+
+        <h3>Jour 1 — Technique + frappes</h3>
+        <ul>
+          <li>15 min conduite / contrôles,</li>
+          <li>20–30 frappes (précision),</li>
+          <li>5–10 min jongles.</li>
+        </ul>
+
+        <h3>Jour 2 — Physique</h3>
+        <ul>
+          <li>20–30 min footing,</li>
+          <li>+ 6 × 20 m sprints.</li>
+        </ul>
+
+        <h3>Jour 3 — Jeu + renfo</h3>
+        <ul>
+          <li>match avec amis / city stade,</li>
+          <li>+ 10 min renfo jambes + gainage.</li>
+        </ul>
+
+        <h2>6️⃣ Jouer avec d’autres, même sans club</h2>
+        <ul>
+          <li>city stades,</li>
+          <li>terrains libres,</li>
+          <li>matchs entre collègues / amis,</li>
+          <li>applications / groupes locaux (foot loisir).</li>
+        </ul>
+        <p>
+          ➜ L’important : toucher beaucoup de ballons, répéter les gestes, et avoir des situations de match.
+        </p>
+
+        <h2>7️⃣ Mental & progression</h2>
+        <ul>
+          <li>filme-toi 1 fois par mois sur un exercice (conduite, frappes…),</li>
+          <li>note ce que tu veux améliorer (par ex : précision, mauvais pied),</li>
+          <li>reste patient : les progrès se voient sur quelques semaines, pas en 2 jours.</li>
+        </ul>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Progresser au foot sans club</div>
+          <div class="quiz-caption">5 questions pour valider les bases.</div>
+        </div>
+        <div class="quiz-badge">⚽ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+
+<!-- SCRIPTS -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "foot-progresser-sans-club";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Quels sont les 3 grands axes à travailler pour progresser sans club ?",
+    options: [
+      "Technique balle, physique simple, lecture du jeu",
+      "Muscu lourde, stretching, yoga",
+      "Uniquement les frappes",
+      "Uniquement la vitesse"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 2,
+    question: "Quel exercice est idéal pour travailler la conduite de balle seul ?",
+    options: [
+      "Jongler uniquement",
+      "Slalom entre plots / bouteilles",
+      "Courir en ligne droite sans ballon",
+      "Faire des pompes"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 3,
+    question: "Pour améliorer la frappe, il est conseillé de :",
+    options: [
+      "Chercher la puissance en premier",
+      "Viser une zone précise avec l’intérieur du pied d’abord",
+      "Tirer au hasard très fort",
+      "Ne jamais utiliser son mauvais pied"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Quel type de travail physique aide directement le foot ?",
+    options: [
+      "20–30 min de footing + sprints courts",
+      "Uniquement des tractions",
+      "Uniquement des étirements passifs",
+      "Uniquement du vélo très doux"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 5,
+    question: "Même sans club, tu peux progresser dans ta vision du jeu en :",
+    options: [
+      "Regardant des matchs et en observant les déplacements",
+      "Ne regardant jamais de match",
+      "Focus uniquement sur les ralentis des buts",
+      "Regardant les tribunes"
+    ],
+    correctIndex: 0
+  }
+];
+
+function renderQuiz(){
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach((q, i)=>{
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${i+1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt,idx)=>`
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${idx}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", ()=>{
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r=>r.checked)
+  ).length;
+
+  document.getElementById("quiz-progress").textContent =
+    `Question ${answered || 1} sur ${quizData.length}`;
+});
+
+
+document.getElementById("quiz-submit").addEventListener("click", ()=>{
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q=>{
+    const selected = [...document.querySelectorAll(
+      `input[name="question-${q.id}"]`
+    )].find(r=>r.checked);
+
+    const block = document.querySelector(
+      `.quiz-question[data-question-id="${q.id}"]`
+    );
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if(selected && parseInt(selected.value, 10) === q.correctIndex){
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if(selected) opts[selected.value].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  const msg =
+    ratio === 1 ? "Parfait ! Tu as les bases pour progresser sans club ⚽" :
+    ratio >= 0.7 ? "Très bon score, bien joué !" :
+    ratio >= 0.4 ? "Correct, tu peux encore t’améliorer." :
+    "Relis l’article tranquillement puis retente.";
+
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>${score}/${total}</strong> • ${msg}`;
+
+  if(window.acadGamification)
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 XP bonus ajoutée !" :
+    "Tu peux viser le perfect à la prochaine tentative 👍";
+});
+
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+
+document.getElementById("mark-article-read").addEventListener("click", ()=>{
+  if(window.acadGamification)
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+
+document.getElementById("share-article").addEventListener("click", async ()=>{
+  if(window.acadGamification)
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+  const feedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Foot : comment progresser sans club",
+    text: "Plan simple + conseils + quiz pour progresser même sans licence.",
+    url: window.location.href
+  };
+
+  if (navigator.share){
+    try {
+      await navigator.share(data);
+      feedback.textContent = "Merci pour ton partage ! (XP ajoutée)";
+    } catch {
+      feedback.textContent = "Partage annulé.";
+    }
+  } else {
+    feedback.textContent =
+      "Partage automatique non disponible sur cet appareil.";
+  }
+});
+</script>
+
+</body>
+</html>
