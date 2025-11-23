@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Hyrox : la nouvelle compétition expliquée</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Hyrox / Functional · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🏁</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Hyrox</span>
+        <span class="chip">Lecture : 7 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Hyrox : la nouvelle compétition expliquée</h1>
+      <p class="article-subtitle">
+        Course à pied + renforcement + efforts répétés : Hyrox est devenu l’un des formats les plus explosifs et accessibles du moment.  
+        Voici un guide clair pour comprendre ce qui t’attend.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> Hyrox mélange course + stations fonctionnelles, avec un format solide et identique partout dans le monde.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Hyrox, c’est quoi exactement ?</h2>
+        <p>
+          Hyrox est une compétition internationale mêlant <strong>course à pied</strong> et <strong>exercices fonctionnels</strong>.
+        </p>
+
+        <h3>Le format officiel :</h3>
+        <ul>
+          <li>8 × 1 km de course</li>
+          <li>Entre chaque km → 1 station d’effort</li>
+        </ul>
+
+        <h3>Les 8 stations :</h3>
+        <ol>
+          <li>1000 m SkiErg</li>
+          <li>Traîneau push</li>
+          <li>Traîneau pull</li>
+          <li>Burpee broad jumps</li>
+          <li>1 km Rowing</li>
+          <li>Farmers carry</li>
+          <li>Sandbag lunges</li>
+          <li>Wall Balls</li>
+        </ol>
+
+        <h2>2️⃣ Pour qui est Hyrox ?</h2>
+        <ul>
+          <li>coureurs qui veulent ajouter de la force,</li>
+          <li>pratiquants de salle souhaitant un objectif clair,</li>
+          <li>amateurs de CrossFit cherchant un format plus stable,</li>
+          <li>débutants motivés par un défi structuré.</li>
+        </ul>
+
+        <p>Hyrox n’est pas réservé aux “monstres”. Le format est <strong>scalable</strong> (poids différents selon les catégories).</p>
+
+        <h2>3️⃣ Catégories disponibles</h2>
+        <ul>
+          <li><strong>Open</strong> : charges standard.</li>
+          <li><strong>Pro</strong> : charges plus lourdes.</li>
+          <li><strong>Double</strong> : en duo (on partage les stations, pas la course).</li>
+          <li><strong>Relais</strong> : 4 personnes (chacun fait 2 km + 2 stations).</li>
+        </ul>
+
+        <h2>4️⃣ Les qualités physiques nécessaires</h2>
+        <ul>
+          <li><strong>Endurance aérobie</strong> (beaucoup de course),</li>
+          <li><strong>Force fonctionnelle</strong> (tirer, pousser, porter),</li>
+          <li><strong>Puissance</strong> (burpees, wall balls),</li>
+          <li><strong>Récupération rapide</strong> entre stations.</li>
+        </ul>
+
+        <h2>5️⃣ Temps moyens en compétition</h2>
+        <ul>
+          <li>Débutant : 1h20 – 1h40</li>
+          <li>Intermédiaire : 1h05 – 1h20</li>
+          <li>Avancé : 55 – 65 minutes</li>
+        </ul>
+
+        <h2>6️⃣ Comment s’entraîner pour Hyrox ?</h2>
+        <p>Un bon plan contient :</p>
+        <ul>
+          <li>course régulière (EF + tempo),</li>
+          <li>séances “stations” (traîneau, lunges, burpees…),</li>
+          <li>séances mixtes course + exercices,</li>
+          <li>une séance renfo / semaine.</li>
+        </ul>
+
+        <p>
+          ➜ Le plus important : apprendre à gérer sa course <strong>malgré la fatigue des stations</strong>.
+        </p>
+
+        <h2>7️⃣ Pourquoi Hyrox cartonne autant ?</h2>
+        <ul>
+          <li>format identique dans le monde entier,</li>
+          <li>chronométré avec classement officiel,</li>
+          <li>accessibilité pour tous les niveaux,</li>
+          <li>ambiance énorme en compétition.</li>
+        </ul>
+
+        <p>
+          Si tu aimes les défis physiques complets et réguliers → Hyrox est l’un des meilleurs formats du moment.
+        </p>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Hyrox expliqué</div>
+          <div class="quiz-caption">5 questions pour vérifier ce que tu as retenu.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds aux questions puis valide.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "hyrox-competition-expliquee";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Le format Hyrox officiel est composé de :",
+    options: [
+      "10 km de course uniquement",
+      "8 × 1 km de course + 8 stations",
+      "3 km de course + 1 station",
+      "Uniquement des exercices statiques"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Une station Hyrox peut être :",
+    options: [
+      "SkiErg, traîneau, burpees, lunges…",
+      "Juste du yoga",
+      "Uniquement du vélo",
+      "Uniquement du développé couché"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 3,
+    question: "Quelle catégorie permet de partager les stations à deux ?",
+    options: [
+      "Pro",
+      "Open",
+      "Double",
+      "Relais 4"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 4,
+    question: "Hyrox demande surtout :",
+    options: [
+      "Endurance + force fonctionnelle",
+      "Souplesse extrême",
+      "Compétences d’escalade",
+      "Uniquement du sprint"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 5,
+    question: "Un temps débutant réaliste en Hyrox :",
+    options: [
+      "30 minutes",
+      "1h20–1h40",
+      "3 heures",
+      "10 minutes"
+    ],
+    correctIndex: 1
+  }
+];
+
+function renderQuiz() {
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach((q, i) => {
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${i + 1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt, idx) => `
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${idx}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", () => {
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r => r.checked)
+  ).length;
+
+  document.getElementById("quiz-progress").textContent =
+    `Question ${answered || 1} sur ${quizData.length}`;
+});
+
+document.getElementById("quiz-submit").addEventListener("click", () => {
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q => {
+    const selected = [...document.querySelectorAll(
+      `input[name="question-${q.id}"]`
+    )].find(r => r.checked);
+
+    const block = document.querySelector(
+      `.quiz-question[data-question-id="${q.id}"]`
+    );
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if (selected && parseInt(selected.value) === q.correctIndex) {
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if (selected) opts[selected.value].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  const msg =
+    ratio === 1 ? "Parfait ! Tu as tout compris sur Hyrox 🏁" :
+    ratio >= 0.7 ? "Très bon score !" :
+    ratio >= 0.4 ? "Pas mal, relis certains points." :
+    "Relis l’article tranquillement puis retente.";
+
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>${score}/${total}</strong> bonnes réponses • ${msg}`;
+
+  if (window.acadGamification)
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." :
+    "Tu peux viser le perfect la prochaine fois !";
+});
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+document.getElementById("mark-article-read").addEventListener("click", () => {
+  if (window.acadGamification)
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+document.getElementById("share-article").addEventListener("click", async () => {
+  if (window.acadGamification)
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+  const feedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Hyrox : la nouvelle compétition expliquée",
+    text: "Format complet + quiz express",
+    url: window.location.href
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(data);
+      feedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+    } catch {
+      feedback.textContent = "Partage annulé.";
+    }
+  } else {
+    feedback.textContent = "Partage automatique non disponible.";
+  }
+});
+</script>
+
+</body>
+</html>
