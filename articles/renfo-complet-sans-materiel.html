@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Renforcement complet du corps sans matériel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Renforcement / Fonctionnel · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">💪</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Renforcement</span>
+        <span class="chip">Lecture : 6 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Renforcement complet du corps sans matériel</h1>
+      <p class="article-subtitle">
+        Tu n’as pas de salle, pas d’haltères, pas de barre ? Aucun problème.  
+        Voici une séance complète 100% sans matériel pour renforcer tout le corps efficacement.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> le poids du corps suffit largement pour progresser, à condition d’être régulier et d'avoir une structure bien pensée.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Les avantages du renfo sans matériel</h2>
+        <ul>
+          <li>tu peux t’entraîner n’importe où,</li>
+          <li>progression simple → plus de répétitions ou variantes plus difficiles,</li>
+          <li>mouvements fonctionnels proches du quotidien,</li>
+          <li>très bon complément pour course, Hyrox ou CrossFit.</li>
+        </ul>
+
+        <h2>2️⃣ La séance complète (20–25 min)</h2>
+        <p>Structure : 40 sec effort / 20 sec pause — 2 à 3 tours</p>
+
+        <h3>① Squats — 40 sec</h3>
+        <p>Renforce les cuisses, fessiers, gainage.</p>
+
+        <h3>② Pompes — 40 sec</h3>
+        <p>Option genoux si besoin. Cible le haut du corps + gainage.</p>
+
+        <h3>③ Fentes alternées — 40 sec</h3>
+        <p>Travail jambes + équilibre + stabilité du bassin.</p>
+
+        <h3>④ Gainage planche — 40 sec</h3>
+        <p>Focus : bassin neutre, respiration lente.</p>
+
+        <h3>⑤ Dos : “Superman” — 40 sec</h3>
+        <p>Allongé au sol, lève bras + jambes. Excellent pour le bas du dos.</p>
+
+        <h3>⑥ Dips sur chaise — 40 sec</h3>
+        <p>Utilise une chaise ou un canapé. Cible triceps + épaules.</p>
+
+        <h3>⑦ Gainage latéral — 40 sec</h3>
+        <p>20 sec de chaque côté. Renforce la stabilité du tronc.</p>
+
+        <h2>3️⃣ Progression sur 4 niveaux</h2>
+        <ul>
+          <li><strong>Niveau 1</strong> : 1 tour</li>
+          <li><strong>Niveau 2</strong> : 2 tours</li>
+          <li><strong>Niveau 3</strong> : 3 tours</li>
+          <li><strong>Niveau 4</strong> : augmenter durée → 45/15 ou 50/10</li>
+        </ul>
+
+        <h2>4️⃣ Conseils techniques importants</h2>
+        <ul>
+          <li>garde toujours un léger gainage,</li>
+          <li>ne compense pas avec le dos,</li>
+          <li>respire régulièrement (notamment sur pompes + gainage),</li>
+          <li>arrête en cas de douleur articulaire (pas musculaire).</li>
+        </ul>
+
+        <h2>5️⃣ À quelle fréquence faire cette séance ?</h2>
+        <ul>
+          <li><strong>2 fois/semaine</strong> : entretien,</li>
+          <li><strong>3 fois/semaine</strong> : progression réelle,</li>
+          <li><strong>4 fois/semaine</strong> : transformation rapide.</li>
+        </ul>
+
+        <p>Cette routine est parfaite pour compléter la course, les sports collectifs, Hyrox ou CrossFit.</p>
+
+      </div>
+
+
+      <!-- FOOTER GAMIFICATION -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Renfo sans matériel</div>
+          <div class="quiz-caption">5 questions pour valider tes bases.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds aux questions puis valide.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+
+<!-- GAMIFICATION -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "renfo-complet-sans-materiel";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Quel est l’avantage du renfo au poids du corps ?",
+    options: [
+      "Nécessite beaucoup de machines",
+      "Peut être fait partout et reste très efficace",
+      "Uniquement pour les athlètes avancés",
+      "Impossible de progresser"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Quelle structure d’effort est recommandée dans cet article ?",
+    options: [
+      "10 sec effort / 5 sec pause",
+      "40 sec effort / 20 sec pause",
+      "5 minutes effort continu",
+      "Aucune structure"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 3,
+    question: "Quel exercice cible surtout le bas du dos ?",
+    options: [
+      "Pompes",
+      "Superman",
+      "Dips",
+      "Gainage latéral"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Combien de séances par semaine pour progresser réellement ?",
+    options: [
+      "1 séance",
+      "2 séances",
+      "3 séances",
+      "7 séances"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 5,
+    question: "Pour progresser, il faut surtout :",
+    options: [
+      "Soulever le plus lourd possible",
+      "Être régulier et augmenter la difficulté petit à petit",
+      "Faire uniquement des squats",
+      "Ne jamais se reposer"
+    ],
+    correctIndex: 1
+  }
+];
+
+function renderQuiz(){
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach((q, i) => {
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${i + 1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt, idx)=>`
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${idx}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", ()=>{
+  const answered = quizData.filter(q=>
+    [...document.querySelectorAll(`input[name="question-${q.id}"]`)]
+      .some(r=>r.checked)
+  ).length;
+
+  document.getElementById("quiz-progress").textContent =
+    `Question ${answered || 1} sur ${quizData.length}`;
+});
+
+document.getElementById("quiz-submit").addEventListener("click", ()=>{
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option")
+    .forEach(opt=>opt.classList.remove("correct","incorrect"));
+
+  quizData.forEach(q=>{
+    const selected = [...document.querySelectorAll(
+      `input[name="question-${q.id}"]`
+    )].find(r=>r.checked);
+
+    const block = document.querySelector(
+      `.quiz-question[data-question-id="${q.id}"]`
+    );
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if(selected && parseInt(selected.value) === q.correctIndex){
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if(selected) opts[selected.value].classList.add("incorrect");
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  const msg =
+    ratio === 1 ? "Excellent ! Renfo maîtrisé 💪" :
+    ratio >= 0.7 ? "Très bon score !" :
+    ratio >= 0.4 ? "Bien joué, mais tu peux progresser." :
+    "Relis l’article tranquillement puis retente.";
+
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>${score}/${total}</strong> • ${msg}`;
+
+  if(window.acadGamification)
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 XP bonus ajoutée !" :
+    "Tu peux faire encore mieux 👍";
+});
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+document.getElementById("mark-article-read").addEventListener("click", ()=>{
+  if(window.acadGamification)
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+document.getElementById("share-article").addEventListener("click", async ()=>{
+  if(window.acadGamification)
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+
+  const feedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Renforcement complet sans matériel",
+    text: "Séance simple + quiz express",
+    url: window.location.href
+  };
+
+  if(navigator.share){
+    try {
+      await navigator.share(data);
+      feedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+    } catch {
+      feedback.textContent = "Partage annulé.";
+    }
+  } else {
+    feedback.textContent =
+      "Partage automatique non disponible.";
+  }
+});
+</script>
+
+</body>
+</html>
