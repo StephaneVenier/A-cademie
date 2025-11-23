@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Comment améliorer sa posture en 1 mois</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Pilates / Posture · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🧍‍♂️</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Posture</span>
+        <span class="chip">Lecture : 7 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Comment améliorer sa posture en 1 mois</h1>
+      <p class="article-subtitle">
+        Dos voûté, épaules en avant, nuque tendue devant l’écran…  
+        En 1 mois, tu peux déjà changer beaucoup de choses avec quelques habitudes simples et une mini-routine régulière.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> meilleure posture = un peu d’exercices ciblés + quelques réglages dans ta journée + régularité.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Comprendre d’où vient la “mauvaise posture”</h2>
+        <p>
+          La posture se dégrade rarement du jour au lendemain. C’est le résultat de :
+        </p>
+        <ul>
+          <li>beaucoup de temps assis, souvent avachi,</li>
+          <li>manque de renforcement du dos et du centre,</li>
+          <li>tête poussée vers l’avant pour regarder l’écran ou le téléphone,</li>
+          <li>stress et fatigue → épaules qui montent, respiration plus haute.</li>
+        </ul>
+        <p>
+          Bonne nouvelle : ce qui se construit petit à petit… peut aussi se corriger petit à petit.
+        </p>
+
+        <h2>2️⃣ Objectifs réalistes sur 1 mois</h2>
+        <ul>
+          <li>mieux sentir ta position debout et assise,</li>
+          <li>réduire les tensions dans le haut du dos et la nuque,</li>
+          <li>renforcer légèrement les muscles posturaux,</li>
+          <li>créer des “rappels” dans ta journée pour te redresser.</li>
+        </ul>
+
+        <p>
+          ➜ L’objectif n’est pas d’avoir une posture “parfaite”, mais une posture <strong>vivante</strong>, plus équilibrée.
+        </p>
+
+        <h2>3️⃣ La mini-routine posture (10 minutes, 3 à 4 fois/semaine)</h2>
+
+        <h3>① Auto-grandissement (1 min)</h3>
+        <ul>
+          <li>Debout, pieds écartés largeur de hanches.</li>
+          <li>Imagine un fil qui tire le sommet du crâne vers le haut.</li>
+          <li>Épaules relâchées, menton légèrement rentré.</li>
+        </ul>
+
+        <h3>② Renforcement haut du dos : “rowing debout” (2 min)</h3>
+        <ul>
+          <li>Bras tendus devant toi, pouces vers le ciel.</li>
+          <li>Souffle en tirant les coudes vers l’arrière, en rapprochant les omoplates.</li>
+          <li>Inspire en revenant devant. 2 × 12 répétitions.</li>
+        </ul>
+
+        <h3>③ Gainage simple (2 × 20–30 sec)</h3>
+        <ul>
+          <li>Planche sur coudes et genoux (ou pieds si tu es à l’aise).</li>
+          <li>Corps aligné, ventre légèrement rentré, respiration calme.</li>
+        </ul>
+
+        <h3>④ Ouverture de poitrine contre le mur (1–2 min)</h3>
+        <ul>
+          <li>Place les avant-bras contre un chambranle de porte,</li>
+          <li>avance légèrement le buste pour étirer la poitrine.</li>
+        </ul>
+
+        <h3>⑤ Mobilité du haut du dos (rotation) (2 min)</h3>
+        <ul>
+          <li>À quatre pattes, main sur la nuque,</li>
+          <li>ouvre le coude vers le ciel en soufflant,</li>
+          <li>redescends en inspirant. 8 répétitions par côté.</li>
+        </ul>
+
+        <h2>4️⃣ Les “micro-réglages” au quotidien</h2>
+
+        <h3>Au bureau / en télétravail</h3>
+        <ul>
+          <li>écran à hauteur des yeux,</li>
+          <li>pieds à plat au sol,</li>
+          <li>dossier utilisé (pas enfoncé au bord de la chaise),</li>
+          <li>pause debout toutes les 45–60 minutes.</li>
+        </ul>
+
+        <h3>Avec le téléphone</h3>
+        <ul>
+          <li>remonte le téléphone vers ton regard,</li>
+          <li>évite de pencher la tête vers le bas pendant de longues minutes.</li>
+        </ul>
+
+        <h3>En marchant</h3>
+        <ul>
+          <li>regard à l’horizon,</li>
+          <li>épaules relâchées, bras qui se balancent naturellement,</li>
+          <li>quelques pas “en conscience” chaque jour.</li>
+        </ul>
+
+        <h2>5️⃣ Plan sur 4 semaines (simple)</h2>
+        <ul>
+          <li><strong>Semaine 1 :</strong> découvrir la routine + ajuster le poste de travail.</li>
+          <li><strong>Semaine 2 :</strong> tenir la routine 3×/semaine + ajouter des pauses debout.</li>
+          <li><strong>Semaine 3 :</strong> gagner quelques secondes de gainage + être plus attentif à ta marche.</li>
+          <li><strong>Semaine 4 :</strong> consolider, répéter, observer les différences de sensations.</li>
+        </ul>
+
+        <h2>6️⃣ Signes que ta posture s’améliore</h2>
+        <ul>
+          <li>tu te redresses plus souvent “automatiquement”,</li>
+          <li>moins de tensions dans la nuque le soir,</li>
+          <li>dos moins fatigué après une journée assis,</li>
+          <li>meilleure respiration (sensation d’ouvrir plus la cage thoracique).</li>
+        </ul>
+
+        <p>
+          Ce sont des petits changements, mais mis bout à bout sur 1 mois, ils font une vraie différence.
+        </p>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Posture en 1 mois</div>
+          <div class="quiz-caption">5 questions pour vérifier que tu as bien les bases.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider mes réponses</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer le quiz</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds aux questions puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS GAMIFICATION -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "ameliorer-posture-1-mois";
+
+const quizData = [
+  {
+    id: 1,
+    question: "La mauvaise posture vient surtout de :",
+    options: [
+      "Un seul mauvais geste",
+      "Des habitudes répétées (beaucoup assis, écrans, etc.)",
+      "Le fait de trop marcher",
+      "Porter un sac à dos léger"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Quel est l’objectif réaliste sur 1 mois ?",
+    options: [
+      "Changer totalement la forme de ta colonne",
+      "Ne plus jamais te fatiguer",
+      "Mieux sentir ta posture et réduire certaines tensions",
+      "Être tout le temps parfaitement droit(e)"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 3,
+    question: "La routine “posture” proposée dure :",
+    options: [
+      "3 minutes",
+      "10 minutes, 3–4 fois/semaine",
+      "1 heure par jour",
+      "Uniquement le week-end"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Quel réglage est conseillé au bureau ?",
+    options: [
+      "Écran plus bas que la poitrine",
+      "Pieds dans le vide",
+      "Écran à hauteur des yeux, pieds à plat",
+      "S’asseoir au bord de la chaise"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 5,
+    question: "Un signe que ta posture s’améliore :",
+    options: [
+      "Plus de douleurs qu’avant",
+      "Tu te redresses plus souvent automatiquement",
+      "Tu ne bouges plus du tout",
+      "Tu respires de moins en moins"
+    ],
+    correctIndex: 1
+  }
+];
+
+const quizForm = document.getElementById("quiz-form");
+const quizProgress = document.getElementById("quiz-progress");
+const quizResult = document.getElementById("quiz-result");
+const quizFeedback = document.getElementById("quiz-feedback");
+const submitBtn = document.getElementById("quiz-submit");
+const resetBtn = document.getElementById("quiz-reset");
+
+function renderQuiz() {
+  quizForm.innerHTML = "";
+
+  quizData.forEach((q, index) => {
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    block.innerHTML = `
+      <div class="quiz-question-header">
+        <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+        <div class="quiz-question-meta">1 seule bonne réponse</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map((opt, i) => `
+          <label class="quiz-option">
+            <input type="radio" name="question-${q.id}" value="${i}">
+            <span>${opt}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+
+    quizForm.appendChild(block);
+  });
+
+  quizProgress.textContent = "Question 1 sur " + quizData.length;
+  quizResult.textContent = "Réponds aux questions puis valide pour voir ton score.";
+  quizFeedback.textContent = "";
+}
+
+function updateProgress() {
+  const answered = quizData.filter(q =>
+    [...document.querySelectorAll('input[name="question-' + q.id + '"]')]
+      .some(r => r.checked)
+  ).length;
+
+  quizProgress.textContent =
+    "Question " + (answered || 1) + " sur " + quizData.length;
+}
+
+quizForm.addEventListener("change", updateProgress);
+
+function evaluateQuiz() {
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(o =>
+    o.classList.remove("correct","incorrect")
+  );
+
+  quizData.forEach(q => {
+    const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+    let selectedIndex = null;
+    radios.forEach((r, i) => { if (r.checked) selectedIndex = i; });
+
+    const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if (selectedIndex === q.correctIndex) {
+      score++;
+      if (opts[selectedIndex]) opts[selectedIndex].classList.add("correct");
+    } else {
+      if (opts[q.correctIndex]) opts[q.correctIndex].classList.add("correct");
+      if (selectedIndex !== null && opts[selectedIndex]) {
+        opts[selectedIndex].classList.add("incorrect");
+      }
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  let msg =
+    ratio === 1 ? "Parfait ! Tu as tout compris sur la posture 🧍‍♂️" :
+    ratio >= 0.7 ? "Très bon score, tu es sur la bonne voie." :
+    ratio >= 0.4 ? "Pas mal, mais tu peux relire certains points." :
+    "Relis l’article tranquillement puis retente.";
+
+  quizResult.innerHTML =
+    "<strong>" + score + "/" + total + "</strong> bonnes réponses • " + msg;
+
+  if (window.acadGamification) {
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+  }
+
+  quizFeedback.textContent =
+    ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux viser le perfect à la prochaine tentative !";
+}
+
+submitBtn.addEventListener("click", evaluateQuiz);
+resetBtn.addEventListener("click", renderQuiz);
+
+const readBtn = document.getElementById("mark-article-read");
+if (readBtn) {
+  readBtn.addEventListener("click", () => {
+    if (window.acadGamification) {
+      window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+    }
+    readBtn.textContent = "✓ Article compté pour l’XP locale";
+    readBtn.disabled = true;
+  });
+}
+
+const shareBtn = document.getElementById("share-article");
+const shareFeedback = document.getElementById("share-feedback");
+
+if (shareBtn) {
+  shareBtn.addEventListener("click", async () => {
+    if (window.acadGamification) {
+      window.acadGamification.registerShare(ARTICLE_ID, 15);
+    }
+
+    const data = {
+      title: "A-Cadémie — Comment améliorer sa posture en 1 mois",
+      text: "Mini-plan simple pour mieux se tenir + quiz.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+        shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+      } catch {
+        shareFeedback.textContent = "Partage annulé.";
+      }
+    } else {
+      shareFeedback.textContent =
+        "Partage automatique non disponible sur cet appareil.";
+    }
+  });
+}
+
+renderQuiz();
+</script>
+
+</body>
+</html>
