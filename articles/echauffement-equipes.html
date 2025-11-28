@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Échauffement complet pour équipes amateurs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Échauffement & Prévention</span>
+          <span class="chip">Lecture : 7 min</span>
+          <span class="chip">Niveau : Intermédiaire</span>
+        </div>
+
+        <h1 class="article-title">Échauffement complet pour équipes amateurs</h1>
+        <p class="article-subtitle">
+          Avant de parler tactique ou intensité, il y a une étape souvent bâclée : l’échauffement. Voici un modèle simple, efficace et adaptable à toutes les équipes
+          amateurs, quel que soit le sport collectif.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> un bon échauffement n’est pas un “tour de terrain pour dire qu’on a fait quelque chose”.
+          C’est une routine structurée qui prépare le corps, le cerveau et l’équipe à bien s’entraîner, tout en limitant les blessures.
+        </div>
+
+        <div class="article-content">
+          <h2>1. Pourquoi un échauffement structuré est indispensable ?</h2>
+          <p>
+            En sport amateur, on arrive souvent à l’entraînement après une journée de travail, de cours ou de trajets. Le corps est froid, raide, parfois assis depuis des heures.
+            Passer directement aux oppositions ou aux sprints, c’est augmenter le risque de blessure et réduire la qualité de la séance.
+          </p>
+          <p>Un échauffement complet permet de :</p>
+          <ul>
+            <li>Monter progressivement la température corporelle et la fréquence cardiaque.</li>
+            <li>Préparer les articulations clés : chevilles, genoux, hanches, épaules.</li>
+            <li>Activer les groupes musculaires sollicités dans le sport (jambes, tronc, ceinture scapulaire…).</li>
+            <li>Mettre en route la coordination, les appuis, les changements de direction.</li>
+            <li>Créer tout de suite un climat de concentration et de cohésion d’équipe.</li>
+          </ul>
+
+          <h2>2. Les 3 blocs d’un échauffement d’équipe efficace</h2>
+          <p>Pour rester simple à organiser sur le terrain, tu peux découper l’échauffement en 3 blocs :</p>
+          <ul>
+            <li><strong>Bloc 1 : activation générale</strong> (course + mobilisation globale).</li>
+            <li><strong>Bloc 2 : technique & appuis</strong> (courses variées, changements de direction, déplacements spécifiques).</li>
+            <li><strong>Bloc 3 : spécifique au sport</strong> (avec ballon, oppositions réduites, gestes techniques à intensité croissante).</li>
+          </ul>
+
+          <h3>Bloc 1 — Activation générale (4–5 minutes)</h3>
+          <p>Objectif : réveiller le système cardio-respiratoire et monter doucement en intensité.</p>
+          <ul>
+            <li>Course lente en groupe autour du terrain (1 à 2 tours selon la taille).</li>
+            <li>Talons-fesses, montées de genoux, pas chassés, en avançant sur 15–20 m.</li>
+            <li>Petits rebonds sur place, accélérations progressives sur 20 m.</li>
+          </ul>
+
+          <h3>Bloc 2 — Mobilité & appuis (4–5 minutes)</h3>
+          <p>Objectif : préparer les articulations et la qualité des appuis, sans encore aller à fond.</p>
+          <ul>
+            <li>Cercles de chevilles, genoux, hanches, épaules, en marchant.</li>
+            <li>Fentes avant contrôlées (sans chercher à étirer à fond), fentes latérales.</li>
+            <li>Appuis rapides sur place (type “petits pas rapides”) pendant 5–10 secondes, répétés plusieurs fois.</li>
+            <li>Courses avec changements de direction : aller-retour en L ou en zigzag.</li>
+          </ul>
+
+          <h3>Bloc 3 — Spécifique au sport (5–8 minutes)</h3>
+          <p>
+            C’est ici que tu rapproches l’échauffement du contenu de la séance : ballon, duels, déplacements typiques de ton sport. L’idée est de monter
+            l’intensité progressivement.
+          </p>
+          <ul>
+            <li>
+              <strong>Pour les sports avec ballon (football, handball, basket, rugby, etc.) :</strong>
+              petites passes en mouvement, conservation de balle en espace réduit, 3 contre 1 ou 4 contre 2.
+            </li>
+            <li>
+              <strong>Pour les sports plus physiques (rugby, hand, futsal intense, etc.) :</strong>
+              contacts légers, montées défensives contrôlées, montée en agressivité <em>progressive</em>.
+            </li>
+            <li>Terminer par 2–3 séquences courtes à intensité proche du match (20–30 secondes).</li>
+          </ul>
+
+          <h2>3. Exemple concret : échauffement de 15 minutes pour équipe amateur</h2>
+          <p>Voici un exemple que tu peux appliquer quasiment tel quel, puis adapter au besoin :</p>
+          <ul>
+            <li><strong>0–4 min :</strong> course lente en groupe + talons-fesses + montées de genoux + pas chassés.</li>
+            <li><strong>4–7 min :</strong> mobilité (chevilles, genoux, hanches, épaules) + fentes avant/latérales + petits appuis rapides.</li>
+            <li><strong>7–11 min :</strong> ateliers d’appuis (slalom entre plots, changements de direction, courses en “L”).</li>
+            <li><strong>11–15 min :</strong> jeu de conservation de balle en petit espace (ex : 4 vs 2) ou opposition réduite avec thème.</li>
+          </ul>
+          <p>
+            L’idée n’est pas de suivre ce schéma au millimètre, mais de garder la logique :
+            <strong>général → spécifique → proche de la réalité du match ou de la séance</strong>.
+          </p>
+
+          <h2>4. Comment adapter selon le niveau et l’âge ?</h2>
+          <p>
+            Un groupe U13, une équipe loisir adulte ou une équipe sénior régionale ne vont pas vivre l’échauffement de la même façon.
+            Quelques repères pour adapter facilement :
+          </p>
+          <ul>
+            <li>
+              <strong>Jeunes débutants :</strong> garder des ateliers simples, ludiques, avec beaucoup de mouvement et peu d’explications.
+              L’important : que ça bouge, que ça rigole, mais que tout le monde soit en action.
+            </li>
+            <li>
+              <strong>Adultes loisirs :</strong> insister sur la progressivité et les appuis, car beaucoup arrivent “froids” après le travail.
+              Mieux vaut un échauffement un peu plus long qu’un début de séance trop violent.
+            </li>
+            <li>
+              <strong>Niveau compétitif :</strong> ajouter plus de séquences spécifiques (jeu réduit, duels, sprints contrôlés) et rendre l’échauffement
+              déjà exigeant sur le plan mental (consignes précises, objectifs clairs).
+            </li>
+          </ul>
+
+          <h2>5. Erreurs fréquentes… et comment les corriger</h2>
+
+          <h3>Erreur 1 : commencer directement par des frappes, des duels ou des sprints</h3>
+          <p>
+            Le corps n’est pas prêt, les muscles sont froids, les articulations subissent des contraintes brutales. À court terme, ça passe parfois.
+            À moyen terme, ça augmente le risque de blessure (adducteurs, ischios, chevilles…).
+          </p>
+          <p><strong>Solution :</strong> imposer un bloc d’activation générale + mobilité avant toute situation intense.</p>
+
+          <h3>Erreur 2 : un échauffement trop monotone</h3>
+          <p>
+            Faire toujours le même “tour de terrain + passes statiques” finit par lasser tout le monde, joueurs comme encadrement.
+            Quand l’attention baisse, la qualité de l’échauffement aussi.
+          </p>
+          <p>
+            <strong>Solution :</strong> garder une trame fixe, mais varier les petits jeux, les circuits d’appuis et les formats (2 vs 2, 3 vs 1, 4 vs 2, etc.).
+          </p>
+
+          <h3>Erreur 3 : un échauffement trop long ou trop intense</h3>
+          <p>
+            Si l’échauffement dure 30 minutes ou ressemble déjà à une séance complète, les joueurs arrivent fatigués au contenu principal.
+            L’échauffement doit préparer, pas épuiser.
+          </p>
+          <p>
+            <strong>Solution :</strong> viser en général 12–18 minutes selon la séance, en gardant une intensité croissante mais contrôlée.
+          </p>
+
+          <h3>Erreur 4 : laisser les joueurs gérer seuls</h3>
+          <p>
+            “Allez, faites 2 tours en courant et on commence.” Résultat : certains trottinent, d’autres coupent, quelques-uns discutent.
+            L’échauffement devient une formalité plutôt qu’un vrai outil d’entraînement.
+          </p>
+          <p>
+            <strong>Solution :</strong> encadrer l’échauffement comme une partie intégrante de la séance, avec des consignes claires, des repères de temps
+            et des objectifs (“là on se concentre sur les appuis”, “là on monte l’intensité”).
+          </p>
+
+          <h2>6. En résumé</h2>
+          <p>
+            Un bon échauffement d’équipe n’a pas besoin d’être compliqué : quelques minutes bien structurées, progressives et spécifiques à ton sport
+            suffisent pour faire une vraie différence.
+          </p>
+          <p>
+            Si tu arrives à garder la logique <strong>général → appuis & mobilité → spécifique au jeu</strong>, avec une durée autour de 15 minutes,
+            tu es déjà dans le haut du panier en sport amateur.
+          </p>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage de cet article te donnent de l’XP sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : échauffement en équipe</div>
+            <div class="quiz-caption">5 questions pour vérifier si les bases d’un bon échauffement sont claires.</div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3–4 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">
+          Question 1 sur 5
+        </div>
+
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">
+              Valider mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">
+              Recommencer le quiz
+            </button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+  <script>
+    const ARTICLE_ID = "echauffement-equipes-amateurs";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Quel est l’objectif principal d’un échauffement pour une équipe amateur ?",
+        options: [
+          "Fatiguer les joueurs avant la séance",
+          "Faire passer le temps en attendant que tout le monde arrive",
+          "Préparer le corps et le cerveau à l’effort et limiter les blessures",
+          "Remplacer la séance principale si on manque de temps"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 2,
+        question: "Quel découpage simple d’un échauffement d’équipe est proposé dans l’article ?",
+        options: [
+          "Étirements statiques uniquement",
+          "Général → appuis & mobilité → spécifique au sport",
+          "Match directement",
+          "Course lente pendant 20 minutes"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Combien de temps dure en général un échauffement d’équipe efficace en amateur ?",
+        options: [
+          "5 minutes maximum",
+          "Entre 12 et 18 minutes environ",
+          "Au moins 45 minutes",
+          "Plus de 60 minutes"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 4,
+        question: "Laquelle de ces situations est une erreur fréquente ?",
+        options: [
+          "Monter progressivement l’intensité",
+          "Commencer directement par des frappes, duels ou sprints intenses",
+          "Faire un peu de mobilité pour les chevilles et les hanches",
+          "Adapter l’échauffement à l’âge et au niveau"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "Comment garder les joueurs impliqués pendant l’échauffement ?",
+        options: [
+          "Les laisser gérer chacun dans leur coin",
+          "Faire toujours exactement la même chose sans consigne",
+          "Encadrer l’échauffement avec des consignes claires et varier les formats (jeux, ateliers, petits espaces)",
+          "Supprimer l’échauffement pour passer directement au jeu"
+        ],
+        correctIndex: 2
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "quiz-question";
+        questionDiv.dataset.questionId = q.id;
+
+        questionDiv.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options
+              .map(
+                (opt, optIndex) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${optIndex}">
+                <span>${opt}</span>
+              </label>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+
+        quizForm.appendChild(questionDiv);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        return Array.from(radios).some((r) => r.checked);
+      }).length;
+
+      const current = Math.max(1, answered);
+      quizProgress.textContent = "Question " + current + " sur " + total;
+    }
+
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach((opt) => {
+        opt.classList.remove("correct", "incorrect");
+      });
+
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let selectedIndex = null;
+
+        radios.forEach((r, idx) => {
+          if (r.checked) selectedIndex = idx;
+        });
+
+        const questionDiv = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const optionLabels = questionDiv.querySelectorAll(".quiz-option");
+
+        if (selectedIndex === q.correctIndex) {
+          score++;
+          if (selectedIndex !== null) {
+            optionLabels[selectedIndex].classList.add("correct");
+          }
+        } else {
+          if (q.correctIndex != null && optionLabels[q.correctIndex]) {
+            optionLabels[q.correctIndex].classList.add("correct");
+          }
+          if (selectedIndex !== null && optionLabels[selectedIndex]) {
+            optionLabels[selectedIndex].classList.add("incorrect");
+          }
+        }
+      });
+
+      const ratio = score / total;
+      let message;
+
+      if (ratio === 1) {
+        message = "Parfait, tu maîtrises totalement le sujet 👌";
+      } else if (ratio >= 0.7) {
+        message = "Très solide ! Il reste quelques détails à affiner.";
+      } else if (ratio >= 0.4) {
+        message = "Pas mal, mais relire l’article t’aidera à consolider les bases.";
+      } else {
+        message = "C’est un point de départ, retourne sur l’article et reviens tenter ta chance.";
+      }
+
+      quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses. " + message;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+      if (ratio === 1) {
+        quizFeedback.textContent = "🎮 Bravo ! Quiz parfait, tu contribues au déblocage du badge Échauffement & Prévention.";
+      } else {
+        quizFeedback.textContent = "Tu peux recommencer le quiz si tu veux viser le 100 % pour le badge.";
+      }
+    }
+
+    function resetQuiz() {
+      renderQuiz();
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    const articleReadBtn = document.getElementById("mark-article-read");
+    if (articleReadBtn) {
+      articleReadBtn.addEventListener("click", function () {
+        if (!window.acadGamification) return;
+        window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        articleReadBtn.textContent = "✓ Article compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      });
+
+      if (window.acadGamification && window.acadGamification.isArticleRead(ARTICLE_ID)) {
+        articleReadBtn.textContent = "✓ Article déjà compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      }
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async function () {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Échauffement complet pour équipes amateurs",
+          text: "Un article simple + quiz pour structurer un bon échauffement d’équipe en sport amateur.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            if (shareFeedback) {
+              shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée sur cet appareil)";
+            }
+          } catch (e) {
+            if (shareFeedback) {
+              shareFeedback.textContent = "Partage annulé, mais tu peux réessayer quand tu veux.";
+            }
+          }
+        } else {
+          if (shareFeedback) {
+            shareFeedback.textContent = "Le partage automatique n’est pas disponible sur cet appareil. Tu peux copier l’adresse dans la barre du navigateur. (XP ajoutée)";
+          }
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
