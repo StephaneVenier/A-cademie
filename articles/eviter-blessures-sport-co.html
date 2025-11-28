@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Comment éviter les blessures en sport co</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Sports collectifs / Prévention · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">🩹</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Sports co</span>
+        <span class="chip">Lecture : 7–8 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Comment éviter les blessures en sport co</h1>
+      <p class="article-subtitle">
+        Entorses, ischios, adducteurs, chocs… Les sports collectifs sont fun, mais exigeants pour le corps.  
+        L’objectif ici : continuer à jouer longtemps, sans passer ta saison à l’infirmerie.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> bien s’échauffer, renforcer ce qui lâche souvent, gérer la charge, respecter la fatigue → c’est ça, la vraie “prépa physique”.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ Les blessures les plus fréquentes en sport co</h2>
+        <p>
+          Selon le sport (foot, basket, hand, rugby…), on retrouve souvent :
+        </p>
+        <ul>
+          <li><strong>entorses de cheville</strong> (appui, réception, contact),</li>
+          <li><strong>claquages / élongations ischios</strong> (sprints, démarrages),</li>
+          <li><strong>douleurs aux adducteurs</strong> (changements de direction, frappes),</li>
+          <li><strong>douleurs aux genoux</strong> (rotule, ligament),</li>
+          <li><strong>douleurs d’épaule / dos</strong> (chocs, contacts, gestes répétés).</li>
+        </ul>
+        <p>
+          ➜ La plupart sont liées à : manque de préparation, fatigue, ou mauvaise gestion de l’intensité.
+        </p>
+
+        <h2>2️⃣ Un bon échauffement = premier bouclier</h2>
+        <p>
+          Arriver en retard, s’échauffer en 2 minutes et tout donner ensuite… c’est la recette parfaite pour la blessure.
+        </p>
+        <p>Un échauffement complet doit inclure :</p>
+        <ul>
+          <li><strong>montée progressive du cardio</strong> (footing léger, déplacements),</li>
+          <li><strong>mobilité articulaire</strong> (chevilles, hanches, épaules),</li>
+          <li><strong>activation musculaire</strong> (fentes, squats, petits sauts),</li>
+          <li><strong>spécifique sport</strong> : passes, dribbles, accélérations progressives.</li>
+        </ul>
+        <p>10–15 minutes bien utilisées valent largement une séance de rééducation évitée.</p>
+
+        <h2>3️⃣ Renforcer les “zones fragiles”</h2>
+        <p>Quelques exercices simples 1–2 fois/semaine peuvent changer beaucoup de choses :</p>
+
+        <h3>Chevilles</h3>
+        <ul>
+          <li>équilibre sur une jambe,</li>
+          <li>équilibre yeux fermés,</li>
+          <li>ajout de ballon (passes, dribbles) pour complexifier.</li>
+        </ul>
+
+        <h3>Ischios</h3>
+        <ul>
+          <li>ponts de fessiers,</li>
+          <li>Nordic hamstring simplifié,</li>
+          <li>fentes contrôlées.</li>
+        </ul>
+
+        <h3>Adducteurs</h3>
+        <ul>
+          <li>ciseaux latéraux au sol,</li>
+          <li>montées de genoux latérales,</li>
+          <li>gainage latéral.</li>
+        </ul>
+
+        <h3>Genoux / quadriceps</h3>
+        <ul>
+          <li>demi-squats,</li>
+          <li>fentes,</li>
+          <li>travail d’appuis / petits sauts.</li>
+        </ul>
+
+        <h2>4️⃣ Gérer la charge : ne pas tout donner à chaque fois</h2>
+        <p>
+          Le corps ne casse pas sur une séance. Il casse quand on cumul fatigue + manque de récup.
+        </p>
+        <p>Quelques repères simples :</p>
+        <ul>
+          <li>alterner séances intenses et séances plus légères,</li>
+          <li>éviter d’ajouter du “gros physique” la veille d’un match,</li>
+          <li>ne pas multiplier les sports co à haute intensité la même semaine sans repos.</li>
+        </ul>
+
+        <h2>5️⃣ Signaux d’alerte à prendre au sérieux</h2>
+        <p>Il y a une différence entre “je suis un peu courbaturé” et “je me blesse bientôt”.</p>
+        <ul>
+          <li>douleur qui augmente à chaque séance,</li>
+          <li>douleur localisée (point précis) qui persiste,</li>
+          <li>perte de force d’un côté,</li>
+          <li>raideur qui ne passe pas malgré l’échauffement.</li>
+        </ul>
+        <p>
+          ➜ Ce n’est pas “être faible” que de lever le pied. C’est intelligent si tu veux jouer longtemps.
+        </p>
+
+        <h2>6️⃣ Hydratation, sommeil, récupération</h2>
+        <p>Les trucs “pas sexy”, mais qui changent tout :</p>
+        <ul>
+          <li><strong>sommeil</strong> : c’est là que le corps répare,</li>
+          <li><strong>hydratation</strong> : un corps déshydraté est plus fragile,</li>
+          <li><strong>alimentations de base</strong> : manger suffisamment (pas jouer à jeun),</li>
+          <li><strong>retour au calme</strong> : 5–10 min de marche + quelques étirements légers.</li>
+        </ul>
+
+        <h2>7️⃣ Exemple de “checklist anti-blessure”</h2>
+        <p>Avant / pendant / après une semaine avec sport co :</p>
+        <ul>
+          <li>✔ J’ai fait un vrai échauffement avant les séances / matchs</li>
+          <li>✔ J’ai fait au moins 1 mini-routine de renfo (chevilles / ischios / gainage)</li>
+          <li>✔ Je dors globalement assez (pas 4 h par nuit toute la semaine…)</li>
+          <li>✔ Je ne force pas sur une douleur vive et localisée</li>
+          <li>✔ J’alterne les intensités dans ma semaine</li>
+        </ul>
+        <p>
+          Plus tu coches de cases, plus tu diminues le risque de te blesser “bêtement”.
+        </p>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Prévention blessures en sport co</div>
+          <div class="quiz-caption">5 questions pour valider les bases.</div>
+        </div>
+        <div class="quiz-badge">🩹 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+
+<!-- SCRIPTS GAMIFICATION -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "eviter-blessures-sport-co";
+
+const quizData = [
+  {
+    id: 1,
+    question: "À quoi sert principalement un bon échauffement en sport co ?",
+    options: [
+      "À être déjà fatigué avant le match",
+      "À réduire le risque de blessure et préparer le corps à l’effort",
+      "À remplacer l’entraînement",
+      "À éviter d’avoir à courir ensuite"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Quels zones sont souvent fragiles en sports co ?",
+    options: [
+      "Chevilles, ischios, adducteurs, genoux",
+      "Poignets uniquement",
+      "Cou uniquement",
+      "Doigts des mains uniquement"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 3,
+    question: "Un signal d’alerte à prendre au sérieux est :",
+    options: [
+      "Une légère courbature classique",
+      "Une douleur localisée qui augmente à chaque séance",
+      "Un peu de fatigue après un match",
+      "Le fait d’avoir transpiré"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "La gestion de la charge, c’est surtout :",
+    options: [
+      "Faire le plus de matchs possibles sans pause",
+      "Alterner intensités et prévoir de la récupération",
+      "Jouer seulement quand on n’a pas dormi",
+      "Ne faire que du footing très léger"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 5,
+    question: "Quel trio est important pour limiter les blessures ?",
+    options: [
+      "Hydratation, sommeil, récupération",
+      "Muscu bras seulement, régime sec, pas de repos",
+      "Regarder des matchs, acheter des crampons chers, jouer tard la nuit",
+      "Ne jamais s’échauffer, mais s’étirer très fort à froid"
+    ],
+    correctIndex: 0
+  }
+];
+
+function renderQuiz(){
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach(function(q, i){
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    var optionsHtml = "";
+    q.options.forEach(function(opt, idx){
+      optionsHtml +=
+        '<label class="quiz-option">' +
+          '<input type="radio" name="question-' + q.id + '" value="' + idx + '">' +
+          '<span>' + opt + '</span>' +
+        '</label>';
+    });
+
+    block.innerHTML =
+      '<div class="quiz-question-header">' +
+        '<div class="quiz-question-label">Q' + (i+1) + '. ' + q.question + '</div>' +
+        '<div class="quiz-question-meta">1 seule réponse</div>' +
+      '</div>' +
+      '<div class="quiz-options">' +
+        optionsHtml +
+      '</div>';
+
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", function(){
+  var answered = 0;
+  quizData.forEach(function(q){
+    const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+    const hasChecked = Array.prototype.some.call(radios, function(r){ return r.checked; });
+    if(hasChecked) answered++;
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question " + (answered || 1) + " sur " + quizData.length;
+});
+
+document.getElementById("quiz-submit").addEventListener("click", function(){
+  var score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(function(o){
+    o.classList.remove("correct","incorrect");
+  });
+
+  quizData.forEach(function(q){
+    const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+    const selected = Array.prototype.find.call(radios, function(r){ return r.checked; });
+
+    const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if(selected && parseInt(selected.value, 10) === q.correctIndex){
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if(selected){
+        opts[parseInt(selected.value, 10)].classList.add("incorrect");
+      }
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  var msg;
+  if(ratio === 1){
+    msg = "Parfait ! Tu as les bons réflexes pour limiter les blessures 🩹";
+  } else if(ratio >= 0.7){
+    msg = "Très bon score, bien joué !";
+  } else if(ratio >= 0.4){
+    msg = "Correct, mais tu peux encore sécuriser ta pratique.";
+  } else {
+    msg = "Relis l’article tranquillement puis retente.";
+  }
+
+  document.getElementById("quiz-result").innerHTML =
+    "<strong>" + score + "/" + total + "</strong> • " + msg;
+
+  if(window.acadGamification){
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+  }
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 XP bonus ajoutée !" : "Tu peux viser le perfect 👍";
+});
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+document.getElementById("mark-article-read").addEventListener("click", function(){
+  if(window.acadGamification){
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+  }
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+document.getElementById("share-article").addEventListener("click", async function(){
+  if(window.acadGamification){
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+  }
+
+  const feedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Comment éviter les blessures en sport co",
+    text: "Checklist simple + renfo clé + quiz pour jouer plus longtemps sans se blesser.",
+    url: window.location.href
+  };
+
+  if (navigator.share){
+    try {
+      await navigator.share(data);
+      feedback.textContent = "Merci pour ton partage ! (XP ajoutée)";
+    } catch (e){
+      feedback.textContent = "Partage annulé.";
+    }
+  } else {
+    feedback.textContent =
+      "Partage automatique non disponible sur cet appareil.";
+  }
+});
+</script>
+
+</body>
+</html>
