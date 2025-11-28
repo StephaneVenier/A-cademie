@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Comment devenir plus explosif (sport co)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="acad-header">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <div class="brand-text-title">A-Cadémie</div>
+        <div class="brand-text-sub">Sports co / Explosivité · Article + Quiz</div>
+      </div>
+    </a>
+
+    <nav class="acad-nav">
+      <a href="../index.html" class="nav-btn"><span class="dot"></span> Accueil</a>
+      <a href="../articles.html" class="nav-btn primary">Articles</a>
+      <a href="../recompenses.html" class="nav-btn">Récompenses</a>
+    </nav>
+
+    <div id="acad-profile" class="profile-card">
+      <div class="profile-main">
+        <div class="profile-avatar">⚡</div>
+        <div>
+          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+        </div>
+      </div>
+      <div class="profile-progress-wrapper">
+        <div class="profile-progress-bar">
+          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+        </div>
+        <div class="profile-progress-label">
+          <span>Vers niveau <span id="acad-next-level">2</span></span>
+          <span id="acad-xp-to-next">0 / 100</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="layout">
+
+    <!-- ARTICLE -->
+    <article class="article-card">
+
+      <div class="article-meta">
+        <span class="tag"><span class="tag-dot"></span> Sports co</span>
+        <span class="chip">Lecture : 6–7 min</span>
+        <span class="chip">Niveau : Tous niveaux</span>
+      </div>
+
+      <h1 class="article-title">Comment devenir plus explosif (sport co)</h1>
+      <p class="article-subtitle">
+        Foot, basket, rugby, hand… dans tous les sports collectifs, l’explosivité fait la différence :  
+        premiers appuis, changements de direction, départs en sprint. La bonne nouvelle : ça se travaille très bien.
+      </p>
+
+      <div class="article-highlight">
+        <strong>À retenir :</strong> explosivité = force + vitesse + coordination.  
+        On progresse avec des sprints courts, des sauts, et un renfo simple mais bien ciblé.
+      </div>
+
+      <div class="article-content">
+
+        <h2>1️⃣ C’est quoi être “explosif” en sport co ?</h2>
+        <p>Être explosif, ce n’est pas juste courir vite en ligne droite. C’est :</p>
+        <ul>
+          <li>partir vite sur les premiers appuis,</li>
+          <li>changer de direction rapidement,</li>
+          <li>réagir plus vite que l’adversaire,</li>
+          <li>accélérer fort sur quelques mètres.</li>
+        </ul>
+
+        <h2>2️⃣ Les 3 piliers de l’explosivité</h2>
+        <ul>
+          <li><strong>La force</strong> : des muscles capables de pousser fort (cuisses, fessiers, mollets, tronc).</li>
+          <li><strong>La vitesse</strong> : des mouvements rapides, sans résistance excessive.</li>
+          <li><strong>La coordination</strong> : synchronisation bras / jambes / regard.</li>
+        </ul>
+
+        <h2>3️⃣ Travail de sprint court (10–30 m)</h2>
+        <p>Base pour tous les sports co :</p>
+        <ul>
+          <li>6 à 8 sprints de 10 à 20 m, départ arrêté,</li>
+          <li>récup complète (marcher retour, attendre que le souffle revienne),</li>
+          <li>se concentrer sur les 3 premiers appuis (bras dynamiques, buste légèrement penché).</li>
+        </ul>
+
+        <h3>Variante : départs variés</h3>
+        <ul>
+          <li>départ assis → se lever → sprint,</li>
+          <li>départ dos à la direction du sprint → pivot → sprint,</li>
+          <li>réaction à un signal (son, clap, geste).</li>
+        </ul>
+
+        <h2>4️⃣ Changements de direction / appuis</h2>
+        <p>Très utile au foot, basket, hand, rugby…</p>
+
+        <h3>Exercice “T”</h3>
+        <ul>
+          <li>pose 4 plots en forme de T (un en bas, trois en haut),</li>
+          <li>monter, aller à droite, aller à gauche, revenir au centre, redescendre,</li>
+          <li>faire 4–6 répétitions avec bonne qualité d’appuis.</li>
+        </ul>
+
+        <h3>Exercice “Shuttle” (navette)</h3>
+        <ul>
+          <li>5–10–15 m (ou 5–10–20 m),</li>
+          <li>courir jusqu’au 1er plot → revenir → 2e → revenir → 3e → revenir,</li>
+          <li>2–3 séries, récup complète entre les séries.</li>
+        </ul>
+
+        <h2>5️⃣ Sauts pour développer la puissance</h2>
+
+        <h3>Squat jumps</h3>
+        <ul>
+          <li>demi-squat puis saut vertical,</li>
+          <li>10 répétitions, 2–3 séries,</li>
+          <li>atterrir en contrôlant, genoux alignés.</li>
+        </ul>
+
+        <h3>Bondissements latéraux</h3>
+        <ul>
+          <li>sauter de droite à gauche par-dessus une ligne,</li>
+          <li>répéter 15–20 sec, 3–4 fois,</li>
+          <li>objectif : vitesse + contrôle.</li>
+        </ul>
+
+        <h3>Montées de genoux explosives</h3>
+        <p>Sur place, montées de genoux rapides (20–25 sec), 3 séries.</p>
+
+        <h2>6️⃣ Renforcement “spécial explosivité”</h2>
+        <p>2 fois par semaine, 10–15 minutes suffisent :</p>
+        <ul>
+          <li>fentes (avec poussée dynamique),</li>
+          <li>squats,</li>
+          <li>ponts de fessiers,</li>
+          <li>mollets debout,</li>
+          <li>gainage (planche + latéral).</li>
+        </ul>
+        <p>
+          ➜ Objectif : avoir une base de force pour que les sprints et sauts soient efficaces, sans se blesser.
+        </p>
+
+        <h2>7️⃣ Exemple de séance type “explosivité” (30–35 min)</h2>
+        <ul>
+          <li>Échauffement : 8–10 min (footing léger, mobilisation, petits appuis)</li>
+          <li>Sprints courts : 6 × 20 m</li>
+          <li>Changements de direction : 4 “T” + 2 shuttles</li>
+          <li>Sauts : 3 × 10 squat jumps + 3 × 15 sec bonds latéraux</li>
+          <li>Renfo rapide : 2 × (10 fentes / jambe + 20 sec gainage)</li>
+        </ul>
+
+        <h2>8️⃣ Fréquence & récupération</h2>
+        <ul>
+          <li>1–2 séances d’explosivité par semaine suffisent largement,</li>
+          <li>éviter de les placer la veille d’un match important,</li>
+          <li>dormir assez et bien s’hydrater (système nerveux + muscles en ont besoin).</li>
+        </ul>
+
+      </div>
+
+      <!-- FOOTER GAMIF -->
+      <div class="article-footer-note">
+        <span class="bullet-pill">🎮 Gamification locale</span>
+        <span>Lecture, quiz et partage = XP gagnée.</span>
+      </div>
+
+      <button class="btn btn-secondary" id="mark-article-read">
+        ✓ J’ai lu cet article (gagner de l’XP)
+      </button>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-primary" id="share-article">🔗 Partager cet article / quiz</button>
+        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+      </div>
+
+    </article>
+
+
+    <!-- QUIZ -->
+    <section class="quiz-card" id="quiz-section">
+
+      <div class="quiz-header">
+        <div>
+          <div class="quiz-title">Quiz express : Explosivité en sport co</div>
+          <div class="quiz-caption">5 questions pour valider les bases.</div>
+        </div>
+        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+      </div>
+
+      <div id="quiz-progress" class="quiz-progress">Question 1 sur 5</div>
+      <form id="quiz-form"></form>
+
+      <div class="quiz-footer">
+        <div class="quiz-actions">
+          <button id="quiz-submit" type="button" class="btn btn-primary">Valider</button>
+          <button id="quiz-reset" type="button" class="btn btn-secondary">Recommencer</button>
+        </div>
+        <div id="quiz-result" class="quiz-result">Réponds puis valide pour voir ton score.</div>
+      </div>
+
+      <div id="quiz-feedback" class="quiz-feedback"></div>
+    </section>
+
+  </main>
+</div>
+
+
+<!-- SCRIPTS -->
+<script src="../js/acad-gamification.js"></script>
+<script src="../js/acad-firebase-sync.js"></script>
+
+<script>
+const ARTICLE_ID = "devenir-plus-explosif-sport-co";
+
+const quizData = [
+  {
+    id: 1,
+    question: "Être explosif en sport co, c’est surtout :",
+    options: [
+      "Courir longtemps sans s’arrêter",
+      "Partir vite, changer de direction, accélérer fort sur peu de mètres",
+      "Avoir le plus gros volume de course",
+      "Être le plus grand de l’équipe"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 2,
+    question: "Les 3 piliers de l’explosivité sont :",
+    options: [
+      "Force, vitesse, coordination",
+      "Souplesse, équilibre, endurance",
+      "Endurance, cardio, sommeil",
+      "Technique, dribble, passes"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 3,
+    question: "Un bon travail de sprint pour l’explosivité, c’est :",
+    options: [
+      "Des sprints de 1000 m",
+      "6–8 sprints de 10–20 m avec récup complète",
+      "Courir 45 minutes en continu",
+      "Uniquement du footing"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 4,
+    question: "Quel exercice développe bien les changements de direction ?",
+    options: [
+      "Squat statique contre un mur",
+      "Course en ligne droite",
+      "Exercice en T (plots) ou navettes (shuttle)",
+      "Uniquement du vélo"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 5,
+    question: "Combien de séances d’explosivité par semaine suffisent pour progresser ?",
+    options: [
+      "1 à 2 séances",
+      "5 séances minimum",
+      "Une toutes les 6 semaines",
+      "Jamais, ce n’est pas utile"
+    ],
+    correctIndex: 0
+  }
+];
+
+function renderQuiz(){
+  const form = document.getElementById("quiz-form");
+  form.innerHTML = "";
+
+  quizData.forEach(function(q, i){
+    const block = document.createElement("div");
+    block.className = "quiz-question";
+    block.dataset.questionId = q.id;
+
+    let optionsHtml = "";
+    q.options.forEach(function(opt, idx){
+      optionsHtml +=
+        '<label class="quiz-option">' +
+          '<input type="radio" name="question-' + q.id + '" value="' + idx + '">' +
+          '<span>' + opt + '</span>' +
+        '</label>';
+    });
+
+    block.innerHTML =
+      '<div class="quiz-question-header">' +
+        '<div class="quiz-question-label">Q' + (i+1) + '. ' + q.question + '</div>' +
+        '<div class="quiz-question-meta">1 seule réponse</div>' +
+      '</div>' +
+      '<div class="quiz-options">' +
+        optionsHtml +
+      '</div>';
+
+    form.appendChild(block);
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question 1 sur " + quizData.length;
+}
+
+renderQuiz();
+
+document.getElementById("quiz-form").addEventListener("change", function(){
+  let answered = 0;
+  quizData.forEach(function(q){
+    const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+    const hasChecked = Array.prototype.some.call(radios, function(r){ return r.checked; });
+    if(hasChecked) answered++;
+  });
+
+  document.getElementById("quiz-progress").textContent =
+    "Question " + (answered || 1) + " sur " + quizData.length;
+});
+
+document.getElementById("quiz-submit").addEventListener("click", function(){
+  let score = 0;
+
+  document.querySelectorAll(".quiz-option").forEach(function(o){
+    o.classList.remove("correct","incorrect");
+  });
+
+  quizData.forEach(function(q){
+    const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+    const selected = Array.prototype.find.call(radios, function(r){ return r.checked; });
+
+    const block = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+    const opts = block.querySelectorAll(".quiz-option");
+
+    if(selected && parseInt(selected.value, 10) === q.correctIndex){
+      score++;
+      opts[q.correctIndex].classList.add("correct");
+    } else {
+      opts[q.correctIndex].classList.add("correct");
+      if(selected){
+        opts[parseInt(selected.value, 10)].classList.add("incorrect");
+      }
+    }
+  });
+
+  const total = quizData.length;
+  const ratio = score / total;
+
+  let msg;
+  if(ratio === 1){
+    msg = "Parfait ! Tu maîtrises les bases de l’explosivité ⚡";
+  } else if(ratio >= 0.7){
+    msg = "Très bon score, bien joué !";
+  } else if(ratio >= 0.4){
+    msg = "Correct, mais tu peux encore progresser.";
+  } else {
+    msg = "Relis l’article tranquillement puis retente.";
+  }
+
+  document.getElementById("quiz-result").innerHTML =
+    "<strong>" + score + "/" + total + "</strong> • " + msg;
+
+  if(window.acadGamification){
+    window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+  }
+
+  document.getElementById("quiz-feedback").textContent =
+    ratio === 1 ? "🎮 XP bonus ajoutée !" : "Tu peux viser le perfect 👍";
+});
+
+document.getElementById("quiz-reset").addEventListener("click", renderQuiz);
+
+document.getElementById("mark-article-read").addEventListener("click", function(){
+  if(window.acadGamification){
+    window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+  }
+  const btn = document.getElementById("mark-article-read");
+  btn.textContent = "✓ Article compté pour l’XP locale";
+  btn.disabled = true;
+});
+
+document.getElementById("share-article").addEventListener("click", async function(){
+  if(window.acadGamification){
+    window.acadGamification.registerShare(ARTICLE_ID, 15);
+  }
+
+  const feedback = document.getElementById("share-feedback");
+
+  const data = {
+    title: "A-Cadémie — Comment devenir plus explosif (sport co)",
+    text: "Séances simples + principes clés + quiz pour gagner en explosivité.",
+    url: window.location.href
+  };
+
+  if (navigator.share){
+    try {
+      await navigator.share(data);
+      feedback.textContent = "Merci pour ton partage ! (XP ajoutée)";
+    } catch (e){
+      feedback.textContent = "Partage annulé.";
+    }
+  } else {
+    feedback.textContent =
+      "Partage automatique non disponible sur cet appareil.";
+  }
+});
+</script>
+
+</body>
+</html>
