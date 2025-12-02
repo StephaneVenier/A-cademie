@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Comment améliorer sa vitesse sur 10–30 m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/acad-style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="./js/firebase-config.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="acad-header">
+      <a href="./index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Vitesse & Sprint</span>
+          <span class="chip">Lecture : 6 min</span>
+          <span class="chip">Niveau : Intermédiaire</span>
+        </div>
+
+        <h1 class="article-title">Comment améliorer sa vitesse sur 10–30 m</h1>
+        <p class="article-subtitle">
+          Sur un terrain de sport collectif, ce sont souvent les 3 à 4 premiers appuis qui font la différence. Voici comment travailler ton accélération sur 10 à 30 m, sans matériel compliqué.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> pour être plus rapide sur 10–30 m, tu dois surtout améliorer ton départ, la qualité de tes appuis et ta capacité à pousser fort au sol,
+          plus que “courir plus longtemps”.
+        </div>
+
+        <div class="article-content">
+          <h2>1. Pourquoi travailler spécifiquement les 10–30 m ?</h2>
+          <p>
+            Dans la plupart des sports collectifs (football, rugby, handball, basket…), tu fais rarement des sprints de 100 m. En revanche, tu enchaînes tout le temps des
+            accélérations courtes :
+          </p>
+          <ul>
+            <li>Partir avant ton adversaire sur un ballon en profondeur.</li>
+            <li>Sortir vite sur un porteur de balle.</li>
+            <li>Changer de rythme pour créer un décalage.</li>
+          </ul>
+          <p>
+            Sur ces actions, ce qui compte, ce n’est pas ta vitesse de pointe sur 60 ou 100 m, mais
+            <strong>ta capacité à accélérer très vite sur les premiers mètres</strong>.
+          </p>
+
+          <h2>2. Les bases techniques d’une bonne accélération</h2>
+          <p>Avant de penser “séance”, il faut comprendre quelques principes techniques simples :</p>
+          <ul>
+            <li>
+              <strong>Inclinaison du corps :</strong> au départ, ton buste est légèrement penché vers l’avant. Plus la distance est courte, plus tu restes dans cette position
+              “en poussée” avant de te redresser.
+            </li>
+            <li>
+              <strong>Poussée vers l’arrière, pas vers le haut :</strong> tu cherches à pousser le sol <em>vers l’arrière</em> pour projeter ton corps vers l’avant, pas à sauter.
+            </li>
+            <li>
+              <strong>Bras actifs :</strong> les bras accompagnent la foulée. Ils partent de l’arrière de la hanche jusqu’à l’avant de l’épaule, de façon dynamique.
+            </li>
+            <li>
+              <strong>Fréquence + longueur de foulée :</strong> sur 10–30 m, la fréquence (appuis rapides) est essentielle, mais la poussée doit rester puissante. On ne trottine pas vite, on pousse vite.
+            </li>
+          </ul>
+
+          <h2>3. Séances simples pour progresser sur 10–30 m</h2>
+          <p>Voici des exemples de séances que tu peux intégrer à ton entraînement, 1 à 2 fois par semaine.</p>
+
+          <h3>3.1. Accélérations courtes après échauffement</h3>
+          <p>À faire après un échauffement complet (cardio + mobilité + appuis).</p>
+          <ul>
+            <li><strong>6 à 8 × 10 m</strong> départ arrêté, récupération complète (30–45 s).</li>
+            <li><strong>4 à 6 × 20 m</strong> départ arrêté ou lancé léger, récupération 45–60 s.</li>
+            <li>Concentre-toi sur la technique : inclinaison, poussée, bras dynamiques.</li>
+          </ul>
+
+          <h3>3.2. Départs variés</h3>
+          <p>Objectif : travailler la réactivité dans des situations proches du match.</p>
+          <ul>
+            <li>Départ assis, couché sur le ventre ou sur le dos → sprint 10–15 m.</li>
+            <li>Départ dos à la direction, demi-tour puis sprint 10–20 m.</li>
+            <li>Départ sur signal visuel ou sonore (sifflet, clap, couleur annoncée).</li>
+          </ul>
+          <p>Tu peux faire <strong>6 à 10 répétitions</strong> au total, avec récup complète entre chaque.</p>
+
+          <h3>3.3. Sprint avec changement de direction</h3>
+          <p>Pour coller encore plus à la réalité terrain :</p>
+          <ul>
+            <li>Course de 5 m → changement de direction → 10 m → nouvelle direction → 5 m.</li>
+            <li>Format “Y” : 5 m tout droit, puis 5 m à gauche ou à droite selon un signal.</li>
+          </ul>
+          <p>
+            Sur ces exercices, la distance totale reste courte (15–25 m), mais la qualité des
+            <strong>appuis et des orientations du corps</strong> est primordiale.
+          </p>
+
+          <h2>4. Faut-il faire de la musculation pour être plus rapide ?</h2>
+          <p>
+            Tu peux déjà progresser en vitesse courte uniquement en travaillant les sprints et les appuis. Mais si tu ajoutes un peu de renforcement, tu iras plus loin.
+          </p>
+          <ul>
+            <li>
+              <strong>Exercices au poids du corps :</strong> squats contrôlés, fentes avant, fentes marchées, montées sur banc ou marche.
+            </li>
+            <li>
+              <strong>Plyométrie légère :</strong> petits sauts sur place, bonds vers l’avant, sauts d’appuis rapide (2 × 10–15 répétitions).
+            </li>
+            <li>
+              <strong>Gainage :</strong> gainage ventral et latéral pour stabiliser le bassin lors des poussées.
+            </li>
+          </ul>
+          <p>
+            L’idée n’est pas de faire une séance de musculation complète, mais de <strong>renforcer un peu les jambes et le tronc</strong> pour mieux transmettre la force au sol.
+          </p>
+
+          <h2>5. Fréquence, récupération et intégration dans ta semaine</h2>
+          <p>Pour des sportifs amateurs, quelques principes simples :</p>
+          <ul>
+            <li><strong>1 à 2 séances “vitesse” par semaine</strong> suffisent largement.</li>
+            <li>Place-les plutôt en début de séance, quand tu es frais, après l’échauffement.</li>
+            <li>Garde des <strong>récupérations longues</strong> entre les sprints : la qualité prime sur la fatigue.</li>
+            <li>Évite de cumuler une grosse séance de vitesse avec un match très intense le même jour.</li>
+          </ul>
+
+          <h2>6. Erreurs fréquentes quand on veut être plus rapide</h2>
+
+          <h3>Erreur 1 : faire trop de sprints, sans récupérer</h3>
+          <p>
+            Enchaîner 15 sprints de 30 m sans récupération suffisante transforme la séance en travail d’endurance, pas de vitesse. Tu n’es plus explosif, tu t’épuises et le geste se dégrade.
+          </p>
+          <p><strong>À la place :</strong> fais moins de répétitions, mais avec des sprints vraiment “pleine balle” et une vraie récupération.</p>
+
+          <h3>Erreur 2 : négliger la technique</h3>
+          <p>
+            Courir vite ne veut pas dire “se jeter en avant” ou “mouliner”. Sans un minimum de technique (poussée, bras, appuis), tu laisses de la vitesse sur la table.
+          </p>
+          <p><strong>À la place :</strong> choisis 1 à 2 points techniques par séance (par exemple : bras actifs + poussée vers l’arrière) et concentre-toi dessus.</p>
+
+          <h3>Erreur 3 : vouloir tout faire en même temps</h3>
+          <p>
+            Vouloir travailler la vitesse, l’endurance, la force et le jeu en une seule séance conduit souvent à faire tout à moitié. La vitesse demande de la fraîcheur
+            et de la concentration.
+          </p>
+          <p><strong>À la place :</strong> identifie 1 ou 2 séances dans ta semaine où tu mets un petit bloc vitesse en priorité.</p>
+
+          <h2>7. En résumé</h2>
+          <p>
+            Pour être plus rapide sur 10–30 m, tu n’as pas besoin d’un stade ou d’une salle de musculation haut de gamme. Tu as surtout besoin de :
+          </p>
+          <ul>
+            <li>Travailler régulièrement des sprints courts, de très bonne qualité.</li>
+            <li>Varier les départs et les situations proches du match.</li>
+            <li>Soigner la technique : inclinaison, appuis, bras, poussée au sol.</li>
+            <li>Garder des récupérations suffisantes pour rester explosif.</li>
+          </ul>
+          <p>Petit bloc vitesse après échauffement, 1 à 2 fois par semaine, et tu verras vite la différence sur le terrain.</p>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage de cet article te donnent de l’XP sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : vitesse sur 10–30 m</div>
+            <div class="quiz-caption">5 questions pour vérifier si tu maîtrises les bases de l’accélération courte.</div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3–4 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">
+          Question 1 sur 5
+        </div>
+
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">
+              Valider mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">
+              Recommencer le quiz
+            </button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+  <script>
+    const ARTICLE_ID = "vitesse-10-30m";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Pourquoi les 10–30 m sont-ils si importants en sport collectif ?",
+        options: [
+          "Parce qu’on fait surtout des sprints de 200 m en match",
+          "Parce que la plupart des actions décisives se jouent sur des accélérations courtes",
+          "Parce que c’est la distance officielle des tests de vitesse",
+          "Parce que c’est plus facile à chronométrer"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "Quel point technique est particulièrement important sur les premiers mètres ?",
+        options: [
+          "Se redresser le plus vite possible",
+          "Pousser le sol vers l’arrière avec le corps légèrement incliné",
+          "Regarder ses pieds pour bien placer ses appuis",
+          "Faire les plus grands pas possibles dès le départ"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Comment organiser une séance simple pour travailler la vitesse sur 10–30 m ?",
+        options: [
+          "Enchaîner 20 sprints sans récupération",
+          "Faire quelques sprints courts de bonne qualité avec récupération complète",
+          "Courir 30 minutes en endurance puis un seul sprint",
+          "Faire uniquement des étirements statiques"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 4,
+        question: "Que se passe-t-il si les récupérations entre les sprints sont trop courtes ?",
+        options: [
+          "La séance devient surtout du travail d’endurance, la vitesse se dégrade",
+          "La vitesse augmente encore plus",
+          "Cela n’a aucun impact, la qualité reste la même",
+          "On progresse uniquement en souplesse"
+        ],
+        correctIndex: 0
+      },
+      {
+        id: 5,
+        question: "Quelle erreur est fréquente quand on veut devenir plus rapide ?",
+        options: [
+          "Faire un bloc vitesse au début de séance",
+          "Se concentrer sur 1 ou 2 points techniques par séance",
+          "Vouloir tout travailler en même temps et négliger la qualité des sprints",
+          "Garder des récupérations longues entre les efforts"
+        ],
+        correctIndex: 2
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "quiz-question";
+        questionDiv.dataset.questionId = q.id;
+
+        questionDiv.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options
+              .map(
+                (opt, optIndex) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${optIndex}">
+                <span>${opt}</span>
+              </label>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+
+        quizForm.appendChild(questionDiv);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        return Array.from(radios).some((r) => r.checked);
+      }).length;
+
+      const current = Math.max(1, answered);
+      quizProgress.textContent = "Question " + current + " sur " + total;
+    }
+
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach((opt) => {
+        opt.classList.remove("correct", "incorrect");
+      });
+
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let selectedIndex = null;
+
+        radios.forEach((r, idx) => {
+          if (r.checked) selectedIndex = idx;
+        });
+
+        const questionDiv = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const optionLabels = questionDiv.querySelectorAll(".quiz-option");
+
+        if (selectedIndex === q.correctIndex) {
+          score++;
+          if (selectedIndex !== null) {
+            optionLabels[selectedIndex].classList.add("correct");
+          }
+        } else {
+          if (q.correctIndex != null && optionLabels[q.correctIndex]) {
+            optionLabels[q.correctIndex].classList.add("correct");
+          }
+          if (selectedIndex !== null && optionLabels[selectedIndex]) {
+            optionLabels[selectedIndex].classList.add("incorrect");
+          }
+        }
+      });
+
+      const ratio = score / total;
+      let message;
+
+      if (ratio === 1) {
+        message = "Parfait, tu maîtrises totalement le sujet 👌";
+      } else if (ratio >= 0.7) {
+        message = "Très solide ! Il reste quelques détails à affiner.";
+      } else if (ratio >= 0.4) {
+        message = "Pas mal, mais relire l’article t’aidera à consolider les bases.";
+      } else {
+        message = "C’est un point de départ, retourne sur l’article et reviens tenter ta chance.";
+      }
+
+      quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses. " + message;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+      if (ratio === 1) {
+        quizFeedback.textContent = "🎮 Bravo ! Quiz parfait, tu contribues au déblocage du badge Vitesse & Sprint.";
+      } else {
+        quizFeedback.textContent = "Tu peux recommencer le quiz si tu veux viser le 100 % pour le badge.";
+      }
+    }
+
+    function resetQuiz() {
+      renderQuiz();
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    const articleReadBtn = document.getElementById("mark-article-read");
+    if (articleReadBtn) {
+      articleReadBtn.addEventListener("click", function () {
+        if (!window.acadGamification) return;
+        window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        articleReadBtn.textContent = "✓ Article compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      });
+
+      if (window.acadGamification && window.acadGamification.isArticleRead(ARTICLE_ID)) {
+        articleReadBtn.textContent = "✓ Article déjà compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      }
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async function () {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Comment améliorer sa vitesse sur 10–30 m",
+          text: "Un article simple + quiz pour travailler ton accélération courte en sport collectif.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            if (shareFeedback) {
+              shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée sur cet appareil)";
+            }
+          } catch (e) {
+            if (shareFeedback) {
+              shareFeedback.textContent = "Partage annulé, mais tu peux réessayer quand tu veux.";
+            }
+          }
+        } else {
+          if (shareFeedback) {
+            shareFeedback.textContent = "Le partage automatique n’est pas disponible sur cet appareil. Tu peux copier l’adresse dans la barre du navigateur. (XP ajoutée)";
+          }
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
