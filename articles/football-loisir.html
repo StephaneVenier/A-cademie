@@ -5,11 +5,12 @@
   <title>A-Cadémie — Football loisir : comment s'y mettre</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/acad-style.css">
+  <!-- Chemins corrigés -->
+  <link rel="stylesheet" href="../css/acad-style.css">
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="./js/firebase-config.js"></script>
+  <script src="../js/firebase-config.js"></script>
 </head>
 <body>
   <div class="page">
@@ -137,7 +138,7 @@
           <h3>5.3. Mini-sprints avec ballon</h3>
           <ul>
             <li>5 m → 10 m → 15 m.</li>
-            <li>Apprend à pousser la balle avec précision sans la perdre.</li>
+            <li>Apprends à pousser la balle avec précision sans la perdre.</li>
           </ul>
 
           <h2>6. Jouer en groupe : les formats les plus fun</h2>
@@ -292,7 +293,8 @@
         questionDiv.className = "quiz-question";
         questionDiv.dataset.questionId = q.id;
 
-        questionDiv.innerinnerHTML = `
+        /* bug corrigé : innerHTML (et plus de backticks perdus) */
+        questionDiv.innerHTML = `
           <div class="quiz-question-header">
             <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
             <div class="quiz-question-meta">1 seule bonne réponse</div>
@@ -310,11 +312,9 @@
               .join("")}
           </div>
         `;
-      ``};
 
-      quizForm.appendChild(questionDiv);
+        quizForm.appendChild(questionDiv);
       });
-
 
       quizProgress.textContent = "Question 1 sur " + quizData.length;
       quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
