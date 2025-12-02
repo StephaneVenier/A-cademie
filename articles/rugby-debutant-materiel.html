@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Rugby débutant : le matériel essentiel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/acad-style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Rugby débutant</span>
+          <span class="chip">Lecture : 6 min</span>
+          <span class="chip">Niveau : Débutant</span>
+        </div>
+
+        <h1 class="article-title">Rugby débutant : le matériel essentiel</h1>
+        <p class="article-subtitle">
+          Tu démarres le rugby ou tu inscris un enfant pour la première fois ?  
+          Voici l’essentiel du matériel à prévoir pour jouer en sécurité et dans le confort, sans exploser ton budget.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> au rugby, le bon matériel, ce n’est pas pour “faire pro” : c’est surtout pour protéger le corps,
+          éviter les petites blessures inutiles et se sentir à l’aise sur le terrain.
+        </div>
+
+        <div class="article-content">
+          <h2>1. Les basiques absolument indispensables</h2>
+          <p>Pour commencer à l’entraînement, tu n’as pas besoin de tout un arsenal. Les vrais indispensables sont :</p>
+          <ul>
+            <li>
+              <strong>Chaussures à crampons adaptées :</strong> crampons moulés pour terrain naturel ou synthétique.
+              Elles garantissent l’adhérence au sol et limitent les glissades.
+            </li>
+            <li>
+              <strong>Short de rugby :</strong> résistant, un peu plus épais qu’un short de foot, conçu pour les contacts et les plaquages.
+            </li>
+            <li>
+              <strong>Maillot ou t-shirt solide :</strong> idéalement en matière respirante, près du corps pour éviter qu’on s’y accroche facilement.
+            </li>
+            <li>
+              <strong>Protège-dents :</strong> obligatoire dans la plupart des clubs, pour protéger les dents et limiter les chocs à la mâchoire.
+            </li>
+            <li>
+              <strong>Chaussettes hautes :</strong> qui montent jusqu’en dessous du genou, pour tenir les protections au besoin.
+            </li>
+          </ul>
+
+          <h2>2. Zoom sur le protège-dents : comment bien le choisir ?</h2>
+          <p>Le protège-dents est souvent le premier achat “sérieux” en rugby. Quelques repères :</p>
+          <ul>
+            <li><strong>Taille :</strong> enfant, junior ou adulte selon l’âge et la dentition.</li>
+            <li><strong>Modèle thermoformable :</strong> on le plonge dans l’eau chaude puis on le moule sur ses dents.</li>
+            <li><strong>Confort :</strong> on doit pouvoir respirer et parler avec, sans avoir envie de le retirer toutes les 2 minutes.</li>
+          </ul>
+          <p>
+            Un protège-dents bien ajusté, c’est <strong>plus de sécurité</strong> et beaucoup moins de gêne pendant le jeu.
+          </p>
+
+          <h2>3. Protections optionnelles mais très utiles</h2>
+          <p>En fonction de l’âge, du poste et du niveau, certaines protections peuvent être ajoutées :</p>
+          <ul>
+            <li>
+              <strong>Casque de rugby (coiffe) :</strong> protège surtout des petits chocs et des frottements (oreilles, crâne).
+              Très utilisé chez les jeunes ou les joueurs de poste exposé (avants).
+            </li>
+            <li>
+              <strong>Sous-maillot ou plastron avec plaques de mousse :</strong> amortit légèrement les contacts au niveau des épaules, des côtes, du dos.
+            </li>
+            <li>
+              <strong>Protège-tibias ou chevilles :</strong> moins fréquents qu’au foot, mais utiles en cas d’historique de blessures ou de fragilités.
+            </li>
+          </ul>
+          <p>
+            Ces équipements restent <strong>optionnels</strong> : le plus important, c’est le protège-dents et les chaussures adaptées.
+          </p>
+
+          <h2>4. Tenue d’entraînement vs tenue de match</h2>
+          <p>En général :</p>
+          <ul>
+            <li>
+              <strong>À l’entraînement :</strong> tu peux utiliser ton propre short, t-shirt et chaussettes, tant que le tout est solide et confortable.
+            </li>
+            <li>
+              <strong>En match :</strong> le club fournit souvent le maillot (et parfois le short et les chaussettes), pour avoir une tenue uniforme.
+            </li>
+          </ul>
+          <p>
+            Renseigne-toi auprès du club :  
+            <strong>certains packs de licence incluent déjà une partie de la tenue</strong> (maillot d’entraînement, short, etc.).
+          </p>
+
+          <h2>5. Matériel utile autour de la pratique</h2>
+          <ul>
+            <li><strong>Gourde ou bouteille d’eau personnelle :</strong> pour bien s’hydrater.</li>
+            <li><strong>Sac de sport solide :</strong> pour ranger crampons, vêtements, serviette.</li>
+            <li><strong>Vêtements chauds pour l’après-entraînement :</strong> survêtement, veste, bonnet en hiver.</li>
+            <li><strong>Serviette + nécessaire de douche :</strong> pratique si les vestiaires sont disponibles.</li>
+          </ul>
+
+          <h2>6. Budget : comment s’équiper sans trop dépenser ?</h2>
+          <p>Bonne nouvelle : il est possible de démarrer sans tout acheter en haut de gamme.</p>
+          <ul>
+            <li>Commencer avec des modèles de base et compléter au fur et à mesure.</li>
+            <li>Profiter des fins de série ou promotions des magasins de sport.</li>
+            <li>Voir avec le club s’il existe un système d’échange ou de revente d’occasion.</li>
+          </ul>
+          <p>
+            L’idée : <strong>sécuriser en priorité</strong> (protège-dents, crampons corrects), puis optimiser le confort au fil du temps.
+          </p>
+
+          <h2>7. Erreurs fréquentes chez les débutants</h2>
+
+          <h3>Erreur 1 : venir en baskets de ville</h3>
+          <p>
+            Les baskets glissent sur terrain humide, tordent facilement la cheville et ne tiennent pas bien le pied.
+          </p>
+          <p><strong>Mieux :</strong> dès que possible, investir dans une paire de crampons adaptés.</p>
+
+          <h3>Erreur 2 : négliger le protège-dents</h3>
+          <p>
+            Jouer sans protège-dents, même à l’entraînement, augmente le risque de choc dentaire et de mauvaise expérience dès les premiers contacts.
+          </p>
+          <p><strong>Mieux :</strong> le porter à chaque séance de contact, et s’habituer à respirer avec.</p>
+
+          <h3>Erreur 3 : tout acheter en “full pro” dès le début</h3>
+          <p>
+            Inutile de se ruiner dans le matériel le plus cher alors qu’on découvre à peine le sport.  
+          </p>
+          <p><strong>Mieux :</strong> tester quelques mois, ajuster ensuite selon le poste, l’envie et la fréquence de pratique.</p>
+
+          <h2>8. En résumé</h2>
+          <p>
+            Pour démarrer le rugby dans de bonnes conditions, tu as surtout besoin de :
+          </p>
+          <ul>
+            <li>chaussures à crampons adaptées au terrain ;</li>
+            <li>short solide, maillot correct, chaussettes hautes ;</li>
+            <li>protège-dents bien ajusté ;</li>
+            <li>et éventuellement quelques protections supplémentaires selon ton ressenti.</li>
+          </ul>
+          <p>
+            Le plus important reste l’envie de jouer, d’apprendre et de respecter les règles de sécurité.  
+            Le matériel est là pour t’aider à profiter pleinement de chaque entraînement.
+          </p>
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage de cet article te donnent de l’XP sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : matériel de rugby débutant</div>
+            <div class="quiz-caption">5 questions pour vérifier si les bases sont claires.</div>
+          </div>
+          <div class="quiz-badge">🏉 5 questions · 3–4 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">
+          Question 1 sur 5
+        </div>
+
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">
+              Valider mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">
+              Recommencer le quiz
+            </button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+  <script>
+    const ARTICLE_ID = "rugby-debutant-materiel";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Quel élément fait partie du matériel vraiment indispensable pour débuter le rugby ?",
+        options: [
+          "Gants de gardien",
+          "Protège-dents et chaussures à crampons",
+          "Casque intégral",
+          "Bandes de boxe"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "À quoi sert principalement le protège-dents ?",
+        options: [
+          "À mieux respirer",
+          "À protéger les dents et la mâchoire lors des contacts",
+          "À parler plus fort",
+          "À améliorer la vitesse de course"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Quel type de chaussures est déconseillé pour jouer au rugby ?",
+        options: [
+          "Chaussures à crampons moulés",
+          "Chaussures spécifiques terrain synthétique",
+          "Baskets de ville ou de running sur terrain gras",
+          "Chaussures de rugby de base"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 4,
+        question: "Que faire si tu démarres et que tu ne veux pas trop dépenser au début ?",
+        options: [
+          "Acheter tout de suite le matériel le plus cher",
+          "Commencer avec du matériel de base et compléter petit à petit",
+          "Jouer sans chaussures",
+          "Venir sans protège-dents pour voir si ça te plaît"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "Quelle affirmation est correcte ?",
+        options: [
+          "Le casque de rugby est obligatoire pour tous",
+          "Le protège-dents est fortement recommandé, même à l’entraînement",
+          "Les crampons sont interdits chez les jeunes",
+          "On peut jouer en jean si on veut"
+        ],
+        correctIndex: 1
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "quiz-question";
+        questionDiv.dataset.questionId = q.id;
+
+        questionDiv.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options
+              .map(
+                (opt, optIndex) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${optIndex}">
+                <span>${opt}</span>
+              </label>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+
+        quizForm.appendChild(questionDiv);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        return Array.from(radios).some((r) => r.checked);
+      }).length;
+
+      const current = Math.max(1, answered);
+      quizProgress.textContent = "Question " + current + " sur " + total;
+    }
+
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach((opt) => {
+        opt.classList.remove("correct", "incorrect");
+      });
+
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let selectedIndex = null;
+
+        radios.forEach((r, idx) => {
+          if (r.checked) selectedIndex = idx;
+        });
+
+        const questionDiv = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const optionLabels = questionDiv.querySelectorAll(".quiz-option");
+
+        if (selectedIndex === q.correctIndex) {
+          score++;
+          if (selectedIndex !== null) {
+            optionLabels[selectedIndex].classList.add("correct");
+          }
+        } else {
+          if (q.correctIndex != null && optionLabels[q.correctIndex]) {
+            optionLabels[q.correctIndex].classList.add("correct");
+          }
+          if (selectedIndex !== null && optionLabels[selectedIndex]) {
+            optionLabels[selectedIndex].classList.add("incorrect");
+          }
+        }
+      });
+
+      const ratio = score / total;
+      let message;
+
+      if (ratio === 1) {
+        message = "Parfait, tu maîtrises totalement le sujet 👌";
+      } else if (ratio >= 0.7) {
+        message = "Très solide ! Encore quelques détails à peaufiner.";
+      } else if (ratio >= 0.4) {
+        message = "Pas mal, mais relire l’article t’aidera à consolider les bases.";
+      } else {
+        message = "C’est un bon début, retourne sur l’article puis retente le quiz.";
+      }
+
+      quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses. " + message;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+      if (ratio === 1) {
+        quizFeedback.textContent = "🎮 Bravo ! Quiz parfait, tu contribues au déblocage du badge Rugby Débutant.";
+      } else {
+        quizFeedback.textContent = "Tu peux recommencer le quiz pour viser le 100 % et le badge.";
+      }
+    }
+
+    function resetQuiz() {
+      renderQuiz();
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    const articleReadBtn = document.getElementById("mark-article-read");
+    if (articleReadBtn) {
+      articleReadBtn.addEventListener("click", function () {
+        if (!window.acadGamification) return;
+        window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        articleReadBtn.textContent = "✓ Article compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      });
+
+      if (window.acadGamification && window.acadGamification.isArticleRead(ARTICLE_ID)) {
+        articleReadBtn.textContent = "✓ Article déjà compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      }
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async function () {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Rugby débutant : le matériel essentiel",
+          text: "Un guide simple pour s’équiper au rugby sans se tromper + un quiz rapide.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            if (shareFeedback) {
+              shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée sur cet appareil)";
+            }
+          } catch (e) {
+            if (shareFeedback) {
+              shareFeedback.textContent = "Partage annulé, mais tu peux réessayer plus tard.";
+            }
+          }
+        } else {
+          if (shareFeedback) {
+            shareFeedback.textContent = "Le partage automatique n’est pas disponible sur cet appareil. Tu peux copier l’adresse dans la barre du navigateur. (XP ajoutée)";
+          }
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
