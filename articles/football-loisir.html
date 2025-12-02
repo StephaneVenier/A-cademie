@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>A-Cadémie — Football loisir : comment s'y mettre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/acad-style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="./js/firebase-config.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
+        <div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Football loisir</span>
+          <span class="chip">Lecture : 6 min</span>
+          <span class="chip">Niveau : Débutant</span>
+        </div>
+
+        <h1 class="article-title">Football loisir : comment s’y mettre</h1>
+        <p class="article-subtitle">
+          Tu veux te remettre au foot ou commencer une pratique loisir entre amis ou en club ?  
+          Voici un guide simple, sans pression, pour débuter dans de bonnes conditions, même si tu n’as pas joué depuis longtemps.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> le foot loisir est accessible, convivial et excellent pour la condition physique. Avec un peu de matériel et quelques conseils, tu peux commencer dès cette semaine.
+        </div>
+
+        <div class="article-content">
+
+          <h2>1. Le football loisir, c’est quoi exactement ?</h2>
+          <p>
+            Le foot loisir n’a rien à voir avec la compétition. L’objectif est simple :
+          </p>
+          <ul>
+            <li>jouer sans pression ;</li>
+            <li>se dépenser physiquement ;</li>
+            <li>passer un bon moment entre amis ou coéquipiers ;</li>
+            <li>reprendre une activité sportive progressive.</li>
+          </ul>
+          <p>
+            Les séances incluent souvent : échauffement, petits jeux techniques, matchs réduits, défis fun…  
+            <strong>Pas besoin d’être un expert : tout le monde progresse en jouant.</strong>
+          </p>
+
+          <h2>2. Est-ce adapté si je ne suis pas en forme ?</h2>
+          <p>
+            Oui ! Le foot loisir est modulable selon ton niveau et ta condition du moment.
+          </p>
+          <ul>
+            <li>Tu peux réduire ton temps de jeu.</li>
+            <li>Tu peux sortir et rentrer quand tu veux.</li>
+            <li>Tu choisis ton intensité : marche → trot → course → sprint.</li>
+          </ul>
+          <p>
+            L’important est de démarrer doucement et de laisser ton corps se réhabituer.  
+            <strong>Aucune obligation de faire 90 minutes à haute intensité.</strong>
+          </p>
+
+          <h2>3. Le matériel nécessaire pour commencer</h2>
+          <ul>
+            <li><strong>Chaussures adaptées :</strong> crampons moulés pour l’herbe, ou stabilisés pour les terrains synthétiques.</li>
+            <li><strong>Tenue légère et respirante.</strong></li>
+            <li><strong>Protège-tibias (recommandés).</strong></li>
+            <li><strong>Bouteille d’eau.</strong></li>
+            <li>Un ballon si tu veux t’entraîner en dehors des séances.</li>
+          </ul>
+
+          <h2>4. Comment débuter sans se blesser ?</h2>
+          <p>
+            Le foot loisir reste un sport avec changements de direction, accélérations et contacts légers.  
+            Voici les bonnes habitudes :
+          </p>
+          <ul>
+            <li>Fais un <strong>échauffement complet de 10–12 minutes</strong>.</li>
+            <li>Respecte ton corps : si quelque chose tire trop, allège.</li>
+            <li>Hydrate-toi avant, pendant et après.</li>
+            <li>Après le match, marche doucement 2–3 minutes pour récupérer.</li>
+          </ul>
+
+          <h2>5. Idées d'exercices simples pour progresser rapidement</h2>
+
+          <h3>5.1. Contrôle + passe (2 joueurs)</h3>
+          <ul>
+            <li>10 à 15 passes courtes du pied droit puis gauche.</li>
+            <li>Travail de contrôle orienté pour gagner du temps.</li>
+          </ul>
+
+          <h3>5.2. Conduite de balle facile</h3>
+          <ul>
+            <li>20 à 30 m en ligne droite.</li>
+            <li>Varie les rythmes : lent → moyen → rapide.</li>
+          </ul>
+
+          <h3>5.3. Mini-sprints avec ballon</h3>
+          <ul>
+            <li>5 m → 10 m → 15 m.</li>
+            <li>Apprend à pousser la balle avec précision sans la perdre.</li>
+          </ul>
+
+          <h2>6. Jouer en groupe : les formats les plus fun</h2>
+          <p>Pour des séances loisir réussies :</p>
+          <ul>
+            <li><strong>5v5 ou 6v6 :</strong> rythme plus soutenu mais très fun.</li>
+            <li><strong>Jeu en 3 équipes :</strong> la gagnante reste, les autres tournent.</li>
+            <li><strong>Terrain réduit :</strong> plus de touches de balle, plus de plaisir.</li>
+          </ul>
+
+          <h2>7. Erreurs à éviter</h2>
+          <ul>
+            <li>Arriver sans échauffement.</li>
+            <li>Vouloir jouer trop vite trop fort.</li>
+            <li>Jouer en running (risque de glissade et entorse).</li>
+            <li>Ne pas communiquer avec ses partenaires.</li>
+          </ul>
+
+          <h2>8. En résumé</h2>
+          <p>
+            Le football loisir, c’est du sport sans stress : convivial, accessible, bon pour la forme et idéal pour reprendre une activité régulière.  
+            Avec un minimum de matériel et quelques habitudes simples, tu peux commencer dès maintenant.
+          </p>
+
+        </div>
+
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage de cet article te donnent de l’XP sur cet appareil.</span>
+        </div>
+
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
+        </button>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
+          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
+        </div>
+      </article>
+
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Football loisir</div>
+            <div class="quiz-caption">5 questions rapides pour valider les bases du foot loisir.</div>
+          </div>
+          <div class="quiz-badge">⚽ 5 questions · 3 min</div>
+        </div>
+
+        <div class="quiz-progress" id="quiz-progress">
+          Question 1 sur 5
+        </div>
+
+        <form id="quiz-form"></form>
+
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">
+              Valider mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">
+              Recommencer le quiz
+            </button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
+
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+  <script>
+    const ARTICLE_ID = "football-loisir";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Quel est l’objectif principal du football loisir ?",
+        options: [
+          "Préparer des compétitions officielles",
+          "Jouer sans pression, se dépenser et s’amuser",
+          "Travailler exclusivement la technique",
+          "Jouer un match de 90 minutes"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 2,
+        question: "Quel matériel est recommandé pour commencer ?",
+        options: [
+          "Chaussures de running",
+          "Chaussures adaptées au terrain + tenue légère + protège-tibias",
+          "Gants de gardien obligatoires",
+          "Un cardiofréquencemètre"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Quelle habitude aide à éviter les blessures ?",
+        options: [
+          "Commencer directement par un match",
+          "Faire un échauffement complet de 10–12 minutes",
+          "Jouer uniquement en défense",
+          "Ne pas boire pour éviter les points de côté"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 4,
+        question: "Quel format de jeu est particulièrement fun en loisir ?",
+        options: [
+          "Match 11 contre 11 obligatoire",
+          "3 équipes qui tournent",
+          "Un seul joueur contre tous",
+          "Match sans limites de terrain"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "Quelle erreur fréquente faut-il éviter ?",
+        options: [
+          "Communiquer avec ses partenaires",
+          "Jouer en running",
+          "Varier les rythmes",
+          "Sortir du terrain si on est fatigué"
+        ],
+        correctIndex: 1
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "quiz-question";
+        questionDiv.dataset.questionId = q.id;
+
+        questionDiv.innerinnerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options
+              .map(
+                (opt, optIndex) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${optIndex}">
+                <span>${opt}</span>
+              </label>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+      ``};
+
+      quizForm.appendChild(questionDiv);
+      });
+
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
+    }
+
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        return Array.from(radios).some((r) => r.checked);
+      }).length;
+
+      const current = Math.max(1, answered);
+      quizProgress.textContent = "Question " + current + " sur " + total;
+    }
+
+    quizForm.addEventListener("change", updateProgress);
+
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
+
+      document.querySelectorAll(".quiz-option").forEach((opt) => {
+        opt.classList.remove("correct", "incorrect");
+      });
+
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let selectedIndex = null;
+
+        radios.forEach((r, idx) => {
+          if (r.checked) selectedIndex = idx;
+        });
+
+        const questionDiv = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const optionLabels = questionDiv.querySelectorAll(".quiz-option");
+
+        if (selectedIndex === q.correctIndex) {
+          score++;
+          if (selectedIndex !== null) {
+            optionLabels[selectedIndex].classList.add("correct");
+          }
+        } else {
+          if (q.correctIndex != null && optionLabels[q.correctIndex]) {
+            optionLabels[q.correctIndex].classList.add("correct");
+          }
+          if (selectedIndex !== null && optionLabels[selectedIndex]) {
+            optionLabels[selectedIndex].classList.add("incorrect");
+          }
+        }
+      });
+
+      const ratio = score / total;
+      let message;
+
+      if (ratio === 1) {
+        message = "Parfait, tu maîtrises totalement le sujet 👌";
+      } else if (ratio >= 0.7) {
+        message = "Très bon score !";
+      } else if (ratio >= 0.4) {
+        message = "Pas mal ! Quelques points à revoir.";
+      } else {
+        message = "C’est un début, relis l’article pour progresser.";
+      }
+
+      quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses. " + message;
+
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+    }
+
+    function resetQuiz() {
+      renderQuiz();
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    const articleReadBtn = document.getElementById("mark-article-read");
+    if (articleReadBtn) {
+      articleReadBtn.addEventListener("click", function () {
+        if (!window.acadGamification) return;
+        window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        articleReadBtn.textContent = "✓ Article compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      });
+
+      if (window.acadGamification && window.acadGamification.isArticleRead(ARTICLE_ID)) {
+        articleReadBtn.textContent = "✓ Article déjà compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      }
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async function () {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Football loisir : comment s’y mettre",
+          text: "Un guide simple pour débuter le foot loisir en douceur + un quiz rapide.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            if (shareFeedback) {
+              shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
+            }
+          } catch (e) {
+            if (shareFeedback) {
+              shareFeedback.textContent = "Partage annulé.";
+            }
+          }
+        } else {
+          shareFeedback.textContent = "Le partage automatique n’est pas disponible sur cet appareil.";
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>
