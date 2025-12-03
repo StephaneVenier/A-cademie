@@ -38,6 +38,16 @@ body {
   padding: 24px 16px 56px;
 }
 
+.search-results-list a {
+  color: #4EA8FF !important;     /* bleu clair */
+}
+
+.search-results-list a:hover {
+  color: #1A73E8 !important;     /* bleu un peu plus fort au survol */
+  text-decoration: underline;
+}
+
+
 /* HEADER / NAV */
 
 header.acad-header {
