@@ -7,6 +7,93 @@
   <meta name="description" content="A-Cadémie : articles et quiz sportifs en libre accès pour mieux comprendre l’entraînement, la VMA, l’endurance et la prévention des blessures. XP locale et badges sans création de compte.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/acad-style.css">
+
+  <!-- Styles spécifiques recherche + bande horizontale -->
+  <style>
+    /* Barre de recherche */
+    .search-hero {
+      padding: 24px 20px;
+      margin-bottom: 24px;
+    }
+    .search-hero-content {
+      max-width: 720px;
+    }
+    .search-bar-wrapper {
+      margin-top: 16px;
+    }
+    .search-bar {
+      width: 100%;
+      max-width: 480px;
+    }
+    .search-results {
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .search-results-list {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+      border-radius: 12px;
+    }
+    .search-result-item a {
+      display: block;
+      padding: 6px 0;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .search-result-item a:hover {
+      text-decoration: underline;
+    }
+    .search-empty {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+
+    /* Bande horizontale avec images */
+    .featured-strip {
+      margin-bottom: 24px;
+    }
+    .featured-strip .section-title {
+      margin-bottom: 12px;
+    }
+    .featured-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .featured-card {
+      min-width: 230px;
+      max-width: 260px;
+      flex: 0 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.10);
+      background: #fff;
+    }
+    .featured-image {
+      height: 120px;
+      background-size: cover;
+      background-position: center;
+    }
+    .featured-info {
+      padding: 10px 12px 12px;
+    }
+    .featured-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .featured-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 4px;
+      color: #111827;
+    }
+  </style>
+
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
@@ -52,6 +139,60 @@
     </header>
 
     <main id="top">
+
+      <!-- HERO RECHERCHE EN HAUT -->
+      <section class="card search-hero">
+        <div class="search-hero-content">
+          <h1 class="hero-title">Que veux-tu apprendre aujourd’hui ?</h1>
+          <p class="hero-subtitle">
+            Tape un mot-clé (VMA, endurance, échauffement…) et trouve directement l’article qui t’intéresse.
+          </p>
+
+          <div class="search-bar-wrapper">
+            <input
+              id="article-search-input"
+              type="search"
+              class="input search-bar"
+              placeholder="Rechercher un article (VMA, endurance, échauffement...)"
+              autocomplete="off"
+            />
+          </div>
+
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </section>
+
+      <!-- BANDE HORIZONTALE AVEC IMAGES -->
+      <section class="card featured-strip">
+        <h2 class="section-title">En ce moment sur A-Cadémie</h2>
+        <div class="featured-scroll">
+          <a class="featured-card" href="./articles/vma.html">
+            <div class="featured-image" style="background-image:url('./assets/visuels/vma.jpg');"></div>
+            <div class="featured-info">
+              <div class="featured-tag">Endurance & VMA</div>
+              <div class="featured-title">Comprendre ta VMA</div>
+            </div>
+          </a>
+
+          <a class="featured-card" href="./articles/endurance-fondamentale.html">
+            <div class="featured-image" style="background-image:url('./assets/visuels/endurance.jpg');"></div>
+            <div class="featured-info">
+              <div class="featured-tag">Endurance & VMA</div>
+              <div class="featured-title">Endurance fondamentale</div>
+            </div>
+          </a>
+
+          <a class="featured-card" href="./articles/echauffement-5min.html">
+            <div class="featured-image" style="background-image:url('./assets/visuels/echauffement.jpg');"></div>
+            <div class="featured-info">
+              <div class="featured-tag">Prévention & mobilité</div>
+              <div class="featured-title">Échauffement 5 minutes</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- HERO D'ORIGINE -->
       <section class="card hero">
         <div>
           <h1 class="hero-title">Apprends, comprends, applique le sport au quotidien.</h1>
@@ -89,7 +230,7 @@
         </aside>
       </section>
 
-      <!-- NOUVELLE SECTION : PAR OÙ COMMENCER -->
+      <!-- PAR OÙ COMMENCER -->
       <section id="start-here" class="card">
         <h2 class="section-title">Par où commencer ?</h2>
         <p class="section-subtitle">
@@ -122,7 +263,7 @@
           <div class="category-card">
             <div class="category-header">
               <div class="category-title">3️⃣ T’échauffer efficacement</div>
-              <div class="category-icon">➜</div>
+            <div class="category-icon">➜</div>
             </div>
             <div class="category-meta">Un échauffement court pour préparer ton corps et limiter les blessures.</div>
             <div class="category-articles">
@@ -262,6 +403,66 @@
         }
       }
     });
+  </script>
+
+  <!-- Script de recherche d’articles -->
+  <script>
+    const ACAD_ARTICLES_INDEX = [
+      {
+        id: "vma",
+        title: "Comprendre ta VMA (article + quiz)",
+        url: "./articles/vma.html",
+        keywords: "vma vitesse maximale aérobie test demi cooper course"
+      },
+      {
+        id: "endurance-fondamentale",
+        title: "Endurance fondamentale : courir “trop lentement” pour progresser",
+        url: "./articles/endurance-fondamentale.html",
+        keywords: "endurance fondamentale footing lent base aérobie"
+      },
+      {
+        id: "echauffement-5min",
+        title: "Échauffement 5 minutes avant séance",
+        url: "./articles/echauffement-5min.html",
+        keywords: "echauffement 5 minutes mobilité préparation"
+      }
+      // ➜ Tu pourras compléter la liste avec tous tes articles
+    ];
+
+    const searchInput = document.getElementById("article-search-input");
+    const resultsBox = document.getElementById("search-results");
+
+    if (searchInput && resultsBox) {
+      searchInput.addEventListener("input", () => {
+        const q = searchInput.value.trim().toLowerCase();
+        resultsBox.innerHTML = "";
+        if (!q) return;
+
+        const matches = ACAD_ARTICLES_INDEX.filter((art) => {
+          return (
+            art.title.toLowerCase().includes(q) ||
+            art.keywords.toLowerCase().includes(q)
+          );
+        }).slice(0, 6);
+
+        if (!matches.length) {
+          resultsBox.innerHTML = '<div class="search-empty">Aucun article trouvé pour cette recherche.</div>';
+          return;
+        }
+
+        const list = document.createElement("ul");
+        list.className = "search-results-list";
+
+        matches.forEach((art) => {
+          const li = document.createElement("li");
+          li.className = "search-result-item";
+          li.innerHTML = `<a href="${art.url}">${art.title}</a>`;
+          list.appendChild(li);
+        });
+
+        resultsBox.appendChild(list);
+      });
+    }
   </script>
 </body>
 </html>
