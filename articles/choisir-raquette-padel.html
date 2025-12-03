@@ -4,401 +4,474 @@
   <meta charset="utf-8" />
   <title>A-Cadémie — Comment choisir sa raquette de padel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- On est dans /articles → chemins relatifs vers /css et /js -->
   <link rel="stylesheet" href="../css/acad-style.css">
-
-  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="../js/firebase-config.js"></script>
 </head>
-
 <body>
-<div class="page">
-
-  <!-- HEADER -->
-  <header class="acad-header">
-    <a href="../index.html" class="brand" style="text-decoration:none;">
-      <div class="brand-logo">A</div>
-      <div>
-        <div class="brand-text-title">A-Cadémie</div>
-        <div class="brand-text-sub">Rackets — Padel & Tennis · Article + Quiz</div>
-      </div>
-    </a>
-
-    <nav class="acad-nav">
-      <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
-      <a class="nav-btn primary" href="../articles.html">Articles</a>
-      <a class="nav-btn" href="../recompenses.html">Récompenses</a>
-    </nav>
-
-    <div id="acad-profile" class="profile-card">
-      <div class="profile-main">
-        <div class="profile-avatar">🎾</div>
+  <div class="page">
+    <header class="acad-header">
+      <a href="../index.html" class="brand" style="text-decoration:none;">
+        <div class="brand-logo">A</div>
         <div>
-          <div class="profile-level">Niveau <span id="acad-level">1</span></div>
-          <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+          <div class="brand-text-title">A-Cadémie</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
+        </div>
+      </a>
+
+      <nav class="acad-nav">
+        <a class="nav-btn" href="../index.html"><span class="dot"></span> Accueil</a>
+        <a class="nav-btn primary" href="../articles.html">Articles</a>
+        <a class="nav-btn" href="../recompenses.html">Récompenses</a>
+      </nav>
+
+      <div id="acad-profile" class="profile-card">
+        <div class="profile-main">
+          <div class="profile-avatar">A</div>
+          <div>
+            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
+          </div>
+        </div>
+        <div class="profile-progress-wrapper">
+          <div class="profile-progress-bar">
+            <div class="profile-progress-fill" id="acad-xp-bar"></div>
+          </div>
+          <div class="profile-progress-label">
+            <span>Vers niveau <span id="acad-next-level">2</span></span>
+            <span id="acad-xp-to-next">0 / 100</span>
+          </div>
         </div>
       </div>
-      <div class="profile-progress-wrapper">
-        <div class="profile-progress-bar">
-          <div class="profile-progress-fill" id="acad-xp-bar"></div>
+    </header>
+
+    <main class="layout">
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="tag"><span class="tag-dot"></span> Rackets — Padel</span>
+          <span class="chip">Lecture : 7–8 min</span>
+          <span class="chip">Niveau : Débutant / Intermédiaire</span>
         </div>
-        <div class="profile-progress-label">
-          <span>Vers niveau <span id="acad-next-level">2</span></span>
-          <span id="acad-xp-to-next">0 / 100</span>
+
+        <h1 class="article-title">Comment choisir sa raquette de padel</h1>
+        <p class="article-subtitle">
+          Puissance, contrôle, maniabilité… choisir une raquette de padel peut sembler compliqué.
+          Voici un guide simple pour trouver la raquette adaptée à ton niveau et ton style de jeu.
+        </p>
+
+        <div class="article-highlight">
+          <strong>À retenir :</strong> forme, poids et équilibre = les 3 critères principaux pour bien choisir ta raquette.
         </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- MAIN -->
-  <main class="layout">
+        <div class="article-content">
+          <h2>1️⃣ Les trois formes principales de raquettes</h2>
+          <p>Chaque forme influence ton style de jeu :</p>
 
-    <!-- ARTICLE -->
-    <article class="article-card">
+          <h3>● Forme ronde (contrôle)</h3>
+          <ul>
+            <li>manche facile à manier ;</li>
+            <li>sweet spot (zone idéale) large ;</li>
+            <li>parfaite pour débutants et joueurs qui privilégient le contrôle.</li>
+          </ul>
 
-      <div class="article-meta">
-        <span class="tag"><span class="tag-dot"></span> Rackets — Padel</span>
-        <span class="chip">Lecture : 7–8 min</span>
-        <span class="chip">Niveau : Débutant / Intermédiaire</span>
-      </div>
+          <h3>● Forme goutte d’eau (polyvalente)</h3>
+          <ul>
+            <li>excellent compromis contrôle / puissance ;</li>
+            <li>très répandue chez les joueurs intermédiaires ;</li>
+            <li>idéale si tu veux une seule raquette pour tout faire.</li>
+          </ul>
 
-      <h1 class="article-title">Comment choisir sa raquette de padel</h1>
-      <p class="article-subtitle">
-        Puissance, contrôle, maniabilité… choisir une raquette de padel peut sembler compliqué.  
-        Voici un guide simple pour trouver la raquette adaptée à ton niveau et ton style de jeu.
-      </p>
+          <h3>● Forme diamant (puissance)</h3>
+          <ul>
+            <li>sweet spot plus haut vers la tête de raquette ;</li>
+            <li>plus de puissance, mais moins tolérante aux erreurs de centrage ;</li>
+            <li>plutôt pour joueurs confirmés, offensifs et à l’aise au filet.</li>
+          </ul>
 
-      <div class="article-highlight">
-        <strong>À retenir :</strong> Forme, poids et équilibre = les 3 critères les plus importants.
-      </div>
+          <h2>2️⃣ Le poids de la raquette</h2>
+          <p>Le poids influence surtout la maniabilité et la fatigue du bras :</p>
+          <ul>
+            <li><strong>Léger (≈ 350–365 g)</strong> : plus maniable, moins fatigant, idéal débutants et joueurs loisir.</li>
+            <li><strong>Moyen (≈ 365–375 g)</strong> : bon compromis entre stabilité et maniabilité.</li>
+            <li><strong>Lourd (375 g et +)</strong> : plus de stabilité et de puissance, mais plus exigeant pour l’avant-bras et l’épaule.</li>
+          </ul>
+          <p>
+            Si tu débutes ou si tu as déjà eu des douleurs au coude / épaule, mieux vaut <strong>rester sur une raquette plutôt légère</strong>.
+          </p>
 
-      <div class="article-content">
+          <h2>3️⃣ L’équilibre : tête lourde ou manche lourd ?</h2>
 
-        <h2>1️⃣ Les trois formes principales de raquettes</h2>
-        <p>Chaque forme influence ton style de jeu :</p>
+          <h3>● Équilibre en tête (Head Heavy)</h3>
+          <ul>
+            <li>plus de poids vers la tête ;</li>
+            <li>plus de puissance à l’impact ;</li>
+            <li>mais raquette moins maniable, surtout en défense et près du corps.</li>
+          </ul>
 
-        <h3>● Forme ronde (contrôle)</h3>
-        <ul>
-          <li>manche facile à manier</li>
-          <li>sweet spot large</li>
-          <li>parfaite pour débutants</li>
-        </ul>
+          <h3>● Équilibre au manche (Head Light)</h3>
+          <ul>
+            <li>plus de poids vers le manche ;</li>
+            <li>meilleure maniabilité, idéal pour les réflexes rapides et la défense ;</li>
+            <li>moins de puissance brute, mais plus de confort.</li>
+          </ul>
 
-        <h3>● Forme goutte d’eau (polyvalente)</h3>
-        <ul>
-          <li>excellent compromis contrôle/puissance</li>
-          <li>la plus utilisée au niveau intermédiaire</li>
-        </ul>
+          <h3>● Équilibre neutre</h3>
+          <ul>
+            <li>répartition du poids plus équilibrée ;</li>
+            <li>option polyvalente pour la plupart des joueurs intermédiaires.</li>
+          </ul>
 
-        <h3>● Forme diamant (puissance)</h3>
-        <ul>
-          <li>sweet spot haut</li>
-          <li>demandée aux joueurs offensifs</li>
-          <li>moins tolérante → pour joueurs confirmés</li>
-        </ul>
+          <h2>4️⃣ Mousse et surface : ce que ça change</h2>
 
-        <h2>2️⃣ Le poids de la raquette</h2>
-        <p>Le poids influence maniabilité et puissance :</p>
-        <ul>
-          <li><strong>Léger (350–365g)</strong> → plus maniable, idéal débutants</li>
-          <li><strong>Moyen (365–375g)</strong> → polyvalent</li>
-          <li><strong>Lourd (375g+)</strong> → plus puissant mais plus fatigant</li>
-        </ul>
+          <h3>● Mousse souple</h3>
+          <ul>
+            <li>plus de sortie de balle (la balle “ressort” plus facilement) ;</li>
+            <li>plus confortable, moins de vibrations ;</li>
+            <li>idéal débutants, joueurs défensifs ou qui privilégient le contrôle.</li>
+          </ul>
 
-        <h2>3️⃣ L’équilibre : tête lourde ou manche lourd ?</h2>
+          <h3>● Mousse dure</h3>
+          <ul>
+            <li>plus de précision dans les frappes ;</li>
+            <li>meilleur rendement pour les joueurs déjà puissants ;</li>
+            <li>moins tolérante si la balle n’est pas bien centrée.</li>
+          </ul>
 
-        <h3>● Équilibre en tête (Head Heavy)</h3>
-        <ul>
-          <li>plus de puissance</li>
-          <li>moins maniable</li>
-        </ul>
+          <p>
+            La surface (carbone, fibre de verre, mix des deux) influence aussi la sensation :
+            <strong>carbone = plus de contrôle et de fermeté</strong>,
+            <strong>fibre de verre = plus de confort et de tolérance</strong>.
+          </p>
 
-        <h3>● Équilibre au manche (Head Light)</h3>
-        <ul>
-          <li>plus de contrôle</li>
-          <li>moins de fatigue au bras</li>
-        </ul>
+          <h2>5️⃣ Quelle raquette pour ton niveau ?</h2>
 
-        <h3>● Équilibre neutre</h3>
-        <ul>
-          <li>option polyvalente</li>
-        </ul>
+          <h3>Débutants</h3>
+          <ul>
+            <li>forme ronde ;</li>
+            <li>poids plutôt léger ;</li>
+            <li>équilibre plutôt neutre ou au manche ;</li>
+            <li>mousse souple.</li>
+          </ul>
 
-        <h2>4️⃣ Mousse et surface : ce que ça change</h2>
+          <h3>Intermédiaires</h3>
+          <ul>
+            <li>forme goutte d’eau ;</li>
+            <li>poids moyen ;</li>
+            <li>équilibre neutre ;</li>
+            <li>mousse intermédiaire (ni trop souple, ni trop dure).</li>
+          </ul>
 
-        <h3>● Mousse SOUPLE</h3>
-        <ul>
-          <li>plus de sortie de balle</li>
-          <li>plus facile pour défendre</li>
-          <li>idéal débutants</li>
-        </ul>
+          <h3>Confirmés</h3>
+          <ul>
+            <li>forme diamant si tu joues très offensif ;</li>
+            <li>équilibre en tête pour maximiser la puissance ;</li>
+            <li>mousse plus ferme pour la précision.</li>
+          </ul>
 
-        <h3>● Mousse DURE</h3>
-        <ul>
-          <li>plus de précision</li>
-          <li>idéal pour joueurs puissants</li>
-        </ul>
+          <h2>6️⃣ En résumé</h2>
+          <p>
+            Pour bien choisir ta raquette de padel, pose-toi surtout ces questions :
+          </p>
+          <ul>
+            <li>Quel est <strong>mon niveau</strong> actuel ?</li>
+            <li>Est-ce que je préfère le <strong>contrôle</strong>, la <strong>puissance</strong> ou la <strong>polyvalence</strong> ?</li>
+            <li>Est-ce que je veux une raquette <strong>confortable</strong> ou <strong>plus exigeante mais plus précise</strong> ?</li>
+          </ul>
+          <p>
+            Si tu hésites, partir sur une <strong>forme goutte d’eau</strong>, poids moyen, équilibre neutre et mousse plutôt souple
+            est un excellent point de départ.
+          </p>
+        </div>
 
-        <h2>5️⃣ Quelle raquette pour ton niveau ?</h2>
+        <div class="article-footer-note">
+          <span class="bullet-pill">🎮 Gamification locale</span>
+          <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+        </div>
 
-        <h3>Débutants 🎾</h3>
-        <ul>
-          <li>form round</li>
-          <li>poids léger</li>
-          <li>mousse souple</li>
-        </ul>
-
-        <h3>Intermédiaires 🟦</h3>
-        <ul>
-          <li>forme goutte d’eau</li>
-          <li>poids moyen</li>
-          <li>équilibre neutre</li>
-        </ul>
-
-        <h3>Confirmés 🔥</h3>
-        <ul>
-          <li>forme diamant</li>
-          <li>équilibre en tête</li>
-          <li>mousse plus ferme</li>
-        </ul>
-
-      </div>
-
-      <div class="article-footer-note">
-        <span class="bullet-pill">🎮 Gamification locale</span>
-        <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
-      </div>
-
-      <button type="button" class="btn btn-secondary" id="mark-article-read">
-        ✓ J’ai lu cet article (gagner de l’XP)
-      </button>
-
-      <div style="margin-top:12px;">
-        <button type="button" class="btn btn-primary" id="share-article">
-          🔗 Partager cet article / quiz
+        <button type="button" class="btn btn-secondary" id="mark-article-read">
+          ✓ J’ai lu cet article (gagner de l’XP)
         </button>
-        <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
-      </div>
 
-    </article>
-
-
-    <!-- QUIZ -->
-    <section class="quiz-card" id="quiz-section">
-
-      <div class="quiz-header">
-        <div class="quiz-left">
-          <div class="quiz-title">Quiz express : Choisir sa raquette</div>
-          <div class="quiz-caption">5 questions pour valider tes connaissances.</div>
-        </div>
-        <div class="quiz-badge">⚡ 5 questions · 3 min</div>
-      </div>
-
-      <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
-      <form id="quiz-form"></form>
-
-      <div class="quiz-footer">
-        <div class="quiz-actions">
-          <button type="button" class="btn btn-primary" id="quiz-submit">
-            Valider mes réponses
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" id="share-article">
+            🔗 Partager cet article / quiz
           </button>
-          <button type="button" class="btn btn-secondary" id="quiz-reset">
-            Recommencer le quiz
-          </button>
+          <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
         </div>
-        <div class="quiz-result" id="quiz-result">
-          Réponds aux questions puis valide pour voir ton score.
+      </article>
+
+      <!-- Quiz -->
+      <section class="quiz-card" id="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-left">
+            <div class="quiz-title">Quiz express : Choisir sa raquette</div>
+            <div class="quiz-caption">5 questions pour valider tes connaissances.</div>
+          </div>
+          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
         </div>
-      </div>
 
-      <div class="quiz-feedback" id="quiz-feedback"></div>
-    </section>
+        <div class="quiz-progress" id="quiz-progress">
+          Question 1 sur 5
+        </div>
 
-  </main>
-</div>
+        <form id="quiz-form"></form>
 
-<!-- SCRIPTS -->
-<script src="../js/acad-gamification.js"></script>
-<script src="../js/acad-firebase-sync.js"></script>
+        <div class="quiz-footer">
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit">
+              Valider mes réponses
+            </button>
+            <button type="button" class="btn btn-secondary" id="quiz-reset">
+              Recommencer le quiz
+            </button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            Réponds aux questions puis valide pour voir ton score.
+          </div>
+        </div>
 
-<script>
-  const ARTICLE_ID = "choisir-raquette-padel";
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </section>
+    </main>
+  </div>
 
-  const quizData = [
-    {
-      id: 1,
-      question: "Quelle forme est idéale pour un débutant ?",
-      options: ["Diamant", "Goutte d’eau", "Ronde", "Carrée"],
-      correctIndex: 2
-    },
-    {
-      id: 2,
-      question: "Une raquette légère est généralement :",
-      options: ["Plus puissante", "Plus maniable", "Plus fatigante", "A réserver aux pros"],
-      correctIndex: 1
-    },
-    {
-      id: 3,
-      question: "Un équilibre en tête donne :",
-      options: ["Moins de puissance", "Plus de puissance", "Moins de contrôle", "Plus de vibrations"],
-      correctIndex: 1
-    },
-    {
-      id: 4,
-      question: "Quel type de mousse donne plus de sortie de balle ?",
-      options: ["Mousse dure", "Mousse souple", "Mousse métal", "Aucune des deux"],
-      correctIndex: 1
-    },
-    {
-      id: 5,
-      question: "Pour un joueur offensif confirmé, on recommande :",
-      options: [
-        "Forme ronde + mousse souple",
-        "Poids très léger",
-        "Forme diamant + équilibre en tête",
-        "Raquette enfant"
-      ],
-      correctIndex: 2
+  <script src="../js/acad-gamification.js"></script>
+  <script src="../js/acad-firebase-sync.js"></script>
+  <script>
+    const ARTICLE_ID = "choisir-raquette-padel";
+
+    const quizData = [
+      {
+        id: 1,
+        question: "Quelle forme de raquette est la plus adaptée pour un débutant ?",
+        options: [
+          "Forme diamant",
+          "Forme goutte d’eau",
+          "Forme ronde",
+          "Forme carrée"
+        ],
+        correctIndex: 2
+      },
+      {
+        id: 2,
+        question: "Quel est l’effet principal d’une mousse souple ?",
+        options: [
+          "Moins de sortie de balle, plus de contrôle",
+          "Plus de sortie de balle et plus de confort",
+          "Plus de vibrations dans le bras",
+          "Aucun impact sur les sensations"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 3,
+        question: "Que se passe-t-il quand l’équilibre est en tête (Head Heavy) ?",
+        options: [
+          "La raquette devient plus maniable mais moins puissante",
+          "La raquette gagne en puissance mais perd en maniabilité",
+          "La raquette devient plus légère",
+          "La raquette ne change pas du tout de sensation"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 4,
+        question: "Quel combo est cohérent pour un joueur intermédiaire polyvalent ?",
+        options: [
+          "Forme ronde, très légère, ultra souple",
+          "Forme goutte d’eau, poids moyen, équilibre neutre",
+          "Forme diamant, très lourde, équilibre en tête",
+          "Forme carrée, poids aléatoire"
+        ],
+        correctIndex: 1
+      },
+      {
+        id: 5,
+        question: "Si tu as déjà eu des douleurs au coude/épaule, que privilégier ?",
+        options: [
+          "Une raquette lourde, très en tête et très dure",
+          "Une raquette légère, plutôt souple et confortable",
+          "La raquette la plus puissante possible",
+          "Cela n’a aucune importance"
+        ],
+        correctIndex: 1
+      }
+    ];
+
+    const quizForm = document.getElementById("quiz-form");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResult = document.getElementById("quiz-result");
+    const quizFeedback = document.getElementById("quiz-feedback");
+    const submitBtn = document.getElementById("quiz-submit");
+    const resetBtn = document.getElementById("quiz-reset");
+
+    function renderQuiz() {
+      quizForm.innerHTML = "";
+      quizData.forEach((q, index) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.className = "quiz-question";
+        questionDiv.dataset.questionId = q.id;
+
+        questionDiv.innerHTML = `
+          <div class="quiz-question-header">
+            <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
+            <div class="quiz-question-meta">1 seule bonne réponse</div>
+          </div>
+          <div class="quiz-options">
+            ${q.options.map(
+              (opt, optIndex) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${optIndex}">
+                <span>${opt}</span>
+              </label>
+            `
+            ).join("")}
+          </div>
+        `;
+
+        quizForm.appendChild(questionDiv);
+      });
+
+      quizProgress.textContent = "Question 1 sur " + quizData.length;
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
+      quizFeedback.textContent = "";
     }
-  ];
 
-  const quizForm = document.getElementById("quiz-form");
-  const quizProgress = document.getElementById("quiz-progress");
-  const quizResult = document.getElementById("quiz-result");
-  const quizFeedback = document.getElementById("quiz-feedback");
-  const submitBtn = document.getElementById("quiz-submit");
-  const resetBtn = document.getElementById("quiz-reset");
+    function updateProgress() {
+      const total = quizData.length;
+      const answered = quizData.filter((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        return Array.from(radios).some((r) => r.checked);
+      }).length;
 
-  function renderQuiz() {
-    quizForm.innerHTML = "";
-    quizData.forEach((q, index) => {
-      const div = document.createElement("div");
-      div.className = "quiz-question";
-      div.dataset.questionId = q.id;
+      const current = Math.max(1, answered);
+      quizProgress.textContent = "Question " + current + " sur " + total;
+    }
 
-      div.innerHTML = `
-        <div class="quiz-question-header">
-          <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
-          <div class="quiz-question-meta">1 seule bonne réponse</div>
-        </div>
-        <div class="quiz-options">
-          ${q.options.map((opt, i) => `
-            <label class="quiz-option">
-              <input type="radio" name="question-${q.id}" value="${i}">
-              <span>${opt}</span>
-            </label>
-          `).join("")}
-        </div>
-      `;
+    quizForm.addEventListener("change", updateProgress);
 
-      quizForm.appendChild(div);
-    });
+    function evaluateQuiz() {
+      let score = 0;
+      const total = quizData.length;
 
-    quizProgress.textContent = "Question 1 sur " + quizData.length;
-    quizResult.textContent = "Réponds aux questions puis valide pour voir ton score.";
-    quizFeedback.textContent = "";
-  }
+      document.querySelectorAll(".quiz-option").forEach((opt) => {
+        opt.classList.remove("correct", "incorrect");
+      });
 
-  function updateProgress() {
-    const answered = quizData.filter(q =>
-      [...document.querySelectorAll(\`input[name="question-\${q.id}"]\`)]
-        .some(r => r.checked)
-    ).length;
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let selectedIndex = null;
 
-    quizProgress.textContent = \`Question \${answered || 1} sur \${quizData.length}\`;
-  }
+        radios.forEach((r, idx) => {
+          if (r.checked) selectedIndex = idx;
+        });
 
-  quizForm.addEventListener("change", updateProgress);
+        const questionDiv = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const optionLabels = questionDiv.querySelectorAll(".quiz-option");
 
-  function evaluateQuiz() {
-    let score = 0;
-
-    document.querySelectorAll(".quiz-option").forEach(opt =>
-      opt.classList.remove("correct", "incorrect")
-    );
-
-    quizData.forEach(q => {
-      const radios = document.querySelectorAll(\`input[name="question-\${q.id}"]\`);
-      let selected = null;
-      radios.forEach((r, i) => { if (r.checked) selected = i; });
-
-      const block = document.querySelector(\`.quiz-question[data-question-id="\${q.id}"]\`);
-      const opts = block.querySelectorAll(".quiz-option");
-
-      if (selected === q.correctIndex) {
-        score++;
-        opts[selected]?.classList.add("correct");
-      } else {
-        opts[q.correctIndex]?.classList.add("correct");
-        if (selected !== null) opts[selected]?.classList.add("incorrect");
-      }
-    });
-
-    const total = quizData.length;
-    const ratio = score / total;
-
-    let msg =
-      ratio === 1 ? "Parfait, tu sais maintenant choisir la bonne raquette 🎾" :
-      ratio >= 0.7 ? "Très bon score !" :
-      ratio >= 0.4 ? "Pas mal, mais relis les bases." :
-      "Relis l’article puis retente le quiz.";
-
-    quizResult.innerHTML = `<strong>${score}/${total}</strong> bonnes réponses • ${msg}`;
-
-    if (window.acadGamification)
-      window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
-
-    quizFeedback.textContent =
-      ratio === 1 ? "🎮 Bravo ! XP bonus ajoutée." : "Tu peux viser le perfect !";
-  }
-
-  submitBtn.addEventListener("click", evaluateQuiz);
-  resetBtn.addEventListener("click", renderQuiz);
-
-  const readBtn = document.getElementById("mark-article-read");
-  if (readBtn) {
-    readBtn.addEventListener("click", () => {
-      if (window.acadGamification)
-        window.acadGamification.markArticleRead(ARTICLE_ID, 20);
-
-      readBtn.textContent = "✓ Article compté pour l’XP locale";
-      readBtn.disabled = true;
-    });
-  }
-
-  const shareBtn = document.getElementById("share-article");
-  const shareFeedback = document.getElementById("share-feedback");
-
-  if (shareBtn) {
-    shareBtn.addEventListener("click", async () => {
-      if (window.acadGamification)
-        window.acadGamification.registerShare(ARTICLE_ID, 15);
-
-      const data = {
-        title: "A-Cadémie — Choisir sa raquette de padel",
-        text: "Forme, poids, mousse, équilibre : guide complet + quiz.",
-        url: window.location.href
-      };
-
-      if (navigator.share) {
-        try {
-          await navigator.share(data);
-          shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
-        } catch {
-          shareFeedback.textContent = "Partage annulé.";
+        if (selectedIndex === q.correctIndex) {
+          score++;
+          if (selectedIndex !== null) {
+            optionLabels[selectedIndex].classList.add("correct");
+          }
+        } else {
+          if (q.correctIndex != null && optionLabels[q.correctIndex]) {
+            optionLabels[q.correctIndex].classList.add("correct");
+          }
+          if (selectedIndex !== null && optionLabels[selectedIndex]) {
+            optionLabels[selectedIndex].classList.add("incorrect");
+          }
         }
+      });
+
+      const ratio = score / total;
+      let message;
+
+      if (ratio === 1) {
+        message = "Parfait, tu maîtrises totalement le sujet 👌";
+      } else if (ratio >= 0.7) {
+        message = "Très solide ! Il reste quelques détails à affiner.";
+      } else if (ratio >= 0.4) {
+        message = "Pas mal, mais relire l’article t’aidera à consolider les bases.";
       } else {
-        shareFeedback.textContent = "Le partage automatique n’est pas disponible. Copie le lien.";
+        message = "C’est un bon début, retourne sur l’article puis retente le quiz.";
       }
-    });
-  }
 
-  renderQuiz();
-</script>
+      quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses. " + message;
 
+      if (window.acadGamification) {
+        window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+      if (ratio === 1) {
+        quizFeedback.textContent = "🎮 Bravo ! Quiz parfait, tu contribues au déblocage du badge Padel & Rackets.";
+      } else {
+        quizFeedback.textContent = "Tu peux recommencer le quiz si tu veux viser le 100 % pour le badge.";
+      }
+    }
+
+    function resetQuiz() {
+      renderQuiz();
+    }
+
+    submitBtn.addEventListener("click", evaluateQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
+
+    const articleReadBtn = document.getElementById("mark-article-read");
+    if (articleReadBtn) {
+      articleReadBtn.addEventListener("click", function () {
+        if (!window.acadGamification) return;
+        window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        articleReadBtn.textContent = "✓ Article compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      });
+
+      if (window.acadGamification && window.acadGamification.isArticleRead(ARTICLE_ID)) {
+        articleReadBtn.textContent = "✓ Article déjà compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      }
+    }
+
+    const shareBtn = document.getElementById("share-article");
+    const shareFeedback = document.getElementById("share-feedback");
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async function () {
+        if (window.acadGamification) {
+          window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
+
+        const shareData = {
+          title: "A-Cadémie — Comment choisir sa raquette de padel",
+          text: "Un guide simple + quiz pour choisir ta raquette de padel.",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            if (shareFeedback) {
+              shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée sur cet appareil)";
+            }
+          } catch (e) {
+            if (shareFeedback) {
+              shareFeedback.textContent = "Partage annulé, mais tu peux réessayer quand tu veux.";
+            }
+          }
+        } else {
+          if (shareFeedback) {
+            shareFeedback.textContent = "Le partage automatique n’est pas disponible sur cet appareil. Tu peux copier l’adresse dans la barre du navigateur. (XP ajoutée)";
+          }
+        }
+      });
+    }
+
+    renderQuiz();
+  </script>
 </body>
 </html>
