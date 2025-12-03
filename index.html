@@ -2,260 +2,112 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <title>A-Cadémie — Accueil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/acad-style.css">
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="./js/firebase-config.js"></script>
+  <title>A-Cadémie — Articles & Quiz Sportifs</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="page">
-    <header class="acad-header">
-      <div class="brand">
-        <div class="brand-logo">A</div>
-        <div>
-          <div class="brand-text-title">A-Cadémie</div>
-          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
-        </div>
-      </div>
 
-      <nav class="acad-nav">
-        <a class="nav-btn primary" href="./index.html"><span class="dot"></span> Accueil</a>
-        <a class="nav-btn" href="./articles.html">Articles</a>
-        <a class="nav-btn" href="./recompenses.html">Récompenses</a>
-      </nav>
+<header>
+  <h1 class="site-title">A-Cadémie</h1>
+  <p class="site-subtitle">Articles & Quiz sportifs pour progresser facilement</p>
 
-      <div id="acad-profile" class="profile-card">
-        <div class="profile-main">
-          <div class="profile-avatar">A</div>
-          <div>
-            <div class="profile-level">Niveau <span id="acad-level">1</span></div>
-            <div class="profile-xp">
-              <span id="acad-xp">0</span> XP locale
-            </div>
-          </div>
-        </div>
-        <div class="profile-progress-wrapper">
-          <div class="profile-progress-bar">
-            <div class="profile-progress-fill" id="acad-xp-bar"></div>
-          </div>
-          <div class="profile-progress-label">
-            <span>Vers niveau <span id="acad-next-level">2</span></span>
-            <span id="acad-xp-to-next">0 / 100</span>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main id="top">
-      <section class="card hero">
-        <div>
-          <h1 class="hero-title">Apprends, comprends, applique le sport au quotidien.</h1>
-          <p class="hero-subtitle">
-            A-Cadémie est une bibliothèque sportive moderne : des articles clairs, des quiz rapides et une petite dose de gamification locale
-            pour suivre ta progression — sans compte, sans mot de passe.
-          </p>
-
-          <div class="hero-stats">
-            <span class="stat-pill">📚 Articles pédagogiques</span>
-            <span class="stat-pill">🧠 Quiz express</span>
-            <span class="stat-pill">🏅 Badges de progression</span>
-          </div>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="./articles/vma.html">Découvrir la VMA (article + quiz)</a>
-            <a class="btn btn-secondary" href="./articles.html">Voir tous les articles</a>
-          </div>
-
-          <p class="hero-note">
-            ➜ La progression (XP, niveau, badges) est enregistrée uniquement sur ton appareil. Tu peux revenir quand tu veux, tout est conservé.
-          </p>
-        </div>
-
-        <aside class="hero-side">
-          <div class="hero-side-title">Comment ça marche ?</div>
-          <ul class="hero-side-list">
-            <li>Tu choisis un article qui t’intéresse.</li>
-            <li>Tu lis, tu fais le quiz, tu peux partager si tu veux.</li>
-            <li>Chaque action te donne un peu d’XP et débloque des badges.</li>
-          </ul>
-          <div class="hero-note">
-            Objectif : rendre l’apprentissage du sport aussi satisfaisant qu’un bon jeu vidéo… mais sans prise de tête.
-          </div>
-        </aside>
-      </section>
-
-      <!-- NOUVELLE SECTION CATEGORIES (mini-cartes) -->
-      <section class="card">
-        <h2 class="section-title">Ce que tu trouveras sur A-Cadémie</h2>
-        <p class="section-subtitle">
-          Un espace multisports pour progresser simplement : articles courts, quiz ludiques et conseils concrets
-          autour du sport et du bien-être.
-        </p>
-
-        <div class="mini-cats-grid">
-          <!-- Hygiène de vie -->
-          <div class="mini-cat-card">
-            <div class="mini-cat-icon">🥦</div>
-            <div class="mini-cat-title">Hygiène & Bien-être</div>
-            <div class="mini-cat-tags">
-              <span>Alimentation</span>
-              <span>Sommeil</span>
-              <span>Perte de poids</span>
-            </div>
-          </div>
-
-          <!-- Endurance & Outdoor -->
-          <div class="mini-cat-card">
-            <div class="mini-cat-icon">🏃‍♂️</div>
-            <div class="mini-cat-title">Endurance & Outdoor</div>
-            <div class="mini-cat-tags">
-              <span>CAP / Trail</span>
-              <span>Vélo</span>
-              <span>Randonnée</span>
-            </div>
-          </div>
-
-          <!-- Rackets -->
-          <div class="mini-cat-card">
-            <div class="mini-cat-icon">🎾</div>
-            <div class="mini-cat-title">Rackets</div>
-            <div class="mini-cat-tags">
-              <span>Tennis</span>
-              <span>Padel</span>
-              <span>Débutants</span>
-            </div>
-          </div>
-
-          <!-- Pilates / Yoga / Doux -->
-          <div class="mini-cat-card">
-            <div class="mini-cat-icon">🧘</div>
-            <div class="mini-cat-title">Pilates & Doux</div>
-            <div class="mini-cat-tags">
-              <span>Mobilité</span>
-              <span>Posture</span>
-              <span>Respiration</span>
-            </div>
-          </div>
-
-          <!-- Functional / CrossFit / Hyrox -->
-          <div class="mini-cat-card">
-            <div class="mini-cat-icon">🏋️</div>
-            <div class="mini-cat-title">Functional Training</div>
-            <div class="mini-cat-tags">
-              <span>CrossFit</span>
-              <span>Hyrox</span>
-              <span>Renfo</span>
-            </div>
-          </div>
-
-          <!-- Sports collectifs -->
-          <div class="mini-cat-card">
-            <div class="mini-cat-icon">⚽</div>
-            <div class="mini-cat-title">Sports collectifs</div>
-            <div class="mini-cat-tags">
-              <span>Foot</span>
-              <span>Rugby</span>
-              <span>Basket</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- FIN NOUVELLE SECTION CATEGORIES -->
-
-      <section class="card">
-        <h2 class="section-title">Récompenses & badges</h2>
-        <p class="section-subtitle">
-          Chaque catégorie a (ou aura) ses propres badges à débloquer. Commence par Endurance & VMA et Mobilité & Prévention.
-        </p>
-
-        <div class="badges-grid">
-          <div class="badge-card">
-            <div class="badge-title">Badge “Endurance & VMA”</div>
-            <div class="badge-status locked" id="badge-status-endurance">🔒 Verrouillé</div>
-            <div class="badge-tag">
-              Condition : lire les articles VMA + Endurance fondamentale et réussir les quiz à 100&nbsp;%.
-            </div>
-          </div>
-
-          <div class="badge-card">
-            <div class="badge-title">Badge “Mobilité & Prévention”</div>
-            <div class="badge-status locked" id="badge-status-mobilite">🔒 Verrouillé</div>
-            <div class="badge-tag">
-              Condition : lire l’article Échauffement 5 minutes et réussir le quiz à 100&nbsp;%.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="newsletter">
-          <div>
-            <div class="section-title" style="font-size:16px;margin-bottom:4px;">La suite du projet</div>
-            <div>De nouveaux articles, quiz et badges viendront s’ajouter progressivement dans différentes disciplines.</div>
-          </div>
-          <div class="newsletter-inputs">
-            <input class="input" type="email" placeholder="Inscription newsletter (à venir)" disabled />
-            <button class="btn btn-secondary" disabled>Fonctionnalité à venir</button>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <span>© A-Cadémie — Ressources sportives en libre accès.</span>
-        <span>
-          <a href="#">Mentions légales</a> ·
-          <a href="#">Confidentialité</a> ·
-          <a href="#">Contact</a>
-        </span>
-      </footer>
-    </main>
+  <!-- Bloc XP actuel (modifiable plus tard) -->
+  <div id="xp-box">
+    Niveau <span id="niveau"></span> — 
+    XP locale : <span id="xp"></span> — 
+    Vers niveau suivant : <span id="next"></span>
   </div>
+</header>
 
-  <script src="./js/acad-gamification.js"></script>
-  <script src="./js/acad-firebase-sync.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      if (!window.acadGamification) return;
+<!-- SECTION HERO -->
+<section class="hero">
+  <h2>Apprends le sport simplement</h2>
+  <p>Des articles courts, des quiz rapides, et un système d’XP pour suivre ta progression.</p>
 
-      // Badge Endurance & VMA (vma + endurance-fondamentale)
-      const endStatus = document.getElementById("badge-status-endurance");
-      if (endStatus) {
-        const hasVma = window.acadGamification.isArticleRead("vma") &&
-                       window.acadGamification.hasPerfectQuiz("vma");
-        const hasEF = window.acadGamification.isArticleRead("endurance-fondamentale") &&
-                      window.acadGamification.hasPerfectQuiz("endurance-fondamentale");
+  <div class="hero-buttons">
+    <a href="#start" class="btn-primary">Commencer ici</a>
+    <a href="articles.html" class="btn-secondary">Voir tous les articles</a>
+  </div>
+</section>
 
-        if (hasVma && hasEF) {
-          endStatus.textContent = "✅ Déverrouillé";
-          endStatus.classList.remove("locked");
-          endStatus.classList.add("unlocked");
-        } else {
-          endStatus.textContent = "🔒 Verrouillé";
-          endStatus.classList.remove("unlocked");
-          endStatus.classList.add("locked");
-        }
-      }
+<!-- BLOC COMMENCER ICI -->
+<section id="start" class="start-here">
+  <h3>🔥 Par où commencer ?</h3>
 
-      // Badge Mobilité & Prévention (échauffement-5min)
-      const mobStatus = document.getElementById("badge-status-mobilite");
-      if (mobStatus) {
-        const hasMob = window.acadGamification.isArticleRead("echauffement-5min") &&
-                       window.acadGamification.hasPerfectQuiz("echauffement-5min");
-        if (hasMob) {
-          mobStatus.textContent = "✅ Déverrouillé";
-          mobStatus.classList.remove("locked");
-          mobStatus.classList.add("unlocked");
-        } else {
-          mobStatus.textContent = "🔒 Verrouillé";
-          mobStatus.classList.remove("unlocked");
-          mobStatus.classList.add("locked");
-        }
-      }
-    });
-  </script>
+  <div class="start-grid">
+    <a href="articles/vma.html" class="start-card">
+      <h4>🔵 Test VMA</h4>
+      <p>Le point de départ pour comprendre ta vitesse et tes allures.</p>
+    </a>
+
+    <a href="articles/endurance-fondamentale.html" class="start-card">
+      <h4>🟢 Endurance fondamentale</h4>
+      <p>La base de toute progression en course à pied.</p>
+    </a>
+
+    <a href="articles/echauffement-complet.html" class="start-card">
+      <h4>🟡 Échauffement complet</h4>
+      <p>5 à 8 minutes pour éviter les blessures et mieux performer.</p>
+    </a>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <h3>📚 Catégories</h3>
+
+  <div class="cat-grid">
+
+    <a href="articles.html#hygiene" class="cat-card">
+      <h4>Hygiène & Santé</h4>
+      <p>Sommeil, récupération, hydratation…</p>
+    </a>
+
+    <a href="articles.html#endurance" class="cat-card">
+      <h4>Endurance / Running</h4>
+      <p>VMA, EF, programmes, vitesse…</p>
+    </a>
+
+    <a href="articles.html#rackets" class="cat-card">
+      <h4>Sports à raquettes</h4>
+      <p>Tennis, padel, badminton.</p>
+    </a>
+
+    <a href="articles.html#pilates" class="cat-card">
+      <h4>Pilates & Renfo doux</h4>
+      <p>Posture, respiration, mobilité.</p>
+    </a>
+
+    <a href="articles.html#functional" class="cat-card">
+      <h4>Functional Training</h4>
+      <p>CrossFit / Hyrox / Renfo.</p>
+    </a>
+
+    <a href="articles.html#sportsco" class="cat-card">
+      <h4>Sports collectifs</h4>
+      <p>Foot, rugby, basket…</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- LIENS IMPORTANTS -->
+<section class="links">
+  <h3>🔗 Liens rapides</h3>
+
+  <ul>
+    <li><a href="articles.html">Voir tous les articles</a></li>
+    <li><a href="recompenses.html">Mes récompenses</a></li>
+    <li><a href="apropos.html">À propos du projet</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>A-Cadémie — 2025</p>
+</footer>
+
+<script src="xp.js"></script>
 </body>
 </html>
