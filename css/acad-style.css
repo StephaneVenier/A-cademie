@@ -38,15 +38,15 @@ body {
   padding: 24px 16px 56px;
 }
 
+/* Couleur claire pour les résultats de recherche */
 .search-results-list a {
-  color: #4EA8FF !important;     /* bleu clair */
+  color: #4EA8FF !important;     /* bleu clair lisible */
 }
 
 .search-results-list a:hover {
-  color: #1A73E8 !important;     /* bleu un peu plus fort au survol */
+  color: #1A73E8 !important;     /* bleu plus vif au survol */
   text-decoration: underline;
 }
-
 
 /* HEADER / NAV */
 
