@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <title>A-Cadémie — Accueil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A-Cadémie : articles et quiz sportifs en libre accès pour mieux comprendre l’entraînement, la VMA, l’endurance et la prévention des blessures. XP locale et badges sans création de compte.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/acad-style.css">
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -67,7 +67,7 @@
           </div>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="./articles/vma.html">Découvrir la VMA (article + quiz)</a>
+            <a class="btn btn-primary" href="#start-here">Commencer ici</a>
             <a class="btn btn-secondary" href="./articles.html">Voir tous les articles</a>
           </div>
 
@@ -87,6 +87,49 @@
             Objectif : rendre l’apprentissage du sport aussi satisfaisant qu’un bon jeu vidéo… mais sans prise de tête.
           </div>
         </aside>
+      </section>
+
+      <!-- NOUVELLE SECTION : PAR OÙ COMMENCER -->
+      <section id="start-here" class="card">
+        <h2 class="section-title">Par où commencer ?</h2>
+        <p class="section-subtitle">
+          Si tu découvres A-Cadémie, voici 3 étapes simples pour poser de bonnes bases en course à pied.
+        </p>
+
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">1️⃣ Comprendre ta VMA</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Découvre ce qu’est la VMA, comment la tester et à quoi elle sert dans tes entraînements.</div>
+            <div class="category-articles">
+              • <a href="./articles/vma.html">Comprendre ta VMA (article + quiz)</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">2️⃣ Construire ton endurance</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">La base de tout : courir lentement, longtemps, sans t’épuiser.</div>
+            <div class="category-articles">
+              • <a href="./articles/endurance-fondamentale.html">Endurance fondamentale : courir “trop lentement” pour progresser</a>
+            </div>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-title">3️⃣ T’échauffer efficacement</div>
+              <div class="category-icon">➜</div>
+            </div>
+            <div class="category-meta">Un échauffement court pour préparer ton corps et limiter les blessures.</div>
+            <div class="category-articles">
+              • <a href="./articles/echauffement-5min.html">Échauffement 5 minutes avant séance (article + quiz)</a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="card">
