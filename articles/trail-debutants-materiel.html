@@ -2,29 +2,24 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <title>A-Cadémie — Trail pour débutants : matériel indispensable</title>
+  <title>A-Cadémie — Trail débutants : le matériel essentiel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- On est dans /articles → chemins relatifs -->
   <link rel="stylesheet" href="../css/acad-style.css">
-
-  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="../js/firebase-config.js"></script>
 </head>
-
 <body>
   <div class="page">
-
-    <!-- HEADER -->
     <header class="acad-header">
       <a href="../index.html" class="brand" style="text-decoration:none;">
         <div class="brand-logo">A</div>
         <div>
           <div class="brand-text-title">A-Cadémie</div>
-          <div class="brand-text-sub">Endurance & Outdoor — Article + Quiz</div>
+          <div class="brand-text-sub">Articles & quiz sportifs en libre accès</div>
         </div>
       </a>
 
@@ -36,10 +31,12 @@
 
       <div id="acad-profile" class="profile-card">
         <div class="profile-main">
-          <div class="profile-avatar">⛰️</div>
+          <div class="profile-avatar">A</div>
           <div>
             <div class="profile-level">Niveau <span id="acad-level">1</span></div>
-            <div class="profile-xp"><span id="acad-xp">0</span> XP locale</div>
+            <div class="profile-xp">
+              <span id="acad-xp">0</span> XP locale
+            </div>
           </div>
         </div>
         <div class="profile-progress-wrapper">
@@ -54,114 +51,155 @@
       </div>
     </header>
 
-
-    <!-- MAIN -->
     <main class="layout">
-
-      <!-- ARTICLE -->
       <article class="article-card">
-
         <div class="article-meta">
-          <span class="tag"><span class="tag-dot"></span> Endurance & Outdoor — Trail</span>
-          <span class="chip">Lecture : 7–8 min</span>
+          <span class="tag"><span class="tag-dot"></span> Trail & Outdoor</span>
+          <span class="chip">Lecture : 7 min</span>
           <span class="chip">Niveau : Débutant</span>
         </div>
 
-        <h1 class="article-title">Trail pour débutants : matériel indispensable</h1>
+        <h1 class="article-title">Trail débutants : le matériel essentiel</h1>
         <p class="article-subtitle">
-          Tu veux quitter le bitume et tester les chemins ? Bonne idée.  
-          Pas besoin d’un équipement de pro, mais il y a quand même quelques **indispensables** pour rester en sécurité et prendre du plaisir.
+          Tu veux quitter la route pour courir en nature ? Avant de te lancer sur les sentiers,
+          voici le matériel essentiel pour pratiquer le trail en sécurité, sans te suréquiper.
         </p>
 
         <div class="article-highlight">
-          <strong>À retenir :</strong> le bon matériel de trail, ce n’est pas “tout acheter”, c’est
-          <strong>protéger tes pieds</strong>, <strong>gérer ton hydratation</strong> et <strong>rester en sécurité</strong>.
+          <strong>À retenir :</strong> pour débuter en trail, les priorités sont simples :
+          des chaussures adaptées, de quoi boire, être visible et protégé de la météo.
         </div>
 
         <div class="article-content">
-
-          <h2>1️⃣ Chaussures de trail : la base</h2>
+          <h2>1️⃣ Chaussures de trail : l’élément numéro 1</h2>
           <p>
-            En trail, les chaussures sont l’élément le plus important.  
-            Elles doivent :
+            Oublie les running route lisses : en trail, tu as besoin d’accroche et de stabilité.
           </p>
           <ul>
-            <li>avoir une <strong>semelle avec crampons</strong> pour accrocher en montée/descente</li>
-            <li>être <strong>stables</strong> (bon maintien du pied et de la cheville)</li>
-            <li>être à la <strong>bonne taille</strong> (souvent ½ ou 1 pointure de plus que la ville)</li>
+            <li><strong>Semelle avec crampons</strong> pour accrocher sur terrain gras, cailloux, racines.</li>
+            <li><strong>Maintien latéral</strong> renforcé pour limiter les entorses de cheville.</li>
+            <li><strong>Protection à l’avant du pied</strong> (pare-pierres) contre les cailloux.</li>
           </ul>
           <p>
-            Pour débuter, un modèle de trail “polyvalent” suffit largement. Pas besoin de plaque carbone ni de modèle ultra minimaliste.
+            Pour débuter, inutile d’aller sur les modèles les plus techniques : une paire de trail “polyvalente”
+            suffit largement pour des sorties de 5 à 15 km sur chemins.
           </p>
 
-          <h2>2️⃣ Hydratation : ne pars pas les mains vides</h2>
+          <h2>2️⃣ Sac ou ceinture d’hydratation</h2>
           <p>
-            Même pour 45–60 minutes, surtout en nature, il vaut mieux pouvoir boire :
+            En nature, tu n’as pas de fontaine tous les 2 km. Tu dois donc transporter tes propres réserves.
           </p>
           <ul>
-            <li><strong>Ceinture porte-flasque</strong> (jusqu’à ~500 ml)</li>
-            <li><strong>Petit sac ou gilet de trail</strong> avec poches devant</li>
+            <li><strong>Ceinture ou gilet léger</strong> pour les sorties courtes (jusqu’à 1 h / 1 h 30).</li>
+            <li><strong>Sac de trail 5–10 L</strong> pour transporter eau, veste, téléphone, petite alimentation.</li>
+            <li><strong>Système d’hydratation</strong> : flasques souples à l’avant ou poche à eau dans le dos.</li>
           </ul>
           <p>
-            Choisis une solution où tu peux boire facilement sans t’arrêter pendant 2 minutes pour chercher ta gourde au fond du sac.
+            Règle simple : dès que tu dépasses 45–60 minutes de trail, prends toujours de quoi boire.
           </p>
 
-          <h2>3️⃣ Vêtements : confort et protection</h2>
-          <p>Règles simples :</p>
-          <ul>
-            <li><strong>Tee-shirt technique</strong> qui évacue la transpiration (éviter le coton)</li>
-            <li><strong>Short ou cuissard</strong> confortable, qui ne frotte pas</li>
-            <li><strong>Chaussettes anti-ampoules</strong> (adaptées à la course)</li>
-            <li><strong>Couche coupe-vent / imper</strong> légère si météo incertaine</li>
-          </ul>
+          <h2>3️⃣ Vêtements adaptés à la météo</h2>
           <p>
-            En montagne ou en temps incertain : mieux vaut avoir un peu trop que pas assez (froid, pluie, vent).
-          </p>
-
-          <h2>4️⃣ Sécurité : on n’est pas sur une boucle en ville</h2>
-          <p>Les chemins, c’est top, mais il faut penser sécurité :</p>
-          <ul>
-            <li>Prendre un <strong>téléphone chargé</strong></li>
-            <li><strong>Prévenir quelqu’un</strong> de ton itinéraire et de la durée prévue</li>
-            <li>Emporter une <strong>pièce d’identité</strong> ou un petit mot avec un contact d’urgence</li>
-            <li>En terrain isolé : un <strong>sifflet</strong> (souvent intégré aux sacs de trail)</li>
-          </ul>
-
-          <h2>5️⃣ Nourriture : à partir de quand ?</h2>
-          <p>
-            Pour les sorties de moins d’1h15–1h30, l’hydratation suffit en général (si ton dernier repas n’est pas trop loin).  
-            Au-delà :
+            En trail, la météo peut changer vite, surtout en forêt ou en altitude. Quelques basiques :
           </p>
           <ul>
-            <li>1–2 <strong>gels</strong> ou une petite <strong>barre</strong> de type énergétique</li>
-            <li>ou des <strong>fruits secs</strong> (dattes, raisins, etc.)</li>
+            <li><strong>1ère couche respirante</strong> (t-shirt technique, éviter le coton).</li>
+            <li><strong>Couche coupe-vent / déperlante</strong> en cas de vent ou de pluie légère.</li>
+            <li><strong>Short ou collant de course</strong> confortable, qui ne frotte pas.</li>
+            <li><strong>En hiver :</strong> gants légers, bonnet ou bandeau, chaussettes un peu plus épaisses.</li>
           </ul>
           <p>
-            Teste toujours en entraînement avant d’utiliser un produit en course.
+            L’objectif : rester ni trempé de sueur, ni frigorifié, et pouvoir ajouter/enlever des couches facilement.
           </p>
 
-          <h2>6️⃣ Matériel “bonus” utile</h2>
+          <h2>4️⃣ Sécurité : visibilité et téléphone</h2>
+          <p>
+            Même sur des sentiers proches de chez toi, pense sécurité :
+          </p>
           <ul>
-            <li><strong>Casquette / buff</strong> (soleil, froid, vent)</li>
-            <li><strong>Lampe frontale</strong> si tu cours tôt le matin ou le soir</li>
-            <li><strong>Bâtons</strong> (plutôt pour le dénivelé important, pas indispensables au début)</li>
-            <li><strong>Montre GPS</strong> : pratique, mais pas obligatoire pour commencer</li>
-          </ul>
-
-          <h2>7️⃣ Ce que tu n’es pas obligé d’acheter au début</h2>
-          <ul>
-            <li>Les modèles “ultra haut de gamme” de chaussures</li>
-            <li>Un sac 12L si tu fais de petites sorties</li>
-            <li>Les bâtons carbone “course” si tu fais du trail tranquille</li>
+            <li><strong>Téléphone chargé</strong> dans une poche ou le sac.</li>
+            <li><strong>Bracelet ou carte</strong> avec contact d’urgence si tu pars seul.</li>
+            <li><strong>Éléments réfléchissants</strong> sur la tenue si tu peux croiser des routes ou si la luminosité baisse.</li>
           </ul>
           <p>
-            Commence avec le nécessaire, vois si tu aimes vraiment le trail, puis complète au fur et à mesure.
+            Si tu cours tôt le matin ou en fin de journée :
+          </p>
+          <ul>
+            <li><strong>Lampe frontale</strong> (même simple) si tu risques de finir dans le noir.</li>
+          </ul>
+
+          <h2>5️⃣ Bâtons : utiles ou pas pour commencer ?</h2>
+          <p>
+            Pour de petites sorties proches de chez toi, les bâtons ne sont pas indispensables.
+            En revanche, ils deviennent intéressants si :
+          </p>
+          <ul>
+            <li>tu fais beaucoup de dénivelé ;</li>
+            <li>tu as des soucis de genoux en descente ;</li>
+            <li>tu prépares un trail de montagne.</li>
+          </ul>
+          <p>
+            Pour débuter, concentre-toi d’abord sur les chaussures, l’hydratation et la tenue.
+            Tu pourras ajouter les bâtons plus tard si le besoin se fait sentir.
+          </p>
+
+          <h2>6️⃣ Alimentation et petits accessoires</h2>
+          <ul>
+            <li><strong>Barre ou compote énergétique</strong> pour les sorties au-delà d’1 h 15–1 h 30.</li>
+            <li><strong>Chaussettes de course</strong> adaptées (éviter les grosses coutures).</li>
+            <li><strong>Crème anti-frottements</strong> si tu as tendance aux irritations.</li>
+          </ul>
+
+          <h2>7️⃣ Budget : par où commencer ?</h2>
+          <p>Si tu dois prioriser les dépenses :</p>
+          <ol>
+            <li><strong>1. Une bonne paire de chaussures de trail polyvalentes.</strong></li>
+            <li><strong>2. Un système simple d’hydratation (ceinture ou petit sac).</strong></li>
+            <li><strong>3. Une tenue respirante adaptée à la météo.</strong></li>
+          </ol>
+          <p>
+            Le reste (bâtons, frontale très performante, équipements très techniques) viendra plus tard
+            si tu prends goût aux longues sorties et aux courses.
+          </p>
+
+          <h2>8️⃣ Erreurs fréquentes des débutants</h2>
+
+          <h3>Erreur 1 : partir en trail avec des chaussures de route lisses</h3>
+          <p>
+            Sur terrain humide ou caillouteux, c’est la glissade assurée et le risque de blessure augmente.
+          </p>
+
+          <h3>Erreur 2 : ne pas emporter d’eau “parce que c’est une petite sortie”</h3>
+          <p>
+            En montée, en plein soleil ou s’il fait chaud, 45 minutes peuvent devenir très longues.
+          </p>
+
+          <h3>Erreur 3 : se surcharger dès le début</h3>
+          <p>
+            Partir avec un gros sac plein “au cas où” rend la sortie lourde et peu agréable.
+            Commence simple, sur des parcours adaptés à ton niveau.
+          </p>
+
+          <h2>9️⃣ En résumé</h2>
+          <p>
+            Pour débuter le trail, tu n’as pas besoin de tout le catalogue outdoor.
+            Concentre-toi sur :
+          </p>
+          <ul>
+            <li>des <strong>chaussures de trail</strong> adaptées ;</li>
+            <li>un <strong>moyen d’hydratation</strong> (ceinture, gilet ou sac) ;</li>
+            <li>une <strong>tenue respirante</strong> et adaptée à la météo ;</li>
+            <li>un minimum de <strong>sécurité</strong> (téléphone, visibilité).</li>
+          </ul>
+          <p>
+            Ensuite, tu pourras faire évoluer ton matériel au rythme de ta progression et de tes projets :
+            sorties plus longues, courses, montagne, nuit, etc.
           </p>
         </div>
 
         <div class="article-footer-note">
           <span class="bullet-pill">🎮 Gamification locale</span>
-          <span>Lecture, quiz et partage = XP gagnée sur cet appareil.</span>
+          <span>Lecture, quiz et partage de cet article te donnent de l’XP sur cet appareil.</span>
         </div>
 
         <button type="button" class="btn btn-secondary" id="mark-article-read">
@@ -174,22 +212,22 @@
           </button>
           <div id="share-feedback" style="font-size:12px;color:var(--text-soft);margin-top:4px;"></div>
         </div>
-
       </article>
 
-
-      <!-- QUIZ -->
+      <!-- Quiz -->
       <section class="quiz-card" id="quiz-section">
-
         <div class="quiz-header">
           <div class="quiz-left">
-            <div class="quiz-title">Quiz express : Matériel trail débutant</div>
-            <div class="quiz-caption">5 questions pour vérifier que tu as les bons réflexes.</div>
+            <div class="quiz-title">Quiz express : matériel trail débutant</div>
+            <div class="quiz-caption">5 questions pour vérifier si tu as les bases.</div>
           </div>
-          <div class="quiz-badge">⚡ 5 questions · 3 min</div>
+          <div class="quiz-badge">🏔️ 5 questions · 3–4 min</div>
         </div>
 
-        <div class="quiz-progress" id="quiz-progress">Question 1 sur 5</div>
+        <div class="quiz-progress" id="quiz-progress">
+          Question 1 sur 5
+        </div>
+
         <form id="quiz-form"></form>
 
         <div class="quiz-footer">
@@ -208,72 +246,69 @@
 
         <div class="quiz-feedback" id="quiz-feedback"></div>
       </section>
-
     </main>
   </div>
 
-  <!-- GAMIFICATION SCRIPTS -->
   <script src="../js/acad-gamification.js"></script>
   <script src="../js/acad-firebase-sync.js"></script>
-
   <script>
     const ARTICLE_ID = "trail-debutants-materiel";
 
     const quizData = [
       {
         id: 1,
-        question: "Quel élément est vraiment indispensable pour commencer le trail ?",
+        question: "Quel est l’élément le plus important pour débuter en trail ?",
         options: [
+          "Un gros sac à dos de randonnée",
+          "Des chaussures de trail avec une semelle à crampons",
           "Des bâtons carbone haut de gamme",
-          "Des chaussures de trail avec semelle crantée",
-          "Une montre GPS dernier cri",
-          "Un sac de 12 litres minimum"
+          "Un GPS dernier cri"
         ],
         correctIndex: 1
       },
       {
         id: 2,
-        question: "Pourquoi l’hydratation est importante même sur 45–60 minutes ?",
+        question: "Pourquoi un système d’hydratation est-il important ?",
         options: [
-          "Uniquement pour éviter les crampes",
-          "Parce qu’en trail on a toujours très chaud",
-          "Pour limiter la fatigue et rester lucide",
-          "Seulement en compétition"
+          "Parce que l’eau est obligatoire en compétition seulement",
+          "Parce qu’en nature, il n’y a pas toujours de points d’eau",
+          "Pour porter plus de poids",
+          "Uniquement pour les sorties de plus de 4 heures"
         ],
-        correctIndex: 2
+        correctIndex: 1
       },
       {
         id: 3,
-        question: "Quel élément de sécurité est recommandé ?",
+        question: "Quel vêtement est à privilégier pour le haut du corps ?",
         options: [
-          "Prévenir quelqu’un de ton itinéraire",
-          "Partir sans téléphone pour être “libre”",
-          "Ne rien prendre pour courir léger",
-          "Uniquement une montre GPS"
+          "Un t-shirt en coton épais",
+          "Un t-shirt technique respirant",
+          "Un pull en laine",
+          "Un maillot en jean"
         ],
-        correctIndex: 0
+        correctIndex: 1
       },
       {
         id: 4,
-        question: "À partir de quelle durée la nourriture devient utile en général ?",
+        question: "Les bâtons de trail sont-ils indispensables pour débuter ?",
         options: [
-          "Dès 10 minutes",
-          "Toujours, même sur 30 minutes",
-          "À partir d’environ 1h15–1h30",
-          "Jamais, l’eau suffit toujours"
+          "Oui, absolument",
+          "Non, surtout si tu fais des petites sorties peu pentues",
+          "Oui, dès 5 km",
+          "Ils sont interdits aux débutants"
         ],
-        correctIndex: 2
+        correctIndex: 1
       },
       {
         id: 5,
-        question: "Quel équipement n’est PAS obligatoire pour débuter ?",
+        question: "Quelle erreur est fréquente chez les débutants en trail ?",
         options: [
-          "Une paire de chaussures de trail",
-          "Un moyen d’emporter de l’eau",
-          "Un sifflet intégré au sac",
-          "Des bâtons haute performance"
+          "Partir avec des chaussures de route lisses",
+          "Prendre une petite gourde d’eau",
+          "Mettre une veste coupe-vent",
+          "Emporter son téléphone chargé"
         ],
-        correctIndex: 3
+        correctIndex: 0
       }
     ];
 
@@ -296,16 +331,15 @@
             <div class="quiz-question-label">Q${index + 1}. ${q.question}</div>
             <div class="quiz-question-meta">1 seule bonne réponse</div>
           </div>
-
           <div class="quiz-options">
             ${q.options
               .map(
-                (opt, i) => `
-                <label class="quiz-option">
-                  <input type="radio" name="question-${q.id}" value="${i}">
-                  <span>${opt}</span>
-                </label>
-              `
+                (opt, optIndex) => `
+              <label class="quiz-option">
+                <input type="radio" name="question-${q.id}" value="${optIndex}">
+                <span>${opt}</span>
+              </label>
+            `
               )
               .join("")}
           </div>
@@ -315,113 +349,139 @@
       });
 
       quizProgress.textContent = "Question 1 sur " + quizData.length;
-      quizResult.textContent = "Réponds aux questions puis valide pour voir ton score.";
+      quizResult.innerHTML = "Réponds aux questions puis valide pour voir ton score.";
       quizFeedback.textContent = "";
     }
 
     function updateProgress() {
-      const answered = quizData.filter(q =>
-        [...document.querySelectorAll(\`input[name="question-\${q.id}"]\`)]
-          .some(r => r.checked)
-      ).length;
+      const total = quizData.length;
+      const answered = quizData.filter((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        return Array.from(radios).some((r) => r.checked);
+      }).length;
 
-      quizProgress.textContent = \`Question \${answered || 1} sur \${quizData.length}\`;
+      const current = Math.max(1, answered);
+      quizProgress.textContent = "Question " + current + " sur " + total;
     }
 
     quizForm.addEventListener("change", updateProgress);
 
     function evaluateQuiz() {
       let score = 0;
+      const total = quizData.length;
 
-      document.querySelectorAll(".quiz-option").forEach(opt =>
-        opt.classList.remove("correct", "incorrect")
-      );
+      document.querySelectorAll(".quiz-option").forEach((opt) => {
+        opt.classList.remove("correct", "incorrect");
+      });
 
-      quizData.forEach(q => {
-        const radios = document.querySelectorAll(\`input[name="question-\${q.id}"]\`);
-        let selected = null;
+      quizData.forEach((q) => {
+        const radios = document.querySelectorAll('input[name="question-' + q.id + '"]');
+        let selectedIndex = null;
 
-        radios.forEach((r, i) => {
-          if (r.checked) selected = i;
+        radios.forEach((r, idx) => {
+          if (r.checked) selectedIndex = idx;
         });
 
-        const block = document.querySelector(\`.quiz-question[data-question-id="\${q.id}"]\`);
-        const options = block.querySelectorAll(".quiz-option");
+        const questionDiv = document.querySelector('.quiz-question[data-question-id="' + q.id + '"]');
+        const optionLabels = questionDiv.querySelectorAll(".quiz-option");
 
-        if (selected === q.correctIndex) {
+        if (selectedIndex === q.correctIndex) {
           score++;
-          options[selected]?.classList.add("correct");
+          if (selectedIndex !== null) {
+            optionLabels[selectedIndex].classList.add("correct");
+          }
         } else {
-          options[q.correctIndex]?.classList.add("correct");
-          if (selected !== null) options[selected]?.classList.add("incorrect");
+          if (q.correctIndex != null && optionLabels[q.correctIndex]) {
+            optionLabels[q.correctIndex].classList.add("correct");
+          }
+          if (selectedIndex !== null && optionLabels[selectedIndex]) {
+            optionLabels[selectedIndex].classList.add("incorrect");
+          }
         }
       });
 
-      const total = quizData.length;
       const ratio = score / total;
+      let message;
 
-      let msg =
-        ratio === 1 ? "Parfait ! Tu as tout ce qu’il faut pour partir en sécurité ⛰️" :
-        ratio >= 0.7 ? "Très bon score, tu as bien compris l’essentiel." :
-        ratio >= 0.4 ? "Pas mal, mais relis certains points sur le matériel de base." :
-        "Relis l’article tranquillement puis retente le quiz.";
+      if (ratio === 1) {
+        message = "Parfait, tu maîtrises totalement le sujet 👌";
+      } else if (ratio >= 0.7) {
+        message = "Très solide ! Il reste quelques détails à affiner.";
+      } else if (ratio >= 0.4) {
+        message = "Pas mal, mais relire l’article t’aidera à consolider les bases.";
+      } else {
+        message = "C’est un bon début, retourne sur l’article puis retente le quiz.";
+      }
 
-      quizResult.innerHTML = \`<strong>\${score}/\${total}</strong> bonnes réponses • \${msg}\`;
+      quizResult.innerHTML = "<strong>" + score + "/" + total + "</strong> bonnes réponses. " + message;
 
-      if (window.acadGamification)
+      if (window.acadGamification) {
         window.acadGamification.registerQuizResult(ARTICLE_ID, score, total);
+      }
+      if (ratio === 1) {
+        quizFeedback.textContent = "🎮 Bravo ! Quiz parfait, tu contribues au déblocage du badge Trail Débutant.";
+      } else {
+        quizFeedback.textContent = "Tu peux recommencer le quiz si tu veux viser le 100 % pour le badge.";
+      }
+    }
 
-      quizFeedback.textContent =
-        ratio === 1 ? "🎮 Bravo ! XP bonus pour ce quiz parfait." :
-        "Tu peux recommencer pour viser le 100 % et progresser dans les badges Trail.";
+    function resetQuiz() {
+      renderQuiz();
     }
 
     submitBtn.addEventListener("click", evaluateQuiz);
-    resetBtn.addEventListener("click", renderQuiz);
+    resetBtn.addEventListener("click", resetQuiz);
 
-    // Bouton "J’ai lu cet article"
-    const readBtn = document.getElementById("mark-article-read");
-    if (readBtn) {
-      readBtn.addEventListener("click", () => {
-        if (window.acadGamification)
-          window.acadGamification.markArticleRead(ARTICLE_ID, 20);
-
-        readBtn.textContent = "✓ Article compté pour l’XP locale";
-        readBtn.disabled = true;
+    const articleReadBtn = document.getElementById("mark-article-read");
+    if (articleReadBtn) {
+      articleReadBtn.addEventListener("click", function () {
+        if (!window.acadGamification) return;
+        window.acadGamification.markArticleRead(ARTICLE_ID, 20);
+        articleReadBtn.textContent = "✓ Article compté pour l’XP locale";
+        articleReadBtn.disabled = true;
       });
+
+      if (window.acadGamification && window.acadGamification.isArticleRead(ARTICLE_ID)) {
+        articleReadBtn.textContent = "✓ Article déjà compté pour l’XP locale";
+        articleReadBtn.disabled = true;
+      }
     }
 
-    // Partage
     const shareBtn = document.getElementById("share-article");
     const shareFeedback = document.getElementById("share-feedback");
 
     if (shareBtn) {
-      shareBtn.addEventListener("click", async () => {
-        if (window.acadGamification)
+      shareBtn.addEventListener("click", async function () {
+        if (window.acadGamification) {
           window.acadGamification.registerShare(ARTICLE_ID, 15);
+        }
 
-        const data = {
-          title: "A-Cadémie — Trail pour débutants : matériel",
-          text: "Les indispensables pour débuter le trail en sécurité + quiz express.",
+        const shareData = {
+          title: "A-Cadémie — Trail débutants : le matériel essentiel",
+          text: "Un guide simple + quiz pour s’équiper en trail sans se tromper.",
           url: window.location.href
         };
 
         if (navigator.share) {
           try {
-            await navigator.share(data);
-            shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée)";
-          } catch {
-            shareFeedback.textContent = "Partage annulé, tu peux réessayer plus tard.";
+            await navigator.share(shareData);
+            if (shareFeedback) {
+              shareFeedback.textContent = "Merci pour le partage ! (XP ajoutée sur cet appareil)";
+            }
+          } catch (e) {
+            if (shareFeedback) {
+              shareFeedback.textContent = "Partage annulé, mais tu peux réessayer quand tu veux.";
+            }
           }
         } else {
-          shareFeedback.textContent = "Partage automatique indisponible. Tu peux copier le lien dans ton navigateur.";
+          if (shareFeedback) {
+            shareFeedback.textContent = "Le partage automatique n’est pas disponible sur cet appareil. Tu peux copier l’adresse dans la barre du navigateur. (XP ajoutée)";
+          }
         }
       });
     }
 
-    // Init
     renderQuiz();
   </script>
-
 </body>
 </html>
