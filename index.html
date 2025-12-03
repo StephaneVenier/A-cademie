@@ -405,29 +405,436 @@
     });
   </script>
 
-  <!-- Script de recherche d’articles -->
+    <!-- Script de recherche d’articles -->
   <script>
     const ACAD_ARTICLES_INDEX = [
+      // ───────── Hygiène de vie / Perte de poids / Bien-être ─────────
       {
-        id: "vma",
-        title: "Comprendre ta VMA (article + quiz)",
-        url: "./articles/vma.html",
-        keywords: "vma vitesse maximale aérobie test demi cooper course"
+        id: "perdre-poids-sans-regime",
+        title: "Comment perdre du poids sans régime : la méthode 2025",
+        url: "./articles/perdre-poids-sans-regime.html",
+        keywords: "perdre du poids sans régime méthode 2025 alimentation équilibre habitude"
       },
       {
+        id: "10-habitudes-meilleure-forme",
+        title: "10 habitudes simples pour être en meilleure forme",
+        url: "./articles/10-habitudes-meilleure-forme.html",
+        keywords: "habitudes forme énergie santé quotidien routine"
+      },
+      {
+        id: "petit-dejeuner-energie",
+        title: "Le petit déjeuner idéal pour avoir de l’énergie",
+        url: "./articles/petit-dejeuner-energie.html",
+        keywords: "petit déjeuner énergie matin repas équilibré"
+      },
+      {
+        id: "manger-sain-quand-on-a-pas-le-temps",
+        title: "Comment manger sain quand on n’a pas le temps",
+        url: "./articles/manger-sain-quand-on-a-pas-le-temps.html",
+        keywords: "manger sain rapide batch cooking organisation repas"
+      },
+      {
+        id: "routine-bien-etre-matin",
+        title: "Routine bien-être du matin (5 minutes)",
+        url: "./articles/routine-bien-etre-matin.html",
+        keywords: "routine matin bien être réveil mobilité respiration"
+      },
+      {
+        id: "routine-bien-etre-soir",
+        title: "Routine bien-être du soir pour mieux dormir",
+        url: "./articles/routine-bien-etre-soir.html",
+        keywords: "routine soir sommeil détente déconnexion"
+      },
+      {
+        id: "pourquoi-on-prend-du-ventre",
+        title: "Pourquoi on prend du ventre ? Les vraies raisons",
+        url: "./articles/pourquoi-on-prend-du-ventre.html",
+        keywords: "ventre graisse abdominale hormones stress sédentarité"
+      },
+      {
+        id: "alimentation-anti-fatigue",
+        title: "Alimentation anti-fatigue : quoi manger ?",
+        url: "./articles/alimentation-anti-fatigue.html",
+        keywords: "anti fatigue alimentation énergie micronutriments"
+      },
+      {
+        id: "arreter-grignotage-facilement",
+        title: "Comment arrêter le grignotage facilement",
+        url: "./articles/arreter-grignotage-facilement.html",
+        keywords: "grignotage fringale envie de sucre habitudes"
+      },
+      {
+        id: "snacks-sains-journee",
+        title: "Les meilleurs snacks sains pour la journée",
+        url: "./articles/snacks-sains-journee.html",
+        keywords: "snacks sains collation encas travail école"
+      },
+
+      // ───────── Endurance & Outdoor ─────────
+      {
         id: "endurance-fondamentale",
-        title: "Endurance fondamentale : courir “trop lentement” pour progresser",
+        title: "Comprendre l’endurance fondamentale (EF)",
         url: "./articles/endurance-fondamentale.html",
-        keywords: "endurance fondamentale footing lent base aérobie"
+        keywords: "endurance fondamentale EF footing lent base aérobie"
+      },
+      {
+        id: "vma",
+        title: "Tout savoir sur la VMA",
+        url: "./articles/vma.html",
+        keywords: "VMA vitesse maximale aérobie test demi cooper"
       },
       {
         id: "echauffement-5min",
-        title: "Échauffement 5 minutes avant séance",
+        title: "Échauffement 5 minutes pour courir",
         url: "./articles/echauffement-5min.html",
-        keywords: "echauffement 5 minutes mobilité préparation"
+        keywords: "échauffement course à pied mobilité préparation"
+      },
+      {
+        id: "debuter-course-a-pied",
+        title: "Débuter la course à pied : le guide complet",
+        url: "./articles/debuter-course-a-pied.html",
+        keywords: "débuter course à pied commencer running programme"
+      },
+      {
+        id: "programme-5km-debutant",
+        title: "Programme 5 km débutant (semaine par semaine)",
+        url: "./articles/programme-5km-debutant.html",
+        keywords: "programme 5km débutant plan course"
+      },
+      {
+        id: "courir-perdre-poids-verite-erreurs",
+        title: "Courir pour perdre du poids : vérité et erreurs",
+        url: "./articles/courir-perdre-poids-verite-erreurs.html",
+        keywords: "courir perdre poids cardio erreurs idées reçues"
+      },
+      {
+        id: "trail-debutants-materiel",
+        title: "Trail pour débutants : matériel indispensable",
+        url: "./articles/trail-debutants-materiel.html",
+        keywords: "trail débutant matériel chaussures sac frontale"
+      },
+      {
+        id: "ameliorer-endurance-rapidement",
+        title: "Comment améliorer son endurance rapidement",
+        url: "./articles/ameliorer-endurance-rapidement.html",
+        keywords: "améliorer endurance progression cardio volume"
+      },
+      {
+        id: "velo-route-ou-vtt",
+        title: "Vélo de route ou VTT : lequel choisir ?",
+        url: "./articles/velo-route-ou-vtt.html",
+        keywords: "vélo route VTT choisir débuter cyclisme"
+      },
+      {
+        id: "randonnee-materiel-essentiel",
+        title: "Randonnée : liste du matériel essentiel",
+        url: "./articles/randonnee-materiel-essentiel.html",
+        keywords: "randonnée matériel sac chaussures eau sécurité"
+      },
+      {
+        id: "progresser-en-montee",
+        title: "Comment progresser en montée (course/trail)",
+        url: "./articles/progresser-en-montee.html",
+        keywords: "montée côte trail technique force"
+      },
+      {
+        id: "course-orientation-debuter",
+        title: "Course d’orientation : comment se lancer",
+        url: "./articles/course-orientation-debuter.html",
+        keywords: "course orientation carte boussole débuter"
+      },
+      {
+        id: "plan-10km-6-semaines",
+        title: "Préparer un 10 km en 6 semaines",
+        url: "./articles/plan-10km-6-semaines.html",
+        keywords: "plan 10km préparation 6 semaines compétition"
+      },
+
+      // ───────── Rackets – Tennis & Padel ─────────
+      {
+        id: "debuter-padel-bases",
+        title: "Débuter le padel : les bases à connaître",
+        url: "./articles/debuter-padel-bases.html",
+        keywords: "débuter padel bases règles terrain"
+      },
+      {
+        id: "tennis-vs-padel-2025",
+        title: "Tennis vs Padel : lequel choisir en 2025 ?",
+        url: "./articles/tennis-vs-padel-2025.html",
+        keywords: "tennis padel choisir sport raquette"
+      },
+      {
+        id: "erreurs-debutants-padel",
+        title: "Les erreurs des débutants au padel",
+        url: "./articles/erreurs-debutants-padel.html",
+        keywords: "erreurs débutant padel conseils progresser"
+      },
+      {
+        id: "choisir-raquette-padel",
+        title: "Comment choisir sa raquette de padel",
+        url: "./articles/choisir-raquette-padel.html",
+        keywords: "raquette padel choisir poids équilibre"
+      },
+      {
+        id: "5-coups-essentiels-padel",
+        title: "Les 5 coups essentiels pour progresser vite",
+        url: "./articles/5-coups-essentiels-padel.html",
+        keywords: "coups essentiels padel technique progression"
+      },
+      {
+        id: "materiel-padel-essentiel",
+        title: "Matériel padel : ce qu’il faut vraiment acheter",
+        url: "./articles/materiel-padel-essentiel.html",
+        keywords: "matériel padel chaussures balles sac"
+      },
+      {
+        id: "echauffement-raquette-5min",
+        title: "Échauffement spécifique raquette (5 min)",
+        url: "./articles/echauffement-raquette-5min.html",
+        keywords: "échauffement raquette tennis padel 5 minutes"
+      },
+      {
+        id: "tennis-ameliorer-service",
+        title: "Tennis : améliorer son service facilement",
+        url: "./articles/tennis-ameliorer-service.html",
+        keywords: "tennis service puissance précision lancer"
+      },
+      {
+        id: "padel-defense-comme-un-pro",
+        title: "Padel : jouer en défense comme un pro",
+        url: "./articles/padel-defense-comme-un-pro.html",
+        keywords: "padel défense vitre lob placement"
+      },
+      {
+        id: "eviter-blessures-raquettes",
+        title: "Comment éviter les blessures (tennis & padel)",
+        url: "./articles/eviter-blessures-raquettes.html",
+        keywords: "blessures tennis padel prévention échauffement"
+      },
+
+      // ───────── Pilates / Yoga / Fitness doux ─────────
+      {
+        id: "debuter-pilates-maison",
+        title: "Débuter le Pilates simplement à la maison",
+        url: "./articles/debuter-pilates-maison.html",
+        keywords: "débuter pilates maison renforcement doux posture"
+      },
+      {
+        id: "mobilite-10-exercices",
+        title: "Les 10 exercices de mobilité indispensables",
+        url: "./articles/mobilite-10-exercices.html",
+        keywords: "mobilité exercices souplesse articulations"
+      },
+      {
+        id: "pilates-vs-yoga",
+        title: "Pilates vs Yoga : lequel choisir ?",
+        url: "./articles/pilates-vs-yoga.html",
+        keywords: "pilates yoga différence choix renforcement"
+      },
+      {
+        id: "pilates-15min-sans-materiel",
+        title: "Séance de Pilates sans matériel (15 min)",
+        url: "./articles/pilates-15min-sans-materiel.html",
+        keywords: "pilates sans matériel 15 minutes séance"
+      },
+      {
+        id: "ameliorer-posture-1-mois",
+        title: "Comment améliorer sa posture en 1 mois",
+        url: "./articles/ameliorer-posture-1-mois.html",
+        keywords: "posture dos épaules bureau correction"
+      },
+      {
+        id: "etirements-matin-5min",
+        title: "Étirements matinaux : routine de 5 minutes",
+        url: "./articles/etirements-matin-5min.html",
+        keywords: "étirements matin réveil mobilité souplesse"
+      },
+      {
+        id: "relacher-tensions-dos",
+        title: "Comment relâcher les tensions du dos",
+        url: "./articles/relacher-tensions-dos.html",
+        keywords: "tensions dos douleurs lombaires détente"
+      },
+      {
+        id: "respiration-stress",
+        title: "Méthode de respiration pour réduire le stress",
+        url: "./articles/respiration-stress.html",
+        keywords: "respiration stress cohérence cardiaque calme"
+      },
+      {
+        id: "yoga-debutant-6-postures",
+        title: "Yoga débutant : les 6 postures essentielles",
+        url: "./articles/yoga-debutant-6-postures.html",
+        keywords: "yoga débutant postures base respiration"
+      },
+      {
+        id: "mobilite-hanches-simples",
+        title: "Mobilité des hanches : exercices simples",
+        url: "./articles/mobilite-hanches-simples.html",
+        keywords: "mobilité hanches squat douleurs bassin"
+      },
+
+      // ───────── Functional Training – CrossFit / Hyrox / Renfo ─────────
+      {
+        id: "debuter-crossfit",
+        title: "Débuter le CrossFit : ce qu’il faut savoir",
+        url: "./articles/debuter-crossfit.html",
+        keywords: "débuter crossfit wod box force intensité"
+      },
+      {
+        id: "hyrox-competition-expliquee",
+        title: "Hyrox : la nouvelle compétition expliquée",
+        url: "./articles/hyrox-competition-expliquee.html",
+        keywords: "hyrox compétition format épreuves course renfo"
+      },
+      {
+        id: "renfo-complet-sans-materiel",
+        title: "Renforcement complet du corps sans matériel",
+        url: "./articles/renfo-complet-sans-materiel.html",
+        keywords: "renforcement sans matériel poids du corps"
+      },
+      {
+        id: "ameliorer-puissance-sprint",
+        title: "Comment améliorer sa puissance en sprint",
+        url: "./articles/ameliorer-puissance-sprint.html",
+        keywords: "puissance sprint vitesse départ plyométrie"
+      },
+      {
+        id: "wod-simples-maison",
+        title: "Les WOD simples à faire chez soi",
+        url: "./articles/wod-simples-maison.html",
+        keywords: "WOD maison crossfit entraînement circuit"
+      },
+      {
+        id: "progresser-en-burpees",
+        title: "Comment progresser en burpees",
+        url: "./articles/progresser-en-burpees.html",
+        keywords: "burpees progression technique cardio"
+      },
+      {
+        id: "hyrox-preparer-premiere-course",
+        title: "Hyrox : comment préparer sa première course",
+        url: "./articles/hyrox-preparer-premiere-course.html",
+        keywords: "hyrox préparation entraînement plan"
+      },
+      {
+        id: "exercices-fonctionnels-quotidien",
+        title: "Exercices fonctionnels pour le quotidien",
+        url: "./articles/exercices-fonctionnels-quotidien.html",
+        keywords: "exercices fonctionnels gestes du quotidien"
+      },
+      {
+        id: "renfo-pour-coureurs-10-exercices",
+        title: "Renfo pour coureurs : 10 exercices clés",
+        url: "./articles/renfo-pour-coureurs-10-exercices.html",
+        keywords: "renforcement coureurs jambes gainage prévention"
+      },
+      {
+        id: "progresser-en-traction",
+        title: "Progresser en traction (méthode simple)",
+        url: "./articles/progresser-en-traction.html",
+        keywords: "traction barre progression force dos"
+      },
+
+      // ───────── Sports collectifs ─────────
+      {
+        id: "foot-progresser-sans-club",
+        title: "Foot : comment progresser sans club",
+        url: "./articles/foot-progresser-sans-club.html",
+        keywords: "football progresser seul sans club technique"
+      },
+      {
+        id: "rugby-regles-debutants",
+        title: "Rugby : les règles pour débutants",
+        url: "./articles/rugby-regles-debutants.html",
+        keywords: "rugby règles débutant plaquage essai terrain"
+      },
+      {
+        id: "basket-ameliorer-son-tir",
+        title: "Basket : améliorer son tir rapidement",
+        url: "./articles/basket-ameliorer-son-tir.html",
+        keywords: "basket tir shoot adresse mécanique"
+      },
+      {
+        id: "devenir-plus-explosif-sport-co",
+        title: "Comment devenir plus explosif (sport co)",
+        url: "./articles/devenir-plus-explosif-sport-co.html",
+        keywords: "explosivité sport collectif sprint détente"
+      },
+      {
+        id: "renforcement-special-foot",
+        title: "Renforcement spécial foot : les must-have",
+        url: "./articles/renforcement-special-foot.html",
+        keywords: "renfo foot cheville genou gainage"
+      },
+      {
+        id: "eviter-blessures-sport-co",
+        title: "Comment éviter les blessures en sport co",
+        url: "./articles/eviter-blessures-sport-co.html",
+        keywords: "blessures sport collectif prévention échauffement"
+      },
+      {
+        id: "echauffement-equipes",
+        title: "Échauffement complet pour équipes amateurs",
+        url: "./articles/echauffement-equipes.html",
+        keywords: "échauffement équipe amateur foot rugby basket"
+      },
+      {
+        id: "vitesse-10-30m",
+        title: "Comment améliorer sa vitesse sur 10–30 m",
+        url: "./articles/vitesse-10-30m.html",
+        keywords: "vitesse 10m 30m accélération départ sprint"
+      },
+      {
+        id: "football-loisir",
+        title: "Football loisir : comment s’y mettre",
+        url: "./articles/football-loisir.html",
+        keywords: "football loisir débuter équipe plaisir"
+      },
+      {
+        id: "rugby-debutant-materiel",
+        title: "Rugby débutant : matériel essentiel",
+        url: "./articles/rugby-debutant-materiel.html",
+        keywords: "rugby débutant matériel casque protège dents"
       }
-      // ➜ Tu pourras compléter la liste avec tous tes articles
     ];
+
+    const searchInput = document.getElementById("article-search-input");
+    const resultsBox = document.getElementById("search-results");
+
+    if (searchInput && resultsBox) {
+      searchInput.addEventListener("input", () => {
+        const q = searchInput.value.trim().toLowerCase();
+        resultsBox.innerHTML = "";
+        if (!q) return;
+
+        const matches = ACAD_ARTICLES_INDEX.filter((art) => {
+          return (
+            art.title.toLowerCase().includes(q) ||
+            art.keywords.toLowerCase().includes(q)
+          );
+        }).slice(0, 8); // max 8 résultats
+
+        if (!matches.length) {
+          resultsBox.innerHTML = '<div class="search-empty">Aucun article trouvé pour cette recherche.</div>';
+          return;
+        }
+
+        const list = document.createElement("ul");
+        list.className = "search-results-list";
+
+        matches.forEach((art) => {
+          const li = document.createElement("li");
+          li.className = "search-result-item";
+          li.innerHTML = `<a href="${art.url}">${art.title}</a>`;
+          list.appendChild(li);
+        });
+
+        resultsBox.appendChild(list);
+      });
+    }
+  </script>
+
 
     const searchInput = document.getElementById("article-search-input");
     const resultsBox = document.getElementById("search-results");
