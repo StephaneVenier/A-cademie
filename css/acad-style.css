@@ -40,11 +40,11 @@ body {
 
 /* Couleur claire pour les résultats de recherche */
 .search-results-list a {
-  color: #4EA8FF !important;     /* bleu clair lisible */
+  color: #d9d9d9 !important;     /* gris clair */
 }
 
 .search-results-list a:hover {
-  color: #1A73E8 !important;     /* bleu plus vif au survol */
+  color: #ffffff !important;     /* blanc au survol */
   text-decoration: underline;
 }
 
