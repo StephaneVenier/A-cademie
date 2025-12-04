@@ -73,7 +73,7 @@ header.acad-header {
   background-color: transparent;
 
   /* 👉 nouveau : on met ton logo en fond */
-  background-image: url("../assets/logoAW.png");
+  background-image: url("./visuels/logoAW.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
