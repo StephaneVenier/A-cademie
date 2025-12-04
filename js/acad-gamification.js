@@ -1,156 +1,80 @@
-
-// A-Cadémie — Gamification locale simple (partagée)
-// Stockage dans localStorage sous forme d'objet unique.
+// js/acad-gamification.js
+// Gestion simple de l'XP locale + articles + quiz + partages
 
 (function () {
-  const STORAGE_KEY = "acad_gamification_state";
+  const STORAGE_KEY = "acad_profile_v1";
+  const ARTICLE_KEY = "acad_articles_v1";
+  const QUIZ_KEY = "acad_quiz_v1";
+  const SHARE_KEY = "acad_share_v1";
 
-  const defaultState = {
-    xp: 0,
-    level: 1,
-    readArticles: [],
-    completedQuizzes: [],
-    perfectQuizzes: [],
-    sharedArticles: []
+  const dom = {
+    xp: document.getElementById("acad-xp"),
+    level: document.getElementById("acad-level"),
+    nextLevel: document.getElementById("acad-next-level"),
+    xpToNext: document.getElementById("acad-xp-to-next"),
+    xpBar: document.getElementById("acad-xp-bar")
   };
 
-  function loadState() {
+  // ----- Profil / XP -----
+
+  let profile = loadProfile();
+
+  function loadProfile() {
     try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (!raw) return { ...defaultState };
-      const parsed = JSON.parse(raw);
-      return {
-        ...defaultState,
-        ...parsed,
-        readArticles: parsed.readArticles || [],
-        completedQuizzes: parsed.completedQuizzes || [],
-        perfectQuizzes: parsed.perfectQuizzes || [],
-        sharedArticles: parsed.sharedArticles || []
-      };
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        return { xp: 0, level: 1 };
+      }
+      const data = JSON.parse(raw);
+      if (typeof data.xp !== "number" || typeof data.level !== "number") {
+        return { xp: 0, level: 1 };
+      }
+      return data;
     } catch (e) {
-      console.warn("Erreur chargement état gamification", e);
-      return { ...defaultState };
+      return { xp: 0, level: 1 };
     }
   }
 
-  function saveState(state) {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  function saveProfile() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
   }
 
+  // courbe de niveau très simple
   function xpNeededForLevel(level) {
-    return 100 * level;
+    // exemple : 100 XP pour passer chaque niveau (tu peux ajuster)
+    return 100 + (level - 1) * 20;
   }
 
-  function checkLevelUp(state) {
-    let changed = false;
-    while (state.xp >= xpNeededForLevel(state.level)) {
-      state.level += 1;
-      changed = true;
+  function recomputeLevelFromXp() {
+    let lvl = 1;
+    let xpLeft = profile.xp;
+    let need = xpNeededForLevel(lvl);
+    while (xpLeft >= need) {
+      xpLeft -= need;
+      lvl++;
+      need = xpNeededForLevel(lvl);
+      if (lvl > 100) break; // sécurité
     }
-    return changed;
+    profile.level = lvl;
   }
 
-  function addXp(state, amount) {
-    state.xp += amount;
-    checkLevelUp(state);
-    saveState(state);
-  }
+  function updateUI() {
+    if (!dom.xp || !dom.level || !dom.nextLevel || !dom.xpToNext || !dom.xpBar) return;
 
-  function updateProfileUI(state) {
-    const levelSpan = document.getElementById("acad-level");
-    const xpSpan = document.getElementById("acad-xp");
-    const nextLevelSpan = document.getElementById("acad-next-level");
-    const xpToNextSpan = document.getElementById("acad-xp-to-next");
-    const xpBar = document.getElementById("acad-xp-bar");
+    recomputeLevelFromXp();
 
-    if (!levelSpan || !xpSpan || !nextLevelSpan || !xpToNextSpan || !xpBar) return;
+    const currentLevel = profile.level;
+    const prevLevel = Math.max(1, currentLevel - 1);
 
-    const level = state.level;
-    const xp = state.xp;
-    const currentLevelXpRequired = xpNeededForLevel(level);
-    const prevLevelTotalXp = xpNeededForLevel(level - 1) || 0;
-
-    const xpIntoLevel = xp - prevLevelTotalXp;
-    const xpLevelSpan = currentLevelXpRequired - prevLevelTotalXp || 1;
-    const ratio = Math.max(0, Math.min(1, xpIntoLevel / xpLevelSpan));
-
-    levelSpan.textContent = level;
-    xpSpan.textContent = xp;
-    nextLevelSpan.textContent = level + 1;
-    xpToNextSpan.textContent = xpIntoLevel + "/" + xpLevelSpan;
-    xpBar.style.width = (ratio * 100) + "%";
-  }
-
-  const api = {
-    getState() {
-      return loadState();
-    },
-
-    initProfileWidget() {
-      const st = loadState();
-      updateProfileUI(st);
-    },
-
-    markArticleRead(articleId, xpReward) {
-      const state = loadState();
-      if (!state.readArticles.includes(articleId)) {
-        state.readArticles.push(articleId);
-        addXp(state, xpReward || 20);
-      } else {
-        saveState(state);
-      }
-      updateProfileUI(state);
-      return state;
-    },
-
-    registerQuizResult(articleId, score, total) {
-      const state = loadState();
-      const ratio = total > 0 ? score / total : 0;
-      if (!state.completedQuizzes.includes(articleId)) {
-        state.completedQuizzes.push(articleId);
-      }
-      if (ratio === 1 && !state.perfectQuizzes.includes(articleId)) {
-        state.perfectQuizzes.push(articleId);
-      }
-      let bonus = 10;
-      if (ratio === 1) bonus = 30;
-      else if (ratio >= 0.7) bonus = 20;
-      addXp(state, bonus);
-      updateProfileUI(state);
-      return state;
-    },
-
-    registerShare(articleId, xpReward) {
-      const state = loadState();
-      if (!state.sharedArticles.includes(articleId)) {
-        state.sharedArticles.push(articleId);
-        addXp(state, xpReward || 15);
-      } else {
-        saveState(state);
-      }
-      updateProfileUI(state);
-      return state;
-    },
-
-    isArticleRead(articleId) {
-      const state = loadState();
-      return state.readArticles.includes(articleId);
-    },
-
-    hasPerfectQuiz(articleId) {
-      const state = loadState();
-      return state.perfectQuizzes.includes(articleId);
-    },
-
-    isShared(articleId) {
-      const state = loadState();
-      return state.sharedArticles.includes(articleId);
+    // XP cumulée pour atteindre le niveau actuel
+    let xpAtPrev = 0;
+    for (let l = 1; l < currentLevel; l++) {
+      xpAtPrev += xpNeededForLevel(l);
     }
-  };
+    const xpForThisLevel = xpNeededForLevel(currentLevel);
+    const xpInThisLevel = profile.xp - xpAtPrev;
+    const ratio = Math.max(0, Math.min(1, xpInThisLevel / xpForThisLevel));
 
-  window.acadGamification = api;
-
-  document.addEventListener("DOMContentLoaded", () => {
-    api.initProfileWidget();
-  });
-})();
+    dom.xp.textContent = Math.round(profile.xp);
+    dom.level.textContent = currentLevel;
+    dom.nextLevel.textContent
