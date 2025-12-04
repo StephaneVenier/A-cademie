@@ -66,18 +66,25 @@ header.acad-header {
 }
 
 .brand-logo {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, #a5b4fc, #4f46e5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 18px;
-  color: #020617;
-  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.7);
+  width: 40px;
+  height: 40px;
+  /* enlève le rond violet */
+  border-radius: 0;              /* ou garde-le si tu veux ton logo dans un cercle */
+  background-color: transparent;
+
+  /* 👉 nouveau : on met ton logo en fond */
+  background-image: url("../assets/logoAW.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  display: inline-block;
+
+  /* on cache la lettre "A" qui est toujours dans le HTML */
+  color: transparent;
+  font-size: 0;
 }
+
 
 .brand-text-title {
   font-size: 18px;
